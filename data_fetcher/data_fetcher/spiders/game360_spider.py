@@ -2,7 +2,7 @@ from scrapy.selector import HtmlXPathSelector
 from scrapy.spider import BaseSpider
 from scrapy.http import Request
 
-from myproject.items import AppItem
+from data_fetcher.items import AppItem
 
 class Game360Spider(BaseSpider):
     name = 'game360'
@@ -25,7 +25,6 @@ class Game360Spider(BaseSpider):
                 yield app_item
 
         for url in hxs.select('//a/@href').extract():
-            #self.log("URL: %s" % url)
             if url.startswith("/index.php?"):
                 url = "http://" + response.url.split("/")[2] + url
             try:

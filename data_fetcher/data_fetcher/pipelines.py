@@ -17,5 +17,5 @@ class DuplicatesPipeline(object):
             raise DropItem("Duplicate item found: %s" % item)
         else:
             self.ids_seen.add(item['appid'])
-            item.save()
+            #item.save()
             return item
