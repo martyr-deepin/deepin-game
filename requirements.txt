@@ -1,0 +1,4 @@
+Django==1.5.1
+Scrapy==0.16.5
+South==0.8.1
+django-tagging-ng==0.3.3
