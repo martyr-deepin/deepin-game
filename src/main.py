@@ -20,7 +20,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
 import sys
+import gtk
+import webkit
 import dbus
 import dbus.service
 from dbus.mainloop.glib import DBusGMainLoop
@@ -28,11 +31,18 @@ from dbus.mainloop.glib import DBusGMainLoop
 from theme import app_theme
 from deepin_utils.ipc import is_dbus_name_exists
 from dtk.ui.application import Application
-from utils import get_common_image
+from dtk.ui.statusbar import Statusbar
+from dtk.ui.label import Label
+from dtk.ui.theme import DynamicPixbuf
+from dtk.ui.scrolled_window import ScrolledWindow
 
+from navigatebar import Navigatebar
+from utils import get_common_image
 from constant import (
         GAME_CENTER_DBUS_NAME,
         GAME_CENTER_DBUS_PATH,
+        CACHE_DIR,
+        GAME_CENTER_SERVER_ADDRESS,
         )
 from nls import _
 
@@ -44,7 +54,7 @@ class GameCenterApp(dbus.service.Object):
         self.init_ui()
 
     def init_ui(self):
-        self.application = Application(resizable=False)
+        self.application = Application()
         self.application.set_default_size(888, 634)
         self.application.set_skin_preview(get_common_image("frame.png"))
         self.application.set_icon(get_common_image("logo48.png"))
@@ -54,6 +64,74 @@ class GameCenterApp(dbus.service.Object):
                 )
         self.application.window.set_title(_("Deepin Game Center"))
 
+        # Init page box.
+        self.page_box = gtk.VBox()
+        
+        # Init page align.
+        self.page_align = gtk.Alignment()
+        self.page_align.set(0.5, 0.5, 1, 1)
+        self.page_align.set_padding(0, 0, 2, 2)
+        
+        # Append page to switcher.
+        self.page_align.add(self.page_box)
+        self.application.main_box.pack_start(self.page_align, True, True)
+        
+        # Init status bar.
+        self.statusbar = Statusbar(24)
+        status_box = gtk.HBox()
+        self.message_box = gtk.HBox()
+
+        self.message_label = Label("", enable_gaussian=True)
+        label_align = gtk.Alignment()
+        label_align.set(0.0, 0.5, 0, 0)
+        label_align.set_padding(0, 0, 10, 0)
+        label_align.add(self.message_label)
+        self.message_box.pack_start(label_align)
+
+        status_box.pack_start(self.message_box, True, True)
+        self.statusbar.status_box.pack_start(status_box, True, True)
+        self.application.main_box.pack_start(self.statusbar, False, False)
+
+        self.webview = webkit.WebView()
+        self.webview.set_transparent(True)
+        
+        settings = self.webview.get_settings()
+        settings.set_property('enable-plugins', False)
+        self.webview.set_settings(settings)
+        
+        self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game')
+
+        self.webview_scrolled_window = ScrolledWindow()
+        self.webview_scrolled_window.add_child(self.webview)
+
+        self.page_box.add(self.webview_scrolled_window)
+        
+        self.navigatebar = Navigatebar(
+                [
+                (None, _("首页"), self.show_page),
+                (None, _("游戏专题"), self.show_page),
+                (None, _("我的游戏"), self.show_page),
+                ],
+                font_size = 11,
+                padding_x = 5,
+                padding_y = 16,
+                vertical=False,
+                item_normal_pixbuf=DynamicPixbuf(get_common_image('top/nav_normal.png')),
+                item_hover_pixbuf=DynamicPixbuf(get_common_image('top/nav_hover.png')),
+                item_press_pixbuf=DynamicPixbuf(get_common_image('top/nav_press.png')),
+                )
+        self.navigatebar.set_size_request(-1, 56)
+        self.navigatebar_align = gtk.Alignment(0, 0, 1, 1)
+        self.navigatebar_align.set_padding(0, 0, 4, 0)
+        self.navigatebar_align.add(self.navigatebar)
+        self.application.titlebar.set_size_request(-1, 56)
+        self.application.titlebar.left_box.pack_start(self.navigatebar_align, True, True)
+        self.application.window.add_move_event(self.navigatebar)
+
+    def show_page(self):
+        print "show page"
+
+    def run(self):
         self.application.run()
 
 if __name__ == '__main__':
@@ -73,7 +151,7 @@ if __name__ == '__main__':
         bus_name = dbus.service.BusName(GAME_CENTER_DBUS_NAME, session_bus)
             
         try:
-            GameCenterApp(session_bus)
+            GameCenterApp(session_bus).run()
         except KeyboardInterrupt:
             pass
 
