@@ -27,6 +27,7 @@ import webkit
 import dbus
 import dbus.service
 from dbus.mainloop.glib import DBusGMainLoop
+import subprocess
 
 from theme import app_theme
 from deepin_utils.ipc import is_dbus_name_exists
@@ -34,7 +35,7 @@ from dtk.ui.application import Application
 from dtk.ui.statusbar import Statusbar
 from dtk.ui.label import Label
 from dtk.ui.theme import DynamicPixbuf
-from dtk.ui.scrolled_window import ScrolledWindow
+from deepin_utils.file import get_parent_dir
 
 from navigatebar import Navigatebar
 from utils import get_common_image
@@ -55,7 +56,7 @@ class GameCenterApp(dbus.service.Object):
 
     def init_ui(self):
         self.application = Application()
-        self.application.set_default_size(888, 634)
+        self.application.set_default_size(1000, 660)
         self.application.set_skin_preview(get_common_image("frame.png"))
         self.application.set_icon(get_common_image("logo48.png"))
         self.application.add_titlebar(
@@ -81,7 +82,7 @@ class GameCenterApp(dbus.service.Object):
         status_box = gtk.HBox()
         self.message_box = gtk.HBox()
 
-        self.message_label = Label("", enable_gaussian=True)
+        self.message_label = Label("Version 1.0", enable_gaussian=True)
         label_align = gtk.Alignment()
         label_align.set(0.0, 0.5, 0, 0)
         label_align.set_padding(0, 0, 10, 0)
@@ -94,23 +95,17 @@ class GameCenterApp(dbus.service.Object):
 
         self.webview = webkit.WebView()
         self.webview.set_transparent(True)
-        
-        settings = self.webview.get_settings()
-        settings.set_property('enable-plugins', False)
-        self.webview.set_settings(settings)
+        self.webview.connect('navigation-policy-decision-requested', self.navigation_policy_decision_requested_cb)
         
         self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game')
 
-        self.webview_scrolled_window = ScrolledWindow()
-        self.webview_scrolled_window.add_child(self.webview)
-
-        self.page_box.add(self.webview_scrolled_window)
+        self.page_box.add(self.webview)
         
         self.navigatebar = Navigatebar(
                 [
-                (None, _("首页"), self.show_page),
-                (None, _("游戏专题"), self.show_page),
-                (None, _("我的游戏"), self.show_page),
+                (None, _("首页"), self.show_home_page),
+                (None, _("游戏专题"), self.show_subject_page),
+                (None, _("我的游戏"), self.show_mygame_page),
                 ],
                 font_size = 11,
                 padding_x = 5,
@@ -128,11 +123,44 @@ class GameCenterApp(dbus.service.Object):
         self.application.titlebar.left_box.pack_start(self.navigatebar_align, True, True)
         self.application.window.add_move_event(self.navigatebar)
 
-    def show_page(self):
-        print "show page"
+    def navigation_policy_decision_requested_cb(self, web_view, frame, request, navigation_action, policy_decision):
+        uri = request.get_uri()
+        if uri.startswith('http://') or uri.startswith('https://'):
+            return False
+        else:
+            self.uri_handle(uri)
+            return True
+
+    def uri_handle(self, uri):
+        order, data = uri.split('://')
+        if order == 'play':
+            self.show_play(data)
+        elif order == 'star':
+            self.toggle_favorite(data)
+
+    def show_play(self, data):
+        appid = data.strip()
+        player_path = os.path.join(get_parent_dir(__file__), 'player.py')
+        subprocess.Popen(['python', player_path, appid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
+
+    def toggle_favorite(self, data):
+        pass
+
+    def show_home_page(self):
+        self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game')
+
+    def show_subject_page(self):
+        pass
+
+    def show_mygame_page(self):
+        pass
 
     def run(self):
         self.application.run()
+
+    @dbus.service.method(GAME_CENTER_DBUS_NAME, in_signature="", out_signature="")    
+    def hello(self):
+        self.application.window.present()
 
 if __name__ == '__main__':
     DBusGMainLoop(set_as_default=True)
