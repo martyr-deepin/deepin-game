@@ -24,13 +24,10 @@ from datetime import datetime
 import os
 from deepin_utils.file import get_parent_dir
 import gtk
-from logger import newLogger
 
 LOG_PATH = "/tmp/dgc-frontend.log"
 
 dgc_root_dir = os.path.realpath(get_parent_dir(__file__, 2))
-
-global_logger = newLogger('global')
 
 def get_common_image(name):
     return os.path.join(dgc_root_dir, "image", name)
@@ -50,9 +47,10 @@ def write_log(message):
         file_handler.write("%s %s\n" % (now, message))
 
 def handle_dbus_reply(obj=None):
-    global_logger.loginfo("Dbus Reply OK: %s", obj)
+    pass
     
 def handle_dbus_error(obj, error=None):
-    global_logger.logerror("Dbus Reply Error: %s", obj)
-    global_logger.logerror("ERROR MESSAGE: %s", error)
+    #global_logger.logerror("Dbus Reply Error: %s", obj)
+    #global_logger.logerror("ERROR MESSAGE: %s", error)
+    pass
 

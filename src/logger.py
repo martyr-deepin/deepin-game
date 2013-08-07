@@ -1,11 +1,11 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2011 Deepin, Inc.
-#               2011 Hou Shaohui
+# Copyright (C) 2011~2013 Deepin, Inc.
+#               2011~2013 Kaisheng Ye
 #
-# Author:     Hou Shaohui <houshao55@gmail.com>
-# Maintainer: Hou ShaoHui <houshao55@gmail.com>
+# Author:     Kaisheng Ye <kaisheng.ye@gmail.com>
+# Maintainer: Kaisheng Ye <kaisheng.ye@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -21,94 +21,36 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import logging
-import re
 
-levelno = logging.INFO
-classfilter = []
+class Logger(logging.Logger):
 
-def setLevelNo(n):
-    global levelno
-    levelno = ( 100 - (n * 10) )
-    
-def setFilter(filter_list):    
-    global classfilter
-    classfilter = filter_list
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 
-class MyFilter(logging.Filter):
-    def __init__(self, name=""): pass
-    def filter(self, record):
-        if record.levelno >= levelno: return True
-        for filter in classfilter:
-            if record.name.startswith(filter): return True
-        return False
+    def __init__(self, name, level):
+        logging.Logger.__init__(self, name, level)
+        self.name = name
+        self.level = level
 
-
-logger = logging.getLogger("")
-logger.setLevel(logging.DEBUG)
-logging.addLevelName(100,"DEPRECATED")
-
-# formatter = logging.Formatter('%(levelname)-8s %(name)-30s %(message)s')
-formatter = logging.Formatter('%(levelname)-8s %(message)s')
-
-handler = logging.StreamHandler()
-handler.setFormatter(formatter)
-handler.addFilter(MyFilter())
-logger.addHandler(handler)
-
-def objaddr(obj):
-    string = object.__repr__(obj)
-    m = re.search("at (0x\w+)",string)
-    if m: return  m.group(1)[2:]
-    return "       "
-
-class Logger(object):
-
-    def set_logname(self, name):
-        self.__logname = name
-
-    def get_logname(self):
-        if hasattr(self,"__logname") and self.__logname :
-            return self.__logname
+    def set_file_log(self, log_path, level=None):
+        self.file_handler = logging.FileHandler(log_path)
+        self.file_handler.setFormatter(self.formatter)
+        if not level:
+            self.file_handler.setLevel(self.level)
         else:
-            return "%s.%s"%(self.__module__,self.__class__.__name__)
+            self.file_handler.setLevel(level)
 
-    def logdebug(self, msg, *args, **kwargs): 
-        # msg = "%s %s"%(objaddr(self),msg)
-        mylogger = logging.getLogger(self.get_logname())
-        mylogger.debug(msg, *args, **kwargs)
+        self.addHandler(self.file_handler)
 
-    def loginfo(self, msg, *args, **kwargs): 
-        # msg = "%s  %s"%(objaddr(self),msg)
-        mylogger = logging.getLogger(self.get_logname())
-        mylogger.info(msg, *args, **kwargs)
+    def set_console_log(self, level):
+        self.console_handler = logging.StreamHandler()
+        self.console_handler.setFormatter(self.formatter)
+        if not level:
+            self.console_handler.setLevel(self.level)
+        else:
+            self.console_handler.setLevel(level)
 
-    def logwarn(self, msg, *args, **kwargs): 
-        # msg = "%s  %s"%(objaddr(self),msg)
-        mylogger = logging.getLogger(self.get_logname())
-        mylogger.warn(msg, *args, **kwargs)
+        self.addHandler(self.console_handler)
 
-    def logerror(self, msg, *args, **kwargs): 
-        # msg = "%s  %s"%(objaddr(self),msg)
-        mylogger = logging.getLogger(self.get_logname())
-        mylogger.error(msg, *args, **kwargs)
-
-    def logcritical(self, msg, *args, **kwargs): 
-        # msg = "%s  %s"%(objaddr(self),msg)
-        mylogger = logging.getLogger(self.get_logname())
-        mylogger.critical(msg, *args, **kwargs)
-
-    def logexception(self, msg, *args, **kwargs):
-        # msg = "%s  %s"%(objaddr(self),msg)
-        mylogger = logging.getLogger(self.get_logname())
-        mylogger.exception(msg, *args, **kwargs)
-
-    def logdeprecated(self, msg, *args, **kwargs):
-        # msg = "%s  %s"%(objaddr(self),msg)
-        mylogger = logging.getLogger(self.get_logname())
-        mylogger.log(100,msg, *args, **kwargs)
-
-def newLogger(name):
-    l = Logger()
-    l.set_logname(name)
-    return l
-    
+logger = Logger('deepin-game-center', logging.NOTSET)
+logger.set_console_log(logging.DEBUG)
+logger.set_file_log('/tmp/deepin-game-center.log', logging.INFO)

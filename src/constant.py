@@ -31,3 +31,4 @@ CONFIG_DIR = os.path.join(os.path.expanduser('~'), '.config', 'deepin-game-cente
 CACHE_DIR = os.path.join(os.path.expanduser('~'), '.cache', 'deepin-game-center')
 
 GAME_CENTER_SERVER_ADDRESS = 'http://game-center.linuxdeepin.com/'
+GAME_CENTER_DATA_ADDRESS = 'http://game-center.linuxdeepin.com'

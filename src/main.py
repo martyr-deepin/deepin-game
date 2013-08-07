@@ -139,9 +139,12 @@ class GameCenterApp(dbus.service.Object):
             self.toggle_favorite(data)
 
     def show_play(self, data):
-        appid = data.strip()
+        data = data.split(',')
         player_path = os.path.join(get_parent_dir(__file__), 'player.py')
-        subprocess.Popen(['python', player_path, appid], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
+        order = ['python', player_path]
+        for info in data:
+            order.append(info.strip())
+        subprocess.Popen(order, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
 
     def toggle_favorite(self, data):
         pass
@@ -182,4 +185,3 @@ if __name__ == '__main__':
             GameCenterApp(session_bus).run()
         except KeyboardInterrupt:
             pass
-
