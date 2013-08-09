@@ -21,7 +21,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
-import sqlite3
 import gtk
 import gobject
 import subprocess
@@ -34,15 +33,15 @@ from theme import app_theme
 from dtk.ui.application import Application
 from dtk.ui.statusbar import Statusbar
 from dtk.ui.label import Label
-from dtk.ui.threads import post_gui
 from deepin_utils.file import get_parent_dir, touch_file_dir
 from deepin_utils.ipc import is_dbus_name_exists
 
 from utils import get_common_image, handle_dbus_reply, handle_dbus_error
+import utils
 from nls import _
 from constant import GAME_CENTER_DATA_ADDRESS
 from download_manager import fetch_service, TaskObject
-from logger import logger
+from xdg_support import get_config_file
 
 info_data = os.path.join(get_parent_dir(__file__, 2), "data", "info.db")
 static_dir = os.path.join(get_parent_dir(__file__, 2), "static")
@@ -56,13 +55,13 @@ class Player(dbus.service.Object):
         self.width = int(self.width)
         self.height = int(self.height)
         self.plug_status = False
+        self.conf_db = get_config_file("conf.db")
         self.init_ui()
 
         def unique(self):
             self.application.window.present()
 
         def message_receiver(self, *message):
-            print message
             message_type, contents = message
             if message_type == 'send_plug_id':
                 self.content_page.add_plug_id(int(str(contents[1])))
@@ -88,7 +87,7 @@ class Player(dbus.service.Object):
     def init_ui(self):
         
         self.application = Application()
-        self.application.set_default_size(self.width+30, self.height+58)
+        self.application.set_default_size(self.width+28, self.height+58)
         self.application.set_skin_preview(get_common_image("frame.png"))
         self.application.set_icon(get_common_image("logo48.png"))
         self.application.add_titlebar(
@@ -132,6 +131,7 @@ class Player(dbus.service.Object):
         self.swf_save_path = os.path.expanduser("~/.cache/deepin-game-center/swf/%s/%s.swf" % (self.appid, self.appid))
         if os.path.exists(self.swf_save_path):
             gtk.timeout_add(200, lambda :self.send_message('load_uri', "file://" + self.swf_save_path))
+            self.record_recent_play()
         else:
             touch_file_dir(self.swf_save_path)
             self.load_html_path = os.path.join(static_dir, 'load_swf.html')
@@ -144,11 +144,21 @@ class Player(dbus.service.Object):
             self.download_task.connect("error",  self.download_failed)
             self.download_task.connect("start",  self.download_start)
 
-   
     def run(self):
         self.call_flash_game(self.appid)
         self.start_loading()
         self.application.run()
+
+    def record_recent_play(self):
+        if os.path.exists(self.conf_db):
+            data = utils.load_db(self.conf_db)
+            if self.appid not in data['recent']:
+                data['recent'].append(self.appid)
+                utils.save_db(data, self.conf_db)
+        else:
+            data = dict(recent=[self.appid])
+            utils.save_db(data, self.conf_db)
+        utils.ThreadMethod(utils.send_analytics, ('play', self.appid)).start()
 
     def call_flash_game(self, local_path):
         flash_frame_path = os.path.join(get_parent_dir(__file__), 'flash_frame.py')
@@ -177,6 +187,7 @@ class Player(dbus.service.Object):
 
     def download_finish(self, task, data):
         self.update_signal(['load_uri', 'file://' + self.swf_save_path])
+        self.record_recent_play()
 
     def download_failed(self, task, data):
         pass

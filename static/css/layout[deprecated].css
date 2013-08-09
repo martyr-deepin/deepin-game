@@ -1,0 +1,269 @@
+*{
+	padding:0;
+	margin:0;
+}
+
+a{
+	color:black;
+	text-decoration:none;
+}
+
+.content{
+	overflow:hidden;
+	font-size:13px;
+	font-family:"Wenquanyi MicroHei","Microsoft Yahei";
+	background-color:#f5f5f5;
+}
+
+.nav_bar{
+	overflow:hidden;
+	line-height:32px;
+	border-bottom:1px solid #ccc;
+	background-color:#f5f5f5;
+	position:fixed;
+	width:100%;
+	z-index:10;
+}
+
+.nav_bar .tabs{
+	float:left;
+	text-indent:10px;
+}
+
+.nav_bar .search_box{
+	float:right;
+}
+
+.nav_bar .tabs a{
+	padding:4px 12px;
+	border-radius:12px;
+	border:1px solid transparent;
+}
+
+.nav_bar .tabs a:hover,
+.nav_bar .tabs a:focus{
+	border:1px solid transparent;
+}
+
+.search_box{
+	border-left:1px solid #ccc;
+}
+
+.search_box .text{
+	line-height:20px;
+	padding:6px 6px 7px;
+	border:none;
+	margin-right:-3px;
+}
+
+.search_box .search{
+	width:68px;
+	height:33px;
+	border:none;
+	border-left:1px solid #ccc;
+	text-indent:-9999px;
+	background:url('../img/zoom.png') no-repeat 27px 9px;
+	cursor:pointer;
+}
+
+.main_content{
+	padding:10px;
+	margin-top:35px;
+	z-index:1;
+}
+
+.main_content .game_intro{
+	width:250px;
+	padding:10px;
+	float:left;
+	overflow:hidden;
+}
+
+.main_content .game_intro .game_pic{
+	text-align:center;
+	position:relative;
+}
+
+.main_content .game_info{
+	padding:10px;
+	overflow:hidden;
+}
+
+.main_content .game_action{
+	margin:10px 20px;
+	overflow:hidden;
+}
+
+.game_action .play,
+.game_action .star{
+	float:left;
+}
+
+.game_action .play input,
+.game_action .star input{
+	border:none;
+}
+
+.game_action .play input{
+	width:160px;
+	height:34px;
+	font-size:16px;
+	border-top-left-radius:15px;
+	border-bottom-left-radius:15px;
+	border:1px solid transparent;
+	cursor:pointer;
+}
+
+.game_action .star{
+	margin-left:-3px;
+}
+
+.game_action .star input{
+	width:50px;
+	height:34px;
+	border-top-right-radius:15px;
+	border-bottom-right-radius:15px;
+	border-left:1px solid #fff;
+	background:url('../img/heart.png') no-repeat transparent 13px 9px;
+	text-indent:-9999px;
+	border:1px solid transparent;
+	cursor:pointer;
+}
+
+.main_content .info{
+	padding:12px;
+}
+
+.main_content .info table{
+	width:100%;
+}
+
+.main_content .game_info .title{
+	overflow:hidden;
+	line-height:33px;
+	border:1px solid #ccc;
+	border-radius:18px;
+	background-color:#e8e7ed;
+}
+
+.game_info .game_name,
+.game_info .game_rate,
+.game_info .game_star{
+	float:left;
+}
+
+.game_info .action{
+	float:right;
+}
+
+.game_info .game_name{
+	font-size:18px;
+	text-indent:18px;
+}
+
+.game_info .game_rate{
+	padding:0 5px;
+	font-size:24px;
+}
+
+.game_info .game_rate sub{
+	font-size:13px;
+	vertical-align:baseline;
+}
+
+.game_info .action{
+	padding-right:18px;
+}
+
+.game_info .action a{
+	font-size:15px;
+}
+
+.game_box{
+	border:1px solid #e3e3e3;
+	background-color:#fff;
+	margin-bottom: 10px;
+}
+
+.game_box .game_pic{
+	position:relative;
+}
+
+.game_box .game_title{
+	padding:10px;
+	background-color:#fff;
+}
+
+.game_box .game_name{
+	font-size:16px;
+}
+
+.game_box .summary{
+	padding:10px;
+	background-color:#e7e7e7;
+	overflow:hidden;
+}
+
+.game_box .view_more a{
+	color:#0e69c6;
+}
+
+.game_intro .game_pic:hover .game_action,
+.game_box .game_pic:hover .game_action{
+	display:block;
+}
+.game_intro .game_action,
+.game_box .game_action{
+	display:none;
+	margin:0 auto;
+	position:absolute;
+	bottom:13px;
+}
+
+.summary .brief_intro{
+	color:#828282;
+	overflow:hidden;
+}
+
+.game_info .text_box{
+	padding:10px;
+	color:#828282;
+	overflow:hidden;
+}
+
+.game_info .text_box p{
+	overflow:hidden;
+}
+
+.rating{
+	overflow:hidden;
+	margin-top:10px;
+}
+
+.game_info .rating{
+	line-height:39px;
+	display:inline-block;
+}
+
+.col1 { width: 232px; }
+.col2 { width: 468px; }
+
+.col1 img{ width:230px; height:152px; }
+.col2 img{ width:468px; height:353px; }
+
+i.star{
+	display:block;
+	float:left;
+	width:13px;
+	height:13px;
+	background-image:url('../img/star.png');
+}
+
+.star_empty{
+	opacity:0.4;
+}
+
+::-webkit-scrollbar{width:16px;height:16px;}
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment{width:0;height:0;}
+::-webkit-scrollbar-thumb{background:url('../img/scrollbar.png') repeat-y;border:solid transparent;}

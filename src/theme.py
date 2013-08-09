@@ -22,11 +22,11 @@
 
 from dtk.ui.init_skin import init_skin
 from deepin_utils.file import get_parent_dir
-from constant import PROGRAM_VERSION
+from constant import PROGRAM_VERSION, PROGRAM_NAME
 import os
 
 app_theme = init_skin(
-        "deepin-game-center", 
+        PROGRAM_NAME, 
         PROGRAM_VERSION,
         "01",
         os.path.join(get_parent_dir(__file__, 2), "skin"),

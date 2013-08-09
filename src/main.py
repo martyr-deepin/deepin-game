@@ -21,9 +21,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
-import sys
 import gtk
-import webkit
 import dbus
 import dbus.service
 from dbus.mainloop.glib import DBusGMainLoop
@@ -35,22 +33,27 @@ from dtk.ui.application import Application
 from dtk.ui.statusbar import Statusbar
 from dtk.ui.label import Label
 from dtk.ui.theme import DynamicPixbuf
+from dtk.ui.browser import WebView 
 from deepin_utils.file import get_parent_dir
 
 from navigatebar import Navigatebar
 from utils import get_common_image
+import utils
+from xdg_support import get_config_file
 from constant import (
         GAME_CENTER_DBUS_NAME,
         GAME_CENTER_DBUS_PATH,
-        CACHE_DIR,
         GAME_CENTER_SERVER_ADDRESS,
+        CACHE_DIR,
         )
 from nls import _
+static_dir = os.path.join(get_parent_dir(__file__, 2), "static")
 
 class GameCenterApp(dbus.service.Object):
 
     def __init__(self, session_bus):
         dbus.service.Object.__init__(self, session_bus, GAME_CENTER_DBUS_PATH)
+        self.conf_db = get_config_file("conf.db")
 
         self.init_ui()
 
@@ -93,9 +96,10 @@ class GameCenterApp(dbus.service.Object):
         self.statusbar.status_box.pack_start(status_box, True, True)
         self.application.main_box.pack_start(self.statusbar, False, False)
 
-        self.webview = webkit.WebView()
-        self.webview.set_transparent(True)
-        self.webview.connect('navigation-policy-decision-requested', self.navigation_policy_decision_requested_cb)
+        self.webview = WebView(os.path.join(CACHE_DIR, 'cookie.txt'))
+        self.webview.enable_inspector()
+        #self.webview.connect('navigation-policy-decision-requested', self.navigation_policy_decision_requested_cb)
+        self.webview.connect('new-window-policy-decision-requested', self.navigation_policy_decision_requested_cb)
         
         self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game')
 
@@ -137,6 +141,11 @@ class GameCenterApp(dbus.service.Object):
             self.show_play(data)
         elif order == 'star':
             self.toggle_favorite(data)
+        elif order == 'local':
+            if data == 'recent':
+                self.show_recent_page()
+            elif data == 'star':
+                self.show_star_page()
 
     def show_play(self, data):
         data = data.split(',')
@@ -144,7 +153,13 @@ class GameCenterApp(dbus.service.Object):
         order = ['python', player_path]
         for info in data:
             order.append(info.strip())
-        subprocess.Popen(order, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
+        self.p = subprocess.Popen(order, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
+        #gtk.timeout_add(1000, lambda: self.print_info("OUT", self.p.stdout.read()))
+        #gtk.timeout_add(1000, lambda: self.print_info("ERR", self.p.stderr.read()))
+
+    def print_info(self, info_type, info):
+        if info:
+            print info_type, info
 
     def toggle_favorite(self, data):
         pass
@@ -156,7 +171,21 @@ class GameCenterApp(dbus.service.Object):
         pass
 
     def show_mygame_page(self):
-        pass
+        self.show_star_page()
+        
+    def show_star_page(self):
+        no_star_html_path = os.path.join(static_dir, "error-no-star.html")
+        self.webview.open('file://' + no_star_html_path)
+
+    def show_recent_page(self):
+        if os.path.exists(self.conf_db):
+            data = utils.load_db(self.conf_db)
+            if data['recent']:
+                print data['recent']
+                return
+
+        no_recent_html_path = os.path.join(static_dir, "error-no-recent.html")
+        self.webview.open('file://' + no_recent_html_path)
 
     def run(self):
         self.application.run()

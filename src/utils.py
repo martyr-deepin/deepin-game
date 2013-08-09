@@ -24,6 +24,12 @@ from datetime import datetime
 import os
 from deepin_utils.file import get_parent_dir
 import gtk
+import cPickle
+import shutil
+import fcntl
+import threading as td
+import urllib, urllib2
+from constant import GAME_CENTER_SERVER_ADDRESS
 
 LOG_PATH = "/tmp/dgc-frontend.log"
 
@@ -53,4 +59,51 @@ def handle_dbus_error(obj, error=None):
     #global_logger.logerror("Dbus Reply Error: %s", obj)
     #global_logger.logerror("ERROR MESSAGE: %s", error)
     pass
+
+def load_db(fn):    
+    '''Load object from db file.'''
+    objs = None
+    if os.path.exists(fn):
+        f = open(fn, "rb")
+        try:
+            objs = cPickle.load(f)
+        except:    
+            print "%s is not a valid database.", fn
+            try:
+                shutil.copy(fn, fn + ".not-valid")
+            except: pass    
+            objs = None
+        f.close()    
+    return objs    
+
+def save_db(objs, fn):
+    '''Save object to db file.'''
+    f = open(fn + ".tmp", "w")
+    fcntl.flock(f.fileno(), fcntl.LOCK_EX)
+    cPickle.dump(objs, f, cPickle.HIGHEST_PROTOCOL)
+    f.close()
+    os.rename(fn + ".tmp", fn)
+
+class ThreadMethod(td.Thread):
+    '''
+    func: a method name
+    args: arguments tuple
+    '''
+    def __init__(self, func, args, daemon=True):
+        td.Thread.__init__(self)
+        self.func = func
+        self.args = args
+        self.setDaemon(daemon)
+
+    def run(self):
+        self.func(*self.args)
+
+def send_analytics(analytics_type, appid):
+    url = GAME_CENTER_SERVER_ADDRESS + "game/analytics/"
+    data = dict(
+            type=analytics_type,
+            appid=appid
+            )
+    req_url = "%s?%s" % (url, urllib.urlencode(data))
+    urllib2.urlopen(req_url)
 
