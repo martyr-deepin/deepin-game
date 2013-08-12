@@ -20,18 +20,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import os
+from dtk.ui.theme import DynamicPixbuf
+from dtk.ui.button import ToggleButton
+import utils
 
-PROGRAM_NAME = 'deepin-game-center'
-PROGRAM_VERSION = '0.1'
-
-GAME_CENTER_DBUS_NAME = 'com.deepin.game_center'
-GAME_CENTER_DBUS_PATH = '/com/deepin/game_center' 
-
-CONFIG_DIR = os.path.join(os.path.expanduser('~'), '.config', 'deepin-game-center')
-CACHE_DIR = os.path.join(os.path.expanduser('~'), '.cache', 'deepin-game-center')
-
-DEBUG = True
-
-GAME_CENTER_SERVER_ADDRESS = 'http://game-center.linuxdeepin.com/' if not DEBUG else "http://10.0.0.165/"
-GAME_CENTER_DATA_ADDRESS = 'http://game-center.linuxdeepin.com' if not DEBUG else "http://10.0.0.165"
+class FavoriteButton(ToggleButton):
+    def __init__(self):     
+        active_pixbuf = DynamicPixbuf(utils.get_common_image('function/favorite_on.png'))
+        inactive_pixbuf = DynamicPixbuf(utils.get_common_image('function/favorite_off.png'))
+        ToggleButton.__init__(self, inactive_pixbuf, active_pixbuf)

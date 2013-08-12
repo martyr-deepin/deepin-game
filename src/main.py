@@ -34,19 +34,20 @@ from dtk.ui.statusbar import Statusbar
 from dtk.ui.label import Label
 from dtk.ui.theme import DynamicPixbuf
 from dtk.ui.browser import WebView 
-from deepin_utils.file import get_parent_dir
+from deepin_utils.file import get_parent_dir, touch_file_dir
 
 from navigatebar import Navigatebar
 from utils import get_common_image
 import utils
 from xdg_support import get_config_file
+from nls import _
 from constant import (
         GAME_CENTER_DBUS_NAME,
         GAME_CENTER_DBUS_PATH,
         GAME_CENTER_SERVER_ADDRESS,
         CACHE_DIR,
         )
-from nls import _
+
 static_dir = os.path.join(get_parent_dir(__file__, 2), "static")
 
 class GameCenterApp(dbus.service.Object):
@@ -66,7 +67,7 @@ class GameCenterApp(dbus.service.Object):
                 ["theme", "menu", "max","min", "close"],
                 show_title=False
                 )
-        self.application.window.set_title(_("Deepin Game Center"))
+        self.application.window.set_title(_("深度游戏中心"))
 
         # Init page box.
         self.page_box = gtk.VBox()
@@ -82,23 +83,14 @@ class GameCenterApp(dbus.service.Object):
         
         # Init status bar.
         self.statusbar = Statusbar(24)
+
         status_box = gtk.HBox()
-        self.message_box = gtk.HBox()
 
-        self.message_label = Label("Version 1.0", enable_gaussian=True)
-        label_align = gtk.Alignment()
-        label_align.set(0.0, 0.5, 0, 0)
-        label_align.set_padding(0, 0, 10, 0)
-        label_align.add(self.message_label)
-        self.message_box.pack_start(label_align)
-
-        status_box.pack_start(self.message_box, True, True)
         self.statusbar.status_box.pack_start(status_box, True, True)
         self.application.main_box.pack_start(self.statusbar, False, False)
 
         self.webview = WebView(os.path.join(CACHE_DIR, 'cookie.txt'))
         self.webview.enable_inspector()
-        #self.webview.connect('navigation-policy-decision-requested', self.navigation_policy_decision_requested_cb)
         self.webview.connect('new-window-policy-decision-requested', self.navigation_policy_decision_requested_cb)
         
         self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game')
@@ -153,9 +145,10 @@ class GameCenterApp(dbus.service.Object):
         order = ['python', player_path]
         for info in data:
             order.append(info.strip())
-        self.p = subprocess.Popen(order, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
-        #gtk.timeout_add(1000, lambda: self.print_info("OUT", self.p.stdout.read()))
-        #gtk.timeout_add(1000, lambda: self.print_info("ERR", self.p.stderr.read()))
+        error_log = '/tmp/deepin-game-center/game-%s.log' % data[0]
+        touch_file_dir(error_log)
+        with open(error_log, 'wb') as error_fp:
+            self.p = subprocess.Popen(order, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=error_fp, shell=False)
 
     def print_info(self, info_type, info):
         if info:

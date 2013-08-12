@@ -42,6 +42,7 @@ from nls import _
 from constant import GAME_CENTER_DATA_ADDRESS
 from download_manager import fetch_service, TaskObject
 from xdg_support import get_config_file
+from button import FavoriteButton
 
 info_data = os.path.join(get_parent_dir(__file__, 2), "data", "info.db")
 static_dir = os.path.join(get_parent_dir(__file__, 2), "static")
@@ -93,7 +94,7 @@ class Player(dbus.service.Object):
         self.application.add_titlebar(
                 ["max","min", "close"],
                 )
-        player_title = _("Deepin Game Center - %s " % self.game_name)
+        player_title = _("深度游戏中心 - %s " % self.game_name)
         self.application.window.set_title(player_title)
         self.application.titlebar.change_name(player_title)
 
@@ -116,19 +117,20 @@ class Player(dbus.service.Object):
         status_box = gtk.HBox()
         self.message_box = gtk.HBox()
 
-        self.message_label = Label("", enable_gaussian=True)
-        label_align = gtk.Alignment()
-        label_align.set(0.0, 0.5, 0, 0)
-        label_align.set_padding(0, 0, 10, 0)
-        label_align.add(self.message_label)
-        self.message_box.pack_start(label_align)
+        self.favorite_button = FavoriteButton()
+        button_align = gtk.Alignment()
+        button_align.set(0.0, 0.5, 0, 0)
+        button_align.set_padding(0, 2, 10, 0)
+        button_align.add(self.favorite_button)
+        self.message_box.pack_start(button_align)
 
         status_box.pack_start(self.message_box, True, True)
         self.statusbar.status_box.pack_start(status_box, True, True)
+
         self.application.main_box.pack_start(self.statusbar, False, False)
 
     def start_loading(self):
-        self.swf_save_path = os.path.expanduser("~/.cache/deepin-game-center/swf/%s/%s.swf" % (self.appid, self.appid))
+        self.swf_save_path = os.path.expanduser("~/.cache/deepin-game-center/downloads/%s/%s.swf" % (self.appid, self.appid))
         if os.path.exists(self.swf_save_path):
             gtk.timeout_add(200, lambda :self.send_message('load_uri', "file://" + self.swf_save_path))
             self.record_recent_play()
