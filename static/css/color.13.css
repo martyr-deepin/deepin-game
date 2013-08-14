@@ -1,0 +1,72 @@
+.nav_bar .tabs a:hover,
+.nav_bar .tabs a:focus,
+.nav_bar .tabs a.current {
+  border-color: transparent;
+  background-color: #8870c6;
+  color: #ece4f9;
+}
+
+.nav_bar .tabs a {
+  color: #8a71c5;
+}
+
+.nav_bar .search_msg {
+  color: #8a71c5;
+}
+
+.search_box .search {
+  background-color: #cbbdde;
+}
+
+.game_info .action a {
+  color: #1068c2;
+}
+
+.game_info .game_rate {
+  color: #e95e61;
+}
+
+.game_action .play input {
+  border-left-color: #794eb1;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #5b3591), color-stop(0.5, #7043af), color-stop(0.51, #8a5fc2), color-stop(1, #b57ffb));
+  box-shadow: inset 0px 1px 0px #cfadfe, 0px 5px 0px 0px #4e2c7d, 0px 7px 5px #999999;
+}
+
+.game_action .star input {
+  border-left-color: #481d82;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #3f1875), color-stop(1, #9044f6));
+  box-shadow: inset 0px 1px 0px #b988fc, 0px 5px 0px 0px #361365, 0px 7px 5px #999999;
+}
+
+.game_action .play input:active, .game_action .star input:active {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #3f1875), color-stop(1, #9044f6));
+  box-shadow: inset 0px 1px 0px rgba(185, 136, 252, 0.7), 0px 2px 0px 0px rgba(54, 19, 101, 0.6), 0px 5px 3px #999999;
+}
+
+.game_action .play input:active {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #5b3591), color-stop(0.5, #7043af), color-stop(0.51, #8a5fc2), color-stop(1, #b57ffb));
+}
+
+::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(linear, left center, right center, color-stop(0, #d2c9f4), color-stop(0.75, #d2c9f4), color-stop(0.751, #aeb2f1), color-stop(1, #aeb2f1));
+}
+
+::-webkit-progress-bar {
+  background: #dee0d1;
+}
+
+::-webkit-progress-value {
+  background: #7f6cc1;
+}
+
+progress {
+  border: 1px solid #b3b3b3;
+}
+
+.loading_msg {
+  color: #6459af;
+}
+
+.popup_box .bg_box {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #b49dd5), color-stop(1, #3c2771));
+}

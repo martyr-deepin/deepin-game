@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深度小游戏中心 - 提示框</title>
+	<link href="css/layout.css" rel="stylesheet" />
+	<link href="css/color.13.css" rel="stylesheet" />
+    <script src="js/jquery.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<body 
+onresize='document.querySelector(".popup_box .bg_box").style.paddingBottom = document.querySelector(".popup_box .bg_box").style.paddingTop = window.innerHeight - 480 < 480 ? (window.innerHeight - 480) / 2 + "px" : 0 + "px"' 
+  onload='document.querySelector(".popup_box .bg_box").style.paddingBottom = document.querySelector(".popup_box .bg_box").style.paddingTop = window.innerHeight - 480 < 480 ? (window.innerHeight - 480) / 2 + "px" : 0 + "px"'>
+	<div class="popup_box">
+		<div class="bg_box">
+			<section>
+				<progress max="100" value="0" id='progress'></progress>
+				<p class="loading_msg">
+					<span class="msg">加载中</span>
+					<span class="percent" id='percent'>0%</span>
+				</p>
+			</section>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+.nav_bar .tabs a:hover,
+.nav_bar .tabs a:focus,
+.nav_bar .tabs a.current {
+  border-color: transparent;
+  background-color: #4baab7;
+  color: #e0f5f8;
+}
+
+.nav_bar .tabs a {
+  color: #00899b;
+}
+
+.nav_bar .search_msg {
+  color: #00899b;
+}
+
+.search_box .search {
+  background-color: #a5d9da;
+}
+
+.game_info .action a {
+  color: #1068c2;
+}
+
+.game_info .game_rate {
+  color: #e95e61;
+}
+
+.game_action .play input {
+  border-left-color: #479490;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #358485), color-stop(0.5, #3da09f), color-stop(0.51, #59b5b3), color-stop(1, #6eebe7));
+  box-shadow: inset 0px 1px 0px #a1f3f0, 0px 5px 0px 0px #2c7273, 0px 7px 5px #999999;
+}
+
+.game_action .star input {
+  border-left-color: #196e69;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #186e6a), color-stop(1, #51eee9));
+  box-shadow: inset 0px 1px 0px #92f7f3, 0px 5px 0px 0px #135f5b, 0px 7px 5px #999999;
+}
+
+.game_action .play input:active, .game_action .star input:active {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #186e6a), color-stop(1, #51eee9));
+  box-shadow: inset 0px 1px 0px rgba(146, 247, 243, 0.7), 0px 2px 0px 0px rgba(19, 95, 91, 0.6), 0px 5px 3px #999999;
+}
+
+.game_action .play input:active {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #358485), color-stop(0.5, #3da09f), color-stop(0.51, #59b5b3), color-stop(1, #6eebe7));
+}
+
+::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(linear, left center, right center, color-stop(0, #bedfdf), color-stop(0.75, #bedfdf), color-stop(0.751, #9ccbcb), color-stop(1, #9ccbcb));
+}
+
+::-webkit-progress-bar {
+  background: #dee0d1;
+}
+
+::-webkit-progress-value {
+  background: #77cacd;
+}
+
+progress {
+  border: 1px solid #b3b3b3;
+}
+
+.loading_msg {
+  color: #66b6b3;
+}
+
+.popup_box .bg_box {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #a9d7e4), color-stop(1, #32768b));
+}

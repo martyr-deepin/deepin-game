@@ -6,12 +6,17 @@
 a{
 	color:black;
 	text-decoration:none;
+    user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    -o-user-select:none;
+    -webkit-user-select:none;
 }
 
 .content{
 	overflow:hidden;
 	font-size:13px;
-	font-family:"Wenquanyi MicroHei","Microsoft Yahei";
+	font-family:"WenQuanYi Micro Hei", "Microsoft Yahei", Helvetica, sans-serif;
 	background-color:#f5f5f5;
 }
 
@@ -24,7 +29,8 @@ a{
 	z-index:10;
 }
 
-.nav_bar .tabs{
+.nav_bar .tabs,
+.nav_bar .search_msg{
 	float:left;
 	text-indent:10px;
 }
@@ -40,8 +46,7 @@ a{
 }
 
 .nav_bar .tabs a:hover,
-.nav_bar .tabs a:focus,
-.active{
+.nav_bar .tabs a:focus{
 	border:1px solid transparent;
 }
 
@@ -62,12 +67,12 @@ a{
 	border:none;
 	border-left:1px solid #ccc;
 	text-indent:-9999px;
-	background:url('../img/zoom.png') no-repeat 27px 9px;
+	background:url('../img/search.svg') no-repeat 27px 9px;
 	cursor:pointer;
 }
 
 .main_content{
-	padding:10px;
+	padding:8px;
 	z-index:1;
 	overflow: hidden;
 }
@@ -143,6 +148,7 @@ a{
 
 
 .main_content .info{
+	font-size:12px;
 	padding:12px;
 }
 
@@ -152,8 +158,8 @@ a{
 
 .main_content .game_info .title{
 	overflow:hidden;
-	line-height:33px;
-	border:1px solid #ccc;
+	line-height:35px;
+	border-bottom:2px solid #ccc;
 	border-radius:18px;
 	background-color:#e8e7ed;
 }
@@ -171,20 +177,24 @@ a{
 .game_info .game_name{
 	font-size:18px;
 	text-indent:18px;
+	line-height:38px;
 }
 
 .game_info .game_rate{
 	padding:0 5px;
 	font-size:24px;
+	font-family:Arial;
 }
 
 .game_info .game_rate sub{
 	font-size:13px;
 	vertical-align:baseline;
+	margin-left:3px;
 }
 
 .game_info .action{
 	padding-right:18px;
+	line-height:37px;
 }
 
 .game_info .action a{
@@ -202,22 +212,26 @@ a{
 }
 
 .game_box .game_title{
-	padding:10px;
+	padding:0 6px 6px 6px;
 	background-color:#fff;
 }
 
 .game_box .game_name{
-	font-size:16px;
+	font-size:14px;
+	text-overflow:ellipsis;
+	white-space:nowrap;
 }
 
 .game_box .summary{
-	padding:10px;
+	padding:8px;
 	background-color:#e7e7e7;
 	overflow:hidden;
+	font-size:13px;
 }
 
 .game_box .view_more a{
 	color:#0e69c6;
+	font-size:12px;
 }
 
 .game_intro .game_pic:hover .game_action,
@@ -229,28 +243,49 @@ a{
 	display:none;
 	margin:0 auto;
 	position:absolute;
-	bottom:13px;
+	bottom:2px;
 	padding-bottom:10px;
 }
 
+.game_intro .game_action{
+	display:block;
+	position:static;
+	padding-bottom:0px;
+}
+
+.game_intro .game_action .btn_box{
+	overflow:hidden;
+	margin:0 auto;
+	width:125px;
+}
+
 .summary .brief_intro{
-	color:#828282;
+	color:#808080;
 	overflow:hidden;
 }
 
 .game_info .text_box{
-	padding:10px;
-	color:#828282;
+	padding:10px 18px;
+	color:#808080;
 	overflow:hidden;
+	line-height:17px;
 }
 
 .game_info .text_box p{
 	overflow:hidden;
 }
 
+.game_info .text_box figure{
+	margin:15px 0;
+}
+
+.game_info .text_box img{
+	max-width:100%;
+}
+
 .rating{
 	overflow:hidden;
-	margin-top:10px;
+	margin-top:11px;
 }
 
 .game_info .rating{
@@ -276,8 +311,25 @@ i.star{
 	opacity:0.4;
 }
 
+*:focus{
+	outline:none;
+}
+
+.popup_box section{
+	width:680px;
+	height:480px;
+	margin:0 auto;
+	text-align:center;
+	background:url('../img/popbox-bg.png') no-repeat;
+}
+
+.popup_box progress{
+	margin-top:270px;
+}
+
 ::-webkit-scrollbar{width:16px;height:16px;}
 ::-webkit-scrollbar-button:start:decrement,
 ::-webkit-scrollbar-button:end:increment{width:0;height:0;}
-::-webkit-scrollbar-thumb{background:url('../img/scrollbar.png') repeat-y;border:solid transparent;}
-
+::-webkit-scrollbar-thumb{border:0px;}
+::-webkit-scrollbar-thumb:hover{width:16px;}
+/*---鼠标点击滚动条显示样式--*/ 

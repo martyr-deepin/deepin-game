@@ -1,0 +1,130 @@
+a{
+	text-decoration:none;
+}
+#grid { 
+	width: 1024px; 
+	position: relative; 
+	margin: 6px auto; 
+	z-index: 10; 
+	font-family: Arial;
+}
+
+#grid .item { 
+	position: absolute; 
+}
+
+#grid .a { width: 250px; height: 180px; overflow: hidden; }
+#grid .b { width: 250px; height: 366px; overflow: hidden; }
+#grid .c { width: 506px; height: 180px; overflow: hidden; }
+#grid .d { width: 506px; height: 366px; overflow: hidden; }
+
+#grid a.over { display: block; position: absolute; top: 0; left: 0;}
+#grid .a a.over { width: 250px; height: 125px; }
+#grid .b a.over { width: 250px; height: 311px; }
+#grid .c a.over { width: 506px; height: 126px; }
+#grid .d a.over { width: 506px; height: 311px; }
+
+#grid a.info { display: block; position: absolute; bottom: 0; left: 0;}
+#grid .a a.info { width: 250px; height: 55px; }
+#grid .b a.info { width: 250px; height: 55px; }
+#grid .c a.info { width: 506px; height: 55px; }
+#grid .d a.info { width: 506px; height: 55px; }
+
+#grid .caption img {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#grid .caption .icon {
+	position: absolute;
+	top: 6px;
+	right: 10px;
+	width: 33px;
+	height: 33px;
+	background: url('../img/sprite.png') -25px 0 no-repeat;
+	z-index: 60;
+}
+
+#grid .caption .popup {
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background:rgba(255,255,255,0.85);
+	height: 29px;
+	padding: 13px 18px 13px 50px;
+	overflow: hidden;
+}
+
+#grid .a .popup,
+#grid .b .popup{ width: 182px; }
+
+#grid .c .popup,
+#grid .d .popup{ width: 438px; }
+
+#grid .caption h2 {
+	font-size:18px;
+	color: #fd5353;
+	position: absolute;
+	top:0;
+	left:0;
+	padding:8px;
+	line-height:33px;
+	letter-spacing:-1px;
+}
+
+#grid .caption big{
+	font-size:34px;
+}
+
+#grid .caption small{
+	font-size:24px;
+}
+
+#grid .caption h3 {
+	font-size:14px;
+	color:#000;
+}
+
+#grid .caption h4 {
+	color:#808080;
+	font-size:12px;
+}
+
+#grid .caption h3,
+#grid .caption h4{
+	line-height:1.3em;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
+#grid .caption .popup .arrow {
+	display:none;
+	width:18px;
+	height:55px;
+	background: url('../img/sprite.png') -87px -15px no-repeat;
+	text-indent: -9999px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+footer.bottom {
+	padding: 25px 0 0 0;
+	height: 100px;
+	width: 200px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+footer.bottom .loading {
+	display: block;
+	width: 32px;
+	height: 32px;
+	margin: 0 auto;
+	background: url('../img/loading.gif');
+	text-indent: -9999px;
+}
+

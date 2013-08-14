@@ -133,7 +133,7 @@ class FlashFrame(dbus.service.Object):
         print message
         message_type, contents = message
         if message_type == 'download_update':
-            self.webview.execute_script('document.getElementById("percent").innerHTML = %s' % 
+            self.webview.execute_script('fresh_loading(%s)' % 
                     json.dumps(str(contents), encoding="UTF-8", ensure_ascii=False))
         elif message_type == 'load_uri':
             self.webview.execute_script("window.location.href = %s" %

@@ -32,7 +32,7 @@ import urllib
 from theme import app_theme
 from dtk.ui.application import Application
 from dtk.ui.statusbar import Statusbar
-from dtk.ui.label import Label
+from dtk.ui.theme import DynamicPixbuf
 from deepin_utils.file import get_parent_dir, touch_file_dir
 from deepin_utils.ipc import is_dbus_name_exists
 
@@ -42,7 +42,7 @@ from nls import _
 from constant import GAME_CENTER_DATA_ADDRESS
 from download_manager import fetch_service, TaskObject
 from xdg_support import get_config_file
-from button import FavoriteButton
+from button import ToggleButton, Button
 
 info_data = os.path.join(get_parent_dir(__file__, 2), "data", "info.db")
 static_dir = os.path.join(get_parent_dir(__file__, 2), "static")
@@ -115,18 +115,48 @@ class Player(dbus.service.Object):
         # Init status bar.
         self.statusbar = Statusbar(24)
         status_box = gtk.HBox()
-        self.message_box = gtk.HBox()
 
-        self.favorite_button = FavoriteButton()
-        button_align = gtk.Alignment()
-        button_align.set(0.0, 0.5, 0, 0)
-        button_align.set_padding(0, 2, 10, 0)
-        button_align.add(self.favorite_button)
-        self.message_box.pack_start(button_align)
+        mute_on_dpixbuf = DynamicPixbuf(utils.get_common_image('function/mute_on.png'))
+        mute_off_dpixbuf = DynamicPixbuf(utils.get_common_image('function/mute_off.png'))
+        self.mute_button = ToggleButton(
+                mute_off_dpixbuf, mute_on_dpixbuf, 
+                button_label='静音', label_color='#ffffff',
+                padding_x=5)
+        mute_button_align = gtk.Alignment()
+        mute_button_align.set(0, 0.5, 0, 0)
+        mute_button_align.set_padding(4, 4, 6, 5)
+        mute_button_align.add(self.mute_button)
+        status_box.pack_start(mute_button_align, False, False)
 
-        status_box.pack_start(self.message_box, True, True)
+        favorite_on_dpixbuf = DynamicPixbuf(utils.get_common_image('function/favorite_on.png'))
+        favorite_off_dpixbuf = DynamicPixbuf(utils.get_common_image('function/favorite_off.png'))
+        self.favorite_button = ToggleButton(
+                favorite_off_dpixbuf, favorite_on_dpixbuf, 
+                button_label='喜欢', label_color='#ffffff',
+                padding_x=5)
+        favorite_button_align = gtk.Alignment()
+        favorite_button_align.set(0, 0.5, 0, 0)
+        favorite_button_align.set_padding(4, 4, 5, 5)
+        favorite_button_align.add(self.favorite_button)
+        status_box.pack_start(favorite_button_align, False, False)
+
+        replay_normal_dpixbuf = DynamicPixbuf(utils.get_common_image('function/replay_normal.png'))
+        replay_hover_dpixbuf = DynamicPixbuf(utils.get_common_image('function/replay_normal.png'))
+        replay_press_dpixbuf = DynamicPixbuf(utils.get_common_image('function/replay_normal.png'))
+        self.replay_button = Button(
+                replay_normal_dpixbuf,
+                replay_hover_dpixbuf,
+                replay_press_dpixbuf,
+                button_label='重玩', 
+                label_color='#ffffff',
+                padding_x=5)
+        replay_button_align = gtk.Alignment()
+        replay_button_align.set(0, 0.5, 0, 0)
+        replay_button_align.set_padding(4, 4, 5, 5)
+        replay_button_align.add(self.replay_button)
+        status_box.pack_start(replay_button_align, False, False)
+
         self.statusbar.status_box.pack_start(status_box, True, True)
-
         self.application.main_box.pack_start(self.statusbar, False, False)
 
     def start_loading(self):
@@ -136,7 +166,7 @@ class Player(dbus.service.Object):
             self.record_recent_play()
         else:
             touch_file_dir(self.swf_save_path)
-            self.load_html_path = os.path.join(static_dir, 'load_swf.html')
+            self.load_html_path = os.path.join(static_dir, 'loading.html')
             gtk.timeout_add(200, lambda :self.send_message('load_loading_uri', "file://" + self.load_html_path))
             
             self.remote_path = GAME_CENTER_DATA_ADDRESS + self.swf_url
@@ -181,7 +211,7 @@ class Player(dbus.service.Object):
             )
 
     def download_update(self, task, data):
-        progress = "%d%%" % data.progress
+        progress = "%d" % data.progress
         self.update_signal(['download_update', progress])
 
     def download_start(self, task, data):

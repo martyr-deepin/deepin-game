@@ -31,12 +31,12 @@ from theme import app_theme
 from deepin_utils.ipc import is_dbus_name_exists
 from dtk.ui.application import Application
 from dtk.ui.statusbar import Statusbar
-from dtk.ui.label import Label
 from dtk.ui.theme import DynamicPixbuf
 from dtk.ui.browser import WebView 
 from deepin_utils.file import get_parent_dir, touch_file_dir
 
 from navigatebar import Navigatebar
+from button import ToggleButton
 from utils import get_common_image
 import utils
 from xdg_support import get_config_file
@@ -83,8 +83,20 @@ class GameCenterApp(dbus.service.Object):
         
         # Init status bar.
         self.statusbar = Statusbar(24)
-
         status_box = gtk.HBox()
+
+        mute_on_dpixbuf = DynamicPixbuf(utils.get_common_image('function/mute_on.png'))
+        mute_off_dpixbuf = DynamicPixbuf(utils.get_common_image('function/mute_off.png'))
+        self.mute_button = ToggleButton(
+                mute_off_dpixbuf, mute_on_dpixbuf, 
+                button_label='静音', label_color='#ffffff',
+                padding_x=5)
+        mute_button_align = gtk.Alignment()
+        mute_button_align.set(1, 0.5, 0, 0)
+        mute_button_align.set_padding(4, 4, 5, 30)
+        mute_button_align.add(self.mute_button)
+
+        status_box.pack_end(mute_button_align, False, False)
 
         self.statusbar.status_box.pack_start(status_box, True, True)
         self.application.main_box.pack_start(self.statusbar, False, False)
