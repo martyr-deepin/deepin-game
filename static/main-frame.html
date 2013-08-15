@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深度小游戏中心 - 首页</title>
+	<link rel="stylesheet" href="css/layout.css">
+	<link rel="stylesheet" href="css/color.13.css">
+</head>
+<body onresize='document.getElementById("game-gallery").height = window.innerHeight - 35;'>
+	<div class="content">
+		<div class="nav_bar">
+			<div class="tabs">
+				<a id='star' href="local://star" target="_blank">我的收藏</a>
+				<a id='recent' href="local://recent" target="_blank">最近玩过</a>
+			</div>
+			<div class="search_box">
+				<input type="text" class="text" />
+				<input type="button" class="search" value="搜索" />
+			</div>
+		</div>
+		<iframe name='message_frame' src="error-no-favorite.html" seamless id="game-gallery" width="100%" onload="this.height = parent.innerHeight - 35;"></iframe>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/common.js"></script>
+    <script type="text/javascript">tabs_binding();</script>
+</body>
+</html>

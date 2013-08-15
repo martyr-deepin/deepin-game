@@ -2,26 +2,26 @@ body{
 	height:100%;
 }
 
+.error-message .picture{
+	position:absolute;
+	margin:auto;
+	top:0;bottom:0;left:0;right:0;
+}
+
 .no-star .picture{
 	background:url('../img/no-star.png') center no-repeat;
 	width:590px;
 	height:126px;
-	margin:0 auto;
-	padding-top:100px;
 }
 
 .no-network .picture{
 	background:url('../img/no-net.png') center no-repeat;
 	width:452px;
 	height:175px;
-	margin:0 auto;
-	padding-top:100px;
 }
 
 .no-recent .picture{
 	background:url('../img/no-recent.png') center no-repeat;
 	width:697px;
 	height:288px;
-	margin:0 auto;
-	padding-top:100px;
 }

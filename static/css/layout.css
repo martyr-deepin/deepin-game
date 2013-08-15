@@ -325,6 +325,11 @@ i.star{
 
 .popup_box progress{
 	margin-top:270px;
+	width:244px;
+}
+
+.loading_msg{
+	margin-top:16px;
 }
 
 ::-webkit-scrollbar{width:16px;height:16px;}

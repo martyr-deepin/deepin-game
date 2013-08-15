@@ -30,7 +30,7 @@ from dbus.mainloop.glib import DBusGMainLoop
 import urllib
 
 from theme import app_theme
-from dtk.ui.application import Application
+from application import PlayerApplication
 from dtk.ui.statusbar import Statusbar
 from dtk.ui.theme import DynamicPixbuf
 from deepin_utils.file import get_parent_dir, touch_file_dir
@@ -40,7 +40,7 @@ from utils import get_common_image, handle_dbus_reply, handle_dbus_error
 import utils
 from nls import _
 from constant import GAME_CENTER_DATA_ADDRESS
-from download_manager import fetch_service, TaskObject
+from download_manager import fetch_service, TaskObject, FetchInfo
 from xdg_support import get_config_file
 from button import ToggleButton, Button
 
@@ -87,16 +87,17 @@ class Player(dbus.service.Object):
 
     def init_ui(self):
         
-        self.application = Application()
+        self.application = PlayerApplication(close_callback=self.quit)
         self.application.set_default_size(self.width+28, self.height+58)
         self.application.set_skin_preview(get_common_image("frame.png"))
         self.application.set_icon(get_common_image("logo48.png"))
         self.application.add_titlebar(
-                ["max","min", "close"],
+                ["fullscreen", "min", "max","close"],
                 )
         player_title = _("深度游戏中心 - %s " % self.game_name)
         self.application.window.set_title(player_title)
         self.application.titlebar.change_name(player_title)
+        self.application.titlebar.fullscreen_button.connect('clicked', self.fullscreen_handler)
 
         # Init page box.
         self.page_box = gtk.VBox()
@@ -122,6 +123,7 @@ class Player(dbus.service.Object):
                 mute_off_dpixbuf, mute_on_dpixbuf, 
                 button_label='静音', label_color='#ffffff',
                 padding_x=5)
+        self.mute_button.connect('clicked', self.mute_handler)
         mute_button_align = gtk.Alignment()
         mute_button_align.set(0, 0.5, 0, 0)
         mute_button_align.set_padding(4, 4, 6, 5)
@@ -150,14 +152,50 @@ class Player(dbus.service.Object):
                 button_label='重玩', 
                 label_color='#ffffff',
                 padding_x=5)
+        self.replay_button.connect('clicked', self.replay_action)
         replay_button_align = gtk.Alignment()
         replay_button_align.set(0, 0.5, 0, 0)
         replay_button_align.set_padding(4, 4, 5, 5)
         replay_button_align.add(self.replay_button)
         status_box.pack_start(replay_button_align, False, False)
 
+        pause_on_dpixbuf = DynamicPixbuf(utils.get_common_image('function/pause_normal.png'))
+        pause_off_dpixbuf = DynamicPixbuf(utils.get_common_image('function/pause_normal.png'))
+        self.pause_button = ToggleButton(
+                pause_off_dpixbuf, pause_on_dpixbuf, 
+                button_label='暂停', label_color='#ffffff',
+                padding_x=5)
+        self.pause_button.connect('clicked', self.pause_handler)
+        pause_button_align = gtk.Alignment()
+        pause_button_align.set(0, 0.5, 0, 0)
+        pause_button_align.set_padding(4, 4, 5, 5)
+        pause_button_align.add(self.pause_button)
+        status_box.pack_start(pause_button_align, False, False)
+
         self.statusbar.status_box.pack_start(status_box, True, True)
         self.application.main_box.pack_start(self.statusbar, False, False)
+        self.application.titlebar.close_button.connect('clicked', self.quit)
+
+    def quit(self, widget, data=None):
+        os.system('kill -9 %s' % self.p.pid)
+        self.application.window.close_window()
+
+    def fullscreen_handler(self, widget, data=None):
+        self.application.window.toggle_fullscreen_window()
+
+    def mute_handler(self, widget, data=None):
+        pass
+
+    def replay_action(self, widget, data=None):
+        self.update_signal(['load_uri', 'file://' + self.swf_save_path])
+
+    def pause_handler(self, widget, data=None):
+        if widget.get_active():
+            os.system('kill -STOP %s' % self.p.pid)
+            widget.set_label("恢复")
+        else:
+            os.system('kill -CONT %s' % self.p.pid)
+            widget.set_label("暂停")
 
     def start_loading(self):
         self.swf_save_path = os.path.expanduser("~/.cache/deepin-game-center/downloads/%s/%s.swf" % (self.appid, self.appid))
@@ -176,6 +214,8 @@ class Player(dbus.service.Object):
             self.download_task.connect("error",  self.download_failed)
             self.download_task.connect("start",  self.download_start)
 
+            FetchInfo(self.appid).start()
+            
     def run(self):
         self.call_flash_game(self.appid)
         self.start_loading()

@@ -26,6 +26,7 @@ import dbus
 import dbus.service
 from dbus.mainloop.glib import DBusGMainLoop
 import subprocess
+import json
 
 from theme import app_theme
 from deepin_utils.ipc import is_dbus_name_exists
@@ -40,6 +41,8 @@ from button import ToggleButton
 from utils import get_common_image
 import utils
 from xdg_support import get_config_file
+import pypulse_small as pypulse
+from sound_manager import SoundSetting
 from nls import _
 from constant import (
         GAME_CENTER_DBUS_NAME,
@@ -55,12 +58,14 @@ class GameCenterApp(dbus.service.Object):
     def __init__(self, session_bus):
         dbus.service.Object.__init__(self, session_bus, GAME_CENTER_DBUS_PATH)
         self.conf_db = get_config_file("conf.db")
+        self.sound_manager = SoundSetting()
 
         self.init_ui()
+        self.sound_manager.connect('mute-state', lambda w, b: self.mute_button.set_active(b))
 
     def init_ui(self):
         self.application = Application()
-        self.application.set_default_size(1000, 660)
+        self.application.set_default_size(1060, 660)
         self.application.set_skin_preview(get_common_image("frame.png"))
         self.application.set_icon(get_common_image("logo48.png"))
         self.application.add_titlebar(
@@ -91,6 +96,7 @@ class GameCenterApp(dbus.service.Object):
                 mute_off_dpixbuf, mute_on_dpixbuf, 
                 button_label='静音', label_color='#ffffff',
                 padding_x=5)
+        self.mute_button.connect('clicked', self.mute_handler)
         mute_button_align = gtk.Alignment()
         mute_button_align.set(1, 0.5, 0, 0)
         mute_button_align.set_padding(4, 4, 5, 30)
@@ -149,7 +155,7 @@ class GameCenterApp(dbus.service.Object):
             if data == 'recent':
                 self.show_recent_page()
             elif data == 'star':
-                self.show_star_page()
+                self.show_favorite_page()
 
     def show_play(self, data):
         data = data.split(',')
@@ -157,17 +163,23 @@ class GameCenterApp(dbus.service.Object):
         order = ['python', player_path]
         for info in data:
             order.append(info.strip())
-        error_log = '/tmp/deepin-game-center/game-%s.log' % data[0]
+        error_log = '/tmp/deepin-game-center/game-%s.log' % data[1]
         touch_file_dir(error_log)
         with open(error_log, 'wb') as error_fp:
             self.p = subprocess.Popen(order, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=error_fp, shell=False)
+
+    def mute_handler(self, widget, data=None):
+        active = widget.get_active()
+        current_sink = pypulse.get_fallback_sink_index()
+        if current_sink is not None:
+            pypulse.PULSE.set_output_mute(current_sink, active)
 
     def print_info(self, info_type, info):
         if info:
             print info_type, info
 
     def toggle_favorite(self, data):
-        pass
+        print "toggle favorite"
 
     def show_home_page(self):
         self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game')
@@ -176,21 +188,31 @@ class GameCenterApp(dbus.service.Object):
         pass
 
     def show_mygame_page(self):
-        self.show_star_page()
-        
-    def show_star_page(self):
-        no_star_html_path = os.path.join(static_dir, "error-no-star.html")
+        no_star_html_path = os.path.join(static_dir, "main-frame.html")
         self.webview.open('file://' + no_star_html_path)
+        #self.show_favorite_page()
+        
+    def show_favorite_page(self):
+        if os.path.exists(self.conf_db):
+            data = utils.load_db(self.conf_db)
+            if data.get('favorite'):
+                print data['favorite']
+                return
+
+        no_favorite_html_path = os.path.join(static_dir, "error-no-favorite.html")
+        self.webview.execute_script("gallery_change(%s)" %
+                json.dumps(no_favorite_html_path, encoding="UTF-8", ensure_ascii=False))
 
     def show_recent_page(self):
         if os.path.exists(self.conf_db):
             data = utils.load_db(self.conf_db)
-            if data['recent']:
+            if data.get('recent'):
                 print data['recent']
                 return
 
         no_recent_html_path = os.path.join(static_dir, "error-no-recent.html")
-        self.webview.open('file://' + no_recent_html_path)
+        self.webview.execute_script("gallery_change(%s)" %
+                json.dumps(no_recent_html_path, encoding="UTF-8", ensure_ascii=False))
 
     def run(self):
         self.application.run()

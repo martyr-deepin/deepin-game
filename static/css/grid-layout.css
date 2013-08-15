@@ -40,10 +40,37 @@ a{
 	position: absolute;
 	top: 6px;
 	right: 10px;
-	width: 33px;
-	height: 33px;
+	min-width: 39px;
+	height: 17px;
 	background: url('../img/sprite.png') -25px 0 no-repeat;
+	background-color:rgba(255,255,255,0.8);
+	border: 3px solid rgba(255,255,255,0.2);
+	border-radius: 8px;
 	z-index: 60;
+	cursor:pointer;
+}
+
+#grid .caption .like{
+	display:inline-block;
+	float:left;
+	width:12px;
+	height:17px;
+	line-height:17px;
+	background:url('../img/like.png') -12px 2px no-repeat;
+}
+
+#grid .caption .num{
+	display:block;
+	float:left;
+	font-variant:normal;
+	line-height:18px;
+	color:#fd5353;
+	font-size:12px;
+	margin-left: 3px;
+}
+
+#grid .caption .icon:hover .like{
+	background-position-x:0;
 }
 
 #grid .caption .popup {
@@ -104,7 +131,8 @@ a{
 	display:none;
 	width:18px;
 	height:55px;
-	background: url('../img/sprite.png') -87px -15px no-repeat;
+	background: url('../img/arrow.png') no-repeat;
+	background-color: #e4e4e4;
 	text-indent: -9999px;
 	position: absolute;
 	top: 0;

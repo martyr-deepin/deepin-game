@@ -26,6 +26,28 @@ from dtk.ui.theme import DynamicColor, ui_theme
 from dtk.ui.constant import DEFAULT_FONT_SIZE
 from dtk.ui.utils import get_content_size, propagate_expose
 from dtk.ui.draw import draw_pixbuf, draw_text
+from dtk.ui.cache_pixbuf import CachePixbuf
+from dtk.ui.button import draw_button
+
+from theme import app_theme
+
+class FullscreenButton(gtk.Button):
+    '''
+    ThemeButton class.
+    '''
+	
+    def __init__(self):
+        '''
+        Initialize ThemeButton class.
+        '''
+        gtk.Button.__init__(self)
+        self.cache_pixbuf = CachePixbuf()
+        draw_button(
+            self, 
+            self.cache_pixbuf,
+            app_theme.get_pixbuf("screen/menu_full_hover.png"),
+            app_theme.get_pixbuf("screen/menu_full_normal.png"),
+            app_theme.get_pixbuf("screen/menu_full_none.png"))
 
 class Button(gtk.Button):
 
@@ -175,12 +197,14 @@ class ToggleButton(gtk.ToggleButton):
 
         # Init request size.
         label_width = 0
-        button_width = inactive_normal_dpixbuf.get_pixbuf().get_width()
-        button_height = inactive_normal_dpixbuf.get_pixbuf().get_height()
-        if button_label:
-            label_width = get_content_size(button_label, self.font_size)[0]
-        self.set_size_request(button_width + label_width + padding_x * 2,
-                              button_height)
+        self.padding_x = padding_x
+        self.button_label = button_label
+        self.button_width = inactive_normal_dpixbuf.get_pixbuf().get_width()
+        self.button_height = inactive_normal_dpixbuf.get_pixbuf().get_height()
+        if self.button_label:
+            label_width = get_content_size(self.button_label, self.font_size)[0]
+        self.set_size_request(self.button_width + label_width + self.padding_x * 2,
+                              self.button_height)
         
         self.connect("button-press-event", self.press_toggle_button)
         self.connect("button-release-event", self.release_toggle_button)
@@ -188,7 +212,14 @@ class ToggleButton(gtk.ToggleButton):
         # Expose button.
         self.connect("expose-event", lambda w, e : self.expose_toggle_button(
                 w, e,
-                button_label, padding_x, self.font_size, label_dcolor))
+                padding_x, self.font_size, label_dcolor))
+
+    def set_label(self, button_label):
+        self.button_label = button_label
+        label_width = get_content_size(button_label, self.font_size)[0]
+        self.set_size_request(self.button_width + label_width + self.padding_x * 2,
+                              self.button_height)
+        self.queue_draw()
         
     def press_toggle_button(self, widget, event):    
         '''
@@ -209,9 +240,9 @@ class ToggleButton(gtk.ToggleButton):
         '''
         self.button_press_flag = False
         self.queue_draw()    
-        
+
     def expose_toggle_button(self, widget, event, 
-                             button_label, padding_x, font_size, label_dcolor):
+                             padding_x, font_size, label_dcolor):
         '''
         Callback for `expose-event` signal.
         
@@ -273,8 +304,8 @@ class ToggleButton(gtk.ToggleButton):
             label_color = ui_theme.get_color("disable_text").get_color()
         else:
             label_color = label_dcolor.get_color()
-        if button_label:
-            draw_text(cr, button_label, 
+        if self.button_label:
+            draw_text(cr, self.button_label, 
                         rect.x + image.get_width() + padding_x * 2,
                         rect.y, 
                         rect.width - image.get_width() - padding_x * 2,
