@@ -207,7 +207,8 @@ class GameCenterApp(dbus.service.Object):
         if os.path.exists(self.conf_db):
             data = utils.load_db(self.conf_db)
             if data.get('recent'):
-                print data['recent']
+                for id in data['recent']:
+                    pass
                 return
 
         no_recent_html_path = os.path.join(static_dir, "error-no-recent.html")

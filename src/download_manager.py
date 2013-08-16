@@ -51,9 +51,7 @@ class FetchInfo(td.Thread):
             self.finish_fetch_info(info['index_pic_url'])
 
     def finish_fetch_info(self, index_pic_url):
-        try:
-            pic_url = "%s/%s" % (GAME_CENTER_DATA_ADDRESS, index_pic_url)
-            desc_pic_path = os.path.join(os.path.dirname(self.desc_info_path), pic_url.split('/')[-1])
-            fetch_service.add_missions([TaskObject(pic_url, desc_pic_path)])
-        except:
-            pass
+        pic_url = "%s/%s" % (GAME_CENTER_DATA_ADDRESS, index_pic_url)
+        pic_local_path = os.path.join(os.path.dirname(self.desc_info_path), pic_url.split('/')[-1])
+        if not os.path.exists(pic_local_path):
+            fetch_service.add_missions([TaskObject(pic_url, pic_local_path)])

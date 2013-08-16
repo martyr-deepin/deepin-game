@@ -88,7 +88,7 @@ class Player(dbus.service.Object):
     def init_ui(self):
         
         self.application = PlayerApplication(close_callback=self.quit)
-        self.application.set_default_size(self.width+28, self.height+58)
+        self.application.set_default_size(self.width+26, self.height+60)
         self.application.set_skin_preview(get_common_image("frame.png"))
         self.application.set_icon(get_common_image("logo48.png"))
         self.application.add_titlebar(
@@ -198,6 +198,7 @@ class Player(dbus.service.Object):
             widget.set_label("暂停")
 
     def start_loading(self):
+        FetchInfo(self.appid).start()
         self.swf_save_path = os.path.expanduser("~/.cache/deepin-game-center/downloads/%s/%s.swf" % (self.appid, self.appid))
         if os.path.exists(self.swf_save_path):
             gtk.timeout_add(200, lambda :self.send_message('load_uri', "file://" + self.swf_save_path))
@@ -213,8 +214,6 @@ class Player(dbus.service.Object):
             self.download_task.connect("finish", self.download_finish)
             self.download_task.connect("error",  self.download_failed)
             self.download_task.connect("start",  self.download_start)
-
-            FetchInfo(self.appid).start()
             
     def run(self):
         self.call_flash_game(self.appid)
