@@ -46,5 +46,6 @@ function append_data_to_gallery(data){
         grid_div += '<a href="#info" class="info"></a>';
         grid_div += '<span class="icon"></span>';
         grid_div += '</div>';
+        $('#grid').append(grid_div);
     }
 }

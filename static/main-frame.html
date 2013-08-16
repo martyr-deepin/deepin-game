@@ -23,6 +23,10 @@
 	<script src="js/jquery.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/common.js"></script>
-    <script type="text/javascript">tabs_binding();</script>
+    <script type="text/javascript">tabs_binding();
+        function load_data(){
+            message_frame.window.append_data_to_gallery(infos);
+        }
+    </script>
 </body>
 </html>

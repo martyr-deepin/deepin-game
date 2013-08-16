@@ -37,6 +37,7 @@ from dtk.ui.browser import WebView
 from deepin_utils.file import get_parent_dir, touch_file_dir
 
 from navigatebar import Navigatebar
+from generate_js import generate_content_js
 from button import ToggleButton
 from utils import get_common_image
 import utils
@@ -108,6 +109,9 @@ class GameCenterApp(dbus.service.Object):
         self.application.main_box.pack_start(self.statusbar, False, False)
 
         self.webview = WebView(os.path.join(CACHE_DIR, 'cookie.txt'))
+        web_settings = self.webview.get_settings()
+        web_settings.set_property("enable-file-access-from-file-uris", True)
+        self.webview.set_settings(web_settings)
         self.webview.enable_inspector()
         self.webview.connect('new-window-policy-decision-requested', self.navigation_policy_decision_requested_cb)
         
@@ -188,6 +192,7 @@ class GameCenterApp(dbus.service.Object):
         pass
 
     def show_mygame_page(self):
+        self.gallery_html_path = os.path.join(static_dir, 'game-gallery.html')
         no_star_html_path = os.path.join(static_dir, "main-frame.html")
         self.webview.open('file://' + no_star_html_path)
         #self.show_favorite_page()
@@ -204,11 +209,23 @@ class GameCenterApp(dbus.service.Object):
                 json.dumps(no_favorite_html_path, encoding="UTF-8", ensure_ascii=False))
 
     def show_recent_page(self):
+        downloads_dir = os.path.join(CACHE_DIR, 'downloads')
         if os.path.exists(self.conf_db):
             data = utils.load_db(self.conf_db)
             if data.get('recent'):
+                infos = []
                 for id in data['recent']:
-                    pass
+                    try:
+                        info_js_path = os.path.join(downloads_dir, str(id), 'info.json')
+                        info = json.load(open(info_js_path))
+                        info['index_pic_url'] = os.path.join(downloads_dir, str(id), info['index_pic_url'].split('/')[-1])
+                        info['swf_game'] = os.path.join(downloads_dir, str(id), info['swf_game'].split('/')[-1])
+                        infos.append(info)
+                    except:
+                        pass
+                generate_content_js(infos)
+                self.webview.execute_script("gallery_change(%s)" %
+                    json.dumps(self.gallery_html_path, encoding="UTF-8", ensure_ascii=False))
                 return
 
         no_recent_html_path = os.path.join(static_dir, "error-no-recent.html")
