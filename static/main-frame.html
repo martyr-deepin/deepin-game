@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="css/layout.css">
 	<link rel="stylesheet" href="css/color.13.css">
 </head>
-<body onresize='document.getElementById("game-gallery").height = window.innerHeight - 35;'>
+<body onload="alert('onload://main_frame')" onresize='document.getElementById("game-gallery").height = window.innerHeight - 35;'>
 	<div class="content">
 		<div class="nav_bar">
 			<div class="tabs">
@@ -18,15 +18,37 @@
 				<input type="button" class="search" value="搜索" />
 			</div>
 		</div>
-		<iframe name='message_frame' src="error-no-favorite.html" seamless id="game-gallery" width="100%" onload="this.height = parent.innerHeight - 35;"></iframe>
+		<iframe name='message_frame' src="about:blank" seamless id="game-gallery" width="100%" onload="this.height = parent.innerHeight - 35;"></iframe>
 	</div>
 	<script src="js/jquery.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/common.js"></script>
     <script type="text/javascript">tabs_binding();
-        function load_data(){
-            message_frame.window.append_data_to_gallery(infos);
+
+        function append_data_to_gallery(data){
+            for (var i=0; i<data.length; i++){
+                var grid_div = '';
+                grid_div += '<div class="item '+ data[i]['index_pic_wh'] +' caption">';
+                grid_div += '<img src="' + data[i]['index_pic_url'] +'">';
+                grid_div += '<div class="popup">';
+                grid_div += '<h2><big>9</big><small>.5</small></h2>';
+                grid_div += '<h3>' + data[i]['name'] + '</h3>';
+                grid_div += '<h4>游戏简介：' + data[i]['summary'] + '</h4>';
+                grid_div += '<span class="arrow"></span>';
+                grid_div += '</div>';
+                grid_div += '<a href="play://'+data[i]['id']+',';
+                grid_div += data[i]['name'] +',';
+                grid_div += data[i]['width'] + ',';
+                grid_div += data[i]['height'] + ',';
+                grid_div += data[i]['swf_game'] + ',';
+                grid_div += data[i]['resizable'];
+                grid_div += '" target="_blank" class="over"></a>';
+                grid_div += '<a href="http://game-center.linuxdeepin.com/game/details/'+ data[i]['id'] +'" class="info"></a>';
+                grid_div += '</div>';
+                $('#game-gallery').contents().find('#grid').append(grid_div);
+            }
         }
+
     </script>
 </body>
 </html>

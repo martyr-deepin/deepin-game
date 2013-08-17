@@ -27,6 +27,7 @@ import dbus.service
 from dbus.mainloop.glib import DBusGMainLoop
 import subprocess
 import json
+import webkit
 
 from theme import app_theme
 from deepin_utils.ipc import is_dbus_name_exists
@@ -37,13 +38,14 @@ from dtk.ui.browser import WebView
 from deepin_utils.file import get_parent_dir, touch_file_dir
 
 from navigatebar import Navigatebar
-from generate_js import generate_content_js
 from button import ToggleButton
 from utils import get_common_image
 import utils
+import record_info
 from xdg_support import get_config_file
 import pypulse_small as pypulse
 from sound_manager import SoundSetting
+from download_manager import FetchInfo
 from nls import _
 from constant import (
         GAME_CENTER_DBUS_NAME,
@@ -114,6 +116,8 @@ class GameCenterApp(dbus.service.Object):
         self.webview.set_settings(web_settings)
         self.webview.enable_inspector()
         self.webview.connect('new-window-policy-decision-requested', self.navigation_policy_decision_requested_cb)
+        self.webview.connect('notify::load-status', self.webview_load_status_handler)
+        self.webview.connect('script-alert', self.webview_script_alert_handler)
         
         self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game')
 
@@ -140,6 +144,46 @@ class GameCenterApp(dbus.service.Object):
         self.application.titlebar.set_size_request(-1, 56)
         self.application.titlebar.left_box.pack_start(self.navigatebar_align, True, True)
         self.application.window.add_move_event(self.navigatebar)
+
+    def webview_script_alert_handler(self, widget, frame, uri, data=None):
+        info = uri.split('://')
+        if len(info) == 2:
+            order, data = uri.split('://')
+            if order == 'play':
+                self.show_play(data)
+            elif order == 'star':
+                self.toggle_favorite(data)
+            elif order == 'local':
+                if data == 'recent':
+                    self.show_recent_page()
+                elif data == 'star':
+                    self.show_favorite_page()
+            elif order == 'onload' and data == 'game_gallery':
+                gtk.timeout_add(200, self.fresh_favotite_status)
+            elif order == 'onload' and data == 'main_frame':
+                gtk.timeout_add(200, self.show_favorite_page)
+            elif order == 'onload' and data == 'footer':
+                self.webview.execute_script('if(infos){append_data_to_gallery(infos);}')
+            elif order == 'favorite':
+                record_info.record_favorite(data, self.conf_db)
+                FetchInfo(data).start()
+            elif order == 'unfavorite':
+                record_info.remove_favorite(data, self.conf_db)
+        return True
+
+    def fresh_favotite_status(self):
+        if os.path.exists(self.conf_db):
+            data = utils.load_db(self.conf_db)
+            if data.get('favorite'):
+                for id in data['favorite']:
+                    self.webview.execute_script("change_favorite_status(%s, 'ilike')" %
+                        json.dumps(id, encoding="UTF-8", ensure_ascii=False))
+
+    def webview_load_status_handler(self, widget, status,):
+        load_status = widget.get_load_status()
+        if load_status == webkit.LOAD_FINISHED:
+            self.webview.execute_script("$('#game-gallery').contents().find('#grid span span').removeClass('ilike')")
+            self.webview.execute_script("$('#game-gallery').contents().find('#grid span span').addClass('like')")
 
     def navigation_policy_decision_requested_cb(self, web_view, frame, request, navigation_action, policy_decision):
         uri = request.get_uri()
@@ -193,15 +237,28 @@ class GameCenterApp(dbus.service.Object):
 
     def show_mygame_page(self):
         self.gallery_html_path = os.path.join(static_dir, 'game-gallery.html')
-        no_star_html_path = os.path.join(static_dir, "main-frame.html")
-        self.webview.open('file://' + no_star_html_path)
-        #self.show_favorite_page()
+        main_frame_path = os.path.join(static_dir, "main-frame.html")
+        self.webview.open('file://' + main_frame_path)
         
     def show_favorite_page(self):
+        downloads_dir = os.path.join(CACHE_DIR, 'downloads')
         if os.path.exists(self.conf_db):
             data = utils.load_db(self.conf_db)
             if data.get('favorite'):
-                print data['favorite']
+                infos = []
+                for id in data['favorite']:
+                    try:
+                        info_js_path = os.path.join(downloads_dir, str(id), 'info.json')
+                        info = json.load(open(info_js_path))
+                        info['index_pic_url'] = os.path.join(downloads_dir, str(id), info['index_pic_url'].split('/')[-1])
+                        info['swf_game'] = os.path.join(downloads_dir, str(id), info['swf_game'].split('/')[-1])
+                        infos.append(info)
+                    except:
+                        pass
+                self.webview.execute_script('var infos=%s' % 
+                        json.dumps(infos, encoding="UTF-8", ensure_ascii=False))
+                self.webview.execute_script("gallery_change(%s)" %
+                        json.dumps(self.gallery_html_path, encoding="UTF-8", ensure_ascii=False))
                 return
 
         no_favorite_html_path = os.path.join(static_dir, "error-no-favorite.html")
@@ -223,7 +280,8 @@ class GameCenterApp(dbus.service.Object):
                         infos.append(info)
                     except:
                         pass
-                generate_content_js(infos)
+                self.webview.execute_script('var infos=%s' % 
+                        json.dumps(infos, encoding="UTF-8", ensure_ascii=False))
                 self.webview.execute_script("gallery_change(%s)" %
                     json.dumps(self.gallery_html_path, encoding="UTF-8", ensure_ascii=False))
                 return

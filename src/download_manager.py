@@ -26,6 +26,7 @@ from constant import GAME_CENTER_DATA_ADDRESS, GAME_CENTER_SERVER_ADDRESS
 import os
 import json
 import threading as td
+from deepin_utils.file import touch_file_dir
 
 import urllib2
 
@@ -38,17 +39,21 @@ class FetchInfo(td.Thread):
         self.daemon = True
         self.appid = appid
         self.desc_info_path = os.path.expanduser("~/.cache/deepin-game-center/downloads/%s/info.json" % self.appid)
+        touch_file_dir(self.desc_info_path)
 
     def run(self):
         self.download_json_info(self.appid)
 
     def download_json_info(self, appid):
         info_json_url = "%sgame/info/%s" % (GAME_CENTER_SERVER_ADDRESS, appid)
-        js = urllib2.urlopen(info_json_url).read()
-        if js:
-            info = json.loads(js)
-            json.dump(info, open(self.desc_info_path, 'wb'))
-            self.finish_fetch_info(info['index_pic_url'])
+        try:
+            js = urllib2.urlopen(info_json_url).read()
+            if js:
+                info = json.loads(js)
+                json.dump(info, open(self.desc_info_path, 'wb'))
+                self.finish_fetch_info(info['index_pic_url'])
+        except:
+            pass
 
     def finish_fetch_info(self, index_pic_url):
         pic_url = "%s/%s" % (GAME_CENTER_DATA_ADDRESS, index_pic_url)

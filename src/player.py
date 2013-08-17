@@ -38,6 +38,7 @@ from deepin_utils.ipc import is_dbus_name_exists
 
 from utils import get_common_image, handle_dbus_reply, handle_dbus_error
 import utils
+import record_info
 from nls import _
 from constant import GAME_CENTER_DATA_ADDRESS
 from download_manager import fetch_service, TaskObject, FetchInfo
@@ -51,7 +52,7 @@ class Player(dbus.service.Object):
     def __init__(self, session_bus, argv, dbus_name, dbus_path):
         dbus.service.Object.__init__(self, session_bus, dbus_path)
 
-        self.appid, self.game_name, self.width, self.height, self.swf_url = argv
+        self.appid, self.game_name, self.width, self.height, self.swf_url, self.resizable = argv
         self.game_name = urllib.unquote(self.game_name)
         self.width = int(self.width)
         self.height = int(self.height)
@@ -88,7 +89,7 @@ class Player(dbus.service.Object):
     def init_ui(self):
         
         self.application = PlayerApplication(close_callback=self.quit)
-        self.application.set_default_size(self.width+26, self.height+60)
+        self.application.set_default_size(self.width+26, self.height+75)
         self.application.set_skin_preview(get_common_image("frame.png"))
         self.application.set_icon(get_common_image("logo48.png"))
         self.application.add_titlebar(
@@ -114,7 +115,7 @@ class Player(dbus.service.Object):
         self.application.main_box.pack_start(self.page_align, True, True)
         
         # Init status bar.
-        self.statusbar = Statusbar(24)
+        self.statusbar = Statusbar(39)
         status_box = gtk.HBox()
 
         mute_on_dpixbuf = DynamicPixbuf(utils.get_common_image('function/mute_on.png'))
@@ -202,7 +203,7 @@ class Player(dbus.service.Object):
         self.swf_save_path = os.path.expanduser("~/.cache/deepin-game-center/downloads/%s/%s.swf" % (self.appid, self.appid))
         if os.path.exists(self.swf_save_path):
             gtk.timeout_add(200, lambda :self.send_message('load_uri', "file://" + self.swf_save_path))
-            self.record_recent_play()
+            record_info.record_recent_play(self.appid, self.conf_db)
         else:
             touch_file_dir(self.swf_save_path)
             self.load_html_path = os.path.join(static_dir, 'loading.html')
@@ -219,17 +220,6 @@ class Player(dbus.service.Object):
         self.call_flash_game(self.appid)
         self.start_loading()
         self.application.run()
-
-    def record_recent_play(self):
-        if os.path.exists(self.conf_db):
-            data = utils.load_db(self.conf_db)
-            if self.appid not in data['recent']:
-                data['recent'].append(self.appid)
-                utils.save_db(data, self.conf_db)
-        else:
-            data = dict(recent=[self.appid])
-            utils.save_db(data, self.conf_db)
-        utils.ThreadMethod(utils.send_analytics, ('play', self.appid)).start()
 
     def call_flash_game(self, local_path):
         flash_frame_path = os.path.join(get_parent_dir(__file__), 'flash_frame.py')
@@ -258,7 +248,7 @@ class Player(dbus.service.Object):
 
     def download_finish(self, task, data):
         self.update_signal(['load_uri', 'file://' + self.swf_save_path])
-        self.record_recent_play()
+        record_info.record_recent_play(self.appid, self.conf_db)
 
     def download_failed(self, task, data):
         pass
