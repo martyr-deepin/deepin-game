@@ -233,7 +233,7 @@ class GameCenterApp(dbus.service.Object):
         self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game')
 
     def show_subject_page(self):
-        pass
+        self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game/subjects/')
 
     def show_mygame_page(self):
         self.gallery_html_path = os.path.join(static_dir, 'game-gallery.html')
