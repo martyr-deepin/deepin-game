@@ -93,12 +93,11 @@ class Player(dbus.service.Object):
         self.application.set_skin_preview(get_common_image("frame.png"))
         self.application.set_icon(get_common_image("logo48.png"))
         self.application.add_titlebar(
-                ["fullscreen", "min", "max","close"],
+                ["mode", "min", "max","close"],
                 )
         player_title = _("深度游戏中心 - %s " % self.game_name)
         self.application.window.set_title(player_title)
         self.application.titlebar.change_name(player_title)
-        self.application.titlebar.fullscreen_button.connect('clicked', self.fullscreen_handler)
 
         # Init page box.
         self.page_box = gtk.VBox()
@@ -118,60 +117,71 @@ class Player(dbus.service.Object):
         self.statusbar = Statusbar(39)
         status_box = gtk.HBox()
 
-        mute_on_dpixbuf = DynamicPixbuf(utils.get_common_image('function/mute_on.png'))
-        mute_off_dpixbuf = DynamicPixbuf(utils.get_common_image('function/mute_off.png'))
+        sound_normal_dpixbuf = DynamicPixbuf(utils.get_common_image('sound/sound_normal.png'))
+        sound_hover_dpixbuf = DynamicPixbuf(utils.get_common_image('sound/sound_hover.png'))
+        sound_press_dpixbuf = DynamicPixbuf(utils.get_common_image('sound/sound_press.png'))
+        mute_normal_dpixbuf = DynamicPixbuf(utils.get_common_image('sound/mute_normal.png'))
+        mute_hover_dpixbuf = DynamicPixbuf(utils.get_common_image('sound/mute_hover.png'))
+        mute_press_dpixbuf = DynamicPixbuf(utils.get_common_image('sound/mute_press.png'))
         self.mute_button = ToggleButton(
-                mute_off_dpixbuf, mute_on_dpixbuf, 
-                button_label='静音', label_color='#ffffff',
+                sound_normal_dpixbuf, mute_normal_dpixbuf, 
+                sound_hover_dpixbuf, mute_hover_dpixbuf, 
+                sound_press_dpixbuf, mute_press_dpixbuf, 
+                button_label='', label_color='#ffffff',
                 padding_x=5)
         self.mute_button.connect('clicked', self.mute_handler)
         mute_button_align = gtk.Alignment()
         mute_button_align.set(0, 0.5, 0, 0)
-        mute_button_align.set_padding(4, 4, 6, 5)
+        mute_button_align.set_padding(3, 6, 5, 5)
         mute_button_align.add(self.mute_button)
-        status_box.pack_start(mute_button_align, False, False)
 
-        favorite_on_dpixbuf = DynamicPixbuf(utils.get_common_image('function/favorite_on.png'))
-        favorite_off_dpixbuf = DynamicPixbuf(utils.get_common_image('function/favorite_off.png'))
+        favorite_active_dpixbuf = DynamicPixbuf(utils.get_common_image('favorite/favorite_active.png'))
+        favorite_inactive_dpixbuf = DynamicPixbuf(utils.get_common_image('favorite/favorite_inactive.png'))
+        favorite_hover_dpixbuf = DynamicPixbuf(utils.get_common_image('favorite/favorite_hover.png'))
         self.favorite_button = ToggleButton(
-                favorite_off_dpixbuf, favorite_on_dpixbuf, 
-                button_label='喜欢', label_color='#ffffff',
+                favorite_inactive_dpixbuf, favorite_active_dpixbuf, 
+                favorite_hover_dpixbuf, favorite_hover_dpixbuf,
+                button_label='', label_color='#ffffff',
                 padding_x=5)
         favorite_button_align = gtk.Alignment()
         favorite_button_align.set(0, 0.5, 0, 0)
-        favorite_button_align.set_padding(4, 4, 5, 5)
+        favorite_button_align.set_padding(3, 6, 5, 5)
         favorite_button_align.add(self.favorite_button)
-        status_box.pack_start(favorite_button_align, False, False)
 
-        replay_normal_dpixbuf = DynamicPixbuf(utils.get_common_image('function/replay_normal.png'))
-        replay_hover_dpixbuf = DynamicPixbuf(utils.get_common_image('function/replay_normal.png'))
-        replay_press_dpixbuf = DynamicPixbuf(utils.get_common_image('function/replay_normal.png'))
+        replay_normal_dpixbuf = DynamicPixbuf(utils.get_common_image('replay/replay_normal.png'))
+        replay_hover_dpixbuf = DynamicPixbuf(utils.get_common_image('replay/replay_hover.png'))
+        replay_press_dpixbuf = DynamicPixbuf(utils.get_common_image('replay/replay_press.png'))
         self.replay_button = Button(
                 replay_normal_dpixbuf,
                 replay_hover_dpixbuf,
                 replay_press_dpixbuf,
-                button_label='重玩', 
+                button_label='', 
                 label_color='#ffffff',
                 padding_x=5)
         self.replay_button.connect('clicked', self.replay_action)
         replay_button_align = gtk.Alignment()
         replay_button_align.set(0, 0.5, 0, 0)
-        replay_button_align.set_padding(4, 4, 5, 5)
+        replay_button_align.set_padding(3, 6, 5, 5)
         replay_button_align.add(self.replay_button)
-        status_box.pack_start(replay_button_align, False, False)
 
-        pause_on_dpixbuf = DynamicPixbuf(utils.get_common_image('function/pause_normal.png'))
-        pause_off_dpixbuf = DynamicPixbuf(utils.get_common_image('function/pause_normal.png'))
+        pause_active_dpixbuf = DynamicPixbuf(utils.get_common_image('pause/pause_active.png'))
+        pause_inactive_dpixbuf = DynamicPixbuf(utils.get_common_image('pause/pause_inactive.png'))
+        pause_hover_dpixbuf = DynamicPixbuf(utils.get_common_image('pause/pause_hover.png'))
         self.pause_button = ToggleButton(
-                pause_off_dpixbuf, pause_on_dpixbuf, 
-                button_label='暂停', label_color='#ffffff',
+                pause_inactive_dpixbuf, pause_active_dpixbuf, 
+                pause_hover_dpixbuf, pause_hover_dpixbuf,
+                button_label='', label_color='#ffffff',
                 padding_x=5)
         self.pause_button.connect('clicked', self.pause_handler)
         pause_button_align = gtk.Alignment()
         pause_button_align.set(0, 0.5, 0, 0)
-        pause_button_align.set_padding(4, 4, 5, 5)
+        pause_button_align.set_padding(3, 6, 5, 5)
         pause_button_align.add(self.pause_button)
+
         status_box.pack_start(pause_button_align, False, False)
+        status_box.pack_start(mute_button_align, False, False)
+        status_box.pack_start(replay_button_align, False, False)
+        status_box.pack_start(favorite_button_align, False, False)
 
         self.statusbar.status_box.pack_start(status_box, True, True)
         self.application.main_box.pack_start(self.statusbar, False, False)
@@ -193,10 +203,8 @@ class Player(dbus.service.Object):
     def pause_handler(self, widget, data=None):
         if widget.get_active():
             os.system('kill -STOP %s' % self.p.pid)
-            widget.set_label("恢复")
         else:
             os.system('kill -CONT %s' % self.p.pid)
-            widget.set_label("暂停")
 
     def start_loading(self):
         FetchInfo(self.appid).start()

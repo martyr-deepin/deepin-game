@@ -26,28 +26,6 @@ from dtk.ui.theme import DynamicColor, ui_theme
 from dtk.ui.constant import DEFAULT_FONT_SIZE
 from dtk.ui.utils import get_content_size, propagate_expose
 from dtk.ui.draw import draw_pixbuf, draw_text
-from dtk.ui.cache_pixbuf import CachePixbuf
-from dtk.ui.button import draw_button
-
-from theme import app_theme
-
-class FullscreenButton(gtk.Button):
-    '''
-    ThemeButton class.
-    '''
-	
-    def __init__(self):
-        '''
-        Initialize ThemeButton class.
-        '''
-        gtk.Button.__init__(self)
-        self.cache_pixbuf = CachePixbuf()
-        draw_button(
-            self, 
-            self.cache_pixbuf,
-            app_theme.get_pixbuf("screen/menu_full_hover.png"),
-            app_theme.get_pixbuf("screen/menu_full_normal.png"),
-            app_theme.get_pixbuf("screen/menu_full_none.png"))
 
 class Button(gtk.Button):
 

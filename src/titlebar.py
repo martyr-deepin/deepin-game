@@ -34,7 +34,19 @@ import gobject
 import gtk
 import pango
 
-from button import FullscreenButton
+from theme import app_theme
+from button import ToggleButton
+
+def create_revert_button():    
+    button = ToggleButton(
+        app_theme.get_pixbuf("mode/simple_normal.png"),
+        app_theme.get_pixbuf("mode/full_normal.png"),
+        app_theme.get_pixbuf("mode/simple_hover.png"),
+        app_theme.get_pixbuf("mode/full_hover.png"),
+        app_theme.get_pixbuf("mode/simple_press.png"),
+        app_theme.get_pixbuf("mode/full_press.png"),
+        )
+    return button
 
 titlebar_button_dict = {
         # format : 'button_mask': (attr_name, button_widget _class, tooltip)
@@ -43,7 +55,7 @@ titlebar_button_dict = {
         'max': ('max_button', MaxButton, _('Maximize')),
         'min': ('min_button', MinButton, _('Minimum')),
         'close': ('close_button', CloseButton, _('Close')),
-        'fullscreen': ('fullscreen_button', FullscreenButton, _('Toggle Fullscreen')),
+        'mode': ('mode_button', create_revert_button, _('Toggle')),
         }
 
 class Titlebar(EventBox):
