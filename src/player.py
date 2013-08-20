@@ -60,6 +60,7 @@ class Player(dbus.service.Object):
         self.height = int(self.height)
         self.plug_status = False
         self.conf_db = get_config_file("conf.db")
+        self.p = None
         self.current_sink_index = None
         self.sound_manager = SoundSetting(self.sound_sink_callback)
         self.init_ui()
@@ -88,7 +89,9 @@ class Player(dbus.service.Object):
         self.send_message('get_plug_id', '')
 
     def sound_sink_callback(self, dt, index):
-        self.current_sink_index = index
+        sound_id = int(dt['proplist']['application.process.id'])
+        if self.p and sound_id == self.p.pid:
+            self.current_sink_index = index
 
     def update_signal(self, obj, data=None):
         pass

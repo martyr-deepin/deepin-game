@@ -119,10 +119,8 @@ class SoundSetting(gobject.GObject):
         self.current_sink_callback = callback
 
     def __sinkinput_state_cb(self, obj, dt, index):
-        process_id = int(dt['proplist']['application.process.id'])
-        if process_id == os.getpid():
-            if self.current_sink_callback:
-                self.current_sink_callback(dt, index)
+        if self.current_sink_callback:
+            self.current_sink_callback(dt, index)
 
     def __source_state_cb(self, obj, channel, port, volume, source, idx):
         if idx in pypulse.input_devices:
