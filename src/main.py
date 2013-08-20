@@ -39,6 +39,7 @@ from deepin_utils.file import get_parent_dir, touch_file_dir
 
 from navigatebar import Navigatebar
 from button import ToggleButton
+from animation import favorite_animation
 from utils import get_common_image
 import utils
 import record_info
@@ -171,10 +172,9 @@ class GameCenterApp(dbus.service.Object):
             elif order == 'favorite':
                 record_info.record_favorite(data, self.conf_db)
                 FetchInfo(data).start()
+                favorite_animation(self.application.window)
             elif order == 'unfavorite':
                 record_info.remove_favorite(data, self.conf_db)
-            elif order == 'cursor_location':
-                print data
 
     def navigation_policy_decision_requested_cb(self, web_view, frame, request, navigation_action, policy_decision):
         uri = request.get_uri()

@@ -36,6 +36,7 @@ from dtk.ui.theme import DynamicPixbuf
 from deepin_utils.file import get_parent_dir, touch_file_dir
 from deepin_utils.ipc import is_dbus_name_exists
 
+import pypulse_small as pypulse
 from utils import get_common_image, handle_dbus_reply, handle_dbus_error
 import utils
 import record_info
@@ -44,6 +45,7 @@ from constant import GAME_CENTER_DATA_ADDRESS
 from download_manager import fetch_service, TaskObject, FetchInfo
 from xdg_support import get_config_file
 from button import ToggleButton, Button
+from sound_manager import SoundSetting
 
 info_data = os.path.join(get_parent_dir(__file__, 2), "data", "info.db")
 static_dir = os.path.join(get_parent_dir(__file__, 2), "static")
@@ -58,6 +60,8 @@ class Player(dbus.service.Object):
         self.height = int(self.height)
         self.plug_status = False
         self.conf_db = get_config_file("conf.db")
+        self.current_sink_index = None
+        self.sound_manager = SoundSetting(self.sound_sink_callback)
         self.init_ui()
 
         def unique(self):
@@ -82,6 +86,9 @@ class Player(dbus.service.Object):
                 dbus.service.signal(dbus_name)(self.update_signal))
 
         self.send_message('get_plug_id', '')
+
+    def sound_sink_callback(self, dt, index):
+        self.current_sink_index = index
 
     def update_signal(self, obj, data=None):
         pass
@@ -195,7 +202,8 @@ class Player(dbus.service.Object):
         self.application.window.toggle_fullscreen_window()
 
     def mute_handler(self, widget, data=None):
-        pass
+        if self.current_sink_index:
+            pypulse.PULSE.set_sink_input_mute(self.current_sink_index, widget.get_active())
 
     def replay_action(self, widget, data=None):
         self.update_signal(['load_uri', 'file://' + self.swf_save_path])

@@ -20,6 +20,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
 import gobject
 import pypulse_small as pypulse
 
@@ -30,7 +31,7 @@ class SoundSetting(gobject.GObject):
         "mute-state" : (gobject.SIGNAL_RUN_FIRST, gobject.TYPE_NONE, (gobject.TYPE_BOOLEAN,)),
     }
 
-    def __init__(self):
+    def __init__(self, current_sink_callback=None):
         super(SoundSetting, self).__init__()
 
         self.image_widgets = {}
@@ -48,6 +49,7 @@ class SoundSetting(gobject.GObject):
         self.__state_cb_fun["server"] = self.__server_state_cb
         self.__state_cb_fun["sink"] = self.__sink_state_cb
         self.__state_cb_fun["source"] = self.__source_state_cb
+        self.__state_cb_fun["sinkinput"] = self.__sinkinput_state_cb
         #self.__state_cb_fun["card"] = self.__card_state_cb
 
         self.__record_stream_cb_fun = {"read": self.__record_stream_read_cb, "suspended": self.__record_stream_suspended}
@@ -58,6 +60,7 @@ class SoundSetting(gobject.GObject):
         pypulse.PULSE.connect("source-removed", self.pa_source_removed_cb)
         pypulse.PULSE.connect("card-removed", self.pa_card_removed_cb)
         #pypulse.PULSE.connect("server-changed", self.pa_server_changed_cb)
+        self.current_sink_callback = current_sink_callback
 
     # pulseaudio signals
     def __server_state_cb(self, obj, dt):
@@ -111,6 +114,15 @@ class SoundSetting(gobject.GObject):
         if op == "new":
             #self.__set_output_treeview_status()
             pass
+
+    def set_current_sink_callback(self, callback):
+        self.current_sink_callback = callback
+
+    def __sinkinput_state_cb(self, obj, dt, index):
+        process_id = int(dt['proplist']['application.process.id'])
+        if process_id == os.getpid():
+            if self.current_sink_callback:
+                self.current_sink_callback(dt, index)
 
     def __source_state_cb(self, obj, channel, port, volume, source, idx):
         if idx in pypulse.input_devices:
