@@ -111,12 +111,16 @@ class GameCenterApp(dbus.service.Object):
         self.application.main_box.pack_start(self.statusbar, False, False)
 
         self.webview = WebView(os.path.join(CACHE_DIR, 'cookie.txt'))
+        webkit.set_web_database_directory_path(CACHE_DIR)
         web_settings = self.webview.get_settings()
         web_settings.set_property("enable-file-access-from-file-uris", True)
+        web_settings.set_property("enable-page-cache", True)
+        web_settings.set_property("enable-offline-web-application-cache", True)
         self.webview.set_settings(web_settings)
         self.webview.enable_inspector()
         self.webview.connect('new-window-policy-decision-requested', self.navigation_policy_decision_requested_cb)
         self.webview.connect('notify::load-status', self.webview_load_status_handler)
+        self.webview.connect('notify::title', self.webview_title_changed_handler)
         self.webview.connect('script-alert', self.webview_script_alert_handler)
         
         self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game')
@@ -145,10 +149,10 @@ class GameCenterApp(dbus.service.Object):
         self.application.titlebar.left_box.pack_start(self.navigatebar_align, True, True)
         self.application.window.add_move_event(self.navigatebar)
 
-    def webview_script_alert_handler(self, widget, frame, uri, data=None):
-        info = uri.split('://')
+    def webview_message_handler(self, info):
+        info = info.split('://')
         if len(info) == 2:
-            order, data = uri.split('://')
+            order, data = info
             if order == 'play':
                 self.show_play(data)
             elif order == 'star':
@@ -169,7 +173,25 @@ class GameCenterApp(dbus.service.Object):
                 FetchInfo(data).start()
             elif order == 'unfavorite':
                 record_info.remove_favorite(data, self.conf_db)
+            elif order == 'cursor_location':
+                print data
+
+    def navigation_policy_decision_requested_cb(self, web_view, frame, request, navigation_action, policy_decision):
+        uri = request.get_uri()
+        if uri.startswith('http://') or uri.startswith('https://'):
+            return False
+        else:
+            self.webview_message_handler(uri)
+            return True
+
+    def webview_script_alert_handler(self, widget, frame, uri, data=None):
+        self.webview_message_handler(uri)
         return True
+
+    def webview_title_changed_handler(self, webview, data=None):
+        title = webview.get_title()
+        if title:
+            self.webview_message_handler(title)
 
     def fresh_favotite_status(self):
         if os.path.exists(self.conf_db):
@@ -184,26 +206,6 @@ class GameCenterApp(dbus.service.Object):
         if load_status == webkit.LOAD_FINISHED:
             self.webview.execute_script("$('#game-gallery').contents().find('#grid span span').removeClass('ilike')")
             self.webview.execute_script("$('#game-gallery').contents().find('#grid span span').addClass('like')")
-
-    def navigation_policy_decision_requested_cb(self, web_view, frame, request, navigation_action, policy_decision):
-        uri = request.get_uri()
-        if uri.startswith('http://') or uri.startswith('https://'):
-            return False
-        else:
-            self.uri_handle(uri)
-            return True
-
-    def uri_handle(self, uri):
-        order, data = uri.split('://')
-        if order == 'play':
-            self.show_play(data)
-        elif order == 'star':
-            self.toggle_favorite(data)
-        elif order == 'local':
-            if data == 'recent':
-                self.show_recent_page()
-            elif data == 'star':
-                self.show_favorite_page()
 
     def show_play(self, data):
         data = data.split(',')
