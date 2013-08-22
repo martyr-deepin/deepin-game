@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from weibo_theme import app_theme, app_theme_get_dynamic_color, app_theme_get_dynamic_pixbuf
+from theme import app_theme, app_theme_get_dynamic_color, app_theme_get_dynamic_pixbuf
 from dtk.ui.scrolled_window import ScrolledWindow
 from dtk.ui.dialog import ConfirmDialog, DialogLeftButtonBox, DialogRightButtonBox, DialogBox
 from dtk.ui.browser import WebView
@@ -32,6 +32,7 @@ from dtk.ui.entry import InputEntry
 import dtk.ui.draw as draw
 import dtk.ui.tooltip as Tooltip
 import dtk.ui.utils as utils
+from dtk.ui.theme import ui_theme
 from _share import weibo
 from _share.config import COOKIE_FILE
 from nls import _
@@ -74,14 +75,14 @@ class ShareToWeibo(object):
         self.window.set_keep_above(True)
         self.window.set_size_request(self.__win_width+20, 288)
         self.window.set_resizable(False)
-        self.window.titlebar.connect("expose-event", self.__expose_top_and_bottome)
-        self.window.button_box.connect("expose-event", self.__expose_top_and_bottome)
+        #self.window.titlebar.connect("expose-event", self.__expose_top_and_bottome)
+        #self.window.button_box.connect("expose-event", self.__expose_top_and_bottome)
 
         # create slider
         self.slider = HSlider()
         self.slider_list = []
 
-        self.share_box = gtk.VBox(False, 2)     # first page, input context
+        self.share_box = gtk.VBox(False)     # first page, input context
         self.web_box = gtk.VBox(False, 10)      # second page, login
         self.result_box = gtk.VBox(False, 10)   # third page, share result
 
@@ -340,7 +341,7 @@ class ShareToWeibo(object):
                 #self.get_user_error_text += "%s:%s." % (weibo.t_type, _(info_error))
                 hbox.pack_start(
                     Label(text="(%s)" % _(info_error), label_width=70,enable_select=False,
-                    text_color = app_theme.get_color("left_char_num1")), False, False)
+                    text_color = ui_theme.get_color("category_item")), False, False)
             
         button.connect("clicked", self.weibo_login, weibo)
         self.__weibo_check_button_list.append(check)
@@ -440,7 +441,7 @@ class ShareToWeibo(object):
         # input tip label
         self.input_num_label = Label("%d" % self.MAX_CHAR,
             text_size=16, text_x_align=pango.ALIGN_CENTER, label_width=50, enable_select=False)
-        self.input_num_label.text_color = app_theme.get_color("left_char_num")
+        self.input_num_label.text_color = ui_theme.get_color("label_select_text")
 
         # login box
         #weibo_box = gtk.HBox(False, 1)
@@ -511,13 +512,13 @@ class ShareToWeibo(object):
         if count <= self.MAX_CHAR:
             #self.input_tip_label.set_text(_("left"))
             self.input_num_label.set_text("%d" % (self.MAX_CHAR - count))
-            self.input_num_label.text_color = app_theme.get_color("left_char_num")
+            self.input_num_label.text_color = ui_theme.get_color("category_item")
             if not button.is_sensitive():
                 button.set_sensitive(True)
         else:
             #self.input_tip_label.set_text(_("exceeds"))
             self.input_num_label.set_text("-%d" % (count - self.MAX_CHAR))
-            self.input_num_label.text_color = app_theme.get_color("left_char_num1")
+            self.input_num_label.text_color = ui_theme.get_color("category_item")
             if button.is_sensitive():
                 button.set_sensitive(False)
 
@@ -580,7 +581,7 @@ class ShareToWeibo(object):
     @post_gui
     def share_to_weibo_result(self):
         '''result of share to weibo'''
-        font_color = app_theme.get_color("share_result_text")
+        font_color = ui_theme.get_color("category_item")
         res_hbox = gtk.HBox(False)
         res_hbox.set_size_request(-1, 240)
 
@@ -625,7 +626,7 @@ class ShareToWeibo(object):
                 img = gtk.image_new_from_file(app_theme.get_theme_file_path("image/share/share_succeed.png"))
                 #link = LinkButton(_(weibo.t_type), text_size=13, self.to_share_weibo_res[weibo][1])
                 link = Label(_(weibo.t_type), text_size=12, 
-                    text_color=app_theme.get_color("link_text"))
+                    text_color=ui_theme.get_color("link_text"))
                 #, enable_gaussian=True, gaussian_radious=1, border_radious=0)
                 link.add_events(gtk.gdk.BUTTON_PRESS_MASK)
                 link.connect("enter-notify-event", lambda w, e: self.__draw_under_line(w))

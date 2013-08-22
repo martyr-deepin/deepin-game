@@ -50,7 +50,7 @@ class GuideBox(gtk.VBox):
         top_left_icon_align.set_padding(15, 3, 13, 3)
         top_left_icon_align.add(self.top_left_icon)
 
-        self.top_right_text = Label("游戏简介", ui_theme.get_color('scrolledbar'), 14)
+        self.top_right_text = Label("游戏简介", ui_theme.get_color('globalItemHighlight'), 14)
         top_right_text_align = gtk.Alignment(0.5, 0.5, 0, 0)
         top_right_text_align.set_padding(18, 3, 3, 3)
         top_right_text_align.add(self.top_right_text)
@@ -87,6 +87,7 @@ class GuideBox(gtk.VBox):
         @param h: Height of draw area.
         '''
         sidebar_color = app_theme.get_color("sidebar_background").get_color()
+        sidebar_color = "#ffffff"
         draw_vlinear(cr, x, y, w, h,
                      [(0, (sidebar_color, 0.9)),
                       (1, (sidebar_color, 0.9)),]

@@ -104,7 +104,7 @@ class Player(dbus.service.Object):
         self.application.set_skin_preview(get_common_image("frame.png"))
         self.application.set_icon(get_common_image("logo48.png"))
         self.application.add_titlebar(
-                ["theme", "mode", "min", "max","close"],
+                ["theme", "mode", "min","close"],
                 )
         player_title = _("深度游戏中心 - %s " % self.game_name)
         self.window = self.application.window
@@ -247,7 +247,7 @@ class Player(dbus.service.Object):
         if not widget.get_active():
             SIMPLE_DEFAULT_WIDTH = width - 220
             SIMPLE_DEFAULT_HEIGHT = height
-            self.window.unmaximize()
+            #self.window.unmaximize()
             self.guide_box.hide_all()
             self.guide_box.set_no_show_all(True)
             self.window.set_default_size(SIMPLE_DEFAULT_WIDTH, SIMPLE_DEFAULT_HEIGHT)
