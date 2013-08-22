@@ -215,14 +215,13 @@ class GameCenterApp(dbus.service.Object):
 
     def show_play(self, data):
         data = data.split(',')
-        player_path = os.path.join(get_parent_dir(__file__), 'main.py')
+        player_path = os.path.join(get_parent_dir(__file__), 'deepin-game-center.py')
         order = ['python', player_path]
         order.append('-p')
         order.append(','.join(data))
         error_log = '/tmp/deepin-game-center/game-%s.log' % data[1]
         touch_file_dir(error_log)
-        with open(error_log, 'a') as error_fp:
-            self.p = subprocess.Popen(order, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=error_fp, shell=False)
+        self.p = subprocess.Popen(order, stderr=subprocess.STDOUT, shell=False)
 
     def mute_handler(self, widget, data=None):
         active = widget.get_active()
