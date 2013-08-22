@@ -334,7 +334,7 @@ class Player(dbus.service.Object):
         else:
             touch_file_dir(self.swf_save_path)
             self.load_html_path = os.path.join(static_dir, 'loading.html')
-            gtk.timeout_add(200, lambda :self.send_message('load_loading_uri', "file://" + self.load_html_path))
+            gtk.timeout_add(500, lambda :self.send_message('load_loading_uri', "file://" + self.load_html_path))
             
             self.remote_path = GAME_CENTER_DATA_ADDRESS + self.swf_url
             self.download_task = TaskObject(self.remote_path, self.swf_save_path)
