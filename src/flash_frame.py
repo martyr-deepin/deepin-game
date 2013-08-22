@@ -26,7 +26,7 @@ from deepin_utils.ipc import is_dbus_name_exists
 from dbus.mainloop.glib import DBusGMainLoop
 import dbus
 import dbus.service
-import webkit
+from dtk.ui.browser import WebView
 import json
 
 class FlashFrame(dbus.service.Object):
@@ -46,7 +46,7 @@ class FlashFrame(dbus.service.Object):
         
         self.plug = gtk.Plug(0)
 
-        self.webview = webkit.WebView()
+        self.webview = WebView()
         self.plug.add(self.webview)
         
         # Handle signals.
@@ -54,7 +54,7 @@ class FlashFrame(dbus.service.Object):
         self.plug.connect("destroy", self.flash_frame_exit)
 
         glib.timeout_add(1000, self.is_exist)
-        glib.timeout_add(1000, self.connect_signal)
+        glib.timeout_add(200, self.connect_signal)
 
         def message_receiver(self, *message):
             print message

@@ -329,7 +329,7 @@ class Player(dbus.service.Object):
         FetchInfo(self.appid).start()
         self.swf_save_path = os.path.expanduser("~/.cache/deepin-game-center/downloads/%s/%s.swf" % (self.appid, self.appid))
         if os.path.exists(self.swf_save_path):
-            gtk.timeout_add(200, lambda :self.send_message('load_uri', "file://" + self.swf_save_path))
+            gtk.timeout_add(500, lambda :self.send_message('load_uri', "file://" + self.swf_save_path))
             record_info.record_recent_play(self.appid, self.conf_db)
         else:
             touch_file_dir(self.swf_save_path)
