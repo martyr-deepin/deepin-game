@@ -23,13 +23,30 @@
 from dtk.ui.init_skin import init_skin
 from deepin_utils.file import get_parent_dir
 from constant import PROGRAM_VERSION, PROGRAM_NAME
+from dtk.ui.theme import DynamicPixbuf, DynamicColor
 import os
 
 app_theme = init_skin(
         PROGRAM_NAME, 
         PROGRAM_VERSION,
-        "01",
+        "green_yellow",
         os.path.join(get_parent_dir(__file__, 2), "skin"),
         os.path.join(get_parent_dir(__file__, 2), "app_theme"),
     )
+
+def app_theme_get_dynamic_pixbuf(filename):
+    '''
+    from file get dynamic pixbuf
+    @param filename: the image filename
+    @return: a DynamicPixbuf
+    '''
+    return DynamicPixbuf(app_theme.get_theme_file_path(filename))
+
+def app_theme_get_dynamic_color(color):
+    '''
+    get them color
+    @param color: a hex color string
+    @return: a DynamicColor
+    '''
+    return DynamicColor(color)
 

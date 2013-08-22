@@ -27,6 +27,7 @@ import os
 import json
 import threading as td
 from deepin_utils.file import touch_file_dir
+from events import global_event
 
 import urllib2
 
@@ -52,8 +53,11 @@ class FetchInfo(td.Thread):
                 info = json.loads(js)
                 json.dump(info, open(self.desc_info_path, 'wb'))
                 self.finish_fetch_info(info['index_pic_url'])
+                global_event.emit('download-app-info-finish', info)
         except:
-            pass
+            if os.path.exists(self.desc_info_path):
+                info = json.load(open(self.desc_info_path))
+                global_event.emit('download-app-info-finish', info)
 
     def finish_fetch_info(self, index_pic_url):
         pic_url = "%s/%s" % (GAME_CENTER_DATA_ADDRESS, index_pic_url)

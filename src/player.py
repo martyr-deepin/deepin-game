@@ -37,6 +37,8 @@ from deepin_utils.file import get_parent_dir, touch_file_dir
 from deepin_utils.ipc import is_dbus_name_exists
 
 import pypulse_small as pypulse
+from guide_box import GuideBox
+from star_view import StarView
 from utils import get_common_image, handle_dbus_reply, handle_dbus_error
 import utils
 import record_info
@@ -46,6 +48,7 @@ from download_manager import fetch_service, TaskObject, FetchInfo
 from xdg_support import get_config_file
 from button import ToggleButton, Button
 from sound_manager import SoundSetting
+from constant import PROGRAM_NAME
 
 info_data = os.path.join(get_parent_dir(__file__, 2), "data", "info.db")
 static_dir = os.path.join(get_parent_dir(__file__, 2), "static")
@@ -99,20 +102,27 @@ class Player(dbus.service.Object):
     def init_ui(self):
         
         self.application = PlayerApplication(close_callback=self.quit)
-        self.application.set_default_size(self.width+26, self.height+75)
+        self.application.set_default_size(self.width+26+220, self.height+75)
         self.application.set_skin_preview(get_common_image("frame.png"))
         self.application.set_icon(get_common_image("logo48.png"))
         self.application.add_titlebar(
-                ["mode", "min", "max","close"],
+                ["theme", "mode", "min", "max","close"],
                 )
         player_title = _("深度游戏中心 - %s " % self.game_name)
-        self.application.window.set_title(player_title)
+        self.window = self.application.window
+        self.window.set_title(player_title)
         self.application.titlebar.change_name(player_title)
+        self.application.titlebar.mode_button.set_active(True)
+        self.application.titlebar.mode_button.connect('toggled', self.change_view)
 
         # Init page box.
-        self.page_box = gtk.VBox()
+        self.page_box = gtk.HBox()
         self.content_page = ContentPage(self.appid)
-        self.page_box.add(self.content_page)
+        self.page_box.pack_start(self.content_page)
+
+        self.guide_box = GuideBox()
+        self.guide_box.set_size_request(220, -1)
+        self.page_box.pack_start(self.guide_box, False)
         
         # Init page align.
         self.page_align = gtk.Alignment()
@@ -142,7 +152,7 @@ class Player(dbus.service.Object):
         self.mute_button.connect('clicked', self.mute_handler)
         mute_button_align = gtk.Alignment()
         mute_button_align.set(0, 0.5, 0, 0)
-        mute_button_align.set_padding(3, 6, 5, 5)
+        mute_button_align.set_padding(3, 6, 3, 3)
         mute_button_align.add(self.mute_button)
 
         favorite_active_dpixbuf = DynamicPixbuf(utils.get_common_image('favorite/favorite_active.png'))
@@ -155,7 +165,7 @@ class Player(dbus.service.Object):
                 padding_x=5)
         favorite_button_align = gtk.Alignment()
         favorite_button_align.set(0, 0.5, 0, 0)
-        favorite_button_align.set_padding(3, 6, 5, 5)
+        favorite_button_align.set_padding(3, 6, 3, 3)
         favorite_button_align.add(self.favorite_button)
 
         replay_normal_dpixbuf = DynamicPixbuf(utils.get_common_image('replay/replay_normal.png'))
@@ -171,7 +181,7 @@ class Player(dbus.service.Object):
         self.replay_button.connect('clicked', self.replay_action)
         replay_button_align = gtk.Alignment()
         replay_button_align.set(0, 0.5, 0, 0)
-        replay_button_align.set_padding(3, 6, 5, 5)
+        replay_button_align.set_padding(3, 6, 3, 3)
         replay_button_align.add(self.replay_button)
 
         pause_active_dpixbuf = DynamicPixbuf(utils.get_common_image('pause/pause_active.png'))
@@ -185,17 +195,82 @@ class Player(dbus.service.Object):
         self.pause_button.connect('clicked', self.pause_handler)
         pause_button_align = gtk.Alignment()
         pause_button_align.set(0, 0.5, 0, 0)
-        pause_button_align.set_padding(3, 6, 5, 5)
+        pause_button_align.set_padding(3, 6, 3, 3)
         pause_button_align.add(self.pause_button)
+
+        fullscreen_normal_dpixbuf = DynamicPixbuf(utils.get_common_image('fullscreen/fullscreen_normal.png'))
+        fullscreen_hover_dpixbuf = DynamicPixbuf(utils.get_common_image('fullscreen/fullscreen_hover.png'))
+        fullscreen_press_dpixbuf = DynamicPixbuf(utils.get_common_image('fullscreen/fullscreen_press.png'))
+        self.fullscreen_button = Button(
+                fullscreen_normal_dpixbuf,
+                fullscreen_hover_dpixbuf,
+                fullscreen_press_dpixbuf,
+                button_label='', 
+                label_color='#ffffff',
+                padding_x=5)
+        self.fullscreen_button.connect('clicked', self.fullscreen_action)
+        fullscreen_button_align = gtk.Alignment()
+        fullscreen_button_align.set(0, 0.5, 0, 0)
+        fullscreen_button_align.set_padding(3, 6, 3, 3)
+        fullscreen_button_align.add(self.fullscreen_button)
+
+        share_normal_dpixbuf = DynamicPixbuf(utils.get_common_image('share/share_normal.png'))
+        share_hover_dpixbuf = DynamicPixbuf(utils.get_common_image('share/share_hover.png'))
+        share_press_dpixbuf = DynamicPixbuf(utils.get_common_image('share/share_press.png'))
+        self.share_button = Button(
+                share_normal_dpixbuf,
+                share_hover_dpixbuf,
+                share_press_dpixbuf,
+                button_label='', 
+                label_color='#ffffff',
+                padding_x=5)
+        self.share_button.connect('clicked', self.share_action)
+        share_button_align = gtk.Alignment()
+        share_button_align.set(0, 0.5, 0, 0)
+        share_button_align.set_padding(3, 6, 3, 3)
+        share_button_align.add(self.share_button)
+
+        self.star = StarView()
+        star_align = gtk.Alignment(1, 0.5, 0, 0)
+        star_align.set_padding(3, 6, 3, 20)
+        star_align.add(self.star)
 
         status_box.pack_start(pause_button_align, False, False)
         status_box.pack_start(mute_button_align, False, False)
         status_box.pack_start(replay_button_align, False, False)
         status_box.pack_start(favorite_button_align, False, False)
+        status_box.pack_start(fullscreen_button_align, False, False)
+        status_box.pack_start(share_button_align, False, False)
+        status_box.pack_start(star_align)
 
         self.statusbar.status_box.pack_start(status_box, True, True)
         self.application.main_box.pack_start(self.statusbar, False, False)
         self.application.titlebar.close_button.connect('clicked', self.quit)
+
+    def change_view(self, widget):
+        width, height = self.window.get_size()
+        if not widget.get_active():
+            SIMPLE_DEFAULT_WIDTH = width - 220
+            SIMPLE_DEFAULT_HEIGHT = height
+            self.window.unmaximize()
+            self.guide_box.hide_all()
+            self.guide_box.set_no_show_all(True)
+            self.window.set_default_size(SIMPLE_DEFAULT_WIDTH, SIMPLE_DEFAULT_HEIGHT)
+            self.window.set_geometry_hints(None, SIMPLE_DEFAULT_WIDTH, SIMPLE_DEFAULT_HEIGHT, 
+                                           SIMPLE_DEFAULT_WIDTH, SIMPLE_DEFAULT_HEIGHT, # (310, 700)
+                                           -1, -1, -1, -1, -1, -1)
+            self.window.resize(SIMPLE_DEFAULT_WIDTH, SIMPLE_DEFAULT_HEIGHT)
+            self.window.queue_draw()
+        else:
+            FULL_DEFAULT_WIDTH = width + 220
+            FULL_DEFAULT_HEIGHT = height
+            self.guide_box.set_no_show_all(False)
+            self.guide_box.show_all()
+            self.window.set_default_size(FULL_DEFAULT_WIDTH, FULL_DEFAULT_HEIGHT)            
+            self.window.set_geometry_hints(None, FULL_DEFAULT_WIDTH, FULL_DEFAULT_HEIGHT, 
+                                           FULL_DEFAULT_WIDTH, FULL_DEFAULT_HEIGHT,  -1, -1, -1, -1, -1, -1)
+            self.window.resize(FULL_DEFAULT_WIDTH, FULL_DEFAULT_HEIGHT)
+
 
     def quit(self, widget, data=None):
         os.system('kill -9 %s' % self.p.pid)
@@ -216,6 +291,26 @@ class Player(dbus.service.Object):
             os.system('kill -STOP %s' % self.p.pid)
         else:
             os.system('kill -CONT %s' % self.p.pid)
+
+    def fullscreen_action(self, widget, data=None):
+        pass
+
+    def share_action(self, widget, data=None):
+        from window import get_screenshot_pixbuf
+        pixbuf = get_screenshot_pixbuf(False)
+        filename = self.save_to_tmp_file(pixbuf)
+        share_path = os.path.join(get_parent_dir(__file__), 'share.py')
+        
+        subprocess.Popen(['python', share_path, filename], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
+
+    def save_to_tmp_file(self, pixbuf):
+        from tempfile import mkstemp
+        import os
+        tmp = mkstemp(".tmp", PROGRAM_NAME)
+        os.close(tmp[0])
+        filename = tmp[1]
+        pixbuf.save(filename, "jpeg", {"quality":"100"})
+        return filename
 
     def start_loading(self):
         FetchInfo(self.appid).start()
@@ -325,7 +420,7 @@ if __name__ == '__main__':
 
     else:
         # Init dbus.
-        bus_name = dbus.service.BusName(GAME_PLAYER_DBUS_NAME, session_bus)
+        #bus_name = dbus.service.BusName(GAME_PLAYER_DBUS_NAME, session_bus)
             
         try:
             Player(session_bus, sys.argv[1:], GAME_PLAYER_DBUS_NAME, GAME_PLAYER_DBUS_PATH).run()
