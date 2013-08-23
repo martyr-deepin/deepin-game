@@ -64,7 +64,7 @@ class GameCenterApp(dbus.service.Object):
 
     def init_ui(self):
         self.application = Application()
-        self.application.set_default_size(1060, 666)
+        self.application.set_default_size(1082, 666)
         self.application.set_skin_preview(get_common_image("frame.png"))
         self.application.set_icon(get_common_image("logo48.png"))
         self.application.add_titlebar(
@@ -98,6 +98,7 @@ class GameCenterApp(dbus.service.Object):
         web_settings.set_property("enable-file-access-from-file-uris", True)
         web_settings.set_property("enable-page-cache", True)
         web_settings.set_property("enable-offline-web-application-cache", True)
+        #web_settings.set_property("enable-default-context-menu", False)
         self.webview.set_settings(web_settings)
         self.webview.enable_inspector()
         self.webview.connect('new-window-policy-decision-requested', self.navigation_policy_decision_requested_cb)
@@ -175,6 +176,7 @@ class GameCenterApp(dbus.service.Object):
             self.webview_message_handler(title)
 
     def fresh_favotite_status(self):
+        self.webview.execute_script('set_right_menu()')
         if os.path.exists(self.conf_db):
             data = utils.load_db(self.conf_db)
             if data.get('favorite'):
@@ -218,8 +220,8 @@ class GameCenterApp(dbus.service.Object):
         self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game/subjects/')
 
     def show_mygame_page(self):
-        self.gallery_html_path = os.path.join(static_dir, 'game-gallery.html')
-        main_frame_path = os.path.join(static_dir, "main-frame.html")
+        self.gallery_html_path = os.path.join(static_dir, 'game-mygame.html')
+        main_frame_path = os.path.join(static_dir, "mygame-frame.html")
         self.webview.open('file://' + main_frame_path)
         
     def show_favorite_page(self):
@@ -235,8 +237,8 @@ class GameCenterApp(dbus.service.Object):
                         info['index_pic_url'] = os.path.join(downloads_dir, str(id), info['index_pic_url'].split('/')[-1])
                         info['swf_game'] = os.path.join(downloads_dir, str(id), info['swf_game'].split('/')[-1])
                         infos.append(info)
-                    except:
-                        pass
+                    except Exception, e:
+                        print "Load favorite page error:", e
                 self.webview.execute_script('var infos=%s' % 
                         json.dumps(infos, encoding="UTF-8", ensure_ascii=False))
                 self.webview.execute_script("gallery_change(%s)" %

@@ -1,4 +1,16 @@
 jQuery(function(){
+  /**
+  some settings
+  **/
+  var debug = true;
+  var server_address;
+  if (debug){
+    server_address = 'http://59.173.241.82:11111/';
+  }
+  else{
+    server_address = 'http://game-center.linuxdeepin.com/';
+  }
+
   var ENTER_KEY = 13;
   var jQuerycontainer = jQuery('.game_gallery');
   if(jQuerycontainer.masonry)jQuerycontainer.masonry({
@@ -65,7 +77,7 @@ jQuery(function(){
     }
   });
   search_btn.click(function(){
-    jQuery("#game-gallery")[0].src = '/game/search/?q=' + search_text.val();
+    jQuery("#game-gallery")[0].src = server_address + 'game/search/?q=' + search_text.val();
     search_msg.text( '"' + search_text.val() + '"' + " 的搜索结果");
     jQuery(".nav_bar .tabs").replaceWith(search_msg);
   });

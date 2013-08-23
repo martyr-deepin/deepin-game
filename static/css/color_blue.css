@@ -1,0 +1,81 @@
+.nav_bar .tabs a:hover,
+.nav_bar .tabs a:focus,
+.nav_bar .tabs a.current {
+  border-color: transparent;
+  background-color: #4870b2;
+  color: #d6e4f4;
+}
+
+.nav_bar .tabs a {
+  color: #3f69af;
+}
+
+.nav_bar .search_msg {
+  color: #3f69af;
+}
+
+.search_box .search {
+  background-color: #aec5e5;
+  background-image:url(../img/s12.png);
+}
+
+.search_box .search:active {
+  background-image:url(../img/s12_a.png);
+}
+
+.game_info .action a {
+  color: #1068c2;
+}
+
+.game_info .game_rate {
+  color: #e95e61;
+}
+
+.game_action .play input {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #39478d), color-stop(0.5, #4961ad), color-stop(0.51, #657ebf), color-stop(1, #88b5fa));
+}
+
+.game_action .star input {
+  border-left-color: #1f357d;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #39478d), color-stop(0.5, #4961ad), color-stop(0.51, #657ebf), color-stop(1, #88b5fa));
+}
+
+.game_action .play input:active, .game_action .star input:active {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #192b77), color-stop(1, #558eea));
+}
+
+.game_action .play input:active {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #39478d), color-stop(0.5, #4961ad), color-stop(0.51, #657ebf), color-stop(1, #88b5fa));
+}
+
+::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(linear, left center, right center, color-stop(0, #D8D8D8), color-stop(0.5, #D8D8D8), color-stop(0.51, #9cb8e1), color-stop(1, #9cb8e1));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9cb8e1;
+}
+
+::-webkit-progress-bar {
+  background: #dee0d1;
+}
+
+::-webkit-progress-value {
+  background: #6ca4d4;
+}
+
+progress {
+  border: 1px solid #b3b3b3;
+}
+
+.loading_msg {
+  color: #5a99c9;
+}
+
+.popup_box .bg_box {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #a1bfe5), color-stop(1, #25569c));
+}
+
+/******************************************************************************/
+#diyrightmenu {background:-webkit-gradient(linear, left top, right top, color-stop(0, #B3D3FF), color-stop(0.15, #F2F8FF), color-stop(1, #F2F8FF));}
+#diyrightmenu ul li a:hover{background-color:#4D78B3;}

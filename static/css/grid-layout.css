@@ -1,3 +1,9 @@
+body{font-family: 'WenQuanYi Micro Hei', 'Lato', Calibri, Arial, sans-serif,"微软雅黑","文泉驿微米黑","文泉驿正黑"; background:#d8d8d8 url(../img/gamg_bg.png) repeat;}
+
+*:focus{
+	outline:none;
+}
+
 a{
 	text-decoration:none;
 }
@@ -6,7 +12,6 @@ a{
 	position: relative; 
 	margin: 6px auto; 
 	z-index: 10; 
-	font-family: Arial;
 }
 
 #grid .item { 
@@ -40,23 +45,40 @@ a{
 	position: absolute;
 	top: 6px;
 	right: 10px;
-	min-width: 39px;
-	height: 17px;
-	background: url('../img/sprite.png') -25px 0 no-repeat;
-	background-color:rgba(255,255,255,0.8);
-	border: 3px solid rgba(255,255,255,0.2);
-	border-radius: 8px;
+	height: 20px;
+	background-color:rgba(255,255,255,0.4);
+	border-radius: 10px;
 	z-index: 60;
 	cursor:pointer;
 }
 
+#grid .caption .icon2 {
+	height: 16px;
+	background-color:rgba(255,255,255,0.8);
+	border-radius: 8px;
+	z-index: 61;
+	cursor:pointer;
+	margin:2px 3px;
+	padding:0 8px 0 24px;
+	color:#F4504E;
+	font-size:11px;
+	text-indent:0px;
+	line-height:16px;
+	background-repeat:no-repeat;
+	background-position:7px 2px;
+	display:block;
+}
+
 #grid .caption .like{
-	display:inline-block;
-	float:left;
-	width:12px;
-	height:17px;
-	line-height:17px;
-	background:url('../img/like.png') -12px 2px no-repeat;
+	background-image:url('../img/heart.png');
+}
+
+#grid .caption .like:hover{
+	background-image:url('../img/heart_hover.png');
+}
+
+#grid .caption .ilike{
+	background-image:url('../img/heart-purple.png');
 }
 
 #grid .caption .num{
@@ -69,16 +91,12 @@ a{
 	margin-left: 3px;
 }
 
-#grid .caption .icon:hover .like{
-	background-position-x:0;
-}
-
 #grid .caption .popup {
 	display: block;
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	background:rgba(255,255,255,0.85);
+	background:rgba(255,255,255,0.9);
 	height: 29px;
 	padding: 13px 18px 13px 50px;
 	overflow: hidden;
@@ -96,7 +114,7 @@ a{
 	position: absolute;
 	top:0;
 	left:0;
-	padding:8px;
+	padding:12px 8px 8px 8px;
 	line-height:33px;
 	letter-spacing:-1px;
 }
@@ -112,11 +130,14 @@ a{
 #grid .caption h3 {
 	font-size:14px;
 	color:#000;
+	font-weight:600;
 }
 
 #grid .caption h4 {
 	color:#808080;
 	font-size:12px;
+	font-weight:normal;
+	margin-top:2px;
 }
 
 #grid .caption h3,
@@ -132,12 +153,167 @@ a{
 	width:18px;
 	height:55px;
 	background: url('../img/arrow.png') no-repeat;
-	background-color: #e4e4e4;
+	background-color:rgba(0,0,0,0.05);
 	text-indent: -9999px;
 	position: absolute;
 	top: 0;
 	right: 0;
 }
+
+/******************************************************************************/
+
+#grid { 
+	width: 1024px; 
+	position: relative; 
+	margin: 6px auto; 
+	z-index: 10; 
+}
+
+#grid .item { 
+	position: absolute; 
+}
+
+#grid .a { width: 250px; height: 180px; overflow: hidden; }
+#grid .b { width: 250px; height: 366px; overflow: hidden; }
+#grid .c { width: 506px; height: 180px; overflow: hidden; }
+#grid .d { width: 506px; height: 366px; overflow: hidden; }
+
+#grid a.over { display: block; position: absolute; top: 0; left: 0;}
+#grid .a a.over { width: 250px; height: 125px; }
+#grid .b a.over { width: 250px; height: 311px; }
+#grid .c a.over { width: 506px; height: 126px; }
+#grid .d a.over { width: 506px; height: 311px; }
+
+#grid a.info { display: block; position: absolute; bottom: 0; left: 0;}
+#grid .a a.info { width: 250px; height: 55px; }
+#grid .b a.info { width: 250px; height: 55px; }
+#grid .c a.info { width: 506px; height: 55px; }
+#grid .d a.info { width: 506px; height: 55px; }
+
+#grid .special img {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#grid .special .icon {
+	position: absolute;
+	top: 6px;
+	right: 10px;
+	min-width: 30px;
+	height: 20px;
+	background-color:rgba(255,255,255,0.4);
+	border-radius: 10px;
+	z-index: 60;
+	cursor:pointer;
+}
+
+#grid .special .icon2 {
+	height: 16px;
+	background-color:rgba(255,255,255,0.8);
+	border-radius: 8px;
+	z-index: 61;
+	cursor:pointer;
+	margin:2px 3px;
+	padding:0 8px 0 24px;
+	color:#F4504E;
+	font-size:11px;
+	text-indent:0px;
+	line-height:16px;
+	background-repeat:no-repeat;
+	background-position:7px 2px;
+	display:block;
+}
+
+#grid .special .like{
+	background-image:url('../img/heart.png');
+	
+}
+
+#grid .special .ilike{
+	background-image:url('../img/heart-purple.png');
+}
+
+#grid .special .num{
+	display:block;
+	float:left;
+	font-variant:normal;
+	line-height:18px;
+	color:#fd5353;
+	font-size:12px;
+	margin-left: 3px;
+}
+
+#grid .special .popup {
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background:rgba(255,255,255,0.9);
+	height: 29px;
+	padding: 13px 10px 13px 18px;
+	overflow: hidden;
+}
+
+#grid .a.special .popup,
+#grid .b.special .popup{ width: 222px; }
+
+#grid .c.special .popup,
+#grid .d.special .popup{ width: 478px; }
+
+#grid .special h2 {
+	font-size:18px;
+	color: #fd5353;
+	position: absolute;
+	top:0;
+	left:0;
+	padding:12px 8px 8px 8px;
+	line-height:33px;
+	letter-spacing:-1px;
+}
+
+#grid .special big{
+	font-size:34px;
+}
+
+#grid .special small{
+	font-size:24px;
+}
+
+#grid .special h3 {
+	font-size:14px;
+	color:#000;
+	font-weight:600;
+}
+
+#grid .special h4 {
+	color:#808080;
+	font-size:12px;
+	font-weight:normal;
+	margin-top:2px;
+}
+
+#grid .special h3,
+#grid .special h4{
+	line-height:1.3em;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
+#grid .special .popup .arrow {
+	display:none;
+	width:18px;
+	height:55px;
+	background: url('../img/arrow.png') no-repeat;
+	background-color:rgba(0,0,0,0.05);
+	text-indent: -9999px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+/******************************************************************************/
 
 footer.bottom {
 	padding: 25px 0 0 0;
@@ -149,10 +325,11 @@ footer.bottom {
 
 footer.bottom .loading {
 	display: block;
-	width: 32px;
-	height: 32px;
+	width: 48px;
+	height: 48px;
 	margin: 0 auto;
 	background: url('../img/loading.gif');
 	text-indent: -9999px;
 }
 
+footer.bottom .button{ background:url(../img/bottom_chick.png) center no-repeat; width:255px; height:28px; display:block; margin:0 auto;}

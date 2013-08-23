@@ -1,0 +1,70 @@
+.nav_bar .tabs a:hover,
+.nav_bar .tabs a:focus,
+.nav_bar .tabs a.current {
+  border-color: transparent;
+  background-color: #f2c64d;
+  color: #fff6cb;
+}
+
+.nav_bar .tabs a {
+  color: #d88b0d;
+}
+
+.nav_bar .search_msg {
+  color: #d88b0d;
+}
+
+.search_box .search {
+  background-color: #f0dda3;
+  background-image:url(../img/s4.png);
+}
+
+.search_box .search:active {
+  background-image:url(../img/s4_a.png);
+}
+
+
+.game_info .action a {
+  color: #1068c2;
+}
+
+.game_info .game_rate {
+  color: #e95e61;
+}
+
+.game_action .play input {
+  border-left-color: #c6884b;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #9f6e35), color-stop(0.5, #b7853a), color-stop(0.51, #c79d55), color-stop(1, #f5cd61));
+}
+
+.game_action .play input:active {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #9f6e35), color-stop(0.5, #b7853a), color-stop(0.51, #c79d55), color-stop(1, #f5cd61));
+}
+
+::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(linear, left center, right center, color-stop(0, #D8D8D8), color-stop(0.5, #D8D8D8), color-stop(0.51, #dfca85), color-stop(1, #dfca85));
+}
+
+::-webkit-progress-bar {
+  background: #dfca85;
+}
+
+::-webkit-progress-value {
+  background: #f0c049;
+}
+
+progress {
+  border: 1px solid #b3b3b3;
+}
+
+.loading_msg {
+  color: #e3b33c;
+}
+
+.popup_box .bg_box {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffdf80), color-stop(1, #b7991a));
+}
+
+/******************************************************************************/
+#diyrightmenu {background:-webkit-gradient(linear, left top, right top, color-stop(0, #FFEEB3), color-stop(0.15, #FFFCF2), color-stop(1, #FFFCF2));}
+#diyrightmenu ul li a:hover{background-color:#CC9E00;}
