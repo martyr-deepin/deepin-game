@@ -300,7 +300,8 @@ class Player(dbus.service.Object):
             pypulse.PULSE.set_sink_input_mute(self.current_sink_index, widget.get_active())
 
     def replay_action(self, widget, data=None):
-        self.update_signal(['load_uri', 'file://' + self.swf_save_path])
+        if not self.loading:
+            self.update_signal(['load_uri', 'file://' + self.swf_save_path])
 
     def toggle_pause_action(self, widget):
         if widget.get_active():

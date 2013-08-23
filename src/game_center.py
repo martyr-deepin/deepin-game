@@ -35,6 +35,7 @@ from dtk.ui.application import Application
 from dtk.ui.statusbar import Statusbar
 from dtk.ui.theme import DynamicPixbuf
 from dtk.ui.browser import WebView 
+from dtk.ui.skin_config import skin_config
 from deepin_utils.file import get_parent_dir, touch_file_dir
 
 from navigatebar import Navigatebar
@@ -53,6 +54,7 @@ from constant import (
         )
 
 static_dir = os.path.join(get_parent_dir(__file__, 2), "static")
+
 
 class GameCenterApp(dbus.service.Object):
 
@@ -132,6 +134,18 @@ class GameCenterApp(dbus.service.Object):
         self.application.titlebar.left_box.pack_start(self.navigatebar_align, True, True)
         self.application.window.add_move_event(self.navigatebar)
 
+    def init_theme(self):
+        current_theme = skin_config.theme_name
+        if current_theme:
+            self.webview.execute_script('change_color_theme(%s)' %
+                json.dumps(current_theme, encoding="UTF-8", ensure_ascii=False))
+
+        skin_config.connect('theme-changed', self.theme_changed_handler)
+
+    def theme_changed_handler(self, widget, name):
+        self.webview.execute_script('change_color_theme(%s)' %
+            json.dumps(name, encoding="UTF-8", ensure_ascii=False))
+
     def webview_message_handler(self, info):
         info = info.split('://')
         if len(info) == 2:
@@ -147,6 +161,9 @@ class GameCenterApp(dbus.service.Object):
                     self.show_favorite_page()
             elif order == 'onload' and data == 'game_gallery':
                 gtk.timeout_add(200, self.fresh_favotite_status)
+            elif order == 'onload' and data == 'local_game_gallery':
+                self.webview.execute_script('$("#game-gallery").get(0).contentWindow.set_right_menu()')
+                gtk.timeout_add(200, self.fresh_favotite_status)
             elif order == 'onload' and data == 'main_frame':
                 gtk.timeout_add(200, self.show_favorite_page)
             elif order == 'onload' and data == 'footer':
@@ -157,6 +174,8 @@ class GameCenterApp(dbus.service.Object):
                 favorite_animation(self.application.window)
             elif order == 'unfavorite':
                 record_info.remove_favorite(data, self.conf_db)
+            elif order == 'local_action':
+                print data
 
     def navigation_policy_decision_requested_cb(self, web_view, frame, request, navigation_action, policy_decision):
         uri = request.get_uri()
@@ -176,7 +195,6 @@ class GameCenterApp(dbus.service.Object):
             self.webview_message_handler(title)
 
     def fresh_favotite_status(self):
-        self.webview.execute_script('set_right_menu()')
         if os.path.exists(self.conf_db):
             data = utils.load_db(self.conf_db)
             if data.get('favorite'):
@@ -189,6 +207,7 @@ class GameCenterApp(dbus.service.Object):
         if load_status == webkit.LOAD_FINISHED:
             self.webview.execute_script("$('#game-gallery').contents().find('#grid span span').removeClass('ilike')")
             self.webview.execute_script("$('#game-gallery').contents().find('#grid span span').addClass('like')")
+            self.init_theme()
 
     def show_play(self, data):
         data = data.split(',')
@@ -236,6 +255,7 @@ class GameCenterApp(dbus.service.Object):
                         info = json.load(open(info_js_path))
                         info['index_pic_url'] = os.path.join(downloads_dir, str(id), info['index_pic_url'].split('/')[-1])
                         info['swf_game'] = os.path.join(downloads_dir, str(id), info['swf_game'].split('/')[-1])
+                        info['type'] = 'favorite'
                         infos.append(info)
                     except Exception, e:
                         print "Load favorite page error:", e
@@ -261,6 +281,7 @@ class GameCenterApp(dbus.service.Object):
                         info = json.load(open(info_js_path))
                         info['index_pic_url'] = os.path.join(downloads_dir, str(id), info['index_pic_url'].split('/')[-1])
                         info['swf_game'] = os.path.join(downloads_dir, str(id), info['swf_game'].split('/')[-1])
+                        info['type'] = 'recent'
                         infos.append(info)
                     except:
                         pass

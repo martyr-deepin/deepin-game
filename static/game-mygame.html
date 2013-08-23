@@ -13,7 +13,7 @@
     <script src="js/jquery.diyrightmenu.source.js"></script>
     <script src="js/common.js"></script>
   </head>
-  <body class="bg_gray" onload="alert('onload://game_gallery')">
+  <body class="bg_gray" onload="alert('onload://local_game_gallery')">
     <div id="grid">
     <!--
       <div class="item a caption">
@@ -22,7 +22,31 @@
     </div>
     <footer class="bottom"></footer>
     <script type="text/javascript">alert('onload://footer');</script>
-    <script type="text/javascript">function inner(){console.log("inner");}</script>
+    <script type="text/javascript">
+    function set_right_menu(){
+        $('.item').diyrightmenu({
+                menu: [{
+                    name: '打开',
+                    click: "open()",
+                },
+                {
+                    hr: true
+                }, 
+                {
+                    name: '删除',
+                    click: "drop()"
+                }]
+        });
+    }
 
+    function open(){
+        alert($(diySelectObject).find('.over').attr("href"));
+    }
+    function drop(){
+        alert('local_action://' + $(diySelectObject).attr("id"));
+        $(diySelectObject).hide();
+    }
+
+    </script>
   </body>
 </html>

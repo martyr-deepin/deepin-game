@@ -28,7 +28,7 @@ function gallery_change(html_path){
 function append_data_to_gallery(data){
     for (var i=0; i<data.length; i++){
         var grid_div = '';
-        grid_div += '<div class="item '+ data[i]['index_pic_wh'] +' caption">';
+        grid_div += '<div class="item '+ data[i]['index_pic_wh'] +' caption" id="'+data[i]['type']+'-'+data[i]['id']+'">';
         grid_div += '<img src="' + data[i]['index_pic_url'] +'">';
         grid_div += '<div class="popup">';
         grid_div += '<h2><big>9</big><small>.5</small></h2>';
@@ -47,22 +47,6 @@ function append_data_to_gallery(data){
         grid_div += '</div>';
         $('#game-gallery').contents().find('#grid').append(grid_div);
     }
-}
-
-function set_right_menu(){
-    $('#game-gallery').contents().find('.item').diyrightmenu({
-            menu: [{
-                name: '打开',
-                click: "alert('打开')",
-            },
-            {
-                hr: true
-            }, 
-            {
-                name: '删除',
-                click: "alert('确定删除？只让你确定，这句话随便删，测试')"
-            }]
-    });
 }
 
 function change_favorite_status(id, status){
