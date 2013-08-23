@@ -45,7 +45,7 @@ def favorite_animation(window):
     
     [[a], [b], [c]] = solve_parabola((ax, ay), (bx, by), (cx, cy))
     
-    icon_window = IconWindow(utils.get_common_image('heart/heart_on.png'))
+    icon_window = IconWindow(utils.get_common_image('heart/heartx2.png'))
     icon_window.move(ax, ay)
     icon_window.show_all()
     
