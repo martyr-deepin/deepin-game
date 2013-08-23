@@ -22,10 +22,12 @@
 
 import gtk
 import pango
-from dtk.ui.theme import DynamicColor, ui_theme
+from dtk.ui.theme import ui_theme
 from dtk.ui.constant import DEFAULT_FONT_SIZE
-from dtk.ui.utils import get_content_size, propagate_expose
-from dtk.ui.draw import draw_pixbuf, draw_text
+from dtk.ui.utils import get_content_size, propagate_expose, alpha_color_hex_to_cairo
+from dtk.ui.draw import draw_pixbuf, draw_text, draw_round_rectangle
+
+from theme import app_theme
 
 class Button(gtk.Button):
 
@@ -35,19 +37,24 @@ class Button(gtk.Button):
                 pixbuf_press,
                 button_label=None, 
                 label_color=None,
-                padding_x=0, 
-                font_size=DEFAULT_FONT_SIZE):
+                padding_middle=0, 
+                padding_edge=0, 
+                font_size=DEFAULT_FONT_SIZE,
+                draw_background=False,
+                ):
 
         gtk.Button.__init__(self)
         self.pixbuf_normal = pixbuf_normal
         self.pixbuf_hover = pixbuf_hover
         self.pixbuf_press = pixbuf_press
         self.font_size = font_size
+        self.padding_edge = padding_edge
+        self.padding_middle = padding_middle
+        self.button_label = button_label
+        self.draw_background = draw_background
 
         if not label_color:
-            label_dcolor = ui_theme.get_color("button_default_font")
-        else:
-            label_dcolor = DynamicColor(label_color)
+            label_dcolor = app_theme.get_color("button_text_fg_normal")
         self.button_press_flag = False
         
         # Init request size.
@@ -58,7 +65,7 @@ class Button(gtk.Button):
         if button_label:
             label_width = get_content_size(button_label, self.font_size)[0]
 
-        self.set_size_request(button_width + label_width + padding_x * 2,
+        self.set_size_request(button_width + label_width + padding_edge * 2 + padding_middle,
                               button_height)
         
         self.connect("button-press-event", self.press_button)
@@ -67,7 +74,7 @@ class Button(gtk.Button):
         # Expose button.
         self.connect("expose-event", lambda w, e : self.expose_button(
                 w, e,
-                button_label, padding_x, self.font_size, label_dcolor))
+                self.font_size, label_dcolor))
         
     def press_button(self, widget, event):    
         self.button_press_flag = True
@@ -77,8 +84,7 @@ class Button(gtk.Button):
         self.button_press_flag = False
         self.queue_draw()    
         
-    def expose_button(self, widget, event, 
-                             button_label, padding_x, font_size, label_dcolor):
+    def expose_button(self, widget, event, font_size, label_dcolor):
         # Init.
         rect = widget.allocation
         image = self.pixbuf_normal.get_pixbuf()
@@ -86,30 +92,41 @@ class Button(gtk.Button):
         # Get pixbuf along with button's sate.
         if widget.state == gtk.STATE_NORMAL:
             image = self.pixbuf_normal.get_pixbuf()
+            label_dcolor = app_theme.get_color('button_text_fg_normal')
+            bg_dcolor = app_theme.get_alpha_color('button_bg_normal')
         elif widget.state == gtk.STATE_PRELIGHT:
             image = self.pixbuf_hover.get_pixbuf()
+            label_dcolor = app_theme.get_color('button_text_fg_hover')
+            bg_dcolor = app_theme.get_alpha_color('button_bg_hover')
         elif widget.state == gtk.STATE_ACTIVE:
             image = self.pixbuf_press.get_pixbuf()
+            label_dcolor = app_theme.get_color('button_text_fg_press')
+            bg_dcolor = app_theme.get_alpha_color('button_bg_press')
         
         # Draw button.
         cr = widget.window.cairo_create()
-        draw_pixbuf(cr, image, rect.x + padding_x, rect.y)
+        draw_pixbuf(cr, image, rect.x + self.padding_edge, rect.y)
         
         # Draw font.
         if widget.state == gtk.STATE_INSENSITIVE:
             label_color = ui_theme.get_color("disable_text").get_color()
         else:
             label_color = label_dcolor.get_color()
-        if button_label:
-            draw_text(cr, button_label, 
-                        rect.x + image.get_width() + padding_x * 2,
+        if self.button_label:
+            draw_text(cr, self.button_label, 
+                        rect.x + image.get_width() + self.padding_edge + self.padding_middle,
                         rect.y, 
-                        rect.width - image.get_width() - padding_x * 2,
+                        rect.width - image.get_width() - self.padding_middle - self.padding_edge*2,
                         rect.height,
                         font_size, 
                         label_color,
                         alignment=pango.ALIGN_LEFT
                         )
+
+        if self.draw_background:
+            cr.set_source_rgba(*alpha_color_hex_to_cairo(bg_dcolor.get_color_info()))
+            draw_round_rectangle(cr, rect.x, rect.y, rect.width, rect.height, rect.height/2)
+            cr.fill()
     
         # Propagate expose to children.
         propagate_expose(widget, event)
@@ -136,32 +153,21 @@ class ToggleButton(gtk.ToggleButton):
                  active_press_dpixbuf=None,
                  inactive_disable_dpixbuf=None, 
                  active_disable_dpixbuf=None,
-                 button_label=None, 
+                 active_button_label=None, 
+                 inactive_button_label=None, 
                  label_color=None,
-                 padding_x=0, 
-                 font_size=DEFAULT_FONT_SIZE):
-        '''
-        Initialize ToggleButton class.
-        
-        @param inactive_normal_dpixbuf: DynamicPixbuf for inactive normal status. 
-        @param active_normal_dpixbuf: DynamicPixbuf for active normal status. 
-        @param inactive_hover_dpixbuf: DynamicPixbuf for inactive hover status, default is None. 
-        @param active_hover_dpixbuf: DynamicPixbuf for active hover status, default is None. 
-        @param inactive_press_dpixbuf: DynamicPixbuf for inactive press status, default is None. 
-        @param active_press_dpixbuf: DynamicPixbuf for active press status, default is None. 
-        @param inactive_disable_dpixbuf: DynamicPixbuf for inactive disable status, default is None. 
-        @param active_disable_dpixbuf: DynamicPixbuf for active disable status, default is None. 
-        @param button_label: Button label, default is None.
-        @param padding_x: Padding x, default is 0.
-        @param font_size: Font size, default is DEFAULT_FONT_SIZE.
-        '''
+                 padding_middle=0, 
+                 padding_edge=0, 
+                 font_size=DEFAULT_FONT_SIZE,
+                 draw_background=False,
+                 ):
+
         gtk.ToggleButton.__init__(self)
         self.font_size = font_size
         if not label_color:
-            label_dcolor = ui_theme.get_color("button_default_font")
-        else:
-            label_dcolor = DynamicColor(label_color)
+            label_dcolor = app_theme.get_color("button_text_fg_normal")
         self.button_press_flag = False
+        self.draw_background = draw_background
         
         self.inactive_pixbuf_group = (inactive_normal_dpixbuf,
                                       inactive_hover_dpixbuf,
@@ -175,13 +181,19 @@ class ToggleButton(gtk.ToggleButton):
 
         # Init request size.
         label_width = 0
-        self.padding_x = padding_x
-        self.button_label = button_label
+        self.padding_middle = padding_middle
+        self.padding_edge = padding_edge
+
+        self.active_button_label = active_button_label
+        self.inactive_button_label = inactive_button_label
+        if active_button_label and not inactive_button_label:
+            self.inactive_button_label = self.active_button_label
+
         self.button_width = inactive_normal_dpixbuf.get_pixbuf().get_width()
         self.button_height = inactive_normal_dpixbuf.get_pixbuf().get_height()
-        if self.button_label:
-            label_width = get_content_size(self.button_label, self.font_size)[0]
-        self.set_size_request(self.button_width + label_width + self.padding_x * 2,
+        if self.active_button_label:
+            label_width = get_content_size(self.active_button_label, self.font_size)[0]
+        self.set_size_request(self.button_width + label_width + self.padding_middle + self.padding_edge*2,
                               self.button_height)
         
         self.connect("button-press-event", self.press_toggle_button)
@@ -190,16 +202,9 @@ class ToggleButton(gtk.ToggleButton):
         # Expose button.
         self.connect("expose-event", lambda w, e : self.expose_toggle_button(
                 w, e,
-                padding_x, self.font_size, label_dcolor))
-
-    def set_label(self, button_label):
-        self.button_label = button_label
-        label_width = get_content_size(button_label, self.font_size)[0]
-        self.set_size_request(self.button_width + label_width + self.padding_x * 2,
-                              self.button_height)
-        self.queue_draw()
+                self.font_size, label_dcolor))
         
-    def press_toggle_button(self, widget, event):    
+    def press_toggle_button(self, widget, event):
         '''
         Callback for `button-press-event` signal.
         
@@ -219,8 +224,7 @@ class ToggleButton(gtk.ToggleButton):
         self.button_press_flag = False
         self.queue_draw()    
 
-    def expose_toggle_button(self, widget, event, 
-                             padding_x, font_size, label_dcolor):
+    def expose_toggle_button(self, widget, event, font_size, label_dcolor):
         '''
         Callback for `expose-event` signal.
         
@@ -236,7 +240,12 @@ class ToggleButton(gtk.ToggleButton):
         active_normal_dpixbuf, active_hover_dpixbuf, active_press_dpixbuf, active_disable_dpixbuf = self.active_pixbuf_group
         rect = widget.allocation
         image = inactive_normal_dpixbuf.get_pixbuf()
-        
+
+        if not widget.get_active():
+            button_label = self.active_button_label
+        else:
+            button_label = self.inactive_button_label
+
         # Get pixbuf along with button's sate.
         if widget.state == gtk.STATE_INSENSITIVE:
             if widget.get_active():
@@ -244,8 +253,12 @@ class ToggleButton(gtk.ToggleButton):
             else:
                 image = inactive_disable_dpixbuf.get_pixbuf()
         elif widget.state == gtk.STATE_NORMAL:
+            label_dcolor = app_theme.get_color('button_text_fg_normal')
+            bg_dcolor = app_theme.get_alpha_color('button_bg_normal')
             image = inactive_normal_dpixbuf.get_pixbuf()
         elif widget.state == gtk.STATE_PRELIGHT:
+            label_dcolor = app_theme.get_color('button_text_fg_hover')
+            bg_dcolor = app_theme.get_alpha_color('button_bg_hover')
             if not inactive_hover_dpixbuf and not active_hover_dpixbuf:
                 if widget.get_active():
                     image = active_normal_dpixbuf.get_pixbuf()
@@ -264,34 +277,43 @@ class ToggleButton(gtk.ToggleButton):
         elif widget.state == gtk.STATE_ACTIVE:
             if inactive_press_dpixbuf and active_press_dpixbuf:
                 if self.button_press_flag:
+                    label_dcolor = app_theme.get_color('button_text_fg_press')
+                    bg_dcolor = app_theme.get_alpha_color('button_bg_press')
                     if widget.get_active():
                         image = active_press_dpixbuf.get_pixbuf()
                     else:    
                         image = inactive_press_dpixbuf.get_pixbuf()
                 else:    
+                    label_dcolor = app_theme.get_color('button_text_fg_normal')
+                    bg_dcolor = app_theme.get_alpha_color('button_bg_normal')
                     image = active_normal_dpixbuf.get_pixbuf()
             else:        
                 image = active_normal_dpixbuf.get_pixbuf()
         
         # Draw button.
         cr = widget.window.cairo_create()
-        draw_pixbuf(cr, image, rect.x + padding_x, rect.y)
+        draw_pixbuf(cr, image, rect.x + self.padding_edge, rect.y)
         
         # Draw font.
         if widget.state == gtk.STATE_INSENSITIVE:
             label_color = ui_theme.get_color("disable_text").get_color()
         else:
             label_color = label_dcolor.get_color()
-        if self.button_label:
-            draw_text(cr, self.button_label, 
-                        rect.x + image.get_width() + padding_x * 2,
+        if button_label:
+            draw_text(cr, button_label, 
+                        rect.x + image.get_width() + self.padding_edge + self.padding_middle,
                         rect.y, 
-                        rect.width - image.get_width() - padding_x * 2,
+                        rect.width - image.get_width() - self.padding_edge * 2 - self.padding_middle,
                         rect.height,
                         font_size, 
                         label_color,
                         alignment=pango.ALIGN_LEFT
                         )
+
+        if self.draw_background:
+            cr.set_source_rgba(*alpha_color_hex_to_cairo(bg_dcolor.get_color_info()))
+            draw_round_rectangle(cr, rect.x, rect.y, rect.width, rect.height, rect.height/2)
+            cr.fill()
     
         # Propagate expose to children.
         propagate_expose(widget, event)

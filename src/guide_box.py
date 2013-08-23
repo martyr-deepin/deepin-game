@@ -27,15 +27,16 @@ from dtk.ui.label import Label
 from dtk.ui.box import BackgroundBox
 from dtk.ui.theme import ui_theme
 from dtk.ui.threads import post_gui
+from dtk.ui.scrolled_window import ScrolledWindow
 
 import utils
-from theme import app_theme
 from events import global_event
 
 class GuideBox(gtk.VBox):
     def __init__(self):
         super(GuideBox, self).__init__()
 
+        self.scrolled_window = ScrolledWindow()
         self.backgroundbox = BackgroundBox()
         self.backgroundbox.draw_mask = self.draw_mask
 
@@ -68,7 +69,8 @@ class GuideBox(gtk.VBox):
         self.backgroundbox.pack_start(self.top_title, False, False)
         self.backgroundbox.pack_start(self.content_box)
 
-        self.add(self.backgroundbox)
+        self.scrolled_window.add_child(self.backgroundbox)
+        self.add(self.scrolled_window)
 
         global_event.register_event('download-app-info-finish', self.update_content)
 
@@ -86,7 +88,6 @@ class GuideBox(gtk.VBox):
         @param w: Width of draw area.
         @param h: Height of draw area.
         '''
-        sidebar_color = app_theme.get_color("sidebar_background").get_color()
         sidebar_color = "#ffffff"
         draw_vlinear(cr, x, y, w, h,
                      [(0, (sidebar_color, 0.9)),

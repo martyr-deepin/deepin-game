@@ -38,14 +38,11 @@ from dtk.ui.browser import WebView
 from deepin_utils.file import get_parent_dir, touch_file_dir
 
 from navigatebar import Navigatebar
-from button import ToggleButton
 from animation import favorite_animation
 from utils import get_common_image
 import utils
 import record_info
 from xdg_support import get_config_file
-import pypulse_small as pypulse
-from sound_manager import SoundSetting
 from download_manager import FetchInfo
 from nls import _
 from constant import (
@@ -62,10 +59,8 @@ class GameCenterApp(dbus.service.Object):
     def __init__(self, session_bus):
         dbus.service.Object.__init__(self, session_bus, GAME_CENTER_DBUS_PATH)
         self.conf_db = get_config_file("conf.db")
-        self.sound_manager = SoundSetting()
 
         self.init_ui()
-        self.sound_manager.connect('mute-state', lambda w, b: self.mute_button.set_active(b))
 
     def init_ui(self):
         self.application = Application()
@@ -93,26 +88,6 @@ class GameCenterApp(dbus.service.Object):
         # Init status bar.
         self.statusbar = Statusbar(30)
         status_box = gtk.HBox()
-
-        mute_normal = app_theme.get_pixbuf('function/7-qjsy-Normal.png')
-        mute_hover = app_theme.get_pixbuf('function/7-qjsy-Hover.png')
-        mute_press = app_theme.get_pixbuf('function/7-qjsy-Press.png')
-        sound_normal = app_theme.get_pixbuf('function/7-qjjy-Normal.png')
-        sound_hover = app_theme.get_pixbuf('function/7-qjjy-Hover.png')
-        sound_press = app_theme.get_pixbuf('function/7-qjjy-Press.png')
-        self.mute_button = ToggleButton(
-                mute_normal, sound_normal, 
-                mute_hover, sound_hover, 
-                mute_press, sound_press, 
-                button_label='', label_color='#ffffff',
-                padding_x=5)
-        self.mute_button.connect('clicked', self.mute_handler)
-        mute_button_align = gtk.Alignment()
-        mute_button_align.set(1, 0.5, 0, 0)
-        mute_button_align.set_padding(4, 4, 5, 30)
-        mute_button_align.add(self.mute_button)
-
-        status_box.pack_end(mute_button_align, False, False)
 
         self.statusbar.status_box.pack_start(status_box, True, True)
         self.application.main_box.pack_start(self.statusbar, False, False)
@@ -223,11 +198,11 @@ class GameCenterApp(dbus.service.Object):
         touch_file_dir(error_log)
         self.p = subprocess.Popen(order, stderr=subprocess.STDOUT, shell=False)
 
-    def mute_handler(self, widget, data=None):
-        active = widget.get_active()
-        current_sink = pypulse.get_fallback_sink_index()
-        if current_sink is not None:
-            pypulse.PULSE.set_output_mute(current_sink, active)
+    #def mute_handler(self, widget, data=None):
+        #active = widget.get_active()
+        #current_sink = pypulse.get_fallback_sink_index()
+        #if current_sink is not None:
+            #pypulse.PULSE.set_output_mute(current_sink, active)
 
     def print_info(self, info_type, info):
         if info:

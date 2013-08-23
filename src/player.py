@@ -64,6 +64,7 @@ class Player(dbus.service.Object):
         self.p = None
         self.current_sink_index = None
         self.sound_manager = SoundSetting(self.sound_sink_callback)
+        self.loading = True
         self.init_ui()
 
         def unique(self):
@@ -138,13 +139,17 @@ class Player(dbus.service.Object):
         status_box = gtk.HBox()
 
         self.mute_button = ToggleButton(
-                app_theme.get_pixbuf('Normal/sound_normal.png'),
-                app_theme.get_pixbuf('Normal/mute_normal.png'),
-                app_theme.get_pixbuf('Hover/sound_hover.png'),
-                app_theme.get_pixbuf('Hover/mute_hover.png'),
-                app_theme.get_pixbuf('Press/sound_press.png'),
-                app_theme.get_pixbuf('Press/mute_press.png'),
-                padding_x=5)
+                app_theme.get_pixbuf('mute/sound_normal.png'),
+                app_theme.get_pixbuf('mute/mute_normal.png'),
+                app_theme.get_pixbuf('mute/sound_hover.png'),
+                app_theme.get_pixbuf('mute/mute_hover.png'),
+                app_theme.get_pixbuf('mute/sound_press.png'),
+                app_theme.get_pixbuf('mute/mute_press.png'),
+                active_button_label = '声音',
+                inactive_button_label = '静音',
+                draw_background=True,
+                padding_edge=10,
+                padding_middle=6)
         self.mute_button.connect('clicked', self.mute_handler)
         mute_button_align = gtk.Alignment()
         mute_button_align.set(0, 0.5, 0, 0)
@@ -152,23 +157,29 @@ class Player(dbus.service.Object):
         mute_button_align.add(self.mute_button)
 
         self.favorite_button = ToggleButton(
-                app_theme.get_pixbuf('Normal/unfavotite_normal.png'),
-                app_theme.get_pixbuf('Normal/favotite_normal.png'),
-                app_theme.get_pixbuf('Hover/unfavotite_hover.png'),
-                app_theme.get_pixbuf('Hover/favotite_hover.png'),
-                app_theme.get_pixbuf('Press/unfavotite_press.png'),
-                app_theme.get_pixbuf('Press/favotite_press.png'),
-                padding_x=5)
+                app_theme.get_pixbuf('favorite/unfavorite_normal.png'),
+                app_theme.get_pixbuf('favorite/favorite_normal.png'),
+                app_theme.get_pixbuf('favorite/unfavorite_hover.png'),
+                app_theme.get_pixbuf('favorite/favorite_hover.png'),
+                app_theme.get_pixbuf('favorite/unfavorite_press.png'),
+                app_theme.get_pixbuf('favorite/favorite_press.png'),
+                active_button_label = '收藏',
+                draw_background=True,
+                padding_edge=10,
+                padding_middle=6)
         favorite_button_align = gtk.Alignment()
         favorite_button_align.set(0, 0.5, 0, 0)
         favorite_button_align.set_padding(3, 6, 3, 3)
         favorite_button_align.add(self.favorite_button)
 
         self.replay_button = Button(
-                app_theme.get_pixbuf('Normal/replay_normal.png'),
-                app_theme.get_pixbuf('Hover/replay_hover.png'),
-                app_theme.get_pixbuf('Press/replay_press.png'),
-                padding_x=5)
+                app_theme.get_pixbuf('replay/replay_normal.png'),
+                app_theme.get_pixbuf('replay/replay_hover.png'),
+                app_theme.get_pixbuf('replay/replay_press.png'),
+                button_label='重玩',
+                draw_background=True,
+                padding_edge=10,
+                padding_middle=6)
         self.replay_button.connect('clicked', self.replay_action)
         replay_button_align = gtk.Alignment()
         replay_button_align.set(0, 0.5, 0, 0)
@@ -178,24 +189,31 @@ class Player(dbus.service.Object):
         self.hand_pause = False
         self.game_pause = False
         self.pause_button = ToggleButton(
-                app_theme.get_pixbuf('Normal/pause_normal.png'),
-                app_theme.get_pixbuf('Normal/play_normal.png'),
-                app_theme.get_pixbuf('Hover/pause_hover.png'),
-                app_theme.get_pixbuf('Hover/play_hover.png'),
-                app_theme.get_pixbuf('Press/pause_press.png'),
-                app_theme.get_pixbuf('Press/play_press.png'),
-                padding_x=5)
+                app_theme.get_pixbuf('pause/pause_normal.png'),
+                app_theme.get_pixbuf('pause/play_normal.png'),
+                app_theme.get_pixbuf('pause/pause_hover.png'),
+                app_theme.get_pixbuf('pause/play_hover.png'),
+                app_theme.get_pixbuf('pause/pause_press.png'),
+                app_theme.get_pixbuf('pause/play_press.png'),
+                active_button_label = '暂停',
+                inactive_button_label = '继续',
+                draw_background=True,
+                padding_edge=10,
+                padding_middle=6)
         self.pause_button.connect('button-press-event', self.pause_handler)
         pause_button_align = gtk.Alignment()
         pause_button_align.set(0, 0.5, 0, 0)
-        pause_button_align.set_padding(3, 6, 3, 3)
+        pause_button_align.set_padding(3, 6, 10, 3)
         pause_button_align.add(self.pause_button)
 
         self.fullscreen_button = Button(
-                app_theme.get_pixbuf('Normal/fullscreen_normal.png'),
-                app_theme.get_pixbuf('Hover/fullscreen_hover.png'),
-                app_theme.get_pixbuf('Press/fullscreen_press.png'),
-                padding_x=5)
+                app_theme.get_pixbuf('fullscreen/fullscreen_normal.png'),
+                app_theme.get_pixbuf('fullscreen/fullscreen_hover.png'),
+                app_theme.get_pixbuf('fullscreen/fullscreen_press.png'),
+                button_label='全屏',
+                draw_background=True,
+                padding_edge=10,
+                padding_middle=6)
         self.fullscreen_button.connect('clicked', self.fullscreen_action)
         fullscreen_button_align = gtk.Alignment()
         fullscreen_button_align.set(0, 0.5, 0, 0)
@@ -203,10 +221,13 @@ class Player(dbus.service.Object):
         fullscreen_button_align.add(self.fullscreen_button)
 
         self.share_button = Button(
-                app_theme.get_pixbuf('Normal/share_normal.png'),
-                app_theme.get_pixbuf('Hover/share_hover.png'),
-                app_theme.get_pixbuf('Press/share_press.png'),
-                padding_x=5)
+                app_theme.get_pixbuf('share/share_normal.png'),
+                app_theme.get_pixbuf('share/share_hover.png'),
+                app_theme.get_pixbuf('share/share_press.png'),
+                button_label='分享',
+                draw_background=True,
+                padding_edge=10,
+                padding_middle=6)
         self.share_button.connect('clicked', self.share_action)
         share_button_align = gtk.Alignment()
         share_button_align.set(0, 0.5, 0, 0)
@@ -232,13 +253,13 @@ class Player(dbus.service.Object):
 
     def window_in_focus_hander(self, widget, event):
         print "In: hand=>%s, pause=>%s" % (self.hand_pause, self.game_pause)
-        if not self.hand_pause and self.game_pause:
+        if not self.loading and (not self.hand_pause and self.game_pause):
             self.pause_button.set_active(False)
             self.toggle_pause_action(self.pause_button)
 
     def window_out_focus_hander(self, widget, event):
         print "Out: hand=>%s, pause=>%s" % (self.hand_pause, self.game_pause)
-        if not self.hand_pause and not self.game_pause:
+        if not self.loading and (not self.hand_pause and not self.game_pause):
             self.pause_button.set_active(True)
             self.toggle_pause_action(self.pause_button)
 
@@ -301,15 +322,15 @@ class Player(dbus.service.Object):
         pass
 
     def share_action(self, widget, data=None):
-        from window import get_screenshot_pixbuf
-        pixbuf = get_screenshot_pixbuf(False)
+        #from window import get_screenshot_pixbuf
+        #pixbuf = get_screenshot_pixbuf(False)
 
-        #rect = self.content_page.get_allocation()
-        #pixmap = self.content_page.get_snapshot(rect)
-        ##depth = pixmap.get_depth()
-        #width, height = pixmap.get_size()
-        #pixbuf = gtk.gdk.Pixbuf(gtk.gdk.COLORSPACE_RGB, False, 8, width, height)
-        #pixbuf.get_from_drawable(pixmap, pixmap.get_colormap(), 0, 0, 0, 0, width, height)
+        rect = self.content_page.get_allocation()
+        width = rect.width
+        height = rect.height
+        pixbuf = gtk.gdk.Pixbuf(gtk.gdk.COLORSPACE_RGB, False, 8, width, height)
+        pixbuf = pixbuf.get_from_drawable(self.content_page.window, self.content_page.get_colormap(), 
+                                            rect.x, rect.y, 0, 0, width, height)
 
         filename = self.save_to_tmp_file(pixbuf)
         share_path = os.path.join(get_parent_dir(__file__), 'share.py')
@@ -329,8 +350,7 @@ class Player(dbus.service.Object):
         FetchInfo(self.appid).start()
         self.swf_save_path = os.path.expanduser("~/.cache/deepin-game-center/downloads/%s/%s.swf" % (self.appid, self.appid))
         if os.path.exists(self.swf_save_path):
-            gtk.timeout_add(500, lambda :self.send_message('load_uri', "file://" + self.swf_save_path))
-            record_info.record_recent_play(self.appid, self.conf_db)
+            gtk.timeout_add(500, lambda:self.load_game())
         else:
             touch_file_dir(self.swf_save_path)
             self.load_html_path = os.path.join(static_dir, 'loading.html')
@@ -342,6 +362,11 @@ class Player(dbus.service.Object):
             self.download_task.connect("finish", self.download_finish)
             self.download_task.connect("error",  self.download_failed)
             self.download_task.connect("start",  self.download_start)
+
+    def load_game(self):
+        self.loading = False
+        self.send_message('load_uri', 'file://' + self.swf_save_path)
+        record_info.record_recent_play(self.appid, self.conf_db)
             
     def run(self):
         self.call_flash_game(self.appid)
@@ -374,8 +399,7 @@ class Player(dbus.service.Object):
         pass
 
     def download_finish(self, task, data):
-        self.update_signal(['load_uri', 'file://' + self.swf_save_path])
-        record_info.record_recent_play(self.appid, self.conf_db)
+        gtk.timeout_add(500, lambda:self.load_game())
 
     def download_failed(self, task, data):
         pass

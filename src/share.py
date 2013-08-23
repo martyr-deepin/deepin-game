@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from theme import app_theme, app_theme_get_dynamic_color, app_theme_get_dynamic_pixbuf
+from weibo_theme import app_theme, app_theme_get_dynamic_color, app_theme_get_dynamic_pixbuf
 from dtk.ui.scrolled_window import ScrolledWindow
 from dtk.ui.dialog import ConfirmDialog, DialogLeftButtonBox, DialogRightButtonBox, DialogBox
 from dtk.ui.browser import WebView
