@@ -215,8 +215,6 @@ class GameCenterApp(dbus.service.Object):
         order = ['python', player_path]
         order.append('-p')
         order.append(','.join(data))
-        error_log = '/tmp/deepin-game-center/game-%s.log' % data[1]
-        touch_file_dir(error_log)
         self.p = subprocess.Popen(order, stderr=subprocess.STDOUT, shell=False)
 
     #def mute_handler(self, widget, data=None):

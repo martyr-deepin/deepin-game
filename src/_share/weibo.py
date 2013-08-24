@@ -543,8 +543,8 @@ class Tencent(Weibo):
     '''Tencent Weibo'''
     def __init__(self, webkit):
         Weibo.__init__(self, 'Tencent', webkit)
-        self.APP_KEY = '801236993'
-        self.APP_SECRET = '39083ce577596d739bbabb6f6bd0dba0'
+        self.APP_KEY = '801405827'
+        self.APP_SECRET = '8580c271f71c905c6fab597ad29e8619'
         self.CALLBACK_URL = 'http://www.linuxdeepin.com'
         #self.DEEPIN_ID = "A1311E21F862EE280851CB4244E05120"
         self.DEEPIN_ID = "linux_deepin"
