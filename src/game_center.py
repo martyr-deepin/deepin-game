@@ -31,6 +31,9 @@ import webkit
 
 from theme import app_theme
 from deepin_utils.ipc import is_dbus_name_exists
+from dtk.ui.utils import get_widget_root_coordinate
+from dtk.ui.constant import WIDGET_POS_BOTTOM_LEFT
+from dtk.ui.menu import Menu
 from dtk.ui.application import Application
 from dtk.ui.statusbar import Statusbar
 from dtk.ui.theme import DynamicPixbuf
@@ -45,7 +48,7 @@ import utils
 import record_info
 from xdg_support import get_config_file
 from download_manager import FetchInfo
-from nls import _
+from nls import _, LANGUAGE
 from constant import (
         GAME_CENTER_DBUS_NAME,
         GAME_CENTER_DBUS_PATH,
@@ -133,6 +136,37 @@ class GameCenterApp(dbus.service.Object):
         self.application.titlebar.set_size_request(-1, 56)
         self.application.titlebar.left_box.pack_start(self.navigatebar_align, True, True)
         self.application.window.add_move_event(self.navigatebar)
+
+        # Init menu.
+        if LANGUAGE == 'en_US':
+            menu_min_width = 185
+        else:
+            menu_min_width = 150
+        menu = Menu(
+            [
+             (None, _("智能清除所有缓存"), self.clean_download_cache),
+             (None, _("查看新特性"), lambda : self.show_wizard_win()),
+             (None, _("关于我们"), self.show_about_dialog),
+             (None, _("退出"), lambda: gtk.main_quit()),
+             ],
+            is_root_menu=True,
+            #menu_min_width=menu_min_width,
+            )
+        self.application.set_menu_callback(
+            lambda button:
+                menu.show(
+                get_widget_root_coordinate(button, WIDGET_POS_BOTTOM_LEFT),
+                (button.get_allocation().width, 0)))
+
+
+    def clean_download_cache(self):
+        pass
+
+    def show_wizard_win(self, show_button=False, callback=None):    
+        pass
+
+    def show_about_dialog(self):
+        pass
 
     def init_theme(self):
         current_theme = skin_config.theme_name
