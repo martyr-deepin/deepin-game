@@ -302,11 +302,12 @@ class GameCenterApp(dbus.service.Object):
                         infos.append(info)
                     except Exception, e:
                         print "Load favorite page error:", e
-                self.webview.execute_script('var infos=%s' % 
-                        json.dumps(infos, encoding="UTF-8", ensure_ascii=False))
-                self.webview.execute_script("gallery_change(%s)" %
-                        json.dumps(self.gallery_html_path, encoding="UTF-8", ensure_ascii=False))
-                return
+                if infos:
+                    self.webview.execute_script('var infos=%s' % 
+                            json.dumps(infos, encoding="UTF-8", ensure_ascii=False))
+                    self.webview.execute_script("gallery_change(%s)" %
+                            json.dumps(self.gallery_html_path, encoding="UTF-8", ensure_ascii=False))
+                    return
 
         no_favorite_html_path = os.path.join(static_dir, "error-no-favorite.html")
         self.webview.execute_script("gallery_change(%s)" %
@@ -328,11 +329,12 @@ class GameCenterApp(dbus.service.Object):
                         infos.append(info)
                     except:
                         pass
-                self.webview.execute_script('var infos=%s' % 
-                        json.dumps(infos, encoding="UTF-8", ensure_ascii=False))
-                self.webview.execute_script("gallery_change(%s)" %
-                    json.dumps(self.gallery_html_path, encoding="UTF-8", ensure_ascii=False))
-                return
+                if infos:
+                    self.webview.execute_script('var infos=%s' % 
+                            json.dumps(infos, encoding="UTF-8", ensure_ascii=False))
+                    self.webview.execute_script("gallery_change(%s)" %
+                        json.dumps(self.gallery_html_path, encoding="UTF-8", ensure_ascii=False))
+                    return
 
         no_recent_html_path = os.path.join(static_dir, "error-no-recent.html")
         self.webview.execute_script("gallery_change(%s)" %
