@@ -25,7 +25,7 @@ import gtk
 from dtk.ui.draw import draw_pixbuf, draw_vlinear
 from dtk.ui.label import Label
 from dtk.ui.box import BackgroundBox
-from dtk.ui.theme import ui_theme
+from dtk.ui.theme import ui_theme, DynamicColor
 from dtk.ui.threads import post_gui
 from dtk.ui.scrolled_window import ScrolledWindow
 
@@ -60,7 +60,7 @@ class GuideBox(gtk.VBox):
         self.top_title.pack_start(top_right_text_align, False, False)
 
         self.content_box = gtk.VBox()
-        self.guide_label = Label('', enable_select=False, wrap_width=200, text_size=10)
+        self.guide_label = Label('', enable_select=False, wrap_width=200, text_size=9, text_color=DynamicColor('#808080'))
         guide_label_align = gtk.Alignment(0.5, 0.5, 1, 1)
         guide_label_align.set_padding(5, 5, 10, 10)
         guide_label_align.add(self.guide_label)
