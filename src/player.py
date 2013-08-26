@@ -286,11 +286,11 @@ class Player(dbus.service.Object):
         FetchInfo(self.appid).start()
         self.swf_save_path = os.path.expanduser("~/.cache/deepin-game-center/downloads/%s/%s.swf" % (self.appid, self.appid))
         if os.path.exists(self.swf_save_path):
-            gtk.timeout_add(500, lambda:self.load_game())
+            gtk.timeout_add(300, lambda:self.load_game())
         else:
             touch_file_dir(self.swf_save_path)
             self.load_html_path = os.path.join(static_dir, 'loading.html')
-            gtk.timeout_add(500, lambda :self.send_message('load_loading_uri', "file://" + self.load_html_path))
+            gtk.timeout_add(300, lambda :self.send_message('load_loading_uri', "file://" + self.load_html_path))
             
             self.remote_path = GAME_CENTER_DATA_ADDRESS + self.swf_url
             self.download_task = TaskObject(self.remote_path, self.swf_save_path)

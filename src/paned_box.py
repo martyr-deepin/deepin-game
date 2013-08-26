@@ -42,7 +42,6 @@ class PanedBox(gtk.Bin):
         self.bottom_show_first = bottom_show_first
 
     def do_realize(self):
-        print "DEBUG: do_realize"
         gtk.Bin.do_realize(self)
         self.set_realized(True)
         self.allocation.x = 0
@@ -73,7 +72,6 @@ class PanedBox(gtk.Bin):
         self.queue_resize()
 
     def __init_bottom_window(self):
-        print "DEBUG: __init_bottom_window"
         self.bottom_window = gtk.gdk.Window(
                 self.window,
                 window_type=gtk.gdk.WINDOW_CHILD,
@@ -97,11 +95,9 @@ class PanedBox(gtk.Bin):
             self.control_box.set_parent_window(self.bottom_window)
 
     def do_unrealize(self):
-        print "DEBUG: do_unrealize"
         gtk.Bin.do_unrealize(self)
 
     def do_map(self):
-        print "DEBUG: do_map"
         gtk.Bin.do_map(self)
         self.set_flags(gtk.MAPPED)
         self.window.show()
@@ -111,7 +107,6 @@ class PanedBox(gtk.Bin):
             self.bottom_window.hide()
 
     def do_unmap(self):
-        print "DEBUG: do_unmap"
         gtk.Bin.do_unmap(self)
 
     def do_expose_event(self, e):
@@ -129,7 +124,6 @@ class PanedBox(gtk.Bin):
         return False
 
     def __paint_bottom_window(self, e):
-        print "DEBUG: paint_bottom_window"
         bottom_rect = self.bottom_window.get_size()
         cr = self.bottom_window.cairo_create()
         cr.set_source_rgba(*alpha_color_hex_to_cairo(("#ffffff", 0.0)))
