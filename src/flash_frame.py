@@ -28,6 +28,7 @@ import dbus
 import dbus.service
 from dtk.ui.browser import WebView
 import json
+from paned_box import PanedBox
 
 class FlashFrame(dbus.service.Object):
     '''
@@ -47,7 +48,10 @@ class FlashFrame(dbus.service.Object):
         self.plug = gtk.Plug(0)
 
         self.webview = WebView()
-        self.plug.add(self.webview)
+        self.paned_box = PanedBox(2)
+        self.paned_box.enter_bottom_win_callback = self.enter_bottom_notify
+        self.paned_box.add_content_widget(self.webview)
+        self.plug.add(self.paned_box)
         
         # Handle signals.
         self.plug.connect("realize", self.flash_frame_realize)
@@ -74,6 +78,9 @@ class FlashFrame(dbus.service.Object):
         setattr(FlashFrame, 
                 'message_receiver', 
                 dbus.service.method(dbus_name)(message_receiver))
+
+    def enter_bottom_notify(self):
+        self.send_message('enter_bottom', '')
 
     def is_exist(self):
         if dbus.SessionBus().name_has_owner("com.deepin.game_player_%s" % self.appid):

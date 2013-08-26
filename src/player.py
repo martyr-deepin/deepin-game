@@ -31,20 +31,22 @@ import urllib
 
 from theme import app_theme
 from application import PlayerApplication
-from dtk.ui.statusbar import Statusbar
+from dtk.ui.utils import alpha_color_hex_to_cairo, container_remove_all
+from dtk.ui.skin_config import skin_config
+from dtk.ui.draw import draw_pixbuf
 from deepin_utils.file import get_parent_dir, touch_file_dir
 from deepin_utils.ipc import is_dbus_name_exists
 
 import pypulse_small as pypulse
 from guide_box import GuideBox
-from star_view import StarView
+from paned_box import PanedBox
+from control_toolbar import ControlToolbar
 from utils import get_common_image, handle_dbus_reply, handle_dbus_error
 import record_info
 from nls import _
 from constant import GAME_CENTER_DATA_ADDRESS
 from download_manager import fetch_service, TaskObject, FetchInfo
 from xdg_support import get_config_file
-from button import ToggleButton, Button
 from sound_manager import SoundSetting
 from constant import PROGRAM_NAME
 
@@ -65,6 +67,9 @@ class Player(dbus.service.Object):
         self.current_sink_index = None
         self.sound_manager = SoundSetting(self.sound_sink_callback)
         self.loading = True
+        self.hand_pause = False
+        self.game_pause = False
+        self.fullscreen_state = False
         self.init_ui()
 
         def unique(self):
@@ -77,6 +82,8 @@ class Player(dbus.service.Object):
                 self.plug_status = True
             elif message_type == 'loading_uri_finish':
                 fetch_service.add_missions([self.download_task])
+            elif message_type == 'enter_bottom':
+                self.paned_box.bottom_window.show()
 
         setattr(Player, 
                 'unique', 
@@ -113,155 +120,52 @@ class Player(dbus.service.Object):
         self.application.titlebar.change_name(player_title)
         self.application.titlebar.mode_button.set_active(True)
         self.application.titlebar.mode_button.connect('toggled', self.change_view)
+        self.application.titlebar.close_button.connect('clicked', self.quit)
         self.application.window.connect('focus-out-event', self.window_out_focus_hander)
         self.application.window.connect('focus-in-event', self.window_in_focus_hander)
 
-        # Init page box.
         self.page_box = gtk.HBox()
         self.content_page = ContentPage(self.appid)
-        self.page_box.pack_start(self.content_page)
 
         self.guide_box = GuideBox()
         self.guide_box.set_size_request(220, -1)
-        self.page_box.pack_start(self.guide_box, False)
         
-        # Init page align.
         self.page_align = gtk.Alignment()
         self.page_align.set(0.5, 0.5, 1, 1)
         self.page_align.set_padding(0, 0, 2, 2)
         
-        # Append page to switcher.
+        self.control_toolbar = ControlToolbar()
+        self.control_toolbar.mute_button.connect('clicked', self.mute_handler)
+        self.control_toolbar.pause_button.connect('button-press-event', self.pause_handler)
+        self.control_toolbar.replay_button.connect('clicked', self.replay_action)
+        self.control_toolbar.fullscreen_button.connect('clicked', self.fullscreen_handler)
+        self.control_toolbar.share_button.connect('clicked', self.share_action)
+        self.control_toolbar.leave_callback = self.leave_callback
+
+
+        self.page_box.pack_start(self.content_page)
+        self.page_box.pack_start(self.guide_box, False)
         self.page_align.add(self.page_box)
-        self.application.main_box.pack_start(self.page_align, True, True)
-        
-        # Init status bar.
-        self.statusbar = Statusbar(39)
-        status_box = gtk.HBox()
+        self.paned_box = PanedBox()
+        self.paned_box.add_content_widget(self.page_align)
+        self.application.main_box.pack_start(self.paned_box)
+        self.display_normal()
 
-        self.mute_button = ToggleButton(
-                app_theme.get_pixbuf('mute/sound_normal.png'),
-                app_theme.get_pixbuf('mute/mute_normal.png'),
-                app_theme.get_pixbuf('mute/sound_hover.png'),
-                app_theme.get_pixbuf('mute/mute_hover.png'),
-                app_theme.get_pixbuf('mute/sound_press.png'),
-                app_theme.get_pixbuf('mute/mute_press.png'),
-                active_button_label = '声音',
-                inactive_button_label = '静音',
-                draw_background=True,
-                padding_edge=10,
-                padding_middle=6)
-        self.mute_button.connect('clicked', self.mute_handler)
-        mute_button_align = gtk.Alignment()
-        mute_button_align.set(0, 0.5, 0, 0)
-        mute_button_align.set_padding(3, 6, 3, 3)
-        mute_button_align.add(self.mute_button)
-
-        self.favorite_button = ToggleButton(
-                app_theme.get_pixbuf('favorite/unfavorite_normal.png'),
-                app_theme.get_pixbuf('favorite/favorite_normal.png'),
-                app_theme.get_pixbuf('favorite/unfavorite_hover.png'),
-                app_theme.get_pixbuf('favorite/favorite_hover.png'),
-                app_theme.get_pixbuf('favorite/unfavorite_press.png'),
-                app_theme.get_pixbuf('favorite/favorite_press.png'),
-                active_button_label = '收藏',
-                draw_background=True,
-                padding_edge=10,
-                padding_middle=6)
-        favorite_button_align = gtk.Alignment()
-        favorite_button_align.set(0, 0.5, 0, 0)
-        favorite_button_align.set_padding(3, 6, 3, 3)
-        favorite_button_align.add(self.favorite_button)
-
-        self.replay_button = Button(
-                app_theme.get_pixbuf('replay/replay_normal.png'),
-                app_theme.get_pixbuf('replay/replay_hover.png'),
-                app_theme.get_pixbuf('replay/replay_press.png'),
-                button_label='重玩',
-                draw_background=True,
-                padding_edge=10,
-                padding_middle=6)
-        self.replay_button.connect('clicked', self.replay_action)
-        replay_button_align = gtk.Alignment()
-        replay_button_align.set(0, 0.5, 0, 0)
-        replay_button_align.set_padding(3, 6, 3, 3)
-        replay_button_align.add(self.replay_button)
-
-        self.hand_pause = False
-        self.game_pause = False
-        self.pause_button = ToggleButton(
-                app_theme.get_pixbuf('pause/pause_normal.png'),
-                app_theme.get_pixbuf('pause/play_normal.png'),
-                app_theme.get_pixbuf('pause/pause_hover.png'),
-                app_theme.get_pixbuf('pause/play_hover.png'),
-                app_theme.get_pixbuf('pause/pause_press.png'),
-                app_theme.get_pixbuf('pause/play_press.png'),
-                active_button_label = '暂停',
-                inactive_button_label = '继续',
-                draw_background=True,
-                padding_edge=10,
-                padding_middle=6)
-        self.pause_button.connect('button-press-event', self.pause_handler)
-        pause_button_align = gtk.Alignment()
-        pause_button_align.set(0, 0.5, 0, 0)
-        pause_button_align.set_padding(3, 6, 10, 3)
-        pause_button_align.add(self.pause_button)
-
-        self.fullscreen_button = Button(
-                app_theme.get_pixbuf('fullscreen/fullscreen_normal.png'),
-                app_theme.get_pixbuf('fullscreen/fullscreen_hover.png'),
-                app_theme.get_pixbuf('fullscreen/fullscreen_press.png'),
-                button_label='全屏',
-                draw_background=True,
-                padding_edge=10,
-                padding_middle=6)
-        self.fullscreen_button.connect('clicked', self.fullscreen_action)
-        fullscreen_button_align = gtk.Alignment()
-        fullscreen_button_align.set(0, 0.5, 0, 0)
-        fullscreen_button_align.set_padding(3, 6, 3, 3)
-        fullscreen_button_align.add(self.fullscreen_button)
-
-        self.share_button = Button(
-                app_theme.get_pixbuf('share/share_normal.png'),
-                app_theme.get_pixbuf('share/share_hover.png'),
-                app_theme.get_pixbuf('share/share_press.png'),
-                button_label='分享',
-                draw_background=True,
-                padding_edge=10,
-                padding_middle=6)
-        self.share_button.connect('clicked', self.share_action)
-        share_button_align = gtk.Alignment()
-        share_button_align.set(0, 0.5, 0, 0)
-        share_button_align.set_padding(3, 6, 3, 3)
-        share_button_align.add(self.share_button)
-
-        self.star = StarView()
-        star_align = gtk.Alignment(1, 0.5, 0, 0)
-        star_align.set_padding(3, 6, 3, 20)
-        star_align.add(self.star)
-
-        status_box.pack_start(pause_button_align, False, False)
-        status_box.pack_start(mute_button_align, False, False)
-        status_box.pack_start(replay_button_align, False, False)
-        status_box.pack_start(favorite_button_align, False, False)
-        status_box.pack_start(fullscreen_button_align, False, False)
-        status_box.pack_start(share_button_align, False, False)
-        status_box.pack_start(star_align)
-
-        self.statusbar.status_box.pack_start(status_box, True, True)
-        self.application.main_box.pack_start(self.statusbar, False, False)
-        self.application.titlebar.close_button.connect('clicked', self.quit)
+    def leave_callback(self, widget, e):
+        if self.fullscreen_state and e.window == self.paned_box.bottom_window:
+            self.paned_box.bottom_window.hide()
 
     def window_in_focus_hander(self, widget, event):
         print "In: hand=>%s, pause=>%s" % (self.hand_pause, self.game_pause)
         if not self.loading and (not self.hand_pause and self.game_pause):
-            self.pause_button.set_active(False)
-            self.toggle_pause_action(self.pause_button)
+            self.control_toolbar.pause_button.set_active(False)
+            self.toggle_pause_action(self.control_toolbar.pause_button)
 
     def window_out_focus_hander(self, widget, event):
         print "Out: hand=>%s, pause=>%s" % (self.hand_pause, self.game_pause)
         if not self.loading and (not self.hand_pause and not self.game_pause):
-            self.pause_button.set_active(True)
-            self.toggle_pause_action(self.pause_button)
+            self.control_toolbar.pause_button.set_active(True)
+            self.toggle_pause_action(self.control_toolbar.pause_button)
 
     def change_view(self, widget):
         width, height = self.window.get_size()
@@ -287,13 +191,42 @@ class Player(dbus.service.Object):
                                            FULL_DEFAULT_WIDTH, FULL_DEFAULT_HEIGHT,  -1, -1, -1, -1, -1, -1)
             self.window.resize(FULL_DEFAULT_WIDTH, FULL_DEFAULT_HEIGHT)
 
-
     def quit(self, widget, data=None):
         os.system('kill -9 %s' % self.p.pid)
         self.application.window.close_window()
 
+    def display_normal(self):
+        self.application.show_titlebar()
+        self.guide_box.show_all()
+        self.application.main_box.pack_start(self.control_toolbar, False, False)
+        self.application.window.show_window()
+
     def fullscreen_handler(self, widget, data=None):
-        self.application.window.toggle_fullscreen_window()
+        window_state = self.application.window.get_state()
+        if window_state == gtk.gdk.WINDOW_STATE_FULLSCREEN:
+            self.fullscreen_state = False
+            self.display_normal()
+        else:
+
+            self.fullscreen_state = True
+            # for fullscreen mode
+            self.paned_box.connect('leave-notify-event', self.leave_callback)
+            self.paned_box.paint_bottom_window = self.__paint_bottom_toolbar_background
+
+            #container_remove_all(self.application.main_box)
+            self.application.main_box.remove(self.page_align)
+            self.application.main_box.remove(self.control_toolbar)
+            #container_remove_all(self.page_box)
+            self.page_box.remove(self.content_page)
+            self.page_box.remove(self.guide_box)
+            #container_remove_all(self.page_align)
+            self.page_align.remove(self.page_box)
+
+            self.application.hide_titlebar()
+            self.paned_box.add_content_widget(self.content_page)
+            self.paned_box.add_bottom_widget(self.control_toolbar)
+            self.application.main_box.pack_start(self.paned_box)
+            self.application.window.show_window()
 
     def mute_handler(self, widget, data=None):
         if self.current_sink_index:
@@ -405,6 +338,35 @@ class Player(dbus.service.Object):
     def download_failed(self, task, data):
         pass
 
+    def __paint_bottom_toolbar_background(self, e):
+        # 将皮肤的图片画在bottom toolbar上,作为背景.
+        cr = e.window.cairo_create()
+        bottom_size = e.window.get_size()
+        # draw background.
+        cr.set_source_rgba(*alpha_color_hex_to_cairo(("#ebebeb", 0.1)))
+        cr.rectangle(0, 0, bottom_size[0], bottom_size[1])
+        cr.fill()
+        # draw background pixbuf.
+        pixbuf = skin_config.background_pixbuf
+        app_h = self.application.window.allocation.height
+        app_w = self.application.window.allocation.width
+        bottom_h = bottom_size[1]
+        # 当图片的高度小雨窗口高度的时候,只拿出图片的最尾巴.
+        if pixbuf.get_height() > app_h + bottom_h:
+            h = app_h
+        else:
+            h = pixbuf.get_height() - bottom_h
+        # 当图片小于窗口宽度的时候,拉伸图片.
+        if pixbuf.get_width() < app_w:
+            pixbuf = pixbuf.scale_simple(app_w,
+                                pixbuf.get_width(),
+                                gtk.gdk.INTERP_BILINEAR)
+
+        draw_pixbuf(cr, 
+                    pixbuf, 
+                    0, 
+                    -(h))
+
 class ContentPage(gtk.VBox):
     '''
     class docs
@@ -417,14 +379,25 @@ class ContentPage(gtk.VBox):
         gtk.VBox.__init__(self)
         self.appid = appid
         self.socket = None
-        self.connect("realize", self._add_socket)
+
+        self.socket_box = gtk.VBox()
+        self.socket_box.connect("realize", self._add_socket)
+
+        self.pack_start(self.socket_box, True, True)
+
+    def expose(self, widget, event):
+        cr = widget.window.cairo_create()
+        rect = widget.allocation
+
+        cr.set_source_rgba(*alpha_color_hex_to_cairo(('#ff0000', 1.0)))
+        cr.rectangle(rect.x, rect.y, rect.width, rect.height)
         
     def _add_socket(self, w):
         #must create an new socket, because socket will be destroyed when it reparent!!!
         if self.socket:
             self.socket.destroy()
         self.socket = gtk.Socket()
-        self.pack_start(self.socket, True, True)
+        self.socket_box.pack_start(self.socket, True, True)
         self.socket.realize()
 
     def add_plug_id(self, plug_id):
@@ -436,6 +409,7 @@ class ContentPage(gtk.VBox):
         return self.socket.get_id()
                 
 gobject.type_register(ContentPage)
+
 
 if __name__ == '__main__':
     import sys

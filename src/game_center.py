@@ -36,7 +36,7 @@ from dtk.ui.statusbar import Statusbar
 from dtk.ui.theme import DynamicPixbuf
 from dtk.ui.browser import WebView 
 from dtk.ui.skin_config import skin_config
-from deepin_utils.file import get_parent_dir, touch_file_dir
+from deepin_utils.file import get_parent_dir
 
 from navigatebar import Navigatebar
 from animation import favorite_animation
@@ -163,6 +163,8 @@ class GameCenterApp(dbus.service.Object):
                 gtk.timeout_add(200, self.fresh_favotite_status)
             elif order == 'onload' and data == 'local_game_gallery':
                 self.webview.execute_script('$("#game-gallery").get(0).contentWindow.set_right_menu()')
+                self.webview.execute_script('$("#game-gallery").get(0).contentWindow.change_color_theme(%s)' %
+                    json.dumps(skin_config.theme_name, encoding="UTF-8", ensure_ascii=False))
                 gtk.timeout_add(200, self.fresh_favotite_status)
             elif order == 'onload' and data == 'main_frame':
                 gtk.timeout_add(200, self.show_favorite_page)

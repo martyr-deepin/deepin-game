@@ -60,3 +60,9 @@ function change_favorite_status(id, status){
         $('#game-gallery').contents().find(favorite_id).addClass('like');
     }
 }
+
+function change_color_theme(name){
+    var old_color_link = $("#color_link").attr("href");
+    new_color_link = old_color_link.split('_')[0] +"_" + name + '.css';
+    $("#color_link").attr("href", new_color_link);
+}
