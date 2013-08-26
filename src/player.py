@@ -31,7 +31,7 @@ import urllib
 
 from theme import app_theme
 from application import PlayerApplication
-from dtk.ui.utils import alpha_color_hex_to_cairo, container_remove_all
+from dtk.ui.utils import alpha_color_hex_to_cairo
 from dtk.ui.skin_config import skin_config
 from dtk.ui.draw import draw_pixbuf
 from deepin_utils.file import get_parent_dir, touch_file_dir
@@ -83,7 +83,9 @@ class Player(dbus.service.Object):
             elif message_type == 'loading_uri_finish':
                 fetch_service.add_missions([self.download_task])
             elif message_type == 'enter_bottom':
-                self.paned_box.bottom_window.show()
+                print "enter_bottom"
+                if self.show_bottom:
+                    self.paned_box.bottom_window.show()
 
         setattr(Player, 
                 'unique', 
@@ -134,22 +136,27 @@ class Player(dbus.service.Object):
         self.page_align.set(0.5, 0.5, 1, 1)
         self.page_align.set_padding(0, 0, 2, 2)
         
-        self.control_toolbar = ControlToolbar()
-        self.control_toolbar.mute_button.connect('clicked', self.mute_handler)
-        self.control_toolbar.pause_button.connect('button-press-event', self.pause_handler)
-        self.control_toolbar.replay_button.connect('clicked', self.replay_action)
-        self.control_toolbar.fullscreen_button.connect('clicked', self.fullscreen_handler)
-        self.control_toolbar.share_button.connect('clicked', self.share_action)
-        self.control_toolbar.leave_callback = self.leave_callback
-
-
+        self.control_toolbar = self.create_toolbar()
         self.page_box.pack_start(self.content_page)
         self.page_box.pack_start(self.guide_box, False)
         self.page_align.add(self.page_box)
         self.paned_box = PanedBox()
         self.paned_box.add_content_widget(self.page_align)
+        self.inner_control_toolbar = self.create_toolbar()
+        self.paned_box.add_bottom_widget(self.inner_control_toolbar)
         self.application.main_box.pack_start(self.paned_box)
+        self.show_bottom = False
         self.display_normal()
+
+    def create_toolbar(self):
+        control_toolbar = ControlToolbar()
+        control_toolbar.mute_button.connect('clicked', self.mute_handler)
+        control_toolbar.pause_button.connect('button-press-event', self.pause_handler)
+        control_toolbar.replay_button.connect('clicked', self.replay_action)
+        control_toolbar.fullscreen_button.connect('clicked', self.fullscreen_handler)
+        control_toolbar.share_button.connect('clicked', self.share_action)
+        control_toolbar.leave_callback = self.leave_callback
+        return control_toolbar
 
     def leave_callback(self, widget, e):
         if self.fullscreen_state and e.window == self.paned_box.bottom_window:
@@ -200,33 +207,28 @@ class Player(dbus.service.Object):
         self.guide_box.show_all()
         self.application.main_box.pack_start(self.control_toolbar, False, False)
         self.application.window.show_window()
+        if getattr(self.paned_box, "bottom_window"):
+            self.paned_box.bottom_window.hide()
 
     def fullscreen_handler(self, widget, data=None):
-        window_state = self.application.window.get_state()
-        if window_state == gtk.gdk.WINDOW_STATE_FULLSCREEN:
+        if self.fullscreen_state:
             self.fullscreen_state = False
             self.display_normal()
+            self.show_bottom = False
+            self.application.window.unfullscreen()
         else:
-
             self.fullscreen_state = True
             # for fullscreen mode
             self.paned_box.connect('leave-notify-event', self.leave_callback)
             self.paned_box.paint_bottom_window = self.__paint_bottom_toolbar_background
-
-            #container_remove_all(self.application.main_box)
-            self.application.main_box.remove(self.page_align)
-            self.application.main_box.remove(self.control_toolbar)
-            #container_remove_all(self.page_box)
-            self.page_box.remove(self.content_page)
-            self.page_box.remove(self.guide_box)
-            #container_remove_all(self.page_align)
-            self.page_align.remove(self.page_box)
+            self.show_bottom = True
 
             self.application.hide_titlebar()
-            self.paned_box.add_content_widget(self.content_page)
-            self.paned_box.add_bottom_widget(self.control_toolbar)
-            self.application.main_box.pack_start(self.paned_box)
+            self.application.main_box.remove(self.control_toolbar)
+            self.control_toolbar.show_all()
             self.application.window.show_window()
+            self.guide_box.hide_all()
+            self.application.window.fullscreen()
 
     def mute_handler(self, widget, data=None):
         if self.current_sink_index:

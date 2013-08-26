@@ -25,12 +25,13 @@ import gobject
 from dtk.ui.utils import alpha_color_hex_to_cairo
 
 class PanedBox(gtk.Bin):
-    def __init__(self, bottom_window_height=39):
+    def __init__(self, bottom_window_height=39, bottom_show_first=False):
         gtk.Bin.__init__(self)
         self.add_events(gtk.gdk.ALL_EVENTS_MASK)
 
         self.content_box = None
         self.control_box = None
+        self.show_bottom = False
 
         self.control_box_height = bottom_window_height
 
@@ -38,6 +39,7 @@ class PanedBox(gtk.Bin):
 
         self.paint_bottom_window = self.__paint_bottom_window
         self.enter_bottom_win_callback = None
+        self.bottom_show_first = bottom_show_first
 
     def do_realize(self):
         print "DEBUG: do_realize"
@@ -103,7 +105,10 @@ class PanedBox(gtk.Bin):
         gtk.Bin.do_map(self)
         self.set_flags(gtk.MAPPED)
         self.window.show()
-        self.bottom_window.show()
+        if self.bottom_show_first:
+            self.bottom_window.show()
+        else:
+            self.bottom_window.hide()
 
     def do_unmap(self):
         print "DEBUG: do_unmap"
@@ -118,11 +123,7 @@ class PanedBox(gtk.Bin):
         return False
 
     def do_motion_notify_event(self, e):
-        if e.window == self.window:
-            if self.__in_bottom_edge(e):
-                self.bottom_window.show()
-                self.bottom_win_show_check = True
-        elif e.window == self.bottom_window:
+        if e.window == self.bottom_window:
             if self.enter_bottom_win_callback:
                 self.enter_bottom_win_callback()
         return False
