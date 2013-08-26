@@ -40,7 +40,8 @@ def record_favorite(appid, conf_db):
 def remove_favorite(appid, conf_db):
     if os.path.exists(conf_db):
         data = utils.load_db(conf_db)
-        if data.get('favorite') and appid in data['favorite']:
+        favorite_list = data.get('favorite')
+        if favorite_list and appid in favorite_list:
             data['favorite'].remove(appid)
             utils.save_db(data, conf_db)
 
@@ -62,6 +63,7 @@ def record_recent_play(appid, conf_db):
 def remove_recent_play(appid, conf_db):
     if os.path.exists(conf_db):
         data = utils.load_db(conf_db)
-        if data.get('recent') and appid in data['favorite']:
-            data['favorite'].remove(appid)
+        recent_list = data.get('recent')
+        if recent_list and appid in recent_list:
+            data['recent'].remove(appid)
             utils.save_db(data, conf_db)

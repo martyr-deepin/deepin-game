@@ -211,7 +211,16 @@ class GameCenterApp(dbus.service.Object):
             elif order == 'unfavorite':
                 record_info.remove_favorite(data, self.conf_db)
             elif order == 'local_action':
-                print data
+                info = data.split('-')
+                if len(info) == 2:
+                    action_type= info[0]
+                    appid = info[1]
+                    if action_type == 'favorite':
+                        record_info.remove_favorite(appid, self.conf_db)
+                        utils.ThreadMethod(utils.send_analytics, ('unfavorite', appid)).start()
+                        #var favorite_url = 'http://' + location.host + '/game/analytics/?type=unfavorite&appid=' + id;
+                    elif action_type == 'recent':
+                        record_info.remove_recent_play(appid, self.conf_db)
 
     def navigation_policy_decision_requested_cb(self, web_view, frame, request, navigation_action, policy_decision):
         uri = request.get_uri()
