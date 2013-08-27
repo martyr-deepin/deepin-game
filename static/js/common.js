@@ -44,6 +44,10 @@ function append_data_to_gallery(data){
         grid_div += data[i]['resizable'];
         grid_div += '" target="_blank" class="over"></a>';
         grid_div += '<a href="http://game-center.linuxdeepin.com/game/details/'+ data[i]['id'] +'" class="info"></a>';
+        grid_div += '<span class="icon">';
+        if (data[i]['type'] == 'recent'){
+        grid_div += '<span class="icon2 like" id="favorite-' + data[i]['id'] + '" onclick="favorite_action(event, ' + data[i]['id'] + ')">' +data[i]['favorite_number']+ '</span></span>';
+        }
         grid_div += '</div>';
         $('#game-gallery').contents().find('#grid').append(grid_div);
     }
