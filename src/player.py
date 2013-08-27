@@ -139,12 +139,13 @@ class Player(dbus.service.Object):
         self.control_toolbar = self.create_toolbar()
         self.page_box.pack_start(self.content_page)
         self.page_box.pack_start(self.guide_box, False)
-        self.page_align.add(self.page_box)
         self.paned_box = PanedBox()
-        self.paned_box.add_content_widget(self.page_align)
+        self.paned_box.add_content_widget(self.page_box)
         self.inner_control_toolbar = self.create_toolbar()
+
+        self.page_align.add(self.paned_box)
         self.paned_box.add_bottom_widget(self.inner_control_toolbar)
-        self.application.main_box.pack_start(self.paned_box)
+        self.application.main_box.pack_start(self.page_align)
         self.show_bottom = False
         self.display_normal()
 
