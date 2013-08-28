@@ -174,11 +174,15 @@ class GameCenterApp(dbus.service.Object):
         if current_theme:
             self.webview.execute_script('change_color_theme(%s)' %
                 json.dumps(current_theme, encoding="UTF-8", ensure_ascii=False))
+            self.webview.execute_script('$("#game-gallery").get(0).contentWindow.change_color_theme(%s)' %
+                json.dumps(current_theme, encoding="UTF-8", ensure_ascii=False))
 
         skin_config.connect('theme-changed', self.theme_changed_handler)
 
     def theme_changed_handler(self, widget, name):
         self.webview.execute_script('change_color_theme(%s)' %
+            json.dumps(name, encoding="UTF-8", ensure_ascii=False))
+        self.webview.execute_script('$("#game-gallery").get(0).contentWindow.change_color_theme(%s)' %
             json.dumps(name, encoding="UTF-8", ensure_ascii=False))
 
     def webview_message_handler(self, info):

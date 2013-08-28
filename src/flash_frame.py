@@ -29,6 +29,7 @@ import dbus.service
 from dtk.ui.browser import WebView
 import json
 from paned_box import PanedBox
+from constant import COOKIE_FILE
 
 class FlashFrame(dbus.service.Object):
     '''
@@ -47,7 +48,7 @@ class FlashFrame(dbus.service.Object):
         
         self.plug = gtk.Plug(0)
 
-        self.webview = WebView()
+        self.webview = WebView(COOKIE_FILE)
         self.paned_box = PanedBox(2, True)
         self.paned_box.enter_bottom_win_callback = self.enter_bottom_notify
         self.paned_box.add_content_widget(self.webview)

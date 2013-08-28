@@ -20,14 +20,23 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
 import cookielib
+import time
+
+from deepin_utils.file import touch_file
 from constant import COOKIE_FILE, GAME_CENTER_SERVER_ADDRESS
+
+ONE_DAY_SECONDS = 60*60*24
 
 def get_cookie_star(appid):
     domain = GAME_CENTER_SERVER_ADDRESS.split('/')[2].split(':')[0]
     path = '/game/details/%s' % appid
     m = cookielib.MozillaCookieJar()
-    m.load(COOKIE_FILE)
+    try:
+        m.load(COOKIE_FILE)
+    except:
+        return None
     c = m._cookies
     if domain not in c:
         return None
@@ -39,6 +48,45 @@ def get_cookie_star(appid):
             c3 = c2[path]
             _cookie = c3.get('star')
             if _cookie:
-                return _cookie.value
+                return _cookie
             else:
                 return None
+
+def set_cookie_star(appid, star):
+    domain = GAME_CENTER_SERVER_ADDRESS.split('/')[2].split(':')[0]
+    path = '/game/details/%s' % appid
+    m = cookielib.MozillaCookieJar()
+    try:
+        m.load(COOKIE_FILE)
+    except:
+        pass
+
+    expires = int(time.time() + ONE_DAY_SECONDS)
+    c = cookielib.Cookie(
+            version=0, 
+            name='star', 
+            value=str(star), 
+            port=None, 
+            port_specified=False, 
+            domain=domain, 
+            domain_specified=False, 
+            domain_initial_dot=False, 
+            path=path, 
+            path_specified=False, 
+            secure=False, 
+            expires=expires, 
+            discard=False, 
+            comment=None, 
+            comment_url=None, 
+            rest={}, 
+            rfc2109=False,
+            )
+
+    m.set_cookie(c)
+    if not os.path.exists(COOKIE_FILE):
+        touch_file(COOKIE_FILE)
+    m.save(COOKIE_FILE)
+
+if __name__ == '__main__':
+    cookie = set_cookie_star(3362, 10)
+    print get_cookie_star(3362)

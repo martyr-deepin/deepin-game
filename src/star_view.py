@@ -81,6 +81,11 @@ class StarView(gtk.Button):
     @undocumented: expose_star_view
     @undocumented: motion_notify_star_view
     '''
+
+    __gsignals__ = {
+        "star-press" : (gobject.SIGNAL_RUN_FIRST, gobject.TYPE_NONE, (gobject.TYPE_INT,)),
+    }
+
 	
     def __init__(self, star_level=5):
         '''
@@ -94,10 +99,10 @@ class StarView(gtk.Button):
         
         self.set_size_request(STAR_SIZE * 5, STAR_SIZE)
         
-        self.connect("enter-notify-event", self.enter_notify_star_view)
         self.connect("leave-notify-event", self.leave_notify_star_view)
         self.connect("motion-notify-event", self.motion_notify_star_view)
         self.connect("expose-event", self.expose_star_view)        
+        self.connect("button-press-event", self.star_button_press_handler)
 
     def set_star_level(self, star_level):
         self.star_level = star_level
@@ -111,6 +116,11 @@ class StarView(gtk.Button):
             self.queue_draw()
         else:
             self.read_only = False
+            self.queue_draw()
+
+    def star_button_press_handler(self, widget, event):
+        (event_x, event_y) = get_event_coords(event)
+        self.emit('star-press', int(min(event_x / (STAR_SIZE / 2) + 1, 10)))
         
     def expose_star_view(self, widget, event):
         # Init.
@@ -129,9 +139,6 @@ class StarView(gtk.Button):
             (event_x, event_y) = get_event_coords(event)
             self.star_buffer.star_level = int(min(event_x / (STAR_SIZE / 2) + 1, 10))
             self.queue_draw()
-
-    def enter_notify_star_view(self, widget, event):
-        pass
 
     def leave_notify_star_view(self, widget, event):
         self.star_buffer.star_level = self.star_level

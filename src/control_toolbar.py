@@ -28,10 +28,14 @@ from star_view import StarView, StarMark
 from theme import app_theme
 from button import Button, ToggleButton
 from events import global_event
+from cookie_parser import get_cookie_star, set_cookie_star
+from download_manager import SetStarScore
 
 class ControlToolbar(Statusbar):
-    def __init__(self):
+    def __init__(self, appid):
         Statusbar.__init__(self, 39)
+
+        self.appid = appid
         status_box = gtk.HBox()
 
         self.mute_button = ToggleButton(
@@ -163,6 +167,24 @@ class ControlToolbar(Statusbar):
         #self.connect('motion-notify-event', self.leave_event_handler)
 
         global_event.register_event('download-app-info-finish', self.update_star)
+        global_event.register_event('set-star-score-success', self.score_success_handler)
+        self.star.connect("star-press", self.star_press)
+
+        self.cookie = get_cookie_star(self.appid)
+        if self.cookie:
+            self.star.set_read_only(True)
+
+    def star_press(self, widget, star):
+        if getattr(self, 'appid'):
+            SetStarScore(self.appid, star).start()
+            set_cookie_star(self.appid, int(star/2))
+
+    def score_success_handler(self, js):
+        score = float(js['score'])
+        print score
+        self.star.set_star_level(score)
+        self.star_mark.update_star(score)
+        self.star.set_read_only(True)
 
     @post_gui
     def update_star(self, js):

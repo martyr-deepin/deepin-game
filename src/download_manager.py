@@ -34,6 +34,27 @@ import urllib2
 fetch_service = FetchService(5)
 fetch_service.start()
 
+class SetStarScore(td.Thread):
+    def __init__(self, appid, star):
+        td.Thread.__init__(self)
+        self.daemon = True
+        self.appid = appid
+        self.star = star
+
+    def run(self):
+        url = "%sgame/analytics/?type=star&appid=%s&mark=%s" % (GAME_CENTER_SERVER_ADDRESS, self.appid, self.star)
+        try:
+            js = urllib2.urlopen(url).read()
+            if js:
+                js = json.loads(js)
+                if js['status'] == 'OK':
+                    global_event.emit('set-star-score-success', js)
+                else:
+                    print "Star error"
+                    print js
+        except Exception, e:
+            print 'SetStarScore Error:', e
+
 class FetchInfo(td.Thread):
     def __init__(self, appid):
         td.Thread.__init__(self)

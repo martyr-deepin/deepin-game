@@ -123,8 +123,8 @@ class Player(dbus.service.Object):
         self.application.titlebar.mode_button.set_active(True)
         self.application.titlebar.mode_button.connect('toggled', self.change_view)
         self.application.titlebar.close_button.connect('clicked', self.quit)
-        self.application.window.connect('focus-out-event', self.window_out_focus_hander)
-        self.application.window.connect('focus-in-event', self.window_in_focus_hander)
+        #self.application.window.connect('focus-out-event', self.window_out_focus_hander)
+        #self.application.window.connect('focus-in-event', self.window_in_focus_hander)
 
         self.page_box = gtk.HBox()
         self.content_page = ContentPage(self.appid)
@@ -150,7 +150,7 @@ class Player(dbus.service.Object):
         self.display_normal()
 
     def create_toolbar(self):
-        control_toolbar = ControlToolbar()
+        control_toolbar = ControlToolbar(self.appid)
         control_toolbar.mute_button.connect('clicked', self.mute_handler)
         control_toolbar.pause_button.connect('button-press-event', self.pause_handler)
         control_toolbar.replay_button.connect('clicked', self.replay_action)
