@@ -124,7 +124,8 @@ class Player(dbus.service.Object):
         self.application.titlebar.mode_button.connect('toggled', self.change_view)
         self.application.titlebar.close_button.connect('clicked', self.quit)
         #self.application.window.connect('focus-out-event', self.window_out_focus_hander)
-        #self.application.window.connect('focus-in-event', self.window_in_focus_hander)
+        self.application.window.connect('focus-in-event', self.window_in_focus_hander)
+        self.application.window.connect('window-state-event', self.window_state_change_handler)
 
         self.page_box = gtk.HBox()
         self.content_page = ContentPage(self.appid)
@@ -163,6 +164,15 @@ class Player(dbus.service.Object):
         if self.fullscreen_state and e.window == self.paned_box.bottom_window:
             self.paned_box.bottom_window.hide()
 
+    def window_state_change_handler(self, widget, event):
+        if event.new_window_state == gtk.gdk.WINDOW_STATE_ICONIFIED:
+            self.external_pause_action()
+
+    def external_pause_action(self):
+        if not self.loading and (not self.hand_pause and not self.game_pause):
+            self.control_toolbar.pause_button.set_active(True)
+            self.toggle_pause_action(self.control_toolbar.pause_button)
+
     def window_in_focus_hander(self, widget, event):
         print "In: hand=>%s, pause=>%s" % (self.hand_pause, self.game_pause)
         if not self.loading and (not self.hand_pause and self.game_pause):
@@ -171,7 +181,8 @@ class Player(dbus.service.Object):
 
     def window_out_focus_hander(self, widget, event):
         print "Out: hand=>%s, pause=>%s" % (self.hand_pause, self.game_pause)
-        if not self.loading and (not self.hand_pause and not self.game_pause):
+        min_state = self.window.get_state() == gtk.gdk.WINDOW_STATE_ICONIFIED
+        if not self.loading and (not self.hand_pause and not self.game_pause) and min_state:
             self.control_toolbar.pause_button.set_active(True)
             self.toggle_pause_action(self.control_toolbar.pause_button)
 
@@ -272,7 +283,8 @@ class Player(dbus.service.Object):
         filename = self.save_to_tmp_file(pixbuf)
         share_path = os.path.join(get_parent_dir(__file__), 'share.py')
         
-        subprocess.Popen(['python', share_path, filename], stderr=subprocess.STDOUT, shell=False)
+        self.share_p = subprocess.Popen(['python', share_path, filename], stderr=subprocess.STDOUT, shell=False)
+        self.external_pause_action()
 
     def save_to_tmp_file(self, pixbuf):
         from tempfile import mkstemp
