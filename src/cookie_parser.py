@@ -20,20 +20,25 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import os
+import cookielib
+from constant import COOKIE_FILE, GAME_CENTER_SERVER_ADDRESS
 
-PROGRAM_NAME = 'deepin-game-center'
-PROGRAM_VERSION = '0.1'
-
-GAME_CENTER_DBUS_NAME = 'com.deepin.game_center'
-GAME_CENTER_DBUS_PATH = '/com/deepin/game_center' 
-
-CONFIG_DIR = os.path.join(os.path.expanduser('~'), '.config', 'deepin-game-center')
-CACHE_DIR = os.path.join(os.path.expanduser('~'), '.cache', 'deepin-game-center')
-
-COOKIE_FILE = os.path.join(CONFIG_DIR, 'cookie.txt')
-
-DEBUG = True
-
-GAME_CENTER_SERVER_ADDRESS = 'http://game-center.linuxdeepin.com/' if not DEBUG else "http://59.173.241.82:11111/"
-GAME_CENTER_DATA_ADDRESS = 'http://game-center.linuxdeepin.com' if not DEBUG else "http://59.173.241.82:11111"
+def get_cookie_star(appid):
+    domain = GAME_CENTER_SERVER_ADDRESS.split('/')[2].split(':')[0]
+    path = '/game/details/%s' % appid
+    m = cookielib.MozillaCookieJar()
+    m.load(COOKIE_FILE)
+    c = m._cookies
+    if domain not in c:
+        return None
+    else:
+        c2 = c[domain]
+        if path not in c2:
+            return None
+        else:
+            c3 = c2[path]
+            _cookie = c3.get('star')
+            if _cookie:
+                return _cookie.value
+            else:
+                return None

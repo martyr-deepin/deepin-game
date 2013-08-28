@@ -22,11 +22,12 @@
 
 import gtk
 from dtk.ui.statusbar import Statusbar
-from dtk.ui.star_view import StarView
+from dtk.ui.threads import post_gui
+from star_view import StarView, StarMark
 
 from theme import app_theme
 from button import Button, ToggleButton
-
+from events import global_event
 
 class ControlToolbar(Statusbar):
     def __init__(self):
@@ -62,6 +63,7 @@ class ControlToolbar(Statusbar):
                 draw_background=True,
                 padding_edge=10,
                 padding_middle=6)
+        #self.favorite_button.connect('clicked', self.toggle_favorite)
         favorite_button_align = gtk.Alignment()
         favorite_button_align.set(0, 0.5, 0, 0)
         favorite_button_align.set_padding(3, 6, 3, 3)
@@ -129,10 +131,23 @@ class ControlToolbar(Statusbar):
         share_button_align.set_padding(3, 6, 3, 3)
         share_button_align.add(self.share_button)
 
+        star_box = gtk.HBox()
         self.star = StarView()
-        star_align = gtk.Alignment(1, 0.5, 0, 0)
-        star_align.set_padding(3, 6, 3, 20)
+        self.star.set_star_level(9)
+        star_align = gtk.Alignment(0.5, 0.5, 0, 0)
+        star_align.set_padding(2, 2, 3, 0)
         star_align.add(self.star)
+
+        self.star_mark = StarMark(9.5, 18)
+        star_mark_align = gtk.Alignment(0.5, 0, 0, 0)
+        star_mark_align.set_padding(2, 4, 3, 20)
+        star_mark_align.add(self.star_mark)
+        
+        star_box.pack_start(star_align)
+        star_box.pack_start(star_mark_align)
+        star_box_align = gtk.Alignment(1, 0.5, 0, 0)
+        star_box_align.set_padding(0, 0, 3, 0)
+        star_box_align.add(star_box)
 
         status_box.pack_start(pause_button_align, False, False)
         status_box.pack_start(mute_button_align, False, False)
@@ -140,15 +155,17 @@ class ControlToolbar(Statusbar):
         status_box.pack_start(favorite_button_align, False, False)
         status_box.pack_start(fullscreen_button_align, False, False)
         status_box.pack_start(share_button_align, False, False)
-        status_box.pack_start(star_align)
+        status_box.pack_start(star_box_align)
 
         self.status_box.pack_start(status_box, True, True)
 
         self.leave_callback = None
         #self.connect('motion-notify-event', self.leave_event_handler)
 
-    def do_motion_notify_event(self, widget, e):
-        #if self.leave_callback:
-            #self.leave_callback()
-        print self.get_allocation()
-        print e.x, e.y
+        global_event.register_event('download-app-info-finish', self.update_star)
+
+    @post_gui
+    def update_star(self, js):
+        star = js['star']
+        self.star.set_star_level(float(star))
+        self.star_mark.update_star(float(star))

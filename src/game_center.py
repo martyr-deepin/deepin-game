@@ -37,7 +37,7 @@ from dtk.ui.menu import Menu
 from dtk.ui.application import Application
 from dtk.ui.statusbar import Statusbar
 from dtk.ui.theme import DynamicPixbuf
-from dtk.ui.browser import WebView 
+from dtk.ui.browser import WebView
 from dtk.ui.skin_config import skin_config
 from deepin_utils.file import get_parent_dir
 
@@ -54,6 +54,7 @@ from constant import (
         GAME_CENTER_DBUS_PATH,
         GAME_CENTER_SERVER_ADDRESS,
         CACHE_DIR,
+        COOKIE_FILE,
         )
 
 static_dir = os.path.join(get_parent_dir(__file__, 2), "static")
@@ -97,7 +98,7 @@ class GameCenterApp(dbus.service.Object):
         self.statusbar.status_box.pack_start(status_box, True, True)
         self.application.main_box.pack_start(self.statusbar, False, False)
 
-        self.webview = WebView(os.path.join(CACHE_DIR, 'cookie.txt'))
+        self.webview = WebView(COOKIE_FILE)
         webkit.set_web_database_directory_path(CACHE_DIR)
         web_settings = self.webview.get_settings()
         web_settings.set_property("enable-file-access-from-file-uris", True)

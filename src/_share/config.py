@@ -32,7 +32,7 @@ from constant import PROGRAM_NAME
 config_dir = BaseDirectory.xdg_config_home
 WEIBO_CONFIG = "%s/%s/%s" % (config_dir, PROGRAM_NAME, 'weibo.ini')
 OPERATE_CONFIG = "%s/%s/%s" % (config_dir, PROGRAM_NAME, 'config.ini')
-COOKIE_FILE = "%s/%s/%s" % (config_dir, PROGRAM_NAME, '.cookie')
+COOKIE_FILE = "%s/%s/%s" % (config_dir, PROGRAM_NAME, 'cookie.txt')
 
 if not exists("%s/%s" % (config_dir, PROGRAM_NAME)):
     mkdir("%s/%s" % (config_dir, PROGRAM_NAME))
