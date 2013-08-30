@@ -116,7 +116,7 @@ class Player(dbus.service.Object):
         self.application.set_skin_preview(get_common_image("frame.png"))
         self.application.set_icon(get_common_image("logo48.png"))
         self.application.add_titlebar(
-                ["theme", "mode", "min","close"],
+                ["mode", "min", "max", "close"],
                 )
         player_title = _("深度游戏中心 - %s " % self.game_name)
         self.window = self.application.window
@@ -128,6 +128,8 @@ class Player(dbus.service.Object):
         #self.application.window.connect('focus-out-event', self.window_out_focus_hander)
         self.application.window.connect('focus-in-event', self.window_in_focus_hander)
         self.application.window.connect('window-state-event', self.window_state_change_handler)
+
+        self.application.window.connect('key-press-event', self.window_key_press_handler)
 
         self.page_box = gtk.HBox()
         self.content_page = ContentPage(self.appid)
@@ -151,6 +153,12 @@ class Player(dbus.service.Object):
         self.application.main_box.pack_start(self.page_align)
         self.show_bottom = False
         self.display_normal()
+
+    def window_key_press_handler(self, widget, event):
+        if self.fullscreen_state:
+            from dtk.ui.keymap import get_keyevent_name
+            if get_keyevent_name(event, True) == 'Escape':
+                self.control_toolbar.fullscreen_button.clicked()
 
     def create_toolbar(self):
         control_toolbar = ControlToolbar(self.appid)
