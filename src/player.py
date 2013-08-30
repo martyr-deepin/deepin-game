@@ -151,6 +151,7 @@ class Player(dbus.service.Object):
         self.page_align.add(self.paned_box)
         self.paned_box.add_bottom_widget(self.inner_control_toolbar)
         self.application.main_box.pack_start(self.page_align)
+        self.application.window.add_move_event(self.control_toolbar)
         self.show_bottom = False
         self.display_normal()
 
@@ -222,7 +223,7 @@ class Player(dbus.service.Object):
 
     def quit(self, widget, data=None):
         os.system('kill -9 %s' % self.p.pid)
-        self.application.window.close_window()
+        gtk.main_quit()
 
     def display_normal(self):
         self.application.show_titlebar()

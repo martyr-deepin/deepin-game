@@ -165,7 +165,7 @@ class FlashFrame(dbus.service.Object):
                     json.dumps(str(contents), encoding="UTF-8", ensure_ascii=False))
         elif message_type == 'load_uri':
             self.webview.execute_script("window.location.href = %s" %
-                    json.dumps(str(contents), encoding="UTF-8", ensure_ascii=False))
+                    json.dumps(str(contents).split(',')[0], encoding="UTF-8", ensure_ascii=False))
             
     def handle_dbus_reply(self, *reply):
         # print "%s (reply): %s" % (self.module_dbus_name, str(reply))
