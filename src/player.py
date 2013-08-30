@@ -328,7 +328,13 @@ class Player(dbus.service.Object):
         gtk.main()
 
     def app_info_download_finish(self, js):
-        gtk.timeout_add(500, lambda:self.send_message('app_info_download_finish', json.dumps(js)))
+        gtk.timeout_add(500, self.import_infos, js)
+
+    def import_infos(self, infos):
+        if not self.loading:
+            self.send_message('app_info_download_finish', json.dumps(infos))
+            return False
+        return True
 
     def call_flash_game(self, local_path):
         flash_frame_path = os.path.join(get_parent_dir(__file__), 'flash_frame.py')
