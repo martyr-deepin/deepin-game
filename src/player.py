@@ -182,7 +182,6 @@ class Player(dbus.service.Object):
     def favorite_action(self, widget, event):
         if not widget.get_active():
             record_info.record_favorite(self.appid, self.conf_db)
-            FetchInfo(self.appid).start()
         else:
             record_info.remove_favorite(self.appid, self.conf_db)
 
