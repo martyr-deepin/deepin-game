@@ -51,6 +51,7 @@ from xdg_support import get_config_file
 from sound_manager import SoundSetting
 from constant import PROGRAM_NAME
 from events import global_event
+import utils
 
 info_data = os.path.join(get_parent_dir(__file__, 2), "data", "info.db")
 static_dir = os.path.join(get_parent_dir(__file__, 2), "static")
@@ -168,8 +169,22 @@ class Player(dbus.service.Object):
         control_toolbar.replay_button.connect('clicked', self.replay_action)
         control_toolbar.fullscreen_button.connect('clicked', self.fullscreen_handler)
         control_toolbar.share_button.connect('clicked', self.share_action)
+        control_toolbar.favorite_button.connect('button-release-event', self.favorite_action)
         control_toolbar.leave_callback = self.leave_callback
+        
+        if os.path.exists(self.conf_db):
+            data = utils.load_db(self.conf_db)
+            if data.get('favorite') and self.appid in data['favorite']:
+                control_toolbar.favorite_button.set_active(True)
+
         return control_toolbar
+
+    def favorite_action(self, widget, event):
+        if not widget.get_active():
+            record_info.record_favorite(self.appid, self.conf_db)
+            FetchInfo(self.appid).start()
+        else:
+            record_info.remove_favorite(self.appid, self.conf_db)
 
     def leave_callback(self, widget, e):
         if self.fullscreen_state and e.window == self.paned_box.bottom_window:
