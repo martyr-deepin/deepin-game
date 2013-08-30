@@ -5,6 +5,10 @@
 	<title>深度小游戏中心 - 首页</title>
 	<link rel="stylesheet" href="css/layout.css">
 	<link id="color_link" rel="stylesheet" href="css/color_dark_purple.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/jquery.diyrightmenu.source.js"></script>
+	<script src="js/common.js"></script>
 </head>
 <body onload="alert('onload://main_frame')" onresize='document.getElementById("game-gallery").height = window.innerHeight - 35;'>
 	<div class="content">
@@ -20,10 +24,6 @@
 		</div>
 		<iframe src="about:blank" frameborder="0" seamless id="game-gallery" width="100%" onload="this.height = parent.innerHeight - 35;"></iframe>
 	</div>
-	<script src="js/jquery.js"></script>
-	<script src="js/script.js"></script>
-	<script src="js/jquery.diyrightmenu.source.js"></script>
-	<script src="js/common.js"></script>
 	<script type="text/javascript">tabs_binding();</script>
 </body>
 </html>

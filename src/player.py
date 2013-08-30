@@ -28,6 +28,7 @@ import dbus
 import dbus.service
 from dbus.mainloop.glib import DBusGMainLoop
 import urllib
+import json
 
 from theme import app_theme
 from application import PlayerApplication
@@ -49,6 +50,7 @@ from download_manager import fetch_service, TaskObject, FetchInfo
 from xdg_support import get_config_file
 from sound_manager import SoundSetting
 from constant import PROGRAM_NAME
+from events import global_event
 
 info_data = os.path.join(get_parent_dir(__file__, 2), "data", "info.db")
 static_dir = os.path.join(get_parent_dir(__file__, 2), "static")
@@ -110,7 +112,7 @@ class Player(dbus.service.Object):
     def init_ui(self):
         
         self.application = PlayerApplication(close_callback=self.quit)
-        self.application.set_default_size(self.width+26+220, self.height+75)
+        self.application.set_default_size(self.width+12+220, self.height+73)
         self.application.set_skin_preview(get_common_image("frame.png"))
         self.application.set_icon(get_common_image("logo48.png"))
         self.application.add_titlebar(
@@ -248,7 +250,7 @@ class Player(dbus.service.Object):
 
     def replay_action(self, widget, data=None):
         if not self.loading:
-            self.update_signal(['load_uri', 'file://' + self.swf_save_path])
+            self.update_signal(['load_uri', 'file://%s,%s,%s' % (self.swf_save_path, self.width, self.height)])
 
     def toggle_pause_action(self, widget):
         if widget.get_active():
@@ -296,6 +298,7 @@ class Player(dbus.service.Object):
         return filename
 
     def start_loading(self):
+        global_event.register_event('download-app-info-finish', self.app_info_download_finish)
         FetchInfo(self.appid).start()
         self.swf_save_path = os.path.expanduser("~/.cache/deepin-game-center/downloads/%s/%s.swf" % (self.appid, self.appid))
         if os.path.exists(self.swf_save_path):
@@ -314,13 +317,18 @@ class Player(dbus.service.Object):
 
     def load_game(self):
         self.loading = False
-        self.send_message('load_uri', 'file://' + self.swf_save_path)
+        self.send_message('load_uri', 'file://%s,%s,%s' % (self.swf_save_path, self.width, self.height))
         record_info.record_recent_play(self.appid, self.conf_db)
             
     def run(self):
         self.call_flash_game(self.appid)
         self.start_loading()
-        self.application.run()
+        self.application.window.show_window()
+        #self.paned_box.bottom_window.set_composited(True)
+        gtk.main()
+
+    def app_info_download_finish(self, js):
+        gtk.timeout_add(500, lambda:self.send_message('app_info_download_finish', json.dumps(js)))
 
     def call_flash_game(self, local_path):
         flash_frame_path = os.path.join(get_parent_dir(__file__), 'flash_frame.py')

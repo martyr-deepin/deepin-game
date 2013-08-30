@@ -20,6 +20,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
 import gtk
 import glib
 from deepin_utils.ipc import is_dbus_name_exists
@@ -30,6 +31,10 @@ from dtk.ui.browser import WebView
 import json
 from paned_box import PanedBox
 from constant import COOKIE_FILE
+
+from deepin_utils.file import get_parent_dir
+
+static_dir = os.path.join(get_parent_dir(__file__, 2), "static")
 
 class FlashFrame(dbus.service.Object):
     '''
@@ -49,6 +54,8 @@ class FlashFrame(dbus.service.Object):
         self.plug = gtk.Plug(0)
 
         self.webview = WebView(COOKIE_FILE)
+        self.webview.connect('title-changed', self.title_change_handler)
+        self.webview.enable_inspector()
         self.paned_box = PanedBox(2, True)
         self.paned_box.enter_bottom_win_callback = self.enter_bottom_notify
         self.paned_box.add_content_widget(self.webview)
@@ -62,12 +69,11 @@ class FlashFrame(dbus.service.Object):
         glib.timeout_add(200, self.connect_signal)
 
         def message_receiver(self, *message):
-            print message
             message_type, contents = message
             if message_type == 'exit':
                 self.exit()
             elif message_type == 'load_uri':
-                self.webview.load_uri(contents)
+                self.load_flash(contents)
             elif message_type == 'load_loading_uri':
                 self.webview.load_uri(contents)
                 self.send_message('loading_uri_finish', '')
@@ -75,10 +81,23 @@ class FlashFrame(dbus.service.Object):
                 self.webview.load_string(contents)
             elif message_type == 'get_plug_id':
                 self.send_flash_info()
+            elif message_type == 'app_info_download_finish':
+                self.webview.execute_script("app_info=%s" %
+                        json.dumps(str(contents), encoding="UTF-8", ensure_ascii=False))
 
         setattr(FlashFrame, 
                 'message_receiver', 
                 dbus.service.method(dbus_name)(message_receiver))
+
+    def title_change_handler(self, widget, frame, new_title):
+        if new_title == 'finish_load':
+            self.webview.execute_script('loading_flash(%s)' %
+                json.dumps(self.swf_info, encoding="UTF-8", ensure_ascii=False))
+
+    def load_flash(self, contents):
+        flash_html_path = os.path.join(static_dir, 'flash.html')
+        self.webview.load_uri("file://" + flash_html_path)
+        self.swf_info = str(contents).split(',')
 
     def enter_bottom_notify(self):
         self.send_message('enter_bottom', '')
@@ -92,6 +111,7 @@ class FlashFrame(dbus.service.Object):
 
     def run(self):    
         self.plug.show_all()
+        self.paned_box.bottom_window.set_composited(True)
         gtk.main()
 
     def do_delete_event(self, w):
@@ -146,7 +166,6 @@ class FlashFrame(dbus.service.Object):
         elif message_type == 'load_uri':
             self.webview.execute_script("window.location.href = %s" %
                     json.dumps(str(contents), encoding="UTF-8", ensure_ascii=False))
-
             
     def handle_dbus_reply(self, *reply):
         # print "%s (reply): %s" % (self.module_dbus_name, str(reply))

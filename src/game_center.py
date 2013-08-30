@@ -200,6 +200,8 @@ class GameCenterApp(dbus.service.Object):
                     self.show_favorite_page()
             elif order == 'onload' and data == 'game_gallery':
                 gtk.timeout_add(200, self.fresh_favotite_status)
+                self.webview.execute_script('$("#game-gallery").get(0).contentWindow.change_color_theme(%s)' %
+                    json.dumps(skin_config.theme_name, encoding="UTF-8", ensure_ascii=False))
             elif order == 'onload' and data == 'local_game_gallery':
                 self.webview.execute_script('$("#game-gallery").get(0).contentWindow.set_right_menu()')
                 self.webview.execute_script('$("#game-gallery").get(0).contentWindow.change_color_theme(%s)' %
