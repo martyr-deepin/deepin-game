@@ -9,4 +9,4 @@ dtk.egg-info
 *.swp
 test
 data/*
-bpeerconnection.log
+libpeerconnection.log

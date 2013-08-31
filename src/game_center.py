@@ -41,6 +41,7 @@ from dtk.ui.browser import WebView
 from dtk.ui.skin_config import skin_config
 from deepin_utils.file import get_parent_dir
 
+from dialog import AboutDialog
 from navigatebar import Navigatebar
 from animation import favorite_animation
 from utils import get_common_image
@@ -138,6 +139,9 @@ class GameCenterApp(dbus.service.Object):
         self.application.titlebar.left_box.pack_start(self.navigatebar_align, True, True)
         self.application.window.add_move_event(self.navigatebar)
 
+        self.about_dialog = AboutDialog()
+        self.about_dialog.set_transient_for(self.application.window)
+
         # Init menu.
         if LANGUAGE == 'en_US':
             menu_min_width = 185
@@ -167,7 +171,7 @@ class GameCenterApp(dbus.service.Object):
         pass
 
     def show_about_dialog(self):
-        pass
+        self.about_dialog.show_all()
 
     def init_theme(self):
         current_theme = skin_config.theme_name
@@ -299,7 +303,9 @@ class GameCenterApp(dbus.service.Object):
             data = utils.load_db(self.conf_db)
             if data.get('favorite'):
                 infos = []
-                for id in data['favorite']:
+                favorite_list = data['favorite']
+                favorite_list.reverse()
+                for id in favorite_list:
                     try:
                         info_js_path = os.path.join(downloads_dir, str(id), 'info.json')
                         info = json.load(open(info_js_path))
@@ -326,7 +332,9 @@ class GameCenterApp(dbus.service.Object):
             data = utils.load_db(self.conf_db)
             if data.get('recent'):
                 infos = []
-                for id in data['recent']:
+                recent_list = data['recent']
+                recent_list.reverse()
+                for id in recent_list:
                     try:
                         info_js_path = os.path.join(downloads_dir, str(id), 'info.json')
                         info = json.load(open(info_js_path))

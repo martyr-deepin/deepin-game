@@ -298,11 +298,12 @@ class Player(dbus.service.Object):
         #from window import get_screenshot_pixbuf
         #pixbuf = get_screenshot_pixbuf(False)
 
-        rect = self.content_page.get_allocation()
+        #rect = self.content_page.get_allocation()
+        rect = self.window.get_allocation()
         width = rect.width
         height = rect.height
         pixbuf = gtk.gdk.Pixbuf(gtk.gdk.COLORSPACE_RGB, False, 8, width, height)
-        pixbuf = pixbuf.get_from_drawable(self.content_page.window, self.content_page.get_colormap(), 
+        pixbuf = pixbuf.get_from_drawable(self.window.window, self.window.get_colormap(), 
                                             rect.x, rect.y, 0, 0, width, height)
 
         filename = self.save_to_tmp_file(pixbuf)

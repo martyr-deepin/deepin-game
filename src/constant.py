@@ -23,7 +23,7 @@
 import os
 
 PROGRAM_NAME = 'deepin-game-center'
-PROGRAM_VERSION = '0.1'
+PROGRAM_VERSION = '1.0'
 
 GAME_CENTER_DBUS_NAME = 'com.deepin.game_center'
 GAME_CENTER_DBUS_PATH = '/com/deepin/game_center' 
