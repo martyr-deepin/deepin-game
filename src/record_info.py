@@ -28,8 +28,9 @@ def record_favorite(appid, conf_db):
         data = utils.load_db(conf_db)
         favorite_list = data.get('favorite')
         if favorite_list:
-            if appid not in favorite_list:
-                data['favorite'].append(appid)
+            if appid in favorite_list:
+                data['favorite'].remove(appid)
+            data['favorite'].insert(0, appid)
         else:
             data['favorite'] = [appid]
     else:
@@ -50,8 +51,9 @@ def record_recent_play(appid, conf_db):
         data = utils.load_db(conf_db)
         recent_list = data.get('recent')
         if recent_list:
-            if appid not in recent_list:
-                data['recent'].append(appid)
+            if appid in recent_list:
+                data['recent'].remove(appid)
+            data['recent'].insert(0, appid)
         else:
             data['recent'] = [appid]
     else:

@@ -373,7 +373,6 @@ class GameCenterApp(dbus.service.Object):
             if data.get('favorite'):
                 infos = []
                 favorite_list = data['favorite']
-                favorite_list.reverse()
                 for id in favorite_list:
                     try:
                         info_js_path = os.path.join(downloads_dir, str(id), 'info.json')
@@ -402,7 +401,6 @@ class GameCenterApp(dbus.service.Object):
             if data.get('recent'):
                 infos = []
                 recent_list = data['recent']
-                recent_list.reverse()
                 for id in recent_list:
                     try:
                         info_js_path = os.path.join(downloads_dir, str(id), 'info.json')
