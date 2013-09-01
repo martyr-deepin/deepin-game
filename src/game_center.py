@@ -39,6 +39,7 @@ from dtk.ui.statusbar import Statusbar
 from dtk.ui.theme import DynamicPixbuf
 from dtk.ui.browser import WebView
 from dtk.ui.skin_config import skin_config
+from dtk.ui.slider import Wizard
 from deepin_utils.file import get_parent_dir
 
 from dialog import AboutDialog
@@ -162,12 +163,38 @@ class GameCenterApp(dbus.service.Object):
                 menu.show(
                 get_widget_root_coordinate(button, WIDGET_POS_BOTTOM_LEFT),
                 (button.get_allocation().width, 0)))
-
-
-    def clean_download_cache(self):
-        pass
+    
+    def ready_show(self):    
+        if not utils.is_wizard_showed():
+            self.show_wizard_win(False, callback=self.wizard_callback)
+            utils.set_wizard_showed()
+        else:    
+            self.application.window.show_all()
+        gtk.main()
 
     def show_wizard_win(self, show_button=False, callback=None):    
+
+        lang = "zh_CN"
+            
+        Wizard(
+            [get_common_image('wizard/%s/%s.png' % (lang, i+1)) for i in range(3)],
+            (
+                get_common_image('wizard/dot_normal.png'), 
+                get_common_image('wizard/dot_active.png'),
+            ),
+            (
+                get_common_image('wizard/%s/start_normal.png' % lang), 
+                get_common_image('wizard/%s/start_press.png' % lang), 
+            ),
+            show_button,
+            callback
+            ).show_all()
+        
+    def wizard_callback(self):
+        self.application.window.show_all()
+        gtk.timeout_add(100, self.application.raise_to_top)
+
+    def clean_download_cache(self):
         pass
 
     def show_about_dialog(self):
@@ -356,7 +383,7 @@ class GameCenterApp(dbus.service.Object):
                 json.dumps(no_recent_html_path, encoding="UTF-8", ensure_ascii=False))
 
     def run(self):
-        self.application.run()
+        self.ready_show()
 
     @dbus.service.method(GAME_CENTER_DBUS_NAME, in_signature="", out_signature="")    
     def hello(self):

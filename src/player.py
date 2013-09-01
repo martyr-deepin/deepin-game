@@ -129,7 +129,6 @@ class Player(dbus.service.Object):
         #self.application.window.connect('focus-out-event', self.window_out_focus_hander)
         self.application.window.connect('focus-in-event', self.window_in_focus_hander)
         self.application.window.connect('window-state-event', self.window_state_change_handler)
-
         self.application.window.connect('key-press-event', self.window_key_press_handler)
 
         self.page_box = gtk.HBox()
@@ -252,6 +251,7 @@ class Player(dbus.service.Object):
             self.fullscreen_state = False
             self.display_normal()
             self.show_bottom = False
+            self.page_align.set_padding(0, 0, 2, 2)
             self.application.window.unfullscreen()
         else:
             self.fullscreen_state = True
@@ -265,6 +265,7 @@ class Player(dbus.service.Object):
             self.control_toolbar.show_all()
             self.application.window.show_window()
             self.guide_box.hide_all()
+            self.page_align.set_padding(0, 0, 0, 0)
             self.application.window.fullscreen()
 
     def mute_handler(self, widget, data=None):

@@ -29,11 +29,30 @@ import shutil
 import fcntl
 import threading as td
 import urllib, urllib2
-from constant import GAME_CENTER_SERVER_ADDRESS
+from constant import GAME_CENTER_SERVER_ADDRESS, PROGRAM_VERSION
+from xdg_support import get_config_file
 
 LOG_PATH = "/tmp/dgc-frontend.log"
 
 dgc_root_dir = os.path.realpath(get_parent_dir(__file__, 2))
+
+temp_db = get_config_file('temp.db')
+def is_wizard_showed():
+    if os.path.exists(temp_db):
+        data = load_db(temp_db)
+        if data.get('wizard'):
+            return data['wizard'] == PROGRAM_VERSION
+        else:
+            return False
+
+def set_wizard_showed():
+    if os.path.exists(temp_db):
+        data = load_db(temp_db)
+        data['wizard'] = PROGRAM_VERSION
+    else:
+        data = dict(wizard=PROGRAM_VERSION)
+
+    save_db(data, temp_db)
 
 def get_common_image(name):
     return os.path.join(dgc_root_dir, "image", name)
