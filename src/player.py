@@ -32,12 +32,7 @@ import json
 
 from theme import app_theme
 from application import PlayerApplication
-from dtk.ui.utils import alpha_color_hex_to_cairo
-from dtk.ui.skin_config import skin_config
-from dtk.ui.draw import draw_pixbuf
-from deepin_utils.file import get_parent_dir, touch_file_dir
-from deepin_utils.ipc import is_dbus_name_exists
-
+from titlebar import Titlebar
 import pypulse_small as pypulse
 from guide_box import GuideBox
 from paned_box import PanedBox
@@ -52,6 +47,13 @@ from sound_manager import SoundSetting
 from constant import PROGRAM_NAME
 from events import global_event
 import utils
+
+from dtk.ui.utils import alpha_color_hex_to_cairo
+from dtk.ui.skin_config import skin_config
+from dtk.ui.draw import draw_pixbuf
+from dtk.ui.constant import DEFAULT_FONT_SIZE
+from deepin_utils.file import get_parent_dir, touch_file_dir
+from deepin_utils.ipc import is_dbus_name_exists
 
 info_data = os.path.join(get_parent_dir(__file__, 2), "data", "info.db")
 static_dir = os.path.join(get_parent_dir(__file__, 2), "static")
@@ -86,9 +88,11 @@ class Player(dbus.service.Object):
             elif message_type == 'loading_uri_finish':
                 fetch_service.add_missions([self.download_task])
             elif message_type == 'enter_bottom':
-                print "enter_bottom"
                 if self.show_bottom:
                     self.paned_box.bottom_window.show()
+            elif message_type == 'enter_top':
+                if self.show_top:
+                    self.paned_box.top_window.show()
 
         setattr(Player, 
                 'unique', 
@@ -144,12 +148,17 @@ class Player(dbus.service.Object):
         self.control_toolbar = self.create_toolbar()
         self.page_box.pack_start(self.content_page)
         self.page_box.pack_start(self.guide_box, False)
-        self.paned_box = PanedBox()
-        self.paned_box.add_content_widget(self.page_box)
+
+        self.inner_top_titlebar = self.create_top_titlebar()
+        self.inner_top_titlebar.change_name(player_title)
         self.inner_control_toolbar = self.create_toolbar()
 
-        self.page_align.add(self.paned_box)
+        self.paned_box = PanedBox()
+        self.paned_box.add_content_widget(self.page_box)
         self.paned_box.add_bottom_widget(self.inner_control_toolbar)
+        self.paned_box.add_top_widget(self.inner_top_titlebar)
+
+        self.page_align.add(self.paned_box)
         self.application.main_box.pack_start(self.page_align)
         self.application.window.add_move_event(self.control_toolbar)
         self.show_bottom = False
@@ -160,6 +169,35 @@ class Player(dbus.service.Object):
             from dtk.ui.keymap import get_keyevent_name
             if get_keyevent_name(event, True) == 'Escape':
                 self.control_toolbar.fullscreen_button.clicked()
+
+    def create_top_titlebar(self,
+                     button_mask=['min', "close"],
+                     icon_path=None, 
+                     app_name=None, 
+                     title=None, 
+                     add_separator=False, 
+                     show_title=True, 
+                     enable_gaussian=True, 
+                     name_size=DEFAULT_FONT_SIZE,
+                     title_size=DEFAULT_FONT_SIZE,
+                     ):
+        titlebar = Titlebar(
+                    button_mask, 
+                    icon_path, 
+                    app_name, 
+                    title, 
+                    add_separator, 
+                    show_title=show_title, 
+                    enable_gaussian=enable_gaussian,
+                    name_size=name_size,
+                    title_size=title_size,
+                    )
+        if "min" in button_mask:
+            titlebar.min_button.connect("clicked", lambda w: self.window.min_window())
+        if "close" in button_mask:
+            titlebar.close_button.connect("clicked", self.quit)
+
+        return titlebar
 
     def create_toolbar(self):
         control_toolbar = ControlToolbar(self.appid)
@@ -185,8 +223,11 @@ class Player(dbus.service.Object):
             record_info.remove_favorite(self.appid, self.conf_db)
 
     def leave_callback(self, widget, e):
-        if self.fullscreen_state and e.window == self.paned_box.bottom_window:
-            self.paned_box.bottom_window.hide()
+        if self.fullscreen_state:
+            if e.window == self.paned_box.bottom_window:
+                self.paned_box.bottom_window.hide()
+            elif e.window == self.paned_box.top_window:
+                self.paned_box.top_window.hide()
 
     def window_state_change_handler(self, widget, event):
         if event.new_window_state == gtk.gdk.WINDOW_STATE_ICONIFIED:
@@ -235,7 +276,7 @@ class Player(dbus.service.Object):
             self.window.resize(FULL_DEFAULT_WIDTH, FULL_DEFAULT_HEIGHT)
 
     def quit(self, widget, data=None):
-        os.system('kill -9 %s' % self.p.pid)
+        os.system('kill -CONT %s' % self.p.pid)
         gtk.main_quit()
 
     def display_normal(self):
@@ -245,12 +286,15 @@ class Player(dbus.service.Object):
         self.application.window.show_window()
         if getattr(self.paned_box, "bottom_window"):
             self.paned_box.bottom_window.hide()
+        if getattr(self.paned_box, 'top_window'):
+            self.paned_box.top_window.hide()
 
     def fullscreen_handler(self, widget, data=None):
         if self.fullscreen_state:
             self.fullscreen_state = False
             self.display_normal()
             self.show_bottom = False
+            self.show_top = False
             self.page_align.set_padding(0, 0, 2, 2)
             self.application.window.unfullscreen()
         else:
@@ -258,7 +302,9 @@ class Player(dbus.service.Object):
             # for fullscreen mode
             self.paned_box.connect('leave-notify-event', self.leave_callback)
             self.paned_box.paint_bottom_window = self.__paint_bottom_toolbar_background
+            self.paned_box.paint_top_window = self.__paint_top_titlebar_background
             self.show_bottom = True
+            self.show_top = True
 
             self.application.hide_titlebar()
             self.application.main_box.remove(self.control_toolbar)
@@ -420,6 +466,28 @@ class Player(dbus.service.Object):
                     pixbuf, 
                     0, 
                     -(h))
+
+    def __paint_top_titlebar_background(self, e):
+        # 将皮肤的图片画在bottom toolbar上,作为背景.
+        cr = e.window.cairo_create()
+        bottom_size = e.window.get_size()
+        # draw background.
+        cr.set_source_rgba(*alpha_color_hex_to_cairo(("#ebebeb", 0.1)))
+        cr.rectangle(0, 0, bottom_size[0], bottom_size[1])
+        cr.fill()
+        # draw background pixbuf.
+        pixbuf = skin_config.background_pixbuf
+        app_w = self.application.window.allocation.width
+        # 当图片小于窗口宽度的时候,拉伸图片.
+        if pixbuf.get_width() < app_w:
+            pixbuf = pixbuf.scale_simple(app_w,
+                                pixbuf.get_width(),
+                                gtk.gdk.INTERP_BILINEAR)
+
+        draw_pixbuf(cr, 
+                    pixbuf, 
+                    0, 
+                    0)
 
 class ContentPage(gtk.VBox):
     '''

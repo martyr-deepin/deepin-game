@@ -56,8 +56,9 @@ class FlashFrame(dbus.service.Object):
         self.webview = WebView(COOKIE_FILE)
         self.webview.connect('title-changed', self.title_change_handler)
         self.webview.enable_inspector()
-        self.paned_box = PanedBox(2, True)
+        self.paned_box = PanedBox(2, True, 2, True)
         self.paned_box.enter_bottom_win_callback = self.enter_bottom_notify
+        self.paned_box.enter_top_win_callback = self.enter_top_notify
         self.paned_box.add_content_widget(self.webview)
         self.plug.add(self.paned_box)
         
@@ -102,6 +103,9 @@ class FlashFrame(dbus.service.Object):
     def enter_bottom_notify(self):
         self.send_message('enter_bottom', '')
 
+    def enter_top_notify(self):
+        self.send_message('enter_top', '')
+
     def is_exist(self):
         if dbus.SessionBus().name_has_owner("com.deepin.game_player_%s" % self.appid):
             return True
@@ -112,6 +116,7 @@ class FlashFrame(dbus.service.Object):
     def run(self):    
         self.plug.show_all()
         self.paned_box.bottom_window.set_composited(True)
+        self.paned_box.top_window.set_composited(True)
         gtk.main()
 
     def do_delete_event(self, w):

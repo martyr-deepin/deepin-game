@@ -25,21 +25,32 @@ import gobject
 from dtk.ui.utils import alpha_color_hex_to_cairo
 
 class PanedBox(gtk.Bin):
-    def __init__(self, bottom_window_height=39, bottom_show_first=False):
+
+    def __init__(self, 
+            bottom_window_height=39, 
+            bottom_show_first=False, 
+            top_window_height=24, 
+            top_show_first=False):
+        
         gtk.Bin.__init__(self)
         self.add_events(gtk.gdk.ALL_EVENTS_MASK)
 
         self.content_box = None
         self.control_box = None
+        self.top_box = None
         self.show_bottom = False
+        self.show_top = False
 
         self.control_box_height = bottom_window_height
-
-        self.bottom_win_show_check = False
+        self.bottom_show_first = bottom_show_first
+        self.top_window_height = top_window_height
+        self.top_show_first = top_show_first
 
         self.paint_bottom_window = self.__paint_bottom_window
         self.enter_bottom_win_callback = None
-        self.bottom_show_first = bottom_show_first
+
+        self.paint_top_window = self.__paint_top_window
+        self.enter_top_win_callback = None
 
     def do_realize(self):
         gtk.Bin.do_realize(self)
@@ -66,10 +77,34 @@ class PanedBox(gtk.Bin):
                       ))
         self.window.set_user_data(self)
         #self.style.set_background(self.window, gtk.STATE_NORMAL)
+        self.__init_top_window()
         self.__init_bottom_window()
         if self.content_box:
             self.content_box.set_parent_window(self.window)
         self.queue_resize()
+
+    def __init_top_window(self):
+        self.top_window = gtk.gdk.Window(
+                self.window,
+                window_type=gtk.gdk.WINDOW_CHILD,
+                wclass=gtk.gdk.INPUT_OUTPUT,
+                x=0,
+                y=0,
+                width=self.allocation.width, 
+                height=self.top_window_height,
+                event_mask=(self.get_events() 
+                          | gtk.gdk.EXPOSURE_MASK
+                          | gtk.gdk.BUTTON_PRESS_MASK
+                          | gtk.gdk.BUTTON_RELEASE_MASK
+                          | gtk.gdk.ENTER_NOTIFY_MASK
+                          | gtk.gdk.LEAVE_NOTIFY_MASK
+                          | gtk.gdk.POINTER_MOTION_MASK
+                          | gtk.gdk.POINTER_MOTION_HINT_MASK
+                          ))
+        self.top_window.set_user_data(self)
+        #self.style.set_background(self.bottom_window, gtk.STATE_NORMAL)
+        if self.top_box:
+            self.top_box.set_parent_window(self.top_window)
 
     def __init_bottom_window(self):
         self.bottom_window = gtk.gdk.Window(
@@ -101,10 +136,16 @@ class PanedBox(gtk.Bin):
         gtk.Bin.do_map(self)
         self.set_flags(gtk.MAPPED)
         self.window.show()
+
         if self.bottom_show_first:
             self.bottom_window.show()
         else:
             self.bottom_window.hide()
+
+        if self.top_show_first:
+            self.top_window.show()
+        else:
+            self.top_window.hide()
 
     def do_unmap(self):
         gtk.Bin.do_unmap(self)
@@ -115,12 +156,19 @@ class PanedBox(gtk.Bin):
             self.paint_bottom_window(e)
             gtk.Bin.do_expose_event(self, e)
             return False
+        elif e.window == self.top_window:
+            self.paint_top_window(e)
+            gtk.Bin.do_expose_event(self, e)
+            return False
         return False
 
     def do_motion_notify_event(self, e):
         if e.window == self.bottom_window:
             if self.enter_bottom_win_callback:
                 self.enter_bottom_win_callback()
+        elif e.window == self.top_window:
+            if self.enter_top_win_callback:
+                self.enter_top_win_callback()
         return False
 
     def __paint_bottom_window(self, e):
@@ -130,6 +178,14 @@ class PanedBox(gtk.Bin):
         cr.rectangle(0, 0, bottom_rect[0], bottom_rect[1])
         cr.fill()
 
+    def __paint_top_window(self, e):
+        top_width, top_height = self.top_window.get_size()
+        cr = self.top_window.cairo_create()
+        cr.set_source_rgba(*alpha_color_hex_to_cairo(("#ffffff", 0.0)))
+        cr.rectangle(0, 0, top_width, top_height)
+        cr.fill()
+
+    '''
     def __in_bottom_edge(self, e):
         min_x = 0
         max_x = 0 + self.bottom_window.get_size()[0]
@@ -144,6 +200,11 @@ class PanedBox(gtk.Bin):
         min_y = 0 + height - self.control_box_height
         max_y = 0 + height 
         return (min_y <= int(e.y) <= max_y and min_x <= int(e.x) <= max_x)
+    '''
+    
+    def add_top_widget(self, widget):
+        self.top_box = widget
+        self.top_box.set_parent(self)
 
     def add_bottom_widget(self, widget):
         self.control_box = widget
@@ -160,22 +221,26 @@ class PanedBox(gtk.Bin):
         widget.unparent()
 
     def do_forall(self, include_internals, callback, data):
-        if self.control_box:
-            callback(self.control_box, data)
         if self.content_box:
             callback(self.content_box, data)
+        if self.top_box:
+            callback(self.top_box, data)
+        if self.control_box:
+            callback(self.control_box, data)
 
     def do_size_request(self, req):
         if self.control_box:
             self.control_box.size_request()
         if self.content_box:
             self.content_box.size_request()
+        if self.top_box:
+            self.top_box.size_request()
 
     def do_size_allocate(self, allocation):
         self.allocation = allocation
         self.allocation.x = 0
         self.allocation.y = 0
-        # 
+        
         self.set_all_size()
 
     def set_all_size(self):
@@ -201,5 +266,17 @@ class PanedBox(gtk.Bin):
                     bottom_child_allocation.width = child1_allocation.width
                     bottom_child_allocation.height = self.control_box_height
                     self.control_box.size_allocate(bottom_child_allocation)
+
+                self.top_window.move_resize(0, 
+                                            0, 
+                                               child1_allocation.width, 
+                                               self.top_window_height)
+                if self.top_box:
+                    top_child_allocation = gtk.gdk.Rectangle()
+                    top_child_allocation.x = 0
+                    top_child_allocation.y = 0
+                    top_child_allocation.width = child1_allocation.width
+                    top_child_allocation.height = self.top_window_height
+                    self.top_box.size_allocate(top_child_allocation)
 
 gobject.type_register(PanedBox)
