@@ -43,6 +43,8 @@ from dtk.ui.slider import Wizard
 from deepin_utils.file import get_parent_dir
 
 from dialog import AboutDialog
+from paned_box import PanedBox
+from widgets import BottomTipBar
 from navigatebar import Navigatebar
 from animation import favorite_animation
 from utils import get_common_image
@@ -51,6 +53,7 @@ import record_info
 from xdg_support import get_config_file
 from download_manager import FetchInfo
 from nls import _, LANGUAGE
+from events import global_event
 from constant import (
         GAME_CENTER_DBUS_NAME,
         GAME_CENTER_DBUS_PATH,
@@ -90,7 +93,13 @@ class GameCenterApp(dbus.service.Object):
         self.page_align.set_padding(0, 0, 2, 2)
         
         # Append page to switcher.
-        self.page_align.add(self.page_box)
+        self.paned_box = PanedBox(24)
+        self.paned_box.add_content_widget(self.page_box)
+        self.bottom_tip_bar = BottomTipBar()
+        self.bottom_tip_bar.close_button.connect('clicked', lambda w: self.paned_box.bottom_window.hide())
+        self.paned_box.add_bottom_widget(self.bottom_tip_bar)
+
+        self.page_align.add(self.paned_box)
         self.application.main_box.pack_start(self.page_align, True, True)
         
         # Init status bar.
@@ -144,10 +153,11 @@ class GameCenterApp(dbus.service.Object):
         self.about_dialog.set_transient_for(self.application.window)
 
         # Init menu.
-        if LANGUAGE == 'en_US':
-            menu_min_width = 185
-        else:
-            menu_min_width = 150
+        #if LANGUAGE == 'en_US':
+            #menu_min_width = 185
+        #else:
+            #menu_min_width = 150
+
         menu = Menu(
             [
              (None, _("智能清除所有缓存"), self.clean_download_cache),
@@ -163,6 +173,18 @@ class GameCenterApp(dbus.service.Object):
                 menu.show(
                 get_widget_root_coordinate(button, WIDGET_POS_BOTTOM_LEFT),
                 (button.get_allocation().width, 0)))
+        
+        global_event.register_event('show-message', self.update_message)
+
+    def update_message(self, message, hide_timeout=0):
+        if not self.paned_box.bottom_window.is_visible():
+            self.paned_box.bottom_window.show()
+        if isinstance(message, list) and len(message) == 3:
+            self.bottom_tip_bar.update_info(*message)
+        else:
+            self.bottom_tip_bar.update_info(message)
+        if hide_timeout != 0:
+            gtk.timeout_add(hide_timeout, lambda:self.paned_box.bottom_window.hide())
     
     def ready_show(self):    
         if not utils.is_wizard_showed():
@@ -195,7 +217,27 @@ class GameCenterApp(dbus.service.Object):
         gtk.timeout_add(100, self.application.raise_to_top)
 
     def clean_download_cache(self):
-        pass
+        info = {
+                'file_num':0,
+                'total_size':0
+                }
+        downloads_dir = os.path.join(CACHE_DIR, 'downloads')
+        appids =  os.listdir(downloads_dir)
+        for appid in appids:
+            files = os.listdir(os.path.join(downloads_dir, appid))
+            for f in files:
+                if f.endswith('.swf'):
+                    swf_path = os.path.join(downloads_dir, appid, f)
+                    info['file_num'] += 1
+                    info['total_size'] += os.path.getsize(swf_path)
+                    os.remove(os.path.join(downloads_dir, appid, f))
+        
+        if info['file_num']:
+            cache_cleaned_message = '恭喜您清理了%s个文件，为您节约了%s空间。' % (
+                    info['file_num'], utils.get_human_size(info['total_size']))
+        else:
+            cache_cleaned_message = '您的游戏缓存已经清理干净，不需要再清理。'
+        global_event.emit('show-message', cache_cleaned_message, 5000)
 
     def show_about_dialog(self):
         self.about_dialog.show_all()

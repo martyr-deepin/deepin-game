@@ -126,3 +126,18 @@ def send_analytics(analytics_type, appid):
     req_url = "%s?%s" % (url, urllib.urlencode(data))
     urllib2.urlopen(req_url)
 
+def get_human_size(size):
+    if size < 1024:
+        return "%sB" % size
+    else:
+        size = size/1024.0
+        if size <= 1024:
+            return "%.2fKB" % size
+        else:
+            size = size/1024.0
+            if size <= 1024:
+                return "%.2fMB" % size
+            else:
+                size = size/1024.0
+                return "%.2fGB" % size  
+
