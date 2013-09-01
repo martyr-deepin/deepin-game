@@ -25,6 +25,14 @@ function gallery_change(html_path){
     $('#game-gallery').attr('src', 'file://' + html_path);
 }
 
+function infos_remove(appid){
+    for (var i=0; i<infos.length; i++){
+        if (infos[i]['id'] == appid){
+            infos.splice(i, 1);
+        }
+    }
+}
+
 function append_data_to_gallery(data){
     for (var i=0; i<data.length; i++){
         var grid_div = '';

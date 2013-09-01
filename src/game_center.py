@@ -301,6 +301,10 @@ class GameCenterApp(dbus.service.Object):
                         #var favorite_url = 'http://' + location.host + '/game/analytics/?type=unfavorite&appid=' + id;
                     elif action_type == 'recent':
                         record_info.remove_recent_play(appid, self.conf_db)
+                    self.webview.execute_script('if(infos){infos_remove(%s);}' %
+                            json.dumps(appid, encoding="UTF-8", ensure_ascii=False))
+                    self.webview.execute_script("gallery_change(%s)" %
+                            json.dumps(self.gallery_html_path, encoding="UTF-8", ensure_ascii=False))
 
     def navigation_policy_decision_requested_cb(self, web_view, frame, request, navigation_action, policy_decision):
         uri = request.get_uri()
