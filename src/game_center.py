@@ -188,7 +188,7 @@ class GameCenterApp(dbus.service.Object):
     
     def ready_show(self):    
         if not utils.is_wizard_showed():
-            self.show_wizard_win(False, callback=self.wizard_callback)
+            self.show_wizard_win(True, callback=self.wizard_callback)
             utils.set_wizard_showed()
         else:    
             self.application.window.show_all()

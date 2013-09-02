@@ -245,7 +245,7 @@ class Player(dbus.service.Object):
             self.toggle_pause_action(self.control_toolbar.pause_button)
 
     def window_out_focus_hander(self, widget, event):
-        print "Out: hand=>%s, pause=>%s" % (self.hand_pause, self.game_pause)
+        #print "Out: hand=>%s, pause=>%s" % (self.hand_pause, self.game_pause)
         min_state = self.window.get_state() == gtk.gdk.WINDOW_STATE_ICONIFIED
         if not self.loading and (not self.hand_pause and not self.game_pause) and min_state:
             self.control_toolbar.pause_button.set_active(True)
@@ -276,7 +276,8 @@ class Player(dbus.service.Object):
             self.window.resize(FULL_DEFAULT_WIDTH, FULL_DEFAULT_HEIGHT)
 
     def quit(self, widget, data=None):
-        os.system('kill -9 %s' % self.p.pid)
+        if self.game_pause:
+            os.system('kill -9 %s' % self.p.pid)
         gtk.main_quit()
 
     def display_normal(self):
