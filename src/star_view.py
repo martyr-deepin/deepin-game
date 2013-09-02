@@ -119,8 +119,9 @@ class StarView(gtk.Button):
             self.queue_draw()
 
     def star_button_press_handler(self, widget, event):
-        (event_x, event_y) = get_event_coords(event)
-        self.emit('star-press', int(min(event_x / (STAR_SIZE / 2) + 1, 10)))
+        if not self.read_only:
+            (event_x, event_y) = get_event_coords(event)
+            self.emit('star-press', int(min(event_x / (STAR_SIZE / 2) + 1, 10)))
         
     def expose_star_view(self, widget, event):
         # Init.

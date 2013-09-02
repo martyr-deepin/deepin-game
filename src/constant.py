@@ -33,7 +33,7 @@ CACHE_DIR = os.path.join(os.path.expanduser('~'), '.cache', 'deepin-game-center'
 
 COOKIE_FILE = os.path.join(CONFIG_DIR, 'cookie.txt')
 
-DEBUG = True
+DEBUG = False
 
 GAME_CENTER_SERVER_ADDRESS = 'http://game-center.linuxdeepin.com/' if not DEBUG else "http://59.173.241.82:11111/"
-GAME_CENTER_DATA_ADDRESS = 'http://game-center.linuxdeepin.com' if not DEBUG else "http://59.173.241.82:11111"
+GAME_CENTER_DATA_ADDRESS = 'http://game-center.b0.upaiyun.com/' if not DEBUG else "http://59.173.241.82:11111"

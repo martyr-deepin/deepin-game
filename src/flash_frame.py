@@ -163,7 +163,6 @@ class FlashFrame(dbus.service.Object):
             return True
 
     def signal_receiver(self, message):
-        print message
         message_type, contents = message
         if message_type == 'download_update':
             self.webview.execute_script('fresh_loading(%s)' % 
