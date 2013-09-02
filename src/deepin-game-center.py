@@ -53,7 +53,7 @@ def start_main_window():
         except KeyboardInterrupt:
             pass
 
-def star_player(args):
+def start_player(args):
     args = args.split(',')
     DBusGMainLoop(set_as_default=True)
     session_bus = dbus.SessionBus()
@@ -89,7 +89,7 @@ def MainOpionparser():
     if not play_game:
         start_main_window()
     else:
-        star_player(options.play_game)
+        start_player(options.play_game)
 
 if __name__ == '__main__':
     MainOpionparser()

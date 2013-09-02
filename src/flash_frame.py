@@ -131,7 +131,6 @@ class FlashFrame(dbus.service.Object):
         gtk.main_quit()
 
     def flash_frame_exit(self, widget):
-        print "game %s exit!" % (self.appid)
         gtk.main_quit()
         
     def send_message(self, message_type, message_content):
@@ -165,9 +164,10 @@ class FlashFrame(dbus.service.Object):
     def signal_receiver(self, message):
         message_type, contents = message
         if message_type == 'download_update':
-            print "download", str(contents)
             self.webview.execute_script('fresh_loading(%s)' % 
                     json.dumps(str(contents), encoding="UTF-8", ensure_ascii=False))
+        elif message_type == 'download_finish':
+            self.load_flash(str(contents))
         elif message_type == 'load_uri':
             self.webview.execute_script("window.location.href = %s" %
                     json.dumps(str(contents).split(',')[0], encoding="UTF-8", ensure_ascii=False))

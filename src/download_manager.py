@@ -20,7 +20,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from deepin_storm.download import FetchServiceThread, join_glib_loop, FetchFiles
+import logging
+logging.basicConfig(level=logging.ERROR)
+from pystorm.services import FetchService
+from pystorm.tasks import TaskObject
 from constant import GAME_CENTER_DATA_ADDRESS, GAME_CENTER_SERVER_ADDRESS
 import os
 import json
@@ -28,11 +31,19 @@ import threading as td
 from deepin_utils.file import touch_file_dir
 from events import global_event
 
+import urllib
 import urllib2
 
-thread = FetchServiceThread(5)
-thread.start()
-join_glib_loop(0.05)
+fetch_service = FetchService(1)
+fetch_service.start()
+
+class FetchSwf(td.Thread):
+    def __init__(self, ):
+        td.Thread.__init__(self)
+        self.setDaemon(True)
+
+    def run(self):
+        pass
 
 class SetStarScore(td.Thread):
     def __init__(self, appid, star):
@@ -81,9 +92,12 @@ class FetchInfo(td.Thread):
                 global_event.emit('download-app-info-finish', info)
 
     def finish_fetch_info(self, index_pic_url):
-        pic_url = "%s/%s" % (GAME_CENTER_DATA_ADDRESS, index_pic_url)
+        pic_url = urllib.basejoin(GAME_CENTER_DATA_ADDRESS, index_pic_url)
         pic_local_path = os.path.join(os.path.dirname(self.desc_info_path), pic_url.split('/')[-1])
         if not os.path.exists(pic_local_path):
-            pic_str = urllib2.urlopen(pic_url).read()
-            with open(pic_local_path, 'wb') as fp:
-                fp.write(pic_str)
+            try:
+                pic_str = urllib2.urlopen(pic_url).read()
+                with open(pic_local_path, 'wb') as fp:
+                    fp.write(pic_str) 
+            except Exception, e:
+                print "Fetch index picture faild:", e

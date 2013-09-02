@@ -41,7 +41,7 @@ from utils import get_common_image, handle_dbus_reply, handle_dbus_error
 import record_info
 from nls import _
 from constant import GAME_CENTER_DATA_ADDRESS
-from download_manager import thread, FetchFiles, FetchInfo
+from download_manager import fetch_service, TaskObject, FetchInfo
 from xdg_support import get_config_file
 from sound_manager import SoundSetting
 from constant import PROGRAM_NAME
@@ -86,7 +86,7 @@ class Player(dbus.service.Object):
                 self.content_page.add_plug_id(int(str(contents[1])))
                 self.plug_status = True
             elif message_type == 'loading_uri_finish':
-                thread.fetch_service.add_fetch(self.download_task)
+                fetch_service.add_missions([self.download_task])
             elif message_type == 'enter_bottom':
                 if self.show_bottom:
                     self.paned_box.bottom_window.show()
@@ -239,7 +239,7 @@ class Player(dbus.service.Object):
             self.toggle_pause_action(self.control_toolbar.pause_button)
 
     def window_in_focus_hander(self, widget, event):
-        print "In: hand=>%s, pause=>%s" % (self.hand_pause, self.game_pause)
+        #print "In: hand=>%s, pause=>%s" % (self.hand_pause, self.game_pause)
         if not self.loading and (not self.hand_pause and self.game_pause):
             self.control_toolbar.pause_button.set_active(False)
             self.toggle_pause_action(self.control_toolbar.pause_button)
@@ -276,7 +276,7 @@ class Player(dbus.service.Object):
             self.window.resize(FULL_DEFAULT_WIDTH, FULL_DEFAULT_HEIGHT)
 
     def quit(self, widget, data=None):
-        os.system('kill -CONT %s' % self.p.pid)
+        os.system('kill -9 %s' % self.p.pid)
         gtk.main_quit()
 
     def display_normal(self):
@@ -371,7 +371,7 @@ class Player(dbus.service.Object):
     def start_loading(self):
         global_event.register_event('download-app-info-finish', self.app_info_download_finish)
         FetchInfo(self.appid).start()
-        self.swf_save_path = os.path.expanduser("~/.cache/deepin-game-center/downloads/%s/%s" % (self.appid, self.swf_url.split('/')[-1]))
+        self.swf_save_path = os.path.expanduser("~/.cache/deepin-game-center/downloads/%s/%s.swf" % (self.appid, self.appid))
         if os.path.exists(self.swf_save_path):
             gtk.timeout_add(300, lambda:self.load_game())
         else:
@@ -379,21 +379,33 @@ class Player(dbus.service.Object):
             self.load_html_path = os.path.join(static_dir, 'loading.html')
             gtk.timeout_add(300, lambda :self.send_message('load_loading_uri', "file://" + self.load_html_path))
             
-            self.remote_path = GAME_CENTER_DATA_ADDRESS + self.swf_url
-            self.download_task = FetchFiles(file_urls=[self.remote_path], file_save_dir=os.path.dirname(self.swf_save_path))
-            self.download_task.signal.register_event("start",  self.download_start)
-            self.download_task.signal.register_event("update", self.download_update)
-            self.download_task.signal.register_event("finish", self.download_finish)
-            self.download_task.signal.register_event("error",  self.download_failed)
+            self.remote_path = urllib.basejoin(GAME_CENTER_DATA_ADDRESS, self.swf_url)
+            utils.ThreadMethod(urllib.urlretrieve, (self.remote_path, self.swf_save_path + '_tmp', self.report_hook)).start()
+            #self.download_task = TaskObject(self.remote_path, self.swf_save_path, verbose=True)
+            #self.download_task.connect("update", self.download_update)
+            #self.download_task.connect("finish", self.download_finish)
+            #self.download_task.connect("error",  self.download_failed)
+            #self.download_task.connect("start",  self.download_start)
+
+    def report_hook(self, block_count, block_size, total_size):
+        current = block_count * block_size
+        if current < total_size:
+            percent = str(int(float(current)/total_size * 100))
+            self.update_signal(['download_update', percent])
+        else:
+            self.update_signal(['download_update', '100'])
+            os.system('mv %s %s' % (self.swf_save_path + '_tmp', self.swf_save_path))
+            self.update_signal(['download_finish', 'file://%s,%s,%s' % (self.swf_save_path, self.width, self.height)])
+            self.load_game = False
+            record_info.record_recent_play(self.appid, self.conf_db)
+            #gtk.timeout_add(500, lambda:self.load_game())
 
     def load_game(self):
         self.loading = False
         self.send_message('load_uri', 'file://%s,%s,%s' % (self.swf_save_path, self.width, self.height))
-        print 'finish load:', self.swf_save_path
         record_info.record_recent_play(self.appid, self.conf_db)
             
     def run(self):
-        gtk.gdk.threads_init()
         self.call_flash_game(self.appid)
         self.start_loading()
         self.application.window.show_window()
@@ -427,19 +439,19 @@ class Player(dbus.service.Object):
                 error_handler=handle_dbus_error
             )
 
-    def download_update(self, percent, speed):
-        print percent
-        #progress = "%d" % data.progress
-        self.update_signal(['download_update', str(int(percent))])
+    def download_update(self, task, data):
+        #print "%s/s" % utils.get_human_size(data.speed)
+        progress = "%d" % data.progress
+        self.update_signal(['download_update', progress])
 
-    def download_start(self):
+    def download_start(self, task, data):
         pass
 
-    def download_finish(self):
+    def download_finish(self, task, data):
         gtk.timeout_add(500, lambda:self.load_game())
 
-    def download_failed(self, e):
-        print "download error:", e
+    def download_failed(self, task, data):
+        pass
 
     def __paint_bottom_toolbar_background(self, e):
         # 将皮肤的图片画在bottom toolbar上,作为背景.
