@@ -291,6 +291,8 @@ class Player(dbus.service.Object):
             self.paned_box.top_window.hide()
 
     def fullscreen_handler(self, widget, data=None):
+        self.control_toolbar.fullscreen_button.set_state(gtk.STATE_NORMAL)
+        self.inner_control_toolbar.fullscreen_button.set_state(gtk.STATE_NORMAL)
         if self.fullscreen_state:
             self.fullscreen_state = False
             self.display_normal()
