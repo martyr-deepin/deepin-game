@@ -447,7 +447,7 @@ if __name__ == '__main__':
         
     else:
         # Init dbus.
-        #bus_name = dbus.service.BusName(GAME_CENTER_DBUS_NAME, session_bus)
+        bus_name = dbus.service.BusName(GAME_CENTER_DBUS_NAME, session_bus)
             
         try:
             GameCenterApp(session_bus).run()

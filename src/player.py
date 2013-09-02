@@ -554,7 +554,7 @@ if __name__ == '__main__':
 
     else:
         # Init dbus.
-        #bus_name = dbus.service.BusName(GAME_PLAYER_DBUS_NAME, session_bus)
+        bus_name = dbus.service.BusName(GAME_PLAYER_DBUS_NAME, session_bus)
             
         try:
             Player(session_bus, sys.argv[1:], GAME_PLAYER_DBUS_NAME, GAME_PLAYER_DBUS_PATH).run()
