@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from pystorm.services import FetchService
-from pystorm.tasks import TaskObject
+from deepin_storm.download import FetchServiceThread, join_glib_loop, FetchFiles
 from constant import GAME_CENTER_DATA_ADDRESS, GAME_CENTER_SERVER_ADDRESS
 import os
 import json
@@ -31,8 +30,9 @@ from events import global_event
 
 import urllib2
 
-fetch_service = FetchService(5)
-fetch_service.start()
+thread = FetchServiceThread(5)
+thread.start()
+join_glib_loop(0.05)
 
 class SetStarScore(td.Thread):
     def __init__(self, appid, star):
@@ -84,4 +84,6 @@ class FetchInfo(td.Thread):
         pic_url = "%s/%s" % (GAME_CENTER_DATA_ADDRESS, index_pic_url)
         pic_local_path = os.path.join(os.path.dirname(self.desc_info_path), pic_url.split('/')[-1])
         if not os.path.exists(pic_local_path):
-            fetch_service.add_missions([TaskObject(pic_url, pic_local_path)])
+            pic_str = urllib2.urlopen(pic_url).read()
+            with open(pic_local_path, 'wb') as fp:
+                fp.write(pic_str)
