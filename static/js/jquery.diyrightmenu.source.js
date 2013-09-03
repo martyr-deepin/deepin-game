@@ -67,8 +67,9 @@
 				diySelectObject = this;
 				$(this).addClass('current');
 				var e = arguments[0] || window.event;
-				var x = e.clientX;
-				var y = e.clientY;
+				var x = e.pageX;
+				var y = e.pageY;
+                var y2 = e.clientY;
 				var h = [];
 				h.push('<ul>');
 				for(i in config.menu) {
@@ -97,7 +98,7 @@
 				var w = $('#diyrightmenu').outerWidth();
 				var q = $('#diyrightmenu').outerHeight();
 				if ( x+w > b ) x = x-w;
-				if ( y+q > c ) y = y-q;
+				if ( y2+q > c ) y = y-q;
 				$('#diyrightmenu').css({left:x+"px",top:y+"px"}).show().find('li a').click(function(){
 					$('#diyrightmenu').hide();
 					$(diySelectObject).removeClass('current');
