@@ -82,7 +82,7 @@ class GameCenterApp(dbus.service.Object):
                 ["theme", "menu", "max","min", "close"],
                 show_title=False
                 )
-        self.application.window.set_title(_("深度游戏中心"))
+        self.application.window.set_title(_("深度游戏"))
 
         # Init page box.
         self.page_box = gtk.VBox()
@@ -119,9 +119,11 @@ class GameCenterApp(dbus.service.Object):
         self.webview.set_settings(web_settings)
         self.webview.enable_inspector()
         self.webview.connect('new-window-policy-decision-requested', self.navigation_policy_decision_requested_cb)
-        self.webview.connect('notify::load-status', self.webview_load_status_handler)
+        #self.webview.connect('notify::load-status', self.webview_load_status_handler)
         self.webview.connect('notify::title', self.webview_title_changed_handler)
         self.webview.connect('script-alert', self.webview_script_alert_handler)
+
+        self.webview.connect('button-press-event', self.webview_button_press)
         
         self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game')
 
@@ -175,6 +177,9 @@ class GameCenterApp(dbus.service.Object):
                 (button.get_allocation().width, 0)))
         
         global_event.register_event('show-message', self.update_message)
+
+    def webview_button_press(self, webview, event):
+        print event
 
     def update_message(self, message, hide_timeout=0):
         if not self.paned_box.bottom_window.is_visible():
@@ -249,6 +254,14 @@ class GameCenterApp(dbus.service.Object):
                 json.dumps(current_theme, encoding="UTF-8", ensure_ascii=False))
             self.webview.execute_script('$("#game-gallery").get(0).contentWindow.change_color_theme(%s)' %
                 json.dumps(current_theme, encoding="UTF-8", ensure_ascii=False))
+            
+            event = gtk.gdk.Event(gtk.gdk.BUTTON_PRESS)
+            event.x = 1059.0
+            event.y = 140.0
+            event.button = 1
+            print self.webview.event(event)
+            #print gtk.main_do_event(event)
+            #gtk.timeout_add(300, lambda:self.webview.event(event))
 
         skin_config.connect('theme-changed', self.theme_changed_handler)
 
@@ -262,34 +275,47 @@ class GameCenterApp(dbus.service.Object):
         info = info.split('://')
         if len(info) == 2:
             order, data = info
+
             if order == 'play':
                 self.show_play(data)
+
             elif order == 'star':
                 self.toggle_favorite(data)
+
             elif order == 'local':
                 if data == 'recent':
                     self.show_recent_page()
                 elif data == 'star':
                     self.show_favorite_page()
+
+            elif order == 'document_ready' and data == 'game_gallery':
+                self.document_ready()
+                
             elif order == 'onload' and data == 'game_gallery':
                 gtk.timeout_add(200, self.fresh_favotite_status)
                 self.webview.execute_script('$("#game-gallery").get(0).contentWindow.change_color_theme(%s)' %
                     json.dumps(skin_config.theme_name, encoding="UTF-8", ensure_ascii=False))
+
             elif order == 'onload' and data == 'local_game_gallery':
                 self.webview.execute_script('$("#game-gallery").get(0).contentWindow.set_right_menu()')
                 self.webview.execute_script('$("#game-gallery").get(0).contentWindow.change_color_theme(%s)' %
                     json.dumps(skin_config.theme_name, encoding="UTF-8", ensure_ascii=False))
                 gtk.timeout_add(200, self.fresh_favotite_status)
+
             elif order == 'onload' and data == 'main_frame':
                 gtk.timeout_add(200, self.show_favorite_page)
+
             elif order == 'onload' and data == 'footer':
                 self.webview.execute_script('if(infos){append_data_to_gallery(infos);}')
+
             elif order == 'favorite':
                 record_info.record_favorite(data, self.conf_db)
                 FetchInfo(data).start()
                 favorite_animation(self.application.window)
+
             elif order == 'unfavorite':
                 record_info.remove_favorite(data, self.conf_db)
+
             elif order == 'local_action':
                 info = data.split('-')
                 if len(info) == 2:
@@ -331,12 +357,17 @@ class GameCenterApp(dbus.service.Object):
                     self.webview.execute_script("change_favorite_status(%s, 'ilike')" %
                         json.dumps(id, encoding="UTF-8", ensure_ascii=False))
 
-    def webview_load_status_handler(self, widget, status,):
+    def webview_load_status_handler(self, widget=None, status=None):
         load_status = widget.get_load_status()
         if load_status == webkit.LOAD_FINISHED:
             self.webview.execute_script("$('#game-gallery').contents().find('#grid span span').removeClass('ilike')")
             self.webview.execute_script("$('#game-gallery').contents().find('#grid span span').addClass('like')")
             self.init_theme()
+
+    def document_ready(self):
+        self.webview.execute_script("$('#game-gallery').contents().find('#grid span span').removeClass('ilike')")
+        self.webview.execute_script("$('#game-gallery').contents().find('#grid span span').addClass('like')")
+        self.init_theme()
 
     def show_play(self, data):
         data = data.split(',')

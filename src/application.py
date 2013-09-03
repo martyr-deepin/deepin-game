@@ -108,4 +108,3 @@ class PlayerApplication(Application):
         
         if app_name != None:
             self.window.set_title(app_name)
-

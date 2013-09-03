@@ -81,7 +81,7 @@ class AboutDialog(DialogBox):
 
         main_box = gtk.VBox(spacing=15)
         logo_image = gtk.image_new_from_pixbuf(get_common_image_pixbuf('logo24.png'))
-        logo_name = Label(_("深度游戏中心"), text_size=10)
+        logo_name = Label(_("深度游戏"), text_size=10)
         logo_box = gtk.HBox(spacing=2)
         logo_box.pack_start(logo_image, False, False)
         logo_box.pack_start(logo_name, False, False)

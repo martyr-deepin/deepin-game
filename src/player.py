@@ -123,7 +123,7 @@ class Player(dbus.service.Object):
         self.application.add_titlebar(
                 ["mode", "min", "max", "close"],
                 )
-        player_title = _("深度游戏中心 - %s " % self.game_name)
+        player_title = _("深度游戏 - %s " % self.game_name)
         self.window = self.application.window
         self.window.set_title(player_title)
         self.application.titlebar.change_name(player_title)
