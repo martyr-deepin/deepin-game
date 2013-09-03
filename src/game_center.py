@@ -176,6 +176,8 @@ class GameCenterApp(dbus.service.Object):
                 get_widget_root_coordinate(button, WIDGET_POS_BOTTOM_LEFT),
                 (button.get_allocation().width, 0)))
         
+        self.no_favorite_html_path = os.path.join(static_dir, "error-no-favorite.html")
+        self.no_recent_html_path = os.path.join(static_dir, "error-no-recent.html")
         global_event.register_event('show-message', self.update_message)
 
     def webview_button_press(self, webview, event):
@@ -255,13 +257,9 @@ class GameCenterApp(dbus.service.Object):
             self.webview.execute_script('$("#game-gallery").get(0).contentWindow.change_color_theme(%s)' %
                 json.dumps(current_theme, encoding="UTF-8", ensure_ascii=False))
             
-            event = gtk.gdk.Event(gtk.gdk.BUTTON_PRESS)
-            event.x = 1059.0
-            event.y = 140.0
-            event.button = 1
-            print self.webview.event(event)
             #print gtk.main_do_event(event)
             #gtk.timeout_add(300, lambda:self.webview.event(event))
+            self.send_event()
 
         skin_config.connect('theme-changed', self.theme_changed_handler)
 
@@ -270,6 +268,22 @@ class GameCenterApp(dbus.service.Object):
             json.dumps(name, encoding="UTF-8", ensure_ascii=False))
         self.webview.execute_script('$("#game-gallery").get(0).contentWindow.change_color_theme(%s)' %
             json.dumps(name, encoding="UTF-8", ensure_ascii=False))
+        self.send_event()
+
+    def send_event(self):
+        press_event = gtk.gdk.Event(gtk.gdk.BUTTON_PRESS)
+        press_event.window = self.webview.window
+        press_event.x = 1062.0
+        press_event.y = 50.0
+        press_event.button = 1
+        print "press:", self.webview.event(press_event)
+        release_event = gtk.gdk.Event(gtk.gdk.BUTTON_RELEASE)
+        release_event.window = self.webview.window
+        release_event.x = 1062.0
+        release_event.y = 50.0
+        release_event.button = 1
+        print "release:", self.webview.event(release_event)
+        self.webview.window.invalidate_rect(self.webview.allocation, True)
 
     def webview_message_handler(self, info):
         info = info.split('://')
@@ -325,12 +339,16 @@ class GameCenterApp(dbus.service.Object):
                         record_info.remove_favorite(appid, self.conf_db)
                         utils.ThreadMethod(utils.send_analytics, ('unfavorite', appid)).start()
                         #var favorite_url = 'http://' + location.host + '/game/analytics/?type=unfavorite&appid=' + id;
+                        self.webview.execute_script('if(infos){infos_remove(%s);}else{gallery_change(%s);}' % (
+                                json.dumps(appid, encoding="UTF-8", ensure_ascii=False),
+                                json.dumps(self.no_favorite_html_path, encoding="UTF-8", ensure_ascii=False),
+                                ))
                     elif action_type == 'recent':
                         record_info.remove_recent_play(appid, self.conf_db)
-                    self.webview.execute_script('if(infos){infos_remove(%s);}' %
-                            json.dumps(appid, encoding="UTF-8", ensure_ascii=False))
-                    self.webview.execute_script("gallery_change(%s)" %
-                            json.dumps(self.gallery_html_path, encoding="UTF-8", ensure_ascii=False))
+                        self.webview.execute_script('if(infos){infos_remove(%s);}else{gallery_change(%s);}' % (
+                                json.dumps(appid, encoding="UTF-8", ensure_ascii=False),
+                                json.dumps(self.no_recent_html_path, encoding="UTF-8", ensure_ascii=False),
+                                ))
 
     def navigation_policy_decision_requested_cb(self, web_view, frame, request, navigation_action, policy_decision):
         uri = request.get_uri()
@@ -425,9 +443,8 @@ class GameCenterApp(dbus.service.Object):
                             json.dumps(self.gallery_html_path, encoding="UTF-8", ensure_ascii=False))
                     return
 
-        no_favorite_html_path = os.path.join(static_dir, "error-no-favorite.html")
         self.webview.execute_script("gallery_change(%s)" %
-                json.dumps(no_favorite_html_path, encoding="UTF-8", ensure_ascii=False))
+                json.dumps(self.no_favorite_html_path, encoding="UTF-8", ensure_ascii=False))
 
     def show_recent_page(self):
         downloads_dir = os.path.join(CACHE_DIR, 'downloads')
@@ -453,9 +470,8 @@ class GameCenterApp(dbus.service.Object):
                         json.dumps(self.gallery_html_path, encoding="UTF-8", ensure_ascii=False))
                     return
 
-        no_recent_html_path = os.path.join(static_dir, "error-no-recent.html")
         self.webview.execute_script("gallery_change(%s)" %
-                json.dumps(no_recent_html_path, encoding="UTF-8", ensure_ascii=False))
+                json.dumps(self.no_recent_html_path, encoding="UTF-8", ensure_ascii=False))
 
     def run(self):
         self.ready_show()

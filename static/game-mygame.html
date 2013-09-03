@@ -45,7 +45,8 @@
     }
     function drop(){
         alert('local_action://' + $(diySelectObject).attr("id"));
-        $(diySelectObject).hide();
+        $(diySelectObject).remove();
+        setup_grid();
     }
 
     </script>
