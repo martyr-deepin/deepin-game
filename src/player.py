@@ -252,6 +252,8 @@ class Player(dbus.service.Object):
             self.toggle_pause_action(self.control_toolbar.pause_button)
 
     def change_view(self, widget):
+        screen = gtk.gdk.screen_get_default()
+        screen_w, screen_h = screen.get_width(), screen.get_height()
         width, height = self.window.get_size()
         if not widget.get_active():
             SIMPLE_DEFAULT_WIDTH = width - 220
@@ -261,7 +263,7 @@ class Player(dbus.service.Object):
             self.guide_box.set_no_show_all(True)
             self.window.set_default_size(SIMPLE_DEFAULT_WIDTH, SIMPLE_DEFAULT_HEIGHT)
             self.window.set_geometry_hints(None, SIMPLE_DEFAULT_WIDTH, SIMPLE_DEFAULT_HEIGHT, 
-                                           SIMPLE_DEFAULT_WIDTH, SIMPLE_DEFAULT_HEIGHT, # (310, 700)
+                                           screen_w, screen_h, # (310, 700)
                                            -1, -1, -1, -1, -1, -1)
             self.window.resize(SIMPLE_DEFAULT_WIDTH, SIMPLE_DEFAULT_HEIGHT)
             self.window.queue_draw()
@@ -272,7 +274,7 @@ class Player(dbus.service.Object):
             self.guide_box.show_all()
             self.window.set_default_size(FULL_DEFAULT_WIDTH, FULL_DEFAULT_HEIGHT)            
             self.window.set_geometry_hints(None, FULL_DEFAULT_WIDTH, FULL_DEFAULT_HEIGHT, 
-                                           FULL_DEFAULT_WIDTH, FULL_DEFAULT_HEIGHT,  -1, -1, -1, -1, -1, -1)
+                                           screen_w, screen_h,  -1, -1, -1, -1, -1, -1)
             self.window.resize(FULL_DEFAULT_WIDTH, FULL_DEFAULT_HEIGHT)
 
     def quit(self, widget, data=None):
