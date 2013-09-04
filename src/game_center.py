@@ -52,7 +52,7 @@ import utils
 import record_info
 from xdg_support import get_config_file
 from download_manager import FetchInfo
-from nls import _, LANGUAGE
+from nls import _
 from events import global_event
 from constant import (
         GAME_CENTER_DBUS_NAME,
@@ -122,8 +122,6 @@ class GameCenterApp(dbus.service.Object):
         #self.webview.connect('notify::load-status', self.webview_load_status_handler)
         self.webview.connect('notify::title', self.webview_title_changed_handler)
         self.webview.connect('script-alert', self.webview_script_alert_handler)
-
-        self.webview.connect('button-press-event', self.webview_button_press)
         
         self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game')
 
@@ -178,10 +176,9 @@ class GameCenterApp(dbus.service.Object):
         
         self.no_favorite_html_path = os.path.join(static_dir, "error-no-favorite.html")
         self.no_recent_html_path = os.path.join(static_dir, "error-no-recent.html")
-        global_event.register_event('show-message', self.update_message)
 
-    def webview_button_press(self, webview, event):
-        print event
+        skin_config.connect('theme-changed', self.theme_changed_handler)
+        global_event.register_event('show-message', self.update_message)
 
     def update_message(self, message, hide_timeout=0):
         if not self.paned_box.bottom_window.is_visible():
@@ -249,40 +246,28 @@ class GameCenterApp(dbus.service.Object):
     def show_about_dialog(self):
         self.about_dialog.show_all()
 
-    def init_theme(self):
-        current_theme = skin_config.theme_name
-        if current_theme:
-            self.webview.execute_script('change_color_theme(%s)' %
-                json.dumps(current_theme, encoding="UTF-8", ensure_ascii=False))
-            self.webview.execute_script('$("#game-gallery").get(0).contentWindow.change_color_theme(%s)' %
-                json.dumps(current_theme, encoding="UTF-8", ensure_ascii=False))
-            
-            #print gtk.main_do_event(event)
-            #gtk.timeout_add(300, lambda:self.webview.event(event))
-            self.send_event()
-
-        skin_config.connect('theme-changed', self.theme_changed_handler)
-
     def theme_changed_handler(self, widget, name):
         self.webview.execute_script('change_color_theme(%s)' %
             json.dumps(name, encoding="UTF-8", ensure_ascii=False))
         self.webview.execute_script('$("#game-gallery").get(0).contentWindow.change_color_theme(%s)' %
             json.dumps(name, encoding="UTF-8", ensure_ascii=False))
-        self.send_event()
+        self.webview.execute_script('alert("scroll_top://" + $($("#game-gallery").get(0).contentWindow.document.body).scrollTop())')
 
-    def send_event(self):
+    def send_event(self, data=0):
         press_event = gtk.gdk.Event(gtk.gdk.BUTTON_PRESS)
         press_event.window = self.webview.window
         press_event.x = 1062.0
-        press_event.y = 50.0
+        press_event.y = 35.0 + int(data) + 20.0
         press_event.button = 1
-        print "press:", self.webview.event(press_event)
+
         release_event = gtk.gdk.Event(gtk.gdk.BUTTON_RELEASE)
         release_event.window = self.webview.window
         release_event.x = 1062.0
-        release_event.y = 50.0
+        release_event.y = 35.0 + int(data) + 20.0
         release_event.button = 1
-        print "release:", self.webview.event(release_event)
+
+        self.webview.event(press_event)
+        self.webview.event(release_event)
         self.webview.window.invalidate_rect(self.webview.allocation, True)
 
     def webview_message_handler(self, info):
@@ -307,8 +292,8 @@ class GameCenterApp(dbus.service.Object):
                 
             elif order == 'onload' and data == 'game_gallery':
                 gtk.timeout_add(200, self.fresh_favotite_status)
-                self.webview.execute_script('$("#game-gallery").get(0).contentWindow.change_color_theme(%s)' %
-                    json.dumps(skin_config.theme_name, encoding="UTF-8", ensure_ascii=False))
+                #self.webview.execute_script('$("#game-gallery").get(0).contentWindow.change_color_theme(%s)' %
+                    #json.dumps(skin_config.theme_name, encoding="UTF-8", ensure_ascii=False))
 
             elif order == 'onload' and data == 'local_game_gallery':
                 self.webview.execute_script('$("#game-gallery").get(0).contentWindow.set_right_menu()')
@@ -350,6 +335,9 @@ class GameCenterApp(dbus.service.Object):
                                 json.dumps(self.no_recent_html_path, encoding="UTF-8", ensure_ascii=False),
                                 ))
 
+            elif order == 'scroll_top':
+                self.send_event(data)
+
     def navigation_policy_decision_requested_cb(self, web_view, frame, request, navigation_action, policy_decision):
         uri = request.get_uri()
         if uri.startswith('http://') or uri.startswith('https://'):
@@ -380,12 +368,10 @@ class GameCenterApp(dbus.service.Object):
         if load_status == webkit.LOAD_FINISHED:
             self.webview.execute_script("$('#game-gallery').contents().find('#grid span span').removeClass('ilike')")
             self.webview.execute_script("$('#game-gallery').contents().find('#grid span span').addClass('like')")
-            self.init_theme()
 
     def document_ready(self):
         self.webview.execute_script("$('#game-gallery').contents().find('#grid span span').removeClass('ilike')")
         self.webview.execute_script("$('#game-gallery').contents().find('#grid span span').addClass('like')")
-        self.init_theme()
 
     def show_play(self, data):
         data = data.split(',')

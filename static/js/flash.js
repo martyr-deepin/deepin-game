@@ -2,11 +2,12 @@ function loading_flash(info){
     var flash_html = '';
 	//flash_html += '<div>';
 	flash_html += '<EMBED style="position:absolute;z-index:0"';
-	flash_html += 'src="' + info[0] + '"';
-	flash_html += 'quality=high width='+ info[1] +' height=' + info[2]; 
-	flash_html += 'TYPE="application/x-shockwave-flash"';
-	flash_html += 'PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"';
-	flash_html += 'wmode="opaque">';
+	flash_html += ' src="' + info[0] + '"';
+	flash_html += ' quality=high width='+ info[1] +' height=' + info[2]; 
+	flash_html += ' TYPE="application/x-shockwave-flash"';
+	flash_html += ' PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"';
+    flash_html += ' MENU="false"';
+	flash_html += ' wmode="opaque">';
 	//flash_html += '<div style="position:relative;filter:alpha(opacity=0);-moz-opacity:0;left:0;top:0; background:#CDEAF6;';
 	//flash_html += 'width:' + info[1] +'px;height:' + info[2] + 'px;z-index:10">';
 	//flash_html += '</div>';
