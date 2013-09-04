@@ -30,6 +30,7 @@ from button import Button, ToggleButton
 from events import global_event
 from cookie_parser import get_cookie_star, set_cookie_star
 from download_manager import SetStarScore
+from nls import _
 
 class ControlToolbar(Statusbar):
     def __init__(self, appid):
@@ -45,8 +46,8 @@ class ControlToolbar(Statusbar):
                 app_theme.get_pixbuf('mute/mute_hover.png'),
                 app_theme.get_pixbuf('mute/sound_press.png'),
                 app_theme.get_pixbuf('mute/mute_press.png'),
-                active_button_label = '声音',
-                inactive_button_label = '静音',
+                active_button_label = _('声音'),
+                inactive_button_label = _('静音'),
                 draw_background=True,
                 padding_edge=10,
                 padding_middle=6)
@@ -63,7 +64,7 @@ class ControlToolbar(Statusbar):
                 app_theme.get_pixbuf('favorite/favorite_hover.png'),
                 app_theme.get_pixbuf('favorite/unfavorite_press.png'),
                 app_theme.get_pixbuf('favorite/favorite_press.png'),
-                active_button_label = '收藏',
+                active_button_label = _('收藏'),
                 draw_background=True,
                 padding_edge=10,
                 padding_middle=6)
@@ -77,7 +78,7 @@ class ControlToolbar(Statusbar):
                 app_theme.get_pixbuf('replay/replay_normal.png'),
                 app_theme.get_pixbuf('replay/replay_hover.png'),
                 app_theme.get_pixbuf('replay/replay_press.png'),
-                button_label='重玩',
+                button_label = _('重玩'),
                 draw_background=True,
                 padding_edge=10,
                 padding_middle=6)
@@ -96,8 +97,8 @@ class ControlToolbar(Statusbar):
                 app_theme.get_pixbuf('pause/play_hover.png'),
                 app_theme.get_pixbuf('pause/pause_press.png'),
                 app_theme.get_pixbuf('pause/play_press.png'),
-                active_button_label = '暂停',
-                inactive_button_label = '继续',
+                active_button_label = _('暂停'),
+                inactive_button_label = _('继续'),
                 draw_background=True,
                 padding_edge=10,
                 padding_middle=6)
@@ -111,7 +112,7 @@ class ControlToolbar(Statusbar):
                 app_theme.get_pixbuf('fullscreen/fullscreen_normal.png'),
                 app_theme.get_pixbuf('fullscreen/fullscreen_hover.png'),
                 app_theme.get_pixbuf('fullscreen/fullscreen_press.png'),
-                button_label='全屏',
+                button_label = _('全屏'),
                 draw_background=True,
                 padding_edge=10,
                 padding_middle=6)
@@ -125,7 +126,7 @@ class ControlToolbar(Statusbar):
                 app_theme.get_pixbuf('share/share_normal.png'),
                 app_theme.get_pixbuf('share/share_hover.png'),
                 app_theme.get_pixbuf('share/share_press.png'),
-                button_label='分享',
+                button_label = _('分享'),
                 draw_background=True,
                 padding_edge=10,
                 padding_middle=6)

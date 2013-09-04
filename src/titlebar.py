@@ -26,13 +26,13 @@ from dtk.ui.box import EventBox
 from dtk.ui.button import ThemeButton, MenuButton, MinButton, MaxButton, CloseButton
 from dtk.ui.draw import draw_line
 from dtk.ui.label import Label
-from dtk.ui.locales import _
 from dtk.ui.constant import DEFAULT_FONT_SIZE
 import dtk.ui.tooltip as Tooltip
 from dtk.ui.utils import window_is_max
 import gobject
 import gtk
 import pango
+from nls import _
 
 from theme import app_theme
 from button import ToggleButton

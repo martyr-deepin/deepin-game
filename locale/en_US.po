@@ -1,0 +1,235 @@
+# English translations for PACKAGE package.
+# Copyright (C) 2013 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-04 16:15+0800\n"
+"PO-Revision-Date: 2013-09-04 16:15+0800\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../src/guide_box.py:55
+msgid "游戏简介"
+msgstr "游戏简介"
+
+#: ../src/titlebar.py:53
+msgid "Change skin"
+msgstr "Change skin"
+
+#: ../src/titlebar.py:54
+msgid "Main menu"
+msgstr "Main menu"
+
+#: ../src/titlebar.py:55
+msgid "Maximize"
+msgstr "Maximize"
+
+#: ../src/titlebar.py:56
+msgid "Minimum"
+msgstr "Minimum"
+
+#: ../src/titlebar.py:57
+msgid "Close"
+msgstr "Close"
+
+#: ../src/titlebar.py:58
+msgid "Toggle"
+msgstr "Toggle"
+
+#: ../src/widgets.py:155 ../src/widgets.py:236
+msgid "点击此处刷新"
+msgstr "点击此处刷新"
+
+#: ../src/dialog.py:84 ../src/game_center.py:85
+msgid "深度游戏"
+msgstr "深度游戏"
+
+#: ../src/dialog.py:89
+msgid "版本："
+msgstr "版本："
+
+#: ../src/dialog.py:102
+msgid ""
+"深度游戏是Linux Deepin团队为广大Linux用户量身开发的一款游戏娱乐中心，提供精"
+"品、绿色、安全的游戏，专业团队精心挑选，轻轻点击即可畅享，方便省心。精彩的游"
+"戏专题、分享游戏截图给微博好友，深度游戏，为快乐而生！"
+msgstr ""
+"深度游戏是Linux Deepin团队为广大Linux用户量身开发的一款游戏娱乐中心，提供精"
+"品、绿色、安全的游戏，专业团队精心挑选，轻轻点击即可畅享，方便省心。精彩的游"
+"戏专题、分享游戏截图给微博好友，深度游戏，为快乐而生！"
+
+#: ../src/dialog.py:110
+msgid "官方微博："
+msgstr "官方微博："
+
+#: ../src/dialog.py:111
+msgid "官方论坛："
+msgstr "官方论坛："
+
+#: ../src/dialog.py:112
+msgid "意见反馈："
+msgstr "意见反馈："
+
+#: ../src/dialog.py:123
+msgid "关闭"
+msgstr "关闭"
+
+#: ../src/share.py:74
+msgid "share to web"
+msgstr "share to web"
+
+#: ../src/share.py:188
+msgid "Unable to load page"
+msgstr "Unable to load page"
+
+#: ../src/share.py:189
+#, python-format
+msgid "Problem occurred while loading the URL '%s'"
+msgstr "Problem occurred while loading the URL '%s'"
+
+#: ../src/share.py:317
+msgid "click to switch user"
+msgstr "click to switch user"
+
+#: ../src/share.py:335
+msgid "click to login"
+msgstr "click to login"
+
+#: ../src/share.py:450
+msgid "loading"
+msgstr "loading"
+
+#: ../src/share.py:461
+msgid "Tweet"
+msgstr "Tweet"
+
+#: ../src/share.py:503
+msgid "Please input text here"
+msgstr "Please input text here"
+
+#: ../src/share.py:529 ../src/share.py:540
+msgid "error"
+msgstr "error"
+
+#: ../src/share.py:529
+msgid "Picture does not exist."
+msgstr "Picture does not exist."
+
+#: ../src/share.py:540
+msgid "Please choose at least one platform to share on"
+msgstr "Please choose at least one platform to share on"
+
+#: ../src/share.py:557
+msgid "uploading"
+msgstr "uploading"
+
+#: ../src/share.py:568
+msgid "came from"
+msgstr "came from"
+
+#: ../src/share.py:568
+msgid "DSnapshot"
+msgstr "DSnapshot"
+
+#: ../src/share.py:615
+msgid "Follow"
+msgstr "Follow"
+
+#: ../src/share.py:638 ../src/share.py:659
+msgid "upload to"
+msgstr "upload to"
+
+#: ../src/share.py:641
+msgid "successful"
+msgstr "successful"
+
+#: ../src/share.py:664
+msgid "failed"
+msgstr "failed"
+
+#: ../src/share.py:672
+msgid "Unknow reason"
+msgstr "Unknow reason"
+
+#: ../src/game_center.py:133
+msgid "首页"
+msgstr "首页"
+
+#: ../src/game_center.py:134
+msgid "游戏专题"
+msgstr "游戏专题"
+
+#: ../src/game_center.py:135
+msgid "我的游戏"
+msgstr "我的游戏"
+
+#: ../src/game_center.py:153 ../src/game_center.py:166
+msgid "关于我们"
+msgstr "关于我们"
+
+#: ../src/game_center.py:164
+msgid "智能清除所有缓存"
+msgstr "智能清除所有缓存"
+
+#: ../src/game_center.py:165
+msgid "查看新特性"
+msgstr "查看新特性"
+
+#: ../src/game_center.py:167
+msgid "退出"
+msgstr "退出"
+
+#: ../src/game_center.py:241
+#, python-format
+msgid "恭喜您清理了%s个文件，为您节约了%s空间。"
+msgstr "恭喜您清理了%s个文件，为您节约了%s空间。"
+
+#: ../src/game_center.py:244
+msgid "您的游戏缓存已经清理干净，不需要再清理。"
+msgstr "您的游戏缓存已经清理干净，不需要再清理。"
+
+#: ../src/player.py:126
+#, python-format
+msgid "深度游戏 - %s "
+msgstr "深度游戏 - %s "
+
+#: ../src/control_toolbar.py:49
+msgid "声音"
+msgstr "声音"
+
+#: ../src/control_toolbar.py:50
+msgid "静音"
+msgstr "静音"
+
+#: ../src/control_toolbar.py:67
+msgid "收藏"
+msgstr "收藏"
+
+#: ../src/control_toolbar.py:81
+msgid "重玩"
+msgstr "重玩"
+
+#: ../src/control_toolbar.py:100
+msgid "暂停"
+msgstr "暂停"
+
+#: ../src/control_toolbar.py:101
+msgid "继续"
+msgstr "继续"
+
+#: ../src/control_toolbar.py:115
+msgid "全屏"
+msgstr "全屏"
+
+#: ../src/control_toolbar.py:129
+msgid "分享"
+msgstr "分享"

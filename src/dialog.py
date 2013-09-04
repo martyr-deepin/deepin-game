@@ -71,7 +71,7 @@ def create_separator_box(padding_x=0, padding_y=0):
 
 class AboutDialog(DialogBox):
 
-    def __init__(self, title='关于我们', cancel_callback=None):
+    def __init__(self, title, cancel_callback=None):
         DialogBox.__init__(self, 
                 title, 
                 mask_type=2, 
@@ -99,7 +99,7 @@ class AboutDialog(DialogBox):
         title_box.pack_start(align, True, True)
         title_box.pack_start(info_box, False, False)
         
-        describe = '''深度游戏是Linux Deepin团队为广大Linux用户量身开发的一款游戏娱乐中心，提供精品、绿色、安全的游戏，专业团队精心挑选，轻轻点击即可畅享，方便省心。精彩的游戏专题、分享游戏截图给微博好友，深度游戏，为快乐而生！'''
+        describe = _('深度游戏是Linux Deepin团队为广大Linux用户量身开发的一款游戏娱乐中心，提供精品、绿色、安全的游戏，专业团队精心挑选，轻轻点击即可畅享，方便省心。精彩的游戏专题、分享游戏截图给微博好友，深度游戏，为快乐而生！')
         
         describe_label = Label(describe, enable_select=False, wrap_width=430, text_size=10)
         main_box.pack_start(title_box, False, False)
@@ -107,9 +107,9 @@ class AboutDialog(DialogBox):
         main_box.pack_start(describe_label, False, False)
 
         links = [
-                ('官方微博：', 'http://weibo.com/linuxdeepinnew'),
-                ('官方论坛：', 'http://www.linuxdeepin.com/forum'),
-                ('意见反馈：', 'http://www.linuxdeepin.com/mantis')
+                (_('官方微博：'), 'http://weibo.com/linuxdeepinnew'),
+                (_('官方论坛：'), 'http://www.linuxdeepin.com/forum'),
+                (_('意见反馈：'), 'http://www.linuxdeepin.com/mantis')
                 ]
         for l in links:
             main_box.pack_start(self.create_link_box(l[0], l[1]), False, False)
@@ -120,7 +120,7 @@ class AboutDialog(DialogBox):
         main_align.add(main_box)
         self.body_box.pack_start(main_align)
 
-        self.ok_button = Button('关闭')
+        self.ok_button = Button(_('关闭'))
         self.ok_button.connect('clicked', self.dialog_close_action)
         ok_button_align = gtk.Alignment(0.5, 0.5, 0, 0)
         ok_button_align.set_padding(9, 11, 0, 10)

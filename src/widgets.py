@@ -24,7 +24,7 @@ import gtk
 import pango
 from utils import get_common_image, get_common_image_pixbuf
 from ui_utils import set_widget_vcenter
-from nls import LANGUAGE
+from nls import LANGUAGE, _
 
 from dtk.ui.draw import draw_pixbuf, draw_text
 from dtk.ui.utils import get_content_size, is_in_rect
@@ -152,7 +152,7 @@ class NetworkConnectFailed(gtk.EventBox):
         
         self.normal_text_dcolor = ui_theme.get_color("labelText")
         self.hover_text_dcolor = ui_theme.get_color("globalItemHighlight")
-        self.prompt_text = "点击此处刷新"
+        self.prompt_text = _("点击此处刷新")
         self.text_padding_y = 5
         self.text_padding_x = 5
         self.text_rect = None
@@ -233,7 +233,7 @@ class NetworkConnectTimeout(gtk.EventBox):
         
         self.normal_text_dcolor = ui_theme.get_color("labelText")
         self.hover_text_dcolor = ui_theme.get_color("globalItemHighlight")
-        self.prompt_text = "点击此处刷新"
+        self.prompt_text = _("点击此处刷新")
         self.text_padding_y = 5
         self.text_padding_x = 5
         self.text_rect = None

@@ -150,7 +150,7 @@ class GameCenterApp(dbus.service.Object):
         self.application.titlebar.left_box.pack_start(self.navigatebar_align, True, True)
         self.application.window.add_move_event(self.navigatebar)
 
-        self.about_dialog = AboutDialog()
+        self.about_dialog = AboutDialog(_('关于我们'))
         self.about_dialog.set_transient_for(self.application.window)
 
         # Init menu.
@@ -238,10 +238,10 @@ class GameCenterApp(dbus.service.Object):
                     os.remove(os.path.join(downloads_dir, appid, f))
         
         if info['file_num']:
-            cache_cleaned_message = '恭喜您清理了%s个文件，为您节约了%s空间。' % (
+            cache_cleaned_message = _('恭喜您清理了%s个文件，为您节约了%s空间。') % (
                     info['file_num'], utils.get_human_size(info['total_size']))
         else:
-            cache_cleaned_message = '您的游戏缓存已经清理干净，不需要再清理。'
+            cache_cleaned_message = _('您的游戏缓存已经清理干净，不需要再清理。')
         global_event.emit('show-message', cache_cleaned_message, 5000)
 
     def show_about_dialog(self):

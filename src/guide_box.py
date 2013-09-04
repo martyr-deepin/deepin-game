@@ -28,6 +28,7 @@ from dtk.ui.box import BackgroundBox
 from dtk.ui.theme import ui_theme, DynamicColor
 from dtk.ui.threads import post_gui
 from dtk.ui.scrolled_window import ScrolledWindow
+from nls import _
 
 import utils
 from events import global_event
@@ -51,7 +52,7 @@ class GuideBox(gtk.VBox):
         top_left_icon_align.set_padding(15, 3, 13, 3)
         top_left_icon_align.add(self.top_left_icon)
 
-        self.top_right_text = Label("游戏简介", ui_theme.get_color('label_select_background'), 14)
+        self.top_right_text = Label(_("游戏简介"), ui_theme.get_color('label_select_background'), 14)
         top_right_text_align = gtk.Alignment(0.5, 0.5, 0, 0)
         top_right_text_align.set_padding(18, 3, 3, 3)
         top_right_text_align.add(self.top_right_text)
