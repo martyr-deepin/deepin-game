@@ -23,11 +23,14 @@
 import os
 import gtk
 import glib
+from theme import app_theme
+
 from deepin_utils.ipc import is_dbus_name_exists
 from dbus.mainloop.glib import DBusGMainLoop
 import dbus
 import dbus.service
 from dtk.ui.browser import WebView
+from dtk.ui.skin_config import skin_config
 import json
 from paned_box import PanedBox
 from constant import COOKIE_FILE
@@ -94,6 +97,9 @@ class FlashFrame(dbus.service.Object):
         if new_title == 'finish_load':
             self.webview.execute_script('loading_flash(%s)' %
                 json.dumps(self.swf_info, encoding="UTF-8", ensure_ascii=False))
+        elif new_title == 'onload_loading':
+            self.webview.execute_script('change_color_theme(%s)' %
+                json.dumps(skin_config.theme_name, encoding="UTF-8", ensure_ascii=False))
 
     def load_flash(self, contents):
         flash_html_path = os.path.join(static_dir, 'flash.html')

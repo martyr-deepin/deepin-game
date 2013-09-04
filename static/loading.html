@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>深度小游戏中心 - 提示框</title>
 	<link href="css/layout.css" rel="stylesheet" />
-	<link href="css/color_dark_purple.css" rel="stylesheet" />
+	<link href="css/color_dark_purple.css" rel="stylesheet" id='color_link'/>
     <script src="js/jquery.js"></script>
     <script src="js/common.js"></script>
 </head>
@@ -22,5 +22,10 @@ onresize='document.querySelector(".popup_box .bg_box").style.paddingBottom = doc
 			</section>
 		</div>
 	</div>
+    <script type='text/javascript'>
+        $(document).ready(function(){
+            $(document).attr('title', 'onload_loading')
+        });
+    </script>
 </body>
 </html>
