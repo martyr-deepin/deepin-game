@@ -2,16 +2,9 @@ jQuery(function(){
   /**
   some settings
   **/
-  var debug = true;
-  var server_address;
-  if (debug){
-    server_address = 'http://59.173.241.82:11111/';
-  }
-  else{
-    server_address = 'http://game-center.linuxdeepin.com/';
-  }
 
   var ENTER_KEY = 13;
+  var ESC_KEY = 27;
   var jQuerycontainer = jQuery('.game_gallery');
   if(jQuerycontainer.masonry)jQuerycontainer.masonry({
     itemSelector: '.box',
@@ -67,18 +60,74 @@ jQuery(function(){
   		break;
   	}
   });
-  var search_text, search_btn, search_msg;
-  search_text = jQuery(".search_box .text");
-  search_btn  = jQuery(".search_box .search");
-  search_msg  = jQuery('<div class="search_msg" />');
+
+  var search_text, search_btn;
+  search_text = jQuery("#search_text");
+  search_btn  = jQuery("#search_botton");
   search_text.keydown(function(e){
     if(e.keyCode == ENTER_KEY){
-      search_btn.click();
+        search_btn.click();
+        $('#ui_element').find('.sb_dropdown').hide();
+    }
+    else if (e.keyCode == ESC_KEY){
+        $('#ui_element').find('.sb_dropdown').slideUp('fast');
+    }
+    else{
+        $('#ui_element').find('.sb_dropdown').slideDown('fast');
     }
   });
+
   search_btn.click(function(){
-    jQuery("#game-gallery")[0].src = server_address + 'game/search/?q=' + search_text.val();
-    search_msg.text( '"' + search_text.val() + '"' + " 的搜索结果");
-    jQuery(".nav_bar .tabs").replaceWith(search_msg);
+    if (search_text.val() != ''){
+        jQuery("#game-gallery")[0].src = 'http://game-center.linuxdeepin.com/game/search/?q=' + search_text.val();
+    }
   });
+  
+});
+
+function change_color_theme(name){
+    var old_color = $("#color_link");
+    if (old_color){
+        var old_color_link = old_color.attr("href");
+        new_color_link = old_color_link.split('_')[0] +"_" + name + '.css';
+        $("#color_link").attr("href", new_color_link);
+        $.cookie('color', name, {"expires": 365 * 20, 'path': '/'});
+    }
+}
+
+$(document).ready(function(){
+    var theme_color = $.cookie('color');
+    if (theme_color){
+        change_color_theme(theme_color);
+    }
+});
+
+// search popup
+$(function() {
+    var $ui = $('#ui_element');
+    //$ui.find('.sb_input').bind('focus',function(e){
+        //console.log(e.keyCode);
+        //$ui.find('.sb_dropdown').slideDown('fast');
+    //});
+
+    $ui.find('.sb_input').bind('click',function(e){
+        $ui.find('.sb_dropdown').slideDown('fast');
+    });
+
+    $ui.bind('blur',function(){
+        $ui.find('.sb_dropdown').slideUp('fast');
+    });
+
+    $ui.bind('mouseleave',function(){
+        $ui.find('.sb_dropdown').slideUp('fast');
+    });
+    
+    $ui.find('.sb_dropdown').bind('mouseleave',function(){
+        $ui.find('.sb_dropdown').slideUp('fast');
+    });
+
+    $ui.find('.sb_dropdown').bind('click',function(){
+        $ui.find('.sb_dropdown').hide();
+    });
+
 });

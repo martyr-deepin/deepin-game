@@ -3,12 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>深度小游戏中心 - 首页</title>
+</head>
+
+
 	<link rel="stylesheet" href="css/layout.css">
-	<link id="color_link" rel="stylesheet" href="css/color_dark_purple.css">
-	<script src="js/jquery.js"></script>
-	<script src="js/script.js"></script>
-	<script src="js/jquery.diyrightmenu.source.js"></script>
-	<script src="js/common.js"></script>
+	<link rel="stylesheet" href="css/color_dark_purple.css" id="color_link">
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/jquery.cookie.min.js" type="text/javascript"></script>
+	<script src="js/jquery.diyrightmenu.source.js" type="text/javascript"></script>
+    <script src="js/script.js" type="text/javascript"></script>
+    <script src="js/searchbox.js" type="text/javascript"></script>
+    <script src="js/common.js" type="text/javascript"></script>
 </head>
 <body onload="alert('onload://main_frame')" onresize='document.getElementById("game-gallery").height = window.innerHeight - 35;'>
 	<div class="content">
@@ -18,12 +23,43 @@
 				<a id='recent' href="local://recent" target="_blank">最近玩过</a>
 			</div>
 			<div class="search_box">
-				<input type="text" class="text" />
-				<input type="button" class="search" value="搜索" />
+            	<div id="ui_element" class="sb_wrapper">
+                    <input id="search_text" class="sb_input text" type="text" x-webkit-speech />
+                    <input id="search_botton" type="button" class="search" value="搜索" />
+                        <ul id="search_popup_list" class="sb_dropdown" style="display:none;">
+                        </ul>
+                </div>
 			</div>
 		</div>
 		<iframe src="about:blank" frameborder="0" seamless id="game-gallery" width="100%" onload="this.height = parent.innerHeight - 35;"></iframe>
 	</div>
-	<script type="text/javascript">tabs_binding();</script>
+    <script type="text/javascript">
+        init_tabs();
+
+        var debug = true;
+        var server_address;
+        if (debug){
+            server_address = 'http://59.173.241.82:11111/';
+        }
+        else{
+            server_address = 'http://game-center.linuxdeepin.com/';
+        } 
+
+        var url = server_address + "game/instant_search/";
+        $('#search_text').searchbox({
+            url: url,
+            param: 'q',
+            dom_id: '#search_popup_list',
+            delay: 250,
+            loading_css: '#spinner'
+        });
+
+        $(document).ready(function (){
+            $.get(url + '?q=', function(data){
+                $('#search_popup_list').append(data);
+            });
+            alert('onload://mygame_main');
+        });
+    </script>
 </body>
 </html>

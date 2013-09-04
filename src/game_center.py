@@ -112,9 +112,10 @@ class GameCenterApp(dbus.service.Object):
         self.webview = WebView(COOKIE_FILE)
         webkit.set_web_database_directory_path(CACHE_DIR)
         web_settings = self.webview.get_settings()
-        web_settings.set_property("enable-file-access-from-file-uris", True)
         web_settings.set_property("enable-page-cache", True)
         web_settings.set_property("enable-offline-web-application-cache", True)
+        #web_settings.set_property("enable-file-access-from-file-uris", True)
+        web_settings.set_property('enable-universal-access-from-file-uris', True)
         #web_settings.set_property("enable-default-context-menu", False)
         self.webview.set_settings(web_settings)
         self.webview.enable_inspector()
@@ -302,6 +303,8 @@ class GameCenterApp(dbus.service.Object):
                 gtk.timeout_add(200, self.fresh_favotite_status)
 
             elif order == 'onload' and data == 'main_frame':
+                self.webview.execute_script('change_color_theme(%s)' %
+                    json.dumps(skin_config.theme_name, encoding="UTF-8", ensure_ascii=False))
                 gtk.timeout_add(200, self.show_favorite_page)
 
             elif order == 'onload' and data == 'footer':

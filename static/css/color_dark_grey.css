@@ -71,3 +71,12 @@ progress {
 /******************************************************************************/
 #diyrightmenu {background:-webkit-gradient(linear, left top, right top, color-stop(0, #D9D9D9), color-stop(0.15, #F9F9F9), color-stop(1, #F9F9F9));}
 #diyrightmenu ul li a:hover{background-color:#4D4D4D;}
+
+/******************************************************************************/
+ul.sb_dropdown{background:#E3E3E3;}
+
+ul.sb_dropdown li a{color:#4D4D4D;}
+
+ul.sb_dropdown li:hover{background:#4D4D4D;}
+
+ul.sb_dropdown li a i{color:#C44E50;}

@@ -1,3 +1,24 @@
+function init_tabs(){
+    var tabs = document.getElementsByClassName('tabs')[0].children;
+    var game_gallery = document.getElementById('game-gallery');
+    for (var i=0;i<tabs.length;i++){
+        tabs[i].onclick = (function (e) {
+            e.preventDefault();
+            var current_id = e.target.id;
+            for (var i=0; i<tabs.length;i++){
+                if (tabs[i].id == current_id){
+                    tabs[i].classList.add('current');
+                    alert(tabs[i].href);
+                }   
+                else{
+                    tabs[i].classList.remove('current');
+                }   
+            }   
+        }); 
+    }
+    tabs[0].classList.add('current')
+}
+
 function fresh_loading(progress){
     $('#progress')[0].value = progress;
     $('#percent')[0].innerHTML = progress+"%";
