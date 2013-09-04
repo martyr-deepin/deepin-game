@@ -400,7 +400,7 @@ class Player(dbus.service.Object):
             self.update_signal(['download_update', '100'])
             os.system('mv %s %s' % (self.swf_save_path + '_tmp', self.swf_save_path))
             self.update_signal(['download_finish', 'file://%s,%s,%s' % (self.swf_save_path, self.width, self.height)])
-            self.load_game = False
+            self.loading = False
             record_info.record_recent_play(self.appid, self.conf_db)
             #gtk.timeout_add(500, lambda:self.load_game())
 
