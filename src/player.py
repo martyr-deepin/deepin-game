@@ -82,6 +82,7 @@ class Player(dbus.service.Object):
 
         def message_receiver(self, *message):
             message_type, contents = message
+            print "%s: %s" % (str(message_type), str(contents))
             if message_type == 'send_plug_id':
                 self.content_page.add_plug_id(int(str(contents[1])))
                 self.plug_status = True

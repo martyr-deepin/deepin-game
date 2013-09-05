@@ -76,6 +76,7 @@ class AboutDialog(DialogBox):
                 title, 
                 mask_type=2, 
                 close_callback=self.dialog_close_action)
+        self.connect('delete-event', self.dialog_close_action)
         self.set_size_request(480, 344)
         self.set_position(gtk.WIN_POS_CENTER_ON_PARENT)
 
@@ -136,8 +137,9 @@ class AboutDialog(DialogBox):
         box.pack_start(link_button, False, False)
         return box
         
-    def dialog_close_action(self, widget=None):
+    def dialog_close_action(self, widget=None, event=None):
         self.hide_all()
+        return True
 
 if __name__ == '__main__':
     AboutDialog('关于我们').show_all()

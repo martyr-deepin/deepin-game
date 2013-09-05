@@ -28,6 +28,8 @@ from dbus.mainloop.glib import DBusGMainLoop
 import subprocess
 import json
 import webkit
+import jswebkit
+import urlparse
 
 from theme import app_theme
 from deepin_utils.ipc import is_dbus_name_exists
@@ -123,6 +125,7 @@ class GameCenterApp(dbus.service.Object):
         #self.webview.connect('notify::load-status', self.webview_load_status_handler)
         self.webview.connect('notify::title', self.webview_title_changed_handler)
         self.webview.connect('script-alert', self.webview_script_alert_handler)
+        self.webview.connect('window-object-cleared', self.webview_window_object_cleared)
         
         self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game')
 
@@ -181,6 +184,14 @@ class GameCenterApp(dbus.service.Object):
         skin_config.connect('theme-changed', self.theme_changed_handler)
         global_event.register_event('show-message', self.update_message)
 
+    def webview_window_object_cleared(self, webview, frame, context, window_object):
+        ctx = jswebkit.JSContext(frame.get_global_context())
+        window = ctx.EvaluateScript("window")
+        window.color_link = skin_config.theme_name
+        location = window.location.href
+        parse_result = urlparse.urlparse(location)
+        print parse_result
+
     def update_message(self, message, hide_timeout=0):
         if not self.paned_box.bottom_window.is_visible():
             self.paned_box.bottom_window.show()
@@ -204,7 +215,7 @@ class GameCenterApp(dbus.service.Object):
         lang = "zh_CN"
             
         Wizard(
-            [get_common_image('wizard/%s/%s.png' % (lang, i+1)) for i in range(3)],
+            [get_common_image('wizard/%s/%s.png' % (lang, i)) for i in range(3)],
             (
                 get_common_image('wizard/dot_normal.png'), 
                 get_common_image('wizard/dot_active.png'),
@@ -298,8 +309,6 @@ class GameCenterApp(dbus.service.Object):
 
             elif order == 'onload' and data == 'local_game_gallery':
                 self.webview.execute_script('$("#game-gallery").get(0).contentWindow.set_right_menu()')
-                self.webview.execute_script('$("#game-gallery").get(0).contentWindow.change_color_theme(%s)' %
-                    json.dumps(skin_config.theme_name, encoding="UTF-8", ensure_ascii=False))
                 gtk.timeout_add(200, self.fresh_favotite_status)
 
             elif order == 'onload' and data == 'main_frame':

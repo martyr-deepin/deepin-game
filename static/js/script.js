@@ -96,9 +96,8 @@ function change_color_theme(name){
 }
 
 $(document).ready(function(){
-    var theme_color = $.cookie('color');
-    if (theme_color){
-        change_color_theme(theme_color);
+    if (window.color_link){
+        change_color_theme(window.color_link);
     }
 });
 
