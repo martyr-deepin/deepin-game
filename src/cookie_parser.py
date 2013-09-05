@@ -35,7 +35,8 @@ def get_cookie_star(appid):
     m = cookielib.MozillaCookieJar()
     try:
         m.load(COOKIE_FILE)
-    except:
+    except Exception, e:
+        print e
         return None
     c = m._cookies
     if domain not in c:
@@ -88,5 +89,5 @@ def set_cookie_star(appid, star):
     m.save(COOKIE_FILE)
 
 if __name__ == '__main__':
-    cookie = set_cookie_star(3362, 10)
-    print get_cookie_star(3362)
+    #cookie = set_cookie_star(3362, 10)
+    print get_cookie_star(3506)
