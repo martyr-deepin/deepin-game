@@ -75,6 +75,8 @@ class Player(dbus.service.Object):
         self.hand_pause = False
         self.game_pause = False
         self.fullscreen_state = False
+
+        self.call_flash_game(self.appid)
         self.init_ui()
 
         def unique(self):
@@ -82,10 +84,10 @@ class Player(dbus.service.Object):
 
         def message_receiver(self, *message):
             message_type, contents = message
-            print "%s: %s" % (str(message_type), str(contents))
             if message_type == 'send_plug_id':
                 self.content_page.add_plug_id(int(str(contents[1])))
                 self.plug_status = True
+                self.start_loading()
             elif message_type == 'loading_uri_finish':
                 fetch_service.add_missions([self.download_task])
             elif message_type == 'enter_bottom':
@@ -94,6 +96,8 @@ class Player(dbus.service.Object):
             elif message_type == 'enter_top':
                 if self.show_top:
                     self.paned_box.top_window.show()
+            elif message_type == 'onload_loading':
+                self.start_download_swf()
 
         setattr(Player, 
                 'unique', 
@@ -380,19 +384,25 @@ class Player(dbus.service.Object):
         FetchInfo(self.appid).start()
         self.swf_save_path = os.path.expanduser("~/.cache/deepin-game-center/downloads/%s/%s.swf" % (self.appid, self.appid))
         if os.path.exists(self.swf_save_path):
-            gtk.timeout_add(300, lambda:self.load_game())
+            gtk.timeout_add(200, lambda:self.load_game())
         else:
-            touch_file_dir(self.swf_save_path)
-            self.load_html_path = os.path.join(static_dir, 'loading.html')
-            gtk.timeout_add(300, lambda :self.send_message('load_loading_uri', "file://" + self.load_html_path))
+            gtk.timeout_add(200, self.show_loading_page)
             
-            self.remote_path = urllib.basejoin(GAME_CENTER_DATA_ADDRESS, self.swf_url)
-            utils.ThreadMethod(urllib.urlretrieve, (self.remote_path, self.swf_save_path + '_tmp', self.report_hook)).start()
-            #self.download_task = TaskObject(self.remote_path, self.swf_save_path, verbose=True)
-            #self.download_task.connect("update", self.download_update)
-            #self.download_task.connect("finish", self.download_finish)
-            #self.download_task.connect("error",  self.download_failed)
-            #self.download_task.connect("start",  self.download_start)
+            
+    def show_loading_page(self):
+        touch_file_dir(self.swf_save_path)
+        self.load_html_path = os.path.join(static_dir, 'loading.html')
+        self.send_message('load_loading_uri', 'file://' + self.load_html_path)
+
+    def start_download_swf(self):
+        self.remote_path = urllib.basejoin(GAME_CENTER_DATA_ADDRESS, self.swf_url)
+        utils.ThreadMethod(urllib.urlretrieve, (self.remote_path, self.swf_save_path + '_tmp', self.report_hook)).start()
+
+        #self.download_task = TaskObject(self.remote_path, self.swf_save_path, verbose=True)
+        #self.download_task.connect("update", self.download_update)
+        #self.download_task.connect("finish", self.download_finish)
+        #self.download_task.connect("error",  self.download_failed)
+        #self.download_task.connect("start",  self.download_start)
 
     def report_hook(self, block_count, block_size, total_size):
         current = block_count * block_size
@@ -402,19 +412,19 @@ class Player(dbus.service.Object):
         else:
             self.update_signal(['download_update', '100'])
             os.system('mv %s %s' % (self.swf_save_path + '_tmp', self.swf_save_path))
-            self.update_signal(['download_finish', 'file://%s,%s,%s' % (self.swf_save_path, self.width, self.height)])
-            self.loading = False
-            record_info.record_recent_play(self.appid, self.conf_db)
+            self.load_game()
             #gtk.timeout_add(500, lambda:self.load_game())
 
     def load_game(self):
         self.loading = False
-        self.send_message('load_uri', 'file://%s,%s,%s' % (self.swf_save_path, self.width, self.height))
+        self.update_signal(['download_finish', 'file://%s,%s,%s' % (self.swf_save_path, self.width, self.height)])
         record_info.record_recent_play(self.appid, self.conf_db)
+
+        #self.loading = False
+        #self.send_message('load_uri', 'file://%s,%s,%s' % (self.swf_save_path, self.width, self.height))
+        #record_info.record_recent_play(self.appid, self.conf_db)
             
     def run(self):
-        self.call_flash_game(self.appid)
-        self.start_loading()
         self.application.window.show_window()
         #self.paned_box.bottom_window.set_composited(True)
         gtk.main()

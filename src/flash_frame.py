@@ -98,6 +98,7 @@ class FlashFrame(dbus.service.Object):
             self.webview.execute_script('loading_flash(%s)' %
                 json.dumps(self.swf_info, encoding="UTF-8", ensure_ascii=False))
         elif new_title == 'onload_loading':
+            self.send_message('onload_loading', '')
             self.webview.execute_script('change_color_theme(%s)' %
                 json.dumps(skin_config.theme_name, encoding="UTF-8", ensure_ascii=False))
 
@@ -170,13 +171,16 @@ class FlashFrame(dbus.service.Object):
     def signal_receiver(self, message):
         message_type, contents = message
         if message_type == 'download_update':
-            self.webview.execute_script('fresh_loading(%s)' % 
+            self.webview.execute_script('if (fresh_loading){fresh_loading(%s);}' % 
                     json.dumps(str(contents), encoding="UTF-8", ensure_ascii=False))
         elif message_type == 'download_finish':
             self.load_flash(str(contents))
         elif message_type == 'load_uri':
             self.webview.execute_script("window.location.href = %s" %
                     json.dumps(str(contents).split(',')[0], encoding="UTF-8", ensure_ascii=False))
+        elif message_type == 'load_loading_uri':
+            self.webview.load_uri(contents)
+            self.send_message('loading_uri_finish', '')
             
     def handle_dbus_reply(self, *reply):
         # print "%s (reply): %s" % (self.module_dbus_name, str(reply))
