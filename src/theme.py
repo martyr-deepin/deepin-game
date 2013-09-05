@@ -29,7 +29,7 @@ import os
 app_theme = init_skin(
         PROGRAM_NAME, 
         PROGRAM_VERSION,
-        "green_yellow",
+        "01",
         os.path.join(get_parent_dir(__file__, 2), "skin"),
         os.path.join(get_parent_dir(__file__, 2), "app_theme"),
     )
