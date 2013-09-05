@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深度小游戏中心 - 提示框</title>
+<style>
+	html,body{ height:100%; width:100%; margin:0; padding:0;}
+	.mask{ position:absolute; z-index:900; background:rgba(0,0,0,0.7);height:100%; width:100%;}
+	.flash{ position:absolute; z-index:889;height:100%; width:100%;}
+	.btn_play{position:absolute; background:url(img/play.png) no-repeat; top:50%; left:50%;height:72px; width:72px; margin:-36px 0 0 -36px;}
+	.btn_play:hover{background:url(img/play.png) no-repeat rgba(255,255,255,0.25); border-radius:50%; cursor:pointer;}
+</style>
+</head>
+<body>
+	<div class="mask">
+		<div class="btn_play">
+		</div>
+    </div>
+    <div class="flash"></div>
+</body>
+</html>

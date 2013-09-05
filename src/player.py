@@ -86,6 +86,7 @@ class Player(dbus.service.Object):
             message_type, contents = message
             if message_type == 'send_plug_id':
                 self.content_page.add_plug_id(int(str(contents[1])))
+                self.content_page.socket_box.connect('event', self.content_socket_press_handler)
                 self.plug_status = True
                 self.start_loading()
             elif message_type == 'loading_uri_finish':
@@ -98,6 +99,9 @@ class Player(dbus.service.Object):
                     self.paned_box.top_window.show()
             elif message_type == 'onload_loading':
                 self.start_download_swf()
+            elif message_type == 'game_action':
+                if contents == 'pause':
+                    self.command_pause_game()
 
         setattr(Player, 
                 'unique', 
@@ -335,19 +339,29 @@ class Player(dbus.service.Object):
 
     def toggle_pause_action(self, widget):
         if widget.get_active():
-            os.system('kill -STOP %s' % self.p.pid)
+            self.update_signal(['game_action', 'pause'])
         else:
-            os.system('kill -CONT %s' % self.p.pid)
+            self.command_continue_game()
         self.game_pause = widget.get_active() 
+
+    def content_socket_press_handler(self, widget, event):
+        print event
 
     def pause_handler(self, widget, data=None):
         if not widget.get_active():
-            os.system('kill -STOP %s' % self.p.pid)
+            self.update_signal(['game_action', 'pause'])
             self.hand_pause = True
         else:
-            os.system('kill -CONT %s' % self.p.pid)
+            self.command_continue_game()
             self.hand_pause = False
         self.game_pause = not widget.get_active() 
+
+    def command_pause_game(self):
+        os.system('kill -STOP %s' % self.p.pid)
+
+    def command_continue_game(self):
+        os.system('kill -CONT %s' % self.p.pid)
+        self.update_signal(['game_action', 'continue'])
 
     def fullscreen_action(self, widget, data=None):
         pass
@@ -534,7 +548,7 @@ class ContentPage(gtk.VBox):
         self.appid = appid
         self.socket = None
 
-        self.socket_box = gtk.VBox()
+        self.socket_box = gtk.EventBox()
         self.socket_box.connect("realize", self._add_socket)
 
         self.pack_start(self.socket_box, True, True)
@@ -551,7 +565,7 @@ class ContentPage(gtk.VBox):
         if self.socket:
             self.socket.destroy()
         self.socket = gtk.Socket()
-        self.socket_box.pack_start(self.socket, True, True)
+        self.socket_box.add(self.socket)
         self.socket.realize()
 
     def add_plug_id(self, plug_id):

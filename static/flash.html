@@ -9,21 +9,19 @@
     <script src="js/common.js"></script>
     <script type="text/javascript" src="js/flash.js"></script>
     <style type="text/css">
-		#bottom: {
-             border:0px solid green;
-             width:100%;
-             height:10px;
-             position: fixed;
-             left: 0px;
-             bottom:0px;
-             right: 0px;
-             z-index: 1000;
-        }
+        html,body{ height:100%; width:100%; margin:0; padding:0;}
+        .mask{ position:absolute; z-index:900; background:rgba(0,0,0,0.7);height:100%; width:100%;}
+        .flash{ position:absolute; z-index:889;height:100%; width:100%;}
+        .btn_play{position:absolute; background:url(img/play.png) no-repeat; top:50%; left:50%;height:72px; width:72px; margin:-36px 0 0 -36px;}
+        .btn_play:hover{background:url(img/play.png) no-repeat rgba(255,255,255,0.25); border-radius:50%; cursor:pointer;}
     </style>
 </head>
 <body onresize='padding_resize();' onload='padding_resize();' style="background: black">
-    <div id='flash'></div>
-	<div id='bottom'></div>
+    <div id='mask' class="mask" style='display:none'>
+        <div class="btn_play">
+        </div>
+    </div>
+    <div id='flash' class="flash"></div>
     <script type="text/javascript">
         var app_info = '';
         document.title = 'finish_load';
