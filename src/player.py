@@ -86,7 +86,7 @@ class Player(dbus.service.Object):
             message_type, contents = message
             if message_type == 'send_plug_id':
                 self.content_page.add_plug_id(int(str(contents[1])))
-                self.content_page.socket_box.connect('event', self.content_socket_press_handler)
+                #self.content_page.socket_box.connect('event', self.content_socket_press_handler)
                 self.plug_status = True
                 self.start_loading()
             elif message_type == 'loading_uri_finish':
@@ -126,11 +126,15 @@ class Player(dbus.service.Object):
     def init_ui(self):
         
         self.application = PlayerApplication(close_callback=self.quit)
-        self.application.set_default_size(self.width+12+220, self.height+73)
+        if self.width+12 < 642:
+            width = 642 + 220
+        else:
+            width = self.width + 12 + 220
+        self.application.set_default_size(width, self.height+73)
         self.application.set_skin_preview(get_common_image("frame.png"))
         self.application.set_icon(get_common_image("logo48.png"))
         self.application.add_titlebar(
-                ["mode", "min", "max", "close"],
+                ["mode", "min", "close"],
                 )
         player_title = _("深度游戏 - %s " % self.game_name)
         self.window = self.application.window

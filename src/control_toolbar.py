@@ -23,7 +23,9 @@
 import gtk
 from dtk.ui.statusbar import Statusbar
 from dtk.ui.threads import post_gui
-from star_view import StarView, StarMark
+from dtk.ui.box import Markbox
+from star_view import StarView
+from dtk.ui.utils import get_event_coords
 
 from theme import app_theme
 from button import Button, ToggleButton
@@ -31,6 +33,9 @@ from events import global_event
 from cookie_parser import get_cookie_star, set_cookie_star
 from download_manager import SetStarScore
 from nls import _
+import utils
+
+STAR_SIZE = utils.get_common_image_pixbuf('star/star_on.png').get_width()
 
 class ControlToolbar(Statusbar):
     def __init__(self, appid):
@@ -143,7 +148,7 @@ class ControlToolbar(Statusbar):
         star_align.set_padding(2, 2, 3, 0)
         star_align.add(self.star)
 
-        self.star_mark = StarMark(9.5, 18)
+        self.star_mark = Markbox(5.0, '#ffffff')
         star_mark_align = gtk.Alignment(0.5, 0, 0, 0)
         star_mark_align.set_padding(2, 4, 3, 20)
         star_mark_align.add(self.star_mark)
@@ -169,26 +174,34 @@ class ControlToolbar(Statusbar):
 
         global_event.register_event('download-app-info-finish', self.update_star)
         global_event.register_event('set-star-score-success', self.score_success_handler)
-        self.star.connect("star-press", self.star_press)
+        self.star.connect("button-press-event", self.star_press)
 
         self.cookie = get_cookie_star(self.appid)
         if self.cookie:
             self.star.set_read_only(True)
 
-    def star_press(self, widget, star):
-        if getattr(self, 'appid'):
-            SetStarScore(self.appid, star).start()
-            set_cookie_star(self.appid, int(star/2))
+    def star_press(self, widget, event):
+        (event_x, event_y) = get_event_coords(event)
+        star = int(min(event_x / (STAR_SIZE / 2) + 1, 10))
+
+        if self.star.read_only:
+            self.star.progressbar_tip.show_image_text(_('您今天已评过'), 'star/star_finish.png')
+            self.star.show_progressbar_tip(event)
+        else:
+            self.star.progressbar_tip.show_image_text(_('评分成功'), 'star/star_success.png')
+            self.star.show_progressbar_tip(event)
+            if getattr(self, 'appid'):
+                SetStarScore(self.appid, star).start()
+                set_cookie_star(self.appid, int(star/2))
 
     def score_success_handler(self, js):
         score = float(js['score'])
-        print score
         self.star.set_star_level(score)
-        self.star_mark.update_star(score)
+        self.star_mark.set_value(score)
         self.star.set_read_only(True)
 
     @post_gui
     def update_star(self, js):
         star = js['star']
         self.star.set_star_level(float(star))
-        self.star_mark.update_star(float(star))
+        self.star_mark.set_value(float(star))

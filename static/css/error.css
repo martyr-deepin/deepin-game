@@ -1,5 +1,6 @@
 html,body{
 	height:100%;
+    margin: 0;
 }
 
 .error-message{background:#d8d8d8;height:100%; width:100%;}

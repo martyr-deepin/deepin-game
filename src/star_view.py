@@ -21,11 +21,189 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import gtk
+import cairo
+import pango
 import gobject
 from dtk.ui.draw import draw_pixbuf, draw_text
-from dtk.ui.utils import propagate_expose, get_event_coords, get_content_size
+from dtk.ui.constant import DEFAULT_FONT_SIZE
+from dtk.ui.utils import (
+        propagate_expose, 
+        get_event_coords, 
+        get_content_size, 
+        get_widget_root_coordinate,
+        WIDGET_POS_TOP_LEFT,
+        )
 
 import utils
+from ui_utils import draw_round_rectangle_with_triangle
+from nls import _
+
+SHADOW_VALUE = 2 
+ARROW_WIDTH = 10
+ARROW_HEIGHT = ARROW_WIDTH / 2
+
+from dtk_cairo_blur import gaussian_blur
+from dtk.ui.utils import alpha_color_hex_to_cairo
+
+class progressBarTip(gtk.Window):
+    '''
+    class docs
+    '''
+	
+    def __init__(self):
+        '''
+        init docs
+        '''
+        gtk.Window.__init__(self)
+        
+        self.set_colormap(gtk.gdk.Screen().get_rgba_colormap() or 
+                          gtk.gdk.Screen().get_rgb_colormap())
+        
+        self.set_keep_above(True)
+        self.set_decorated(False)
+        self.set_app_paintable(True)
+        self.set_skip_pager_hint(True)
+        self.set_skip_taskbar_hint(True)
+        self.set_position(gtk.WIN_POS_NONE)
+        
+        self.surface = None
+        self.surface_x = SHADOW_VALUE
+        self.surface_y = SHADOW_VALUE
+        self.surface_border = SHADOW_VALUE
+        self.arrow_width = ARROW_WIDTH
+        self.arrow_height = ARROW_HEIGHT
+        self.radius = 2
+        self.pos_type = gtk.POS_BOTTOM
+        self.offset = 45
+        self.reset_surface_flag = False
+
+        self.font_size = 9
+        self.content_top_padding = 10
+
+        self.pixbuf = None
+        self.pixbuf_width = 0
+        self.pixbuf_height = 0
+        
+        self.content = "03:12"
+        self.text_size = get_content_size(self.content, self.font_size)
+        self.width, self.height = (self.text_size[0] + 26, self.text_size[1] + 18 + self.arrow_height)
+        self.shadow_color = ("#000000", 0.6)
+        self.mask_color = ("#ffffff", 0.8)
+        self.border_out_color = ("#000000", 1.0)
+        self.set_redraw_on_allocate(True)
+        
+        self.drawing = gtk.Alignment()
+        self.drawing.set_redraw_on_allocate(True)
+        self.drawing.connect("expose-event", self.on_expose_event)
+        self.add(self.drawing)
+
+        self.set_size_request(90, 40)
+
+    def set_content(self, content):
+        self.content = content
+        self.resize(1, 1)
+        self.text_size = get_content_size(self.content, self.font_size)
+        self.width, self.height = (self.text_size[0] + 26, self.text_size[1] + 18 + self.arrow_height)
+        self.set_geometry_hints(None, self.width, self.height, self.width, self.height, \
+                -1, -1, -1, -1, -1, -1)
+        self.offset = (self.width - self.arrow_width) / 2
+        self.queue_draw()
+
+    def show_image_text(self, text, image_path):
+        self.content = text
+        self.text_size = get_content_size(self.content, self.font_size)
+        self.pixbuf = utils.get_common_image_pixbuf(image_path)
+        self.width, self.height = 136, 78
+        self.offset = (self.width - self.arrow_width) / 2
+        self.set_geometry_hints(None, self.width, self.height, self.width, self.height, \
+                -1, -1, -1, -1, -1, -1)
+        self.queue_draw()
+        
+    def compute_shadow(self, rect):
+        self.surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, rect.width, rect.height)
+        surface_cr = cairo.Context(self.surface)
+        
+        draw_round_rectangle_with_triangle(surface_cr, 
+                                           rect,
+                                           self.radius, 
+                                           self.arrow_width, self.arrow_height, self.offset,
+                                           border=5,
+                                           pos_type=self.pos_type)
+        
+        surface_cr.set_line_width(2)
+        surface_cr.set_source_rgba(*alpha_color_hex_to_cairo(self.shadow_color))
+        surface_cr.stroke_preserve()
+        gaussian_blur(self.surface, 2)
+        
+        # border.
+        # out border.
+        surface_cr.clip()
+        draw_round_rectangle_with_triangle(surface_cr, 
+                                           rect,
+                                           self.radius, 
+                                           self.arrow_width, self.arrow_height, self.offset,
+                                           border=6,
+                                           pos_type=self.pos_type)
+        surface_cr.set_source_rgba(*alpha_color_hex_to_cairo(self.mask_color))
+        surface_cr.set_line_width(1)
+        surface_cr.fill()
+        
+        # in border.
+        # surface_cr.reset_clip()
+        # draw_round_rectangle_with_triangle(surface_cr, 
+        #                                    rect,
+        #                                    self.radius, 
+        #                                    self.arrow_width, self.arrow_height, self.offset,
+        #                                    border=2,
+        #                                    pos_type=self.pos_type) 
+        
+        # surface_cr.set_source_rgba(1, 1, 1, 1.0) # set in border color.
+        # surface_cr.set_line_width(self.border_width)
+        # surface_cr.fill()
+        
+    def on_expose_event(self, widget, event):
+        '''
+        docs
+        '''
+        cr = widget.window.cairo_create()
+        rect = widget.allocation
+        
+        cr.set_operator(cairo.OPERATOR_SOURCE)
+        cr.set_source_rgba(1, 1, 1, 0)
+        cr.rectangle(*rect)
+        cr.paint()
+        
+        cr.set_operator(cairo.OPERATOR_OVER)
+        
+        
+        #if not self.surface or self.reset_surface_flag:
+        self.compute_shadow(rect)
+        cr.set_source_surface(self.surface, 0, 0)    
+        cr.paint()
+
+        text_top_padding = (rect.height - self.text_size[1] - ARROW_HEIGHT)/2
+        if self.pixbuf:
+            draw_pixbuf(cr, self.pixbuf, rect.x + (rect.width - self.pixbuf.get_width())/2, rect.y + self.content_top_padding)
+            text_top_padding = self.content_top_padding + 2 + self.pixbuf.get_height()
+        
+        draw_text(
+                cr, 
+                self.content, 
+                rect.x + (rect.width - self.text_size[0])/2, 
+                rect.y + text_top_padding, 
+                self.text_size[0], 
+                self.text_size[1],
+                self.font_size, 
+                "#707070", 
+                )
+        
+        return True
+    
+    def reset_surface(self):
+        self.reset_surface_flag = True
+        
+    def move_to(self, x, y):
+        self.move(int(x - self.width / 2), int(y - self.height + 3))
 
 STAR_SIZE = utils.get_common_image_pixbuf('star/star_on.png').get_width()
 
@@ -98,11 +276,14 @@ class StarView(gtk.Button):
         self.star_level = star_level
         
         self.set_size_request(STAR_SIZE * 5, STAR_SIZE)
+
+        self.progressbar_tip = progressBarTip()
         
         self.connect("leave-notify-event", self.leave_notify_star_view)
         self.connect("motion-notify-event", self.motion_notify_star_view)
         self.connect("expose-event", self.expose_star_view)        
-        self.connect("button-press-event", self.star_button_press_handler)
+        #self.connect("button-press-event", self.star_button_press_handler)
+
 
     def set_star_level(self, star_level):
         self.star_level = star_level
@@ -119,9 +300,8 @@ class StarView(gtk.Button):
             self.queue_draw()
 
     def star_button_press_handler(self, widget, event):
-        if not self.read_only:
-            (event_x, event_y) = get_event_coords(event)
-            self.emit('star-press', int(min(event_x / (STAR_SIZE / 2) + 1, 10)))
+        (event_x, event_y) = get_event_coords(event)
+        self.emit('star-press', int(min(event_x / (STAR_SIZE / 2) + 1, 10)))
         
     def expose_star_view(self, widget, event):
         # Init.
@@ -136,73 +316,49 @@ class StarView(gtk.Button):
         return True
     
     def motion_notify_star_view(self, widget, event):
+
         if not self.read_only:
             (event_x, event_y) = get_event_coords(event)
-            self.star_buffer.star_level = int(min(event_x / (STAR_SIZE / 2) + 1, 10))
+            star_level = int(min(event_x / (STAR_SIZE / 2) + 1, 10))
+            self.star_buffer.star_level = star_level
+            self.show_progressbar_tip(event)
+            if star_level == 1 or star_level == 2:
+                tips = _('没劲')
+            elif star_level == 3 or star_level == 4:
+                tips = _('一般吧')
+            elif star_level == 5 or star_level == 6:
+                tips = _('好玩')
+            elif star_level == 7 or star_level == 8:
+                tips = _('值得一玩')
+            elif star_level == 9 or star_level == 10:
+                tips = _('哇，太棒了')
+            self.progressbar_tip.set_content(tips)
             self.queue_draw()
 
     def leave_notify_star_view(self, widget, event):
+        self.hide_progressbar_tip()
+
         self.star_buffer.star_level = self.star_level
         self.queue_draw()
+
+    def show_progressbar_tip(self, event):
+        self.progressbar_tip.move_to(*self.adjust_event_coords(event))
+        self.progressbar_tip.show_all()
+
+    def hide_progressbar_tip(self):    
+        self.progressbar_tip.hide_all()
+
+    def adjust_event_coords(self, event):
+        _, y = get_widget_root_coordinate(self, pos_type=WIDGET_POS_TOP_LEFT)
+        x, _ = event.get_root_coords()
+        return x, y
         
 gobject.type_register(StarView)        
 
-class StarMark(gtk.VBox):
-    def __init__(self, star, size):
-        gtk.VBox.__init__(self)
-        self._star = star
-        self.size = size
-
-        self.font_step = 3
-        
-        self.int_n, self.float_n = self.get_split_star()
-        self.int_n_width, self.height = get_content_size("<b>%s</b>" % self.int_n, self.size)
-        self.float_n_width, self.float_n_height = get_content_size("."+self.float_n, self.size-self.font_step)
-        self.width = self.int_n_width + self.float_n_width
-        self.height = self.height
-        self.set_size_request(self.width, self.height)
-
-        self.connect("expose-event", self.expose_star_mark)
-
-    @property
-    def star(self):
-        return self._star
-
-    def update_star(self, star):
-        self._star = star
-        self.queue_draw()
-
-    def get_split_star(self):
-        int_n, float_n = str(round(self._star, 1)).split('.')
-        return (int_n, float_n)
-
-    def expose_star_mark(self, widget, event):
-        # Init.
-        cr = widget.window.cairo_create()
-        rect = widget.allocation
-        
-        # draw integer
-        draw_text(
-            cr, 
-            "<b>%s</b>" % self.get_split_star()[0],
-            rect.x,
-            rect.y,
-            self.int_n_width,
-            self.height,
-            text_size=self.size,
-            text_color="#FFFFFF"
-            )
-
-        # draw decimals
-        draw_text(
-            cr, 
-            "." + self.get_split_star()[1],
-            rect.x + self.int_n_width,
-            rect.y + self.height-self.float_n_height - 1,
-            self.float_n_width,
-            self.float_n_height,
-            text_size=self.size-self.font_step,
-            text_color="#FFFFFF"
-            )
-
-gobject.type_register(StarMark)
+if __name__ == '__main__':
+    tip = progressBarTip()
+    tip.show_image_text('您今天已评过', 'star/star_finish.png')
+    #tip.set_content('测试一下')
+    tip.move(768, 300)
+    tip.show_all()
+    gtk.main()
