@@ -31,6 +31,7 @@ class PlayerApplication(Application):
                  resizable=True,
                  window_type=gtk.WINDOW_TOPLEVEL, 
                  close_callback=None,
+                 max_callback=None,
                  ):
         '''
         Initialize the Application class.
@@ -43,10 +44,17 @@ class PlayerApplication(Application):
         self.app_support_colormap = app_support_colormap
         self.resizable = resizable
         self.window_type = window_type
+
         if close_callback:
             self.close_callback = close_callback
         else:
             self.close_callback = self.close_window
+
+        if max_callback:
+            self.max_callback = max_callback
+        else:
+            self.max_callback = lambda w:self.window.toggle_max_window()
+
         self.skin_preview_pixbuf = None
 
         # Start application.
@@ -96,7 +104,7 @@ class PlayerApplication(Application):
         if "min" in button_mask:
             self.titlebar.min_button.connect("clicked", lambda w: self.window.min_window())
         if "max" in button_mask:
-            self.titlebar.max_button.connect("clicked", lambda w: self.window.toggle_max_window())
+            self.titlebar.max_button.connect("clicked", self.max_callback)
         if "close" in button_mask:
             self.titlebar.close_button.connect("clicked", self.close_callback)
         if self.resizable:

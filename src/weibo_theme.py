@@ -30,7 +30,7 @@ app_theme = init_skin(
     "deepin-screenshot",
     "2.1",
     "01",
-    os.path.join(get_parent_dir(__file__, 2), "skin"),
+    os.path.join(get_parent_dir(__file__, 2), "weibo_skin"),
     os.path.join(get_parent_dir(__file__, 2), "weibo_theme"))
 
 def app_theme_get_pixbuf(filename):

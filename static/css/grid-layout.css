@@ -317,7 +317,7 @@ a{
 
 footer.bottom {
 	padding: 25px 0 0 0;
-	height: 100px;
+	min-height: 60px;
 	width: 200px;
 	margin: 0 auto;
 	text-align: center;

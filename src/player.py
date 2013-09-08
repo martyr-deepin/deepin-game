@@ -29,6 +29,7 @@ import dbus.service
 from dbus.mainloop.glib import DBusGMainLoop
 import urllib
 import json
+import copy
 
 from theme import app_theme
 from application import PlayerApplication
@@ -41,7 +42,7 @@ from utils import get_common_image, handle_dbus_reply, handle_dbus_error
 import record_info
 from nls import _
 from constant import GAME_CENTER_DATA_ADDRESS
-from download_manager import fetch_service, TaskObject, FetchInfo
+from download_manager import fetch_service, FetchInfo
 from xdg_support import get_config_file
 #from sound_manager import SoundSetting
 from constant import PROGRAM_NAME
@@ -75,6 +76,9 @@ class Player(dbus.service.Object):
         self.hand_pause = False
         self.game_pause = False
         self.fullscreen_state = False
+        self.guide_box_expand = True
+        self.window_normal_info = {}
+        self.maximize_state = False
 
         self.call_flash_game(self.appid)
         self.init_ui()
@@ -125,7 +129,7 @@ class Player(dbus.service.Object):
 
     def init_ui(self):
         
-        self.application = PlayerApplication(close_callback=self.quit)
+        self.application = PlayerApplication(close_callback=self.quit, max_callback=self.max_callback)
         if self.width+12 < 642:
             width = 642 + 220
         else:
@@ -134,7 +138,7 @@ class Player(dbus.service.Object):
         self.application.set_skin_preview(get_common_image("frame.png"))
         self.application.set_icon(get_common_image("logo48.png"))
         self.application.add_titlebar(
-                ["mode", "min", "close"],
+                ["mode", "min", "max", "close"],
                 )
         player_title = _("深度游戏 - %s " % self.game_name)
         self.window = self.application.window
@@ -268,27 +272,61 @@ class Player(dbus.service.Object):
         screen = gtk.gdk.screen_get_default()
         screen_w, screen_h = screen.get_width(), screen.get_height()
         width, height = self.window.get_size()
+
+        DEFAULT_HEIGHT = height
+
         if not widget.get_active():
-            SIMPLE_DEFAULT_WIDTH = width - 220
-            SIMPLE_DEFAULT_HEIGHT = height
-            #self.window.unmaximize()
+            self.guide_box_expand = False
+            DEFAULT_WIDTH = width - 220
             self.guide_box.hide_all()
             self.guide_box.set_no_show_all(True)
-            self.window.set_default_size(SIMPLE_DEFAULT_WIDTH, SIMPLE_DEFAULT_HEIGHT)
-            self.window.set_geometry_hints(None, SIMPLE_DEFAULT_WIDTH, SIMPLE_DEFAULT_HEIGHT, 
-                                           screen_w, screen_h, # (310, 700)
-                                           -1, -1, -1, -1, -1, -1)
-            self.window.resize(SIMPLE_DEFAULT_WIDTH, SIMPLE_DEFAULT_HEIGHT)
-            self.window.queue_draw()
+
+
         else:
-            FULL_DEFAULT_WIDTH = width + 220
-            FULL_DEFAULT_HEIGHT = height
+            self.guide_box_expand = True
+            DEFAULT_WIDTH = width + 220
             self.guide_box.set_no_show_all(False)
             self.guide_box.show_all()
-            self.window.set_default_size(FULL_DEFAULT_WIDTH, FULL_DEFAULT_HEIGHT)            
-            self.window.set_geometry_hints(None, FULL_DEFAULT_WIDTH, FULL_DEFAULT_HEIGHT, 
-                                           screen_w, screen_h,  -1, -1, -1, -1, -1, -1)
-            self.window.resize(FULL_DEFAULT_WIDTH, FULL_DEFAULT_HEIGHT)
+
+        if self.maximize_state:
+            DEFAULT_WIDTH = screen_w
+
+        self.window.set_default_size(DEFAULT_WIDTH, DEFAULT_HEIGHT)
+        self.window.set_geometry_hints(None, DEFAULT_WIDTH, DEFAULT_HEIGHT, 
+                                        screen_w, screen_h,  -1, -1, -1, -1, -1, -1)
+        self.window.resize(DEFAULT_WIDTH, DEFAULT_HEIGHT)
+
+    def max_callback(self, widget):
+        screen = gtk.gdk.screen_get_default()
+        screen_w, screen_h = screen.get_width(), screen.get_height()
+
+        window_state = self.window.window.get_state()
+        if window_state & gtk.gdk.WINDOW_STATE_MAXIMIZED == gtk.gdk.WINDOW_STATE_MAXIMIZED:
+            self.maximize_state = False
+            self.window.unmaximize()
+
+            if self.window_normal_info['guide_box_expand'] == self.guide_box_expand:
+                width, height = self.window_normal_info['width'], self.window_normal_info['height']
+            else:
+                if self.window_normal_info['guide_box_expand']:
+                    p_width, p_height = self.window_normal_info['width'], self.window_normal_info['height']
+                    width = p_width - 220
+                    height = p_height
+                else:
+                    p_width, p_height = self.window_normal_info['width'], self.window_normal_info['height']
+                    width = p_width + 220
+                    height = p_height
+
+            self.window.set_geometry_hints(None, width, height, 
+                                        screen_w, screen_h,  -1, -1, -1, -1, -1, -1)
+            self.window.resize(width, height)
+
+        else:
+            self.maximize_state = True
+            self.window_normal_info['guide_box_expand'] = copy.deepcopy(self.guide_box_expand)
+            self.window_normal_info['width'] = copy.deepcopy(self.window.get_size()[0])
+            self.window_normal_info['height'] = copy.deepcopy(self.window.get_size()[1])
+            self.window.maximize()
 
     def quit(self, widget, data=None):
         if self.game_pause:
