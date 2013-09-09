@@ -30,6 +30,7 @@ import json
 import webkit
 import jswebkit
 import urlparse
+import urllib
 
 from theme import app_theme
 from deepin_utils.ipc import is_dbus_name_exists
@@ -127,7 +128,8 @@ class GameCenterApp(dbus.service.Object):
         self.webview.connect('script-alert', self.webview_script_alert_handler)
         self.webview.connect('window-object-cleared', self.webview_window_object_cleared)
         
-        self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game')
+        self.home_url = urllib.basejoin(GAME_CENTER_SERVER_ADDRESS, 'game/?hl=%s' % LANGUAGE)
+        self.webview.load_uri(self.home_url)
 
         self.page_box.add(self.webview)
         
@@ -404,7 +406,7 @@ class GameCenterApp(dbus.service.Object):
         print "toggle favorite"
 
     def show_home_page(self):
-        self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game')
+        self.webview.load_uri(self.home_url)
 
     def show_subject_page(self):
         self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game/subjects/')
