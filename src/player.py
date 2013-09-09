@@ -23,6 +23,7 @@
 import os
 import gtk
 import gobject
+import cairo
 import subprocess
 import dbus
 import dbus.service
@@ -49,12 +50,13 @@ from constant import PROGRAM_NAME
 from events import global_event
 import utils
 
-from dtk.ui.utils import alpha_color_hex_to_cairo
+from dtk.ui.utils import alpha_color_hex_to_cairo, container_remove_all, propagate_expose
 from dtk.ui.skin_config import skin_config
 from dtk.ui.draw import draw_pixbuf
 from dtk.ui.constant import DEFAULT_FONT_SIZE
 from deepin_utils.file import get_parent_dir, touch_file_dir
 from deepin_utils.ipc import is_dbus_name_exists
+from dtk.ui.draw import draw_pixbuf, draw_text, draw_round_rectangle
 
 info_data = os.path.join(get_parent_dir(__file__, 2), "data", "info.db")
 static_dir = os.path.join(get_parent_dir(__file__, 2), "static")
@@ -82,6 +84,7 @@ class Player(dbus.service.Object):
 
         self.call_flash_game(self.appid)
         self.init_ui()
+        self.plug_id = None
 
         def unique(self):
             self.application.window.present()
@@ -89,8 +92,8 @@ class Player(dbus.service.Object):
         def message_receiver(self, *message):
             message_type, contents = message
             if message_type == 'send_plug_id':
-                self.content_page.add_plug_id(int(str(contents[1])))
-                #self.content_page.socket_box.connect('event', self.content_socket_press_handler)
+                self.plug_id = int(str(contents[1]))
+                self.content_page.add_plug_id(self.plug_id)
                 self.plug_status = True
                 self.start_loading()
             elif message_type == 'loading_uri_finish':
@@ -154,6 +157,7 @@ class Player(dbus.service.Object):
 
         self.page_box = gtk.HBox()
         self.content_page = ContentPage(self.appid)
+        self.content_page.screenshot_box.connect('button-press-event', self.external_continue_action)
 
         self.guide_box = GuideBox()
         self.guide_box.set_size_request(220, -1)
@@ -253,6 +257,11 @@ class Player(dbus.service.Object):
     def external_pause_action(self):
         if not self.loading and (not self.hand_pause and not self.game_pause):
             self.control_toolbar.pause_button.set_active(True)
+            self.toggle_pause_action(self.control_toolbar.pause_button)
+
+    def external_continue_action(self, widget=None, event=None):
+        if not self.loading and self.game_pause:
+            self.control_toolbar.pause_button.set_active(False)
             self.toggle_pause_action(self.control_toolbar.pause_button)
 
     def window_in_focus_hander(self, widget, event):
@@ -402,14 +411,28 @@ class Player(dbus.service.Object):
         self.game_pause = not widget.get_active() 
 
     def command_pause_game(self):
+        screenshot_pixbuf = self.get_game_screenshot_pixbuf()
+        self.content_page.remove_socket(screenshot_pixbuf)
         os.system('kill -STOP %s' % self.p.pid)
 
     def command_continue_game(self):
         os.system('kill -CONT %s' % self.p.pid)
-        self.update_signal(['game_action', 'continue'])
+        self.content_page.add_plug_id(self.plug_id)
+        #self.update_signal(['game_action', 'continue'])
 
     def fullscreen_action(self, widget, data=None):
         pass
+
+    def get_game_screenshot_pixbuf(self):
+
+        rect = self.content_page.get_allocation()
+        #rect = self.window.get_allocation()
+        width = rect.width
+        height = rect.height
+        pixbuf = gtk.gdk.Pixbuf(gtk.gdk.COLORSPACE_RGB, False, 8, width, height)
+        pixbuf = pixbuf.get_from_drawable(self.content_page.window, self.content_page.window.get_colormap(), 
+                                            rect.x, rect.y, 0, 0, width, height)
+        return pixbuf
 
     def share_action(self, widget, data=None):
         #from window import get_screenshot_pixbuf
@@ -596,15 +619,46 @@ class ContentPage(gtk.VBox):
         self.socket_box = gtk.EventBox()
         self.socket_box.connect("realize", self._add_socket)
 
-        self.pack_start(self.socket_box, True, True)
+        self.screenshot_box = gtk.EventBox()
+        self.screenshot_box.connect('expose-event', self.screenshot_box_expose)
 
-    def expose(self, widget, event):
-        cr = widget.window.cairo_create()
+        #self.pack_start(self.socket_box, True, True)
+        #self.pack_start(self.screenshot_box, True, True)
+
+        self.screenshot_pixbuf = None
+
+    def screenshot_box_expose(self, widget, event):
         rect = widget.allocation
+        cr = widget.window.cairo_create()
 
-        cr.set_source_rgba(*alpha_color_hex_to_cairo(('#ff0000', 1.0)))
-        cr.rectangle(rect.x, rect.y, rect.width, rect.height)
+        #cr.set_source_rgba(1.0, 1.0, 1.0, 0.0) 
+        #cr.set_operator(cairo.OPERATOR_SOURCE)
+        #cr.paint()
         
+        if self.screenshot_pixbuf:
+            draw_pixbuf(cr, self.screenshot_pixbuf, rect.x, rect.y)
+
+        cr.set_source_rgba(0, 0, 0, 0.7)
+        cr.rectangle(*rect)
+        cr.fill()
+
+        if widget.state == gtk.STATE_PRELIGHT:
+            play_pixbuf = utils.get_common_image_pixbuf('pause/play_hover.png')
+        else:
+            play_pixbuf = utils.get_common_image_pixbuf('pause/play_normal.png')
+
+        draw_pixbuf(
+                cr, 
+                play_pixbuf, 
+                rect.x + (rect.width - play_pixbuf.get_width())/2,
+                rect.y + (rect.height - play_pixbuf.get_height())/2,
+                )
+
+        # Propagate expose to children.
+        propagate_expose(widget, event)
+
+        return True
+
     def _add_socket(self, w):
         #must create an new socket, because socket will be destroyed when it reparent!!!
         if self.socket:
@@ -613,7 +667,20 @@ class ContentPage(gtk.VBox):
         self.socket_box.add(self.socket)
         self.socket.realize()
 
+    def remove_socket(self, pixbuf=None):
+        if pixbuf:
+            self.screenshot_pixbuf = pixbuf
+            self.screenshot_box.queue_draw()
+        self.socket.destroy()
+
+        container_remove_all(self)
+        self.pack_start(self.screenshot_box, True, True)
+        self.show_all()
+
     def add_plug_id(self, plug_id):
+        if self.screenshot_box in self.get_children():
+            self.remove(self.screenshot_box)
+        self.pack_start(self.socket_box, True, True)
         self._add_socket(None)
         self.socket.add_id(plug_id)
         self.show_all()

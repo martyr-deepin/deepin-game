@@ -64,6 +64,7 @@ class FlashFrame(dbus.service.Object):
         self.paned_box.enter_top_win_callback = self.enter_top_notify
         self.paned_box.add_content_widget(self.webview)
         self.plug.add(self.paned_box)
+        self.plug.connect('delete-event', self.plug_delete_event)
         
         # Handle signals.
         self.plug.connect("realize", self.flash_frame_realize)
@@ -92,6 +93,9 @@ class FlashFrame(dbus.service.Object):
         setattr(FlashFrame, 
                 'message_receiver', 
                 dbus.service.method(dbus_name)(message_receiver))
+
+    def plug_delete_event(self, widget, event):
+        return True
 
     def title_change_handler(self, widget, frame, new_title):
         if new_title == 'finish_load':
