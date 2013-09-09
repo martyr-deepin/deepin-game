@@ -99,7 +99,7 @@ msgstr "回饋："
 
 #: ../src/share.py:74
 msgid "share to web"
-msgstr "分享到網頁"
+msgstr "分享到網路"
 
 #: ../src/share.py:188
 msgid "Unable to load page"
