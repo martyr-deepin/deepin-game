@@ -95,7 +95,10 @@ function change_favorite_status(id, status){
 }
 
 function change_color_theme(name){
-    var old_color_link = $("#color_link").attr("href");
-    new_color_link = old_color_link.split('_')[0] +"_" + name + '.css';
-    $("#color_link").attr("href", new_color_link);
+    var old_color = $("#color_link");
+    if (old_color){
+        var old_color_link = old_color.attr("href");
+        new_color_link = old_color_link.split('_')[0] +"_" + name + '.css';
+        $("#color_link").attr("href", new_color_link);
+    }
 }

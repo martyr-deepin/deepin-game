@@ -187,10 +187,11 @@ class GameCenterApp(dbus.service.Object):
     def webview_window_object_cleared(self, webview, frame, context, window_object):
         ctx = jswebkit.JSContext(frame.get_global_context())
         window = ctx.EvaluateScript("window")
-        window.color_link = skin_config.theme_name
-        #location = window.location.href
-        #parse_result = urlparse.urlparse(location)
-        #print parse_result
+        window.css_color = skin_config.theme_name
+        location = window.location.href
+        parse_result = urlparse.urlparse(location)
+        if parse_result.path == self.no_favorite_html_path or parse_result.path == self.no_recent_html_path:
+            window.css_language = LANGUAGE
 
     def update_message(self, message, hide_timeout=0):
         if not self.paned_box.bottom_window.is_visible():

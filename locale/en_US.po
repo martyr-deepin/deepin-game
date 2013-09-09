@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-09 10:28+0800\n"
+"POT-Creation-Date: 2013-09-09 15:35+0800\n"
 "PO-Revision-Date: 2013-09-09 10:20+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -23,23 +23,23 @@ msgstr "Introduction"
 
 #: ../src/star_view.py:324
 msgid "Boring"
-msgstr "Boring"
+msgstr "Poor"
 
 #: ../src/star_view.py:326
 msgid "Nothing special"
-msgstr "Nothing special"
+msgstr "Below average"
 
 #: ../src/star_view.py:328
 msgid "Interesting"
-msgstr "Interesting"
+msgstr "Average"
 
 #: ../src/star_view.py:330
 msgid "Good"
-msgstr "Good"
+msgstr "Above average"
 
 #: ../src/star_view.py:332
 msgid "Wow, wonderful"
-msgstr "Wow, wonderful"
+msgstr "Excellent"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
@@ -57,7 +57,7 @@ msgstr "Maximize"
 msgid "Minimum"
 msgstr "Minimum"
 
-#: ../src/titlebar.py:57 ../src/dialog.py:127
+#: ../src/titlebar.py:57 ../src/dialog.py:124
 msgid "Close"
 msgstr "Close"
 
@@ -81,21 +81,23 @@ msgstr "Version: "
 msgid ""
 "Deepin Games is designed by Linux Deepin for Linux users. Here you will find "
 "good and safe games elaborately selected by professionals. Click and play "
-"the best games you've ever met. Deepin Games — deeper into the game’s world!"
+"the best games you have ever met. Deepin Games - deeper into the world of "
+"game!\n"
 msgstr ""
 "Deepin Games is designed by Linux Deepin for Linux users. Here you will find "
 "good and safe games elaborately selected by professionals. Click and play "
-"the best games you've ever met. Deepin Games — deeper into the game’s world!"
+"the best games you've ever met. Deepin Games — deeper into the game's "
+"world!\n"
 
-#: ../src/dialog.py:114
+#: ../src/dialog.py:111
 msgid "Weibo: "
 msgstr "Weibo: "
 
-#: ../src/dialog.py:115
+#: ../src/dialog.py:112
 msgid "Forum: "
 msgstr "Forum: "
 
-#: ../src/dialog.py:116
+#: ../src/dialog.py:113
 msgid "Feedback: "
 msgstr "Feedback: "
 
@@ -200,12 +202,12 @@ msgstr "See what's new"
 msgid "Quit"
 msgstr "Quit"
 
-#: ../src/game_center.py:252
+#: ../src/game_center.py:253
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
 msgstr "%s files are deleted and %s disk space is freed."
 
-#: ../src/game_center.py:255
+#: ../src/game_center.py:256
 msgid "Your game cache is empty."
 msgstr "Your game cache is empty."
 
@@ -248,8 +250,8 @@ msgstr "Share"
 
 #: ../src/control_toolbar.py:188
 msgid "You score today already"
-msgstr "You score today already"
+msgstr "Already rated today"
 
 #: ../src/control_toolbar.py:191
 msgid "Ratings success"
-msgstr "Ratings success"
+msgstr "Rating was successful"

@@ -111,7 +111,7 @@ class progressBarTip(gtk.Window):
         self.content = text
         self.text_size = get_content_size(self.content, self.font_size)
         self.pixbuf = utils.get_common_image_pixbuf(image_path)
-        self.width, self.height = 136, 78
+        self.width, self.height = 140, 78
         self.offset = (self.width - self.arrow_width) / 2
         self.set_geometry_hints(None, self.width, self.height, self.width, self.height, \
                 -1, -1, -1, -1, -1, -1)

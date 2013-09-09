@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-09 10:28+0800\n"
+"POT-Creation-Date: 2013-09-09 15:35+0800\n"
 "PO-Revision-Date: 2013-09-09 10:20+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -57,7 +57,7 @@ msgstr "最大化"
 msgid "Minimum"
 msgstr "最小化"
 
-#: ../src/titlebar.py:57 ../src/dialog.py:127
+#: ../src/titlebar.py:57 ../src/dialog.py:124
 msgid "Close"
 msgstr "关闭"
 
@@ -81,21 +81,22 @@ msgstr "版本："
 msgid ""
 "Deepin Games is designed by Linux Deepin for Linux users. Here you will find "
 "good and safe games elaborately selected by professionals. Click and play "
-"the best games you've ever met. Deepin Games — deeper into the game’s world!"
+"the best games you have ever met. Deepin Games - deeper into the world of "
+"game!\n"
 msgstr ""
 "深度游戏是Linux Deepin团队为广大Linux用户量身开发的一款游戏娱乐中心，提供精"
 "品、绿色、安全的游戏，专业团队精心挑选，轻轻点击即可畅享，方便省心。精彩的游"
-"戏专题、分享游戏截图给微博好友，深度游戏，为快乐而生！"
+"戏专题、分享游戏截图给微博好友，深度游戏，为快乐而生！\n"
 
-#: ../src/dialog.py:114
+#: ../src/dialog.py:111
 msgid "Weibo: "
 msgstr "官方微博："
 
-#: ../src/dialog.py:115
+#: ../src/dialog.py:112
 msgid "Forum: "
 msgstr "官方论坛："
 
-#: ../src/dialog.py:116
+#: ../src/dialog.py:113
 msgid "Feedback: "
 msgstr "意见反馈："
 
@@ -200,12 +201,12 @@ msgstr "查看新特性"
 msgid "Quit"
 msgstr "退出"
 
-#: ../src/game_center.py:252
+#: ../src/game_center.py:253
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
 msgstr "恭喜您清理了%s个文件，为您节约了%s空间。"
 
-#: ../src/game_center.py:255
+#: ../src/game_center.py:256
 msgid "Your game cache is empty."
 msgstr "您的游戏缓存已经清理干净，不需要再清理。"
 

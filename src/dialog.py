@@ -24,7 +24,7 @@ import gtk
 import os
 
 from theme import app_theme
-from nls import _
+from nls import _, LANGUAGE
 from constant import PROGRAM_VERSION
 from utils import get_common_image_pixbuf
 
@@ -100,10 +100,7 @@ class AboutDialog(DialogBox):
         title_box.pack_start(align, True, True)
         title_box.pack_start(info_box, False, False)
         
-        describe = _("Deepin Games is designed by Linux Deepin for Linux users. \
-Here you will find good and safe games elaborately selected by \
-professionals. Click and play the best games you've ever met. \
-Deepin Games — deeper into the game’s world!")
+        describe = _("Deepin Games is designed by Linux Deepin for Linux users. Here you will find good and safe games elaborately selected by professionals. Click and play the best games you have ever met. Deepin Games - deeper into the world of game!\n")
         
         describe_label = Label(describe, enable_select=False, wrap_width=430, text_size=10)
         main_box.pack_start(title_box, False, False)

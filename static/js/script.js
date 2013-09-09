@@ -91,13 +91,12 @@ function change_color_theme(name){
         var old_color_link = old_color.attr("href");
         new_color_link = old_color_link.split('_')[0] +"_" + name + '.css';
         $("#color_link").attr("href", new_color_link);
-        $.cookie('color', name, {"expires": 365 * 20, 'path': '/'});
     }
 }
 
 $(document).ready(function(){
-    if (window.color_link){
-        change_color_theme(window.color_link);
+    if (window.css_color){
+        change_color_theme(window.css_color);
     }
 });
 
