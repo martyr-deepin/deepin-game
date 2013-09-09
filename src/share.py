@@ -314,7 +314,7 @@ class ShareToWeibo(object):
                 app_theme.get_pixbuf("share/" + weibo.t_type + ".png"),
                 app_theme.get_pixbuf("share/" + weibo.t_type + ".png"))
             utils.set_clickable_cursor(button)
-            button.connect("enter-notify-event", self.show_tooltip, _("click to switch user"))
+            button.connect("enter-notify-event", self.show_tooltip, _("Click to switch user"))
             hbox.pack_start(check_align, False, False)
             hbox.pack_start(button, False, False, 5)
             hbox.pack_start(label, False, False)
@@ -332,7 +332,7 @@ class ShareToWeibo(object):
                 app_theme.get_pixbuf("share/" + weibo.t_type + "_no.png"),
                 app_theme.get_pixbuf("share/" + weibo.t_type + "_no.png"))
             utils.set_clickable_cursor(button)
-            button.connect("enter-notify-event", self.show_tooltip, _("click to login"))
+            button.connect("enter-notify-event", self.show_tooltip, _("Click to login"))
             hbox.pack_start(check_align, False, False)
             hbox.pack_start(button, False, False, 5)
             # curl time out
@@ -554,7 +554,7 @@ class ShareToWeibo(object):
                 img.disconnect_by_func(self.weibo_login)
             except:
                 pass
-        button.set_label(_("uploading"))
+        button.set_label(_("Uploading"))
         t = threading.Thread(target=self.share_to_weibo_thread, args=(text_view, ))
         t.setDaemon(True)
         t.start()
@@ -565,7 +565,7 @@ class ShareToWeibo(object):
         buf = text_view.get_buffer()
         text = buf.get_text(*buf.get_bounds())
         if text.strip() == "":
-            text = "%s %s" % (_("came from"), _("DSnapshot"))
+            text = "%s %s" % (_("comes from"), _("Deepin Games"))
         # get deepin official info
         self.deepin_info[self.sina] = self.sina.get_deepin_info()
         self.deepin_info[self.qq] = self.qq.get_deepin_info()

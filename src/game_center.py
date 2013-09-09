@@ -54,7 +54,7 @@ import utils
 import record_info
 from xdg_support import get_config_file
 from download_manager import FetchInfo
-from nls import _
+from nls import _, LANGUAGE
 from events import global_event
 from constant import (
         GAME_CENTER_DBUS_NAME,
@@ -84,7 +84,7 @@ class GameCenterApp(dbus.service.Object):
                 ["theme", "menu", "max","min", "close"],
                 show_title=False
                 )
-        self.application.window.set_title(_("深度游戏"))
+        self.application.window.set_title(_("Deepin Games"))
 
         # Init page box.
         self.page_box = gtk.VBox()
@@ -133,9 +133,9 @@ class GameCenterApp(dbus.service.Object):
         
         self.navigatebar = Navigatebar(
                 [
-                (None, _("首页"), self.show_home_page),
-                (None, _("游戏专题"), self.show_subject_page),
-                (None, _("我的游戏"), self.show_mygame_page),
+                (None, _("Home"), self.show_home_page),
+                (None, _("Topics"), self.show_subject_page),
+                (None, _("My Games"), self.show_mygame_page),
                 ],
                 font_size = 11,
                 padding_x = 5,
@@ -153,7 +153,7 @@ class GameCenterApp(dbus.service.Object):
         self.application.titlebar.left_box.pack_start(self.navigatebar_align, True, True)
         self.application.window.add_move_event(self.navigatebar)
 
-        self.about_dialog = AboutDialog(_('关于我们'))
+        self.about_dialog = AboutDialog(_('About us'))
         self.about_dialog.set_transient_for(self.application.window)
 
         # Init menu.
@@ -164,10 +164,10 @@ class GameCenterApp(dbus.service.Object):
 
         menu = Menu(
             [
-             (None, _("智能清除所有缓存"), self.clean_download_cache),
-             (None, _("查看新特性"), lambda : self.show_wizard_win()),
-             (None, _("关于我们"), self.show_about_dialog),
-             (None, _("退出"), lambda: gtk.main_quit()),
+             (None, _("Clear all cached data"), self.clean_download_cache),
+             (None, _("See what's new"), lambda : self.show_wizard_win()),
+             (None, _("About us"), self.show_about_dialog),
+             (None, _("Quit"), lambda: gtk.main_quit()),
              ],
             is_root_menu=True,
             #menu_min_width=menu_min_width,
@@ -212,7 +212,7 @@ class GameCenterApp(dbus.service.Object):
 
     def show_wizard_win(self, show_button=False, callback=None):    
 
-        lang = "zh_CN"
+        lang = LANGUAGE
             
         Wizard(
             [get_common_image('wizard/%s/%s.png' % (lang, i)) for i in range(3)],
@@ -249,10 +249,10 @@ class GameCenterApp(dbus.service.Object):
                     os.remove(os.path.join(downloads_dir, appid, f))
         
         if info['file_num']:
-            cache_cleaned_message = _('恭喜您清理了%s个文件，为您节约了%s空间。') % (
+            cache_cleaned_message = _('%s files are deleted and %s disk space is freed.') % (
                     info['file_num'], utils.get_human_size(info['total_size']))
         else:
-            cache_cleaned_message = _('您的游戏缓存已经清理干净，不需要再清理。')
+            cache_cleaned_message = _('Your game cache is empty.')
         global_event.emit('show-message', cache_cleaned_message, 5000)
 
     def show_about_dialog(self):

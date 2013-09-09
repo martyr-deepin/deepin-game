@@ -82,12 +82,12 @@ class AboutDialog(DialogBox):
 
         main_box = gtk.VBox(spacing=15)
         logo_image = gtk.image_new_from_pixbuf(get_common_image_pixbuf('logo24.png'))
-        logo_name = Label(_("深度游戏"), text_size=10)
+        logo_name = Label(_("Deepin Games"), text_size=10)
         logo_box = gtk.HBox(spacing=2)
         logo_box.pack_start(logo_image, False, False)
         logo_box.pack_start(logo_name, False, False)
         
-        version_label = Label(_("版本："))
+        version_label = Label(_("Version: "))
         version_content = Label(PROGRAM_VERSION, DynamicColor('#4D5154'))
         info_box = gtk.HBox(spacing=5)
         info_box.pack_start(version_label, False, False)
@@ -100,7 +100,10 @@ class AboutDialog(DialogBox):
         title_box.pack_start(align, True, True)
         title_box.pack_start(info_box, False, False)
         
-        describe = _('深度游戏是Linux Deepin团队为广大Linux用户量身开发的一款游戏娱乐中心，提供精品、绿色、安全的游戏，专业团队精心挑选，轻轻点击即可畅享，方便省心。精彩的游戏专题、分享游戏截图给微博好友，深度游戏，为快乐而生！')
+        describe = _("Deepin Games is designed by Linux Deepin for Linux users. \
+Here you will find good and safe games elaborately selected by \
+professionals. Click and play the best games you've ever met. \
+Deepin Games — deeper into the game’s world!")
         
         describe_label = Label(describe, enable_select=False, wrap_width=430, text_size=10)
         main_box.pack_start(title_box, False, False)
@@ -108,9 +111,9 @@ class AboutDialog(DialogBox):
         main_box.pack_start(describe_label, False, False)
 
         links = [
-                (_('官方微博：'), 'http://weibo.com/linuxdeepinnew'),
-                (_('官方论坛：'), 'http://www.linuxdeepin.com/forum'),
-                (_('意见反馈：'), 'http://www.linuxdeepin.com/mantis')
+                (_('Weibo: '), 'http://weibo.com/linuxdeepinnew'),
+                (_('Forum: '), 'http://www.linuxdeepin.com/forum'),
+                (_('Feedback: '), 'http://www.linuxdeepin.com/mantis')
                 ]
         for l in links:
             main_box.pack_start(self.create_link_box(l[0], l[1]), False, False)
@@ -121,7 +124,7 @@ class AboutDialog(DialogBox):
         main_align.add(main_box)
         self.body_box.pack_start(main_align)
 
-        self.ok_button = Button(_('关闭'))
+        self.ok_button = Button(_('Close'))
         self.ok_button.connect('clicked', self.dialog_close_action)
         ok_button_align = gtk.Alignment(0.5, 0.5, 0, 0)
         ok_button_align.set_padding(9, 11, 0, 10)
@@ -140,7 +143,3 @@ class AboutDialog(DialogBox):
     def dialog_close_action(self, widget=None, event=None):
         self.hide_all()
         return True
-
-if __name__ == '__main__':
-    AboutDialog('关于我们').show_all()
-    gtk.main()

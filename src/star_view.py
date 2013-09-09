@@ -22,10 +22,8 @@
 
 import gtk
 import cairo
-import pango
 import gobject
 from dtk.ui.draw import draw_pixbuf, draw_text
-from dtk.ui.constant import DEFAULT_FONT_SIZE
 from dtk.ui.utils import (
         propagate_expose, 
         get_event_coords, 
@@ -323,15 +321,15 @@ class StarView(gtk.Button):
             self.star_buffer.star_level = star_level
             self.show_progressbar_tip(event)
             if star_level == 1 or star_level == 2:
-                tips = _('没劲')
+                tips = _('Boring')
             elif star_level == 3 or star_level == 4:
-                tips = _('一般吧')
+                tips = _('Nothing special')
             elif star_level == 5 or star_level == 6:
-                tips = _('好玩')
+                tips = _('Interesting')
             elif star_level == 7 or star_level == 8:
-                tips = _('值得一玩')
+                tips = _('Good')
             elif star_level == 9 or star_level == 10:
-                tips = _('哇，太棒了')
+                tips = _('Wow, wonderful')
             self.progressbar_tip.set_content(tips)
             self.queue_draw()
 

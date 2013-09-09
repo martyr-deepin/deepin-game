@@ -51,8 +51,8 @@ class ControlToolbar(Statusbar):
                 app_theme.get_pixbuf('mute/mute_hover.png'),
                 app_theme.get_pixbuf('mute/sound_press.png'),
                 app_theme.get_pixbuf('mute/mute_press.png'),
-                active_button_label = _('声音'),
-                inactive_button_label = _('静音'),
+                active_button_label = _('Volume'),
+                inactive_button_label = _('Mute'),
                 draw_background=True,
                 padding_edge=10,
                 padding_middle=6)
@@ -69,7 +69,7 @@ class ControlToolbar(Statusbar):
                 app_theme.get_pixbuf('favorite/favorite_hover.png'),
                 app_theme.get_pixbuf('favorite/unfavorite_press.png'),
                 app_theme.get_pixbuf('favorite/favorite_press.png'),
-                active_button_label = _('收藏'),
+                active_button_label = _('Favorite'),
                 draw_background=True,
                 padding_edge=10,
                 padding_middle=6)
@@ -83,7 +83,7 @@ class ControlToolbar(Statusbar):
                 app_theme.get_pixbuf('replay/replay_normal.png'),
                 app_theme.get_pixbuf('replay/replay_hover.png'),
                 app_theme.get_pixbuf('replay/replay_press.png'),
-                button_label = _('重玩'),
+                button_label = _('Replay'),
                 draw_background=True,
                 padding_edge=10,
                 padding_middle=6)
@@ -102,8 +102,8 @@ class ControlToolbar(Statusbar):
                 app_theme.get_pixbuf('pause/play_hover.png'),
                 app_theme.get_pixbuf('pause/pause_press.png'),
                 app_theme.get_pixbuf('pause/play_press.png'),
-                active_button_label = _('暂停'),
-                inactive_button_label = _('继续'),
+                active_button_label = _('Pause'),
+                inactive_button_label = _('Continue'),
                 draw_background=True,
                 padding_edge=10,
                 padding_middle=6)
@@ -117,7 +117,7 @@ class ControlToolbar(Statusbar):
                 app_theme.get_pixbuf('fullscreen/fullscreen_normal.png'),
                 app_theme.get_pixbuf('fullscreen/fullscreen_hover.png'),
                 app_theme.get_pixbuf('fullscreen/fullscreen_press.png'),
-                button_label = _('全屏'),
+                button_label = _('Fullscreen'),
                 draw_background=True,
                 padding_edge=10,
                 padding_middle=6)
@@ -131,7 +131,7 @@ class ControlToolbar(Statusbar):
                 app_theme.get_pixbuf('share/share_normal.png'),
                 app_theme.get_pixbuf('share/share_hover.png'),
                 app_theme.get_pixbuf('share/share_press.png'),
-                button_label = _('分享'),
+                button_label = _('Share'),
                 draw_background=True,
                 padding_edge=10,
                 padding_middle=6)
@@ -185,10 +185,10 @@ class ControlToolbar(Statusbar):
         star = int(min(event_x / (STAR_SIZE / 2) + 1, 10))
 
         if self.star.read_only:
-            self.star.progressbar_tip.show_image_text(_('您今天已评过'), 'star/star_finish.png')
+            self.star.progressbar_tip.show_image_text(_('You score today already'), 'star/star_finish.png')
             self.star.show_progressbar_tip(event)
         else:
-            self.star.progressbar_tip.show_image_text(_('评分成功'), 'star/star_success.png')
+            self.star.progressbar_tip.show_image_text(_('Ratings success'), 'star/star_success.png')
             self.star.show_progressbar_tip(event)
             if getattr(self, 'appid'):
                 SetStarScore(self.appid, star).start()

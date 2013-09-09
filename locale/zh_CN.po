@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-04 16:15+0800\n"
-"PO-Revision-Date: 2013-09-04 16:15+0800\n"
+"POT-Creation-Date: 2013-09-09 10:28+0800\n"
+"PO-Revision-Date: 2013-09-09 10:20+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -18,215 +18,238 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../src/guide_box.py:55
-msgid "游戏简介"
-msgstr ""
+msgid "Introduction"
+msgstr "游戏简介"
+
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "没劲"
+
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "一般吧"
+
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "好玩"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "值得一玩"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "哇，太棒了"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
-msgstr ""
+msgstr "换肤"
 
 #: ../src/titlebar.py:54
 msgid "Main menu"
-msgstr ""
+msgstr "主菜单"
 
 #: ../src/titlebar.py:55
 msgid "Maximize"
-msgstr ""
+msgstr "最大化"
 
 #: ../src/titlebar.py:56
 msgid "Minimum"
-msgstr ""
+msgstr "最小化"
 
-#: ../src/titlebar.py:57
+#: ../src/titlebar.py:57 ../src/dialog.py:127
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 #: ../src/titlebar.py:58
 msgid "Toggle"
-msgstr ""
+msgstr "切换"
 
 #: ../src/widgets.py:155 ../src/widgets.py:236
-msgid "点击此处刷新"
-msgstr ""
+msgid "Click here to refresh"
+msgstr "点击此处刷新"
 
-#: ../src/dialog.py:84 ../src/game_center.py:85
-msgid "深度游戏"
-msgstr ""
+#: ../src/dialog.py:85 ../src/share.py:568 ../src/game_center.py:87
+msgid "Deepin Games"
+msgstr "深度游戏"
 
-#: ../src/dialog.py:89
-msgid "版本："
-msgstr ""
+#: ../src/dialog.py:90
+msgid "Version: "
+msgstr "版本："
 
-#: ../src/dialog.py:102
+#: ../src/dialog.py:103
 msgid ""
+"Deepin Games is designed by Linux Deepin for Linux users. Here you will find "
+"good and safe games elaborately selected by professionals. Click and play "
+"the best games you've ever met. Deepin Games — deeper into the game’s world!"
+msgstr ""
 "深度游戏是Linux Deepin团队为广大Linux用户量身开发的一款游戏娱乐中心，提供精"
 "品、绿色、安全的游戏，专业团队精心挑选，轻轻点击即可畅享，方便省心。精彩的游"
 "戏专题、分享游戏截图给微博好友，深度游戏，为快乐而生！"
-msgstr ""
 
-#: ../src/dialog.py:110
-msgid "官方微博："
-msgstr ""
+#: ../src/dialog.py:114
+msgid "Weibo: "
+msgstr "官方微博："
 
-#: ../src/dialog.py:111
-msgid "官方论坛："
-msgstr ""
+#: ../src/dialog.py:115
+msgid "Forum: "
+msgstr "官方论坛："
 
-#: ../src/dialog.py:112
-msgid "意见反馈："
-msgstr ""
-
-#: ../src/dialog.py:123
-msgid "关闭"
-msgstr ""
+#: ../src/dialog.py:116
+msgid "Feedback: "
+msgstr "意见反馈："
 
 #: ../src/share.py:74
 msgid "share to web"
-msgstr ""
+msgstr "分享至网络"
 
 #: ../src/share.py:188
 msgid "Unable to load page"
-msgstr ""
+msgstr "无法加载页面"
 
 #: ../src/share.py:189
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
-msgstr ""
+msgstr "加载 URL '%s' 时出错"
 
 #: ../src/share.py:317
-msgid "click to switch user"
-msgstr ""
+msgid "Click to switch user"
+msgstr "点击切换用户"
 
 #: ../src/share.py:335
-msgid "click to login"
-msgstr ""
+msgid "Click to login"
+msgstr "点击登陆"
 
 #: ../src/share.py:450
 msgid "loading"
-msgstr ""
+msgstr "加载中"
 
 #: ../src/share.py:461
 msgid "Tweet"
-msgstr ""
+msgstr "发送微博"
 
 #: ../src/share.py:503
 msgid "Please input text here"
-msgstr ""
+msgstr "请在此输入文字"
 
 #: ../src/share.py:529 ../src/share.py:540
 msgid "error"
-msgstr ""
+msgstr "错误"
 
 #: ../src/share.py:529
 msgid "Picture does not exist."
-msgstr ""
+msgstr "图片不存在"
 
 #: ../src/share.py:540
 msgid "Please choose at least one platform to share on"
-msgstr ""
+msgstr "请选择至少一个平台分享"
 
 #: ../src/share.py:557
-msgid "uploading"
-msgstr ""
+msgid "Uploading"
+msgstr "上传中"
 
 #: ../src/share.py:568
-msgid "came from"
-msgstr ""
-
-#: ../src/share.py:568
-msgid "DSnapshot"
-msgstr ""
+msgid "comes from"
+msgstr "来自"
 
 #: ../src/share.py:615
 msgid "Follow"
-msgstr ""
+msgstr "关注"
 
 #: ../src/share.py:638 ../src/share.py:659
 msgid "upload to"
-msgstr ""
+msgstr "上传至"
 
 #: ../src/share.py:641
 msgid "successful"
-msgstr ""
+msgstr "成功"
 
 #: ../src/share.py:664
 msgid "failed"
-msgstr ""
+msgstr "失败"
 
 #: ../src/share.py:672
 msgid "Unknow reason"
-msgstr ""
+msgstr "未知原因"
 
-#: ../src/game_center.py:133
-msgid "首页"
-msgstr ""
+#: ../src/game_center.py:136
+msgid "Home"
+msgstr "首页"
 
-#: ../src/game_center.py:134
-msgid "游戏专题"
-msgstr ""
+#: ../src/game_center.py:137
+msgid "Topics"
+msgstr "游戏专题"
 
-#: ../src/game_center.py:135
-msgid "我的游戏"
-msgstr ""
+#: ../src/game_center.py:138
+msgid "My Games"
+msgstr "我的游戏"
 
-#: ../src/game_center.py:153 ../src/game_center.py:166
-msgid "关于我们"
-msgstr ""
-
-#: ../src/game_center.py:164
-msgid "智能清除所有缓存"
-msgstr ""
-
-#: ../src/game_center.py:165
-msgid "查看新特性"
-msgstr ""
+#: ../src/game_center.py:156 ../src/game_center.py:169
+msgid "About us"
+msgstr "关于我们"
 
 #: ../src/game_center.py:167
-msgid "退出"
-msgstr ""
+msgid "Clear all cached data"
+msgstr "智能清除所有缓存"
 
-#: ../src/game_center.py:241
+#: ../src/game_center.py:168
+msgid "See what's new"
+msgstr "查看新特性"
+
+#: ../src/game_center.py:170
+msgid "Quit"
+msgstr "退出"
+
+#: ../src/game_center.py:252
 #, python-format
-msgid "恭喜您清理了%s个文件，为您节约了%s空间。"
-msgstr ""
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "恭喜您清理了%s个文件，为您节约了%s空间。"
 
-#: ../src/game_center.py:244
-msgid "您的游戏缓存已经清理干净，不需要再清理。"
-msgstr ""
+#: ../src/game_center.py:255
+msgid "Your game cache is empty."
+msgstr "您的游戏缓存已经清理干净，不需要再清理。"
 
-#: ../src/player.py:126
+#: ../src/player.py:143
 #, python-format
-msgid "深度游戏 - %s "
-msgstr ""
+msgid "Deepin Games - %s "
+msgstr "深度游戏 - %s "
 
-#: ../src/control_toolbar.py:49
-msgid "声音"
-msgstr ""
+#: ../src/control_toolbar.py:54
+msgid "Volume"
+msgstr "声音"
 
-#: ../src/control_toolbar.py:50
-msgid "静音"
-msgstr ""
+#: ../src/control_toolbar.py:55
+msgid "Mute"
+msgstr "静音"
 
-#: ../src/control_toolbar.py:67
-msgid "收藏"
-msgstr ""
+#: ../src/control_toolbar.py:72
+msgid "Favorite"
+msgstr "收藏"
 
-#: ../src/control_toolbar.py:81
-msgid "重玩"
-msgstr ""
+#: ../src/control_toolbar.py:86
+msgid "Replay"
+msgstr "重玩"
 
-#: ../src/control_toolbar.py:100
-msgid "暂停"
-msgstr ""
+#: ../src/control_toolbar.py:105
+msgid "Pause"
+msgstr "暂停"
 
-#: ../src/control_toolbar.py:101
-msgid "继续"
-msgstr ""
+#: ../src/control_toolbar.py:106
+msgid "Continue"
+msgstr "继续"
 
-#: ../src/control_toolbar.py:115
-msgid "全屏"
-msgstr ""
+#: ../src/control_toolbar.py:120
+msgid "Fullscreen"
+msgstr "全屏"
 
-#: ../src/control_toolbar.py:129
-msgid "分享"
-msgstr ""
+#: ../src/control_toolbar.py:134
+msgid "Share"
+msgstr "分享"
+
+#: ../src/control_toolbar.py:188
+msgid "You score today already"
+msgstr "您今天已评过"
+
+#: ../src/control_toolbar.py:191
+msgid "Ratings success"
+msgstr "评分成功"

@@ -152,7 +152,7 @@ class NetworkConnectFailed(gtk.EventBox):
         
         self.normal_text_dcolor = ui_theme.get_color("labelText")
         self.hover_text_dcolor = ui_theme.get_color("globalItemHighlight")
-        self.prompt_text = _("点击此处刷新")
+        self.prompt_text = _("Click here to refresh")
         self.text_padding_y = 5
         self.text_padding_x = 5
         self.text_rect = None
@@ -233,7 +233,7 @@ class NetworkConnectTimeout(gtk.EventBox):
         
         self.normal_text_dcolor = ui_theme.get_color("labelText")
         self.hover_text_dcolor = ui_theme.get_color("globalItemHighlight")
-        self.prompt_text = _("点击此处刷新")
+        self.prompt_text = _("Click here to refresh")
         self.text_padding_y = 5
         self.text_padding_x = 5
         self.text_rect = None

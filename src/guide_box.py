@@ -52,7 +52,7 @@ class GuideBox(gtk.VBox):
         top_left_icon_align.set_padding(15, 3, 13, 3)
         top_left_icon_align.add(self.top_left_icon)
 
-        self.top_right_text = Label(_("游戏简介"), ui_theme.get_color('label_select_background'), 14)
+        self.top_right_text = Label(_("Introduction"), ui_theme.get_color('label_select_background'), 14)
         top_right_text_align = gtk.Alignment(0.5, 0.5, 0, 0)
         top_right_text_align.set_padding(18, 3, 3, 3)
         top_right_text_align.add(self.top_right_text)
