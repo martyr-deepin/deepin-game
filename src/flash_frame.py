@@ -183,7 +183,7 @@ class FlashFrame(dbus.service.Object):
             self.send_message('loading_uri_finish', '')
         elif message_type == 'game_action':
             if contents == 'pause':
-                self.webview.execute_script('$("#mask").show()')
+                self.webview.execute_script('$("#mask").hide()')
                 self.send_message('game_action', 'pause')
             elif contents == 'continue':
                 self.webview.execute_script('$("#mask").hide()')

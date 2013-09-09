@@ -160,7 +160,7 @@ class ControlToolbar(Statusbar):
         star_box_align.add(star_box)
 
         status_box.pack_start(pause_button_align, False, False)
-        status_box.pack_start(mute_button_align, False, False)
+        #status_box.pack_start(mute_button_align, False, False)
         status_box.pack_start(replay_button_align, False, False)
         status_box.pack_start(favorite_button_align, False, False)
         status_box.pack_start(fullscreen_button_align, False, False)

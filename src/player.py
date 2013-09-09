@@ -376,6 +376,9 @@ class Player(dbus.service.Object):
         pass
 
     def replay_action(self, widget, data=None):
+        if self.game_pause:
+            self.control_toolbar.pause_button.set_active(False)
+            self.toggle_pause_action(self.control_toolbar.pause_button)
         if not self.loading:
             self.update_signal(['load_uri', 'file://%s,%s,%s' % (self.swf_save_path, self.width, self.height)])
 

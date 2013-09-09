@@ -188,9 +188,9 @@ class GameCenterApp(dbus.service.Object):
         ctx = jswebkit.JSContext(frame.get_global_context())
         window = ctx.EvaluateScript("window")
         window.color_link = skin_config.theme_name
-        location = window.location.href
-        parse_result = urlparse.urlparse(location)
-        print parse_result
+        #location = window.location.href
+        #parse_result = urlparse.urlparse(location)
+        #print parse_result
 
     def update_message(self, message, hide_timeout=0):
         if not self.paned_box.bottom_window.is_visible():
