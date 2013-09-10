@@ -56,7 +56,8 @@ from dtk.ui.draw import draw_pixbuf
 from dtk.ui.constant import DEFAULT_FONT_SIZE
 from deepin_utils.file import get_parent_dir, touch_file_dir
 from deepin_utils.ipc import is_dbus_name_exists
-from dtk.ui.draw import draw_pixbuf, draw_text, draw_round_rectangle
+from dtk.ui.button import ImageButton
+from dtk.ui.theme import DynamicPixbuf
 
 info_data = os.path.join(get_parent_dir(__file__, 2), "data", "info.db")
 static_dir = os.path.join(get_parent_dir(__file__, 2), "static")
@@ -158,6 +159,7 @@ class Player(dbus.service.Object):
         self.page_box = gtk.HBox()
         self.content_page = ContentPage(self.appid)
         self.content_page.screenshot_box.connect('button-press-event', self.external_continue_action)
+        self.content_page.play_button.connect('button-press-event', self.external_continue_action)
 
         self.guide_box = GuideBox()
         self.guide_box.set_size_request(220, -1)
@@ -262,6 +264,7 @@ class Player(dbus.service.Object):
     def external_continue_action(self, widget=None, event=None):
         if not self.loading and self.game_pause:
             self.control_toolbar.pause_button.set_active(False)
+            self.inner_control_toolbar.pause_button.set_active(False)
             self.toggle_pause_action(self.control_toolbar.pause_button)
 
     def window_in_focus_hander(self, widget, event):
@@ -314,21 +317,22 @@ class Player(dbus.service.Object):
             self.maximize_state = False
             self.window.unmaximize()
 
-            if self.window_normal_info['guide_box_expand'] == self.guide_box_expand:
-                width, height = self.window_normal_info['width'], self.window_normal_info['height']
-            else:
-                if self.window_normal_info['guide_box_expand']:
-                    p_width, p_height = self.window_normal_info['width'], self.window_normal_info['height']
-                    width = p_width - 220
-                    height = p_height
+            if self.window_normal_info:
+                if self.window_normal_info['guide_box_expand'] == self.guide_box_expand:
+                    width, height = self.window_normal_info['width'], self.window_normal_info['height']
                 else:
-                    p_width, p_height = self.window_normal_info['width'], self.window_normal_info['height']
-                    width = p_width + 220
-                    height = p_height
+                    if self.window_normal_info['guide_box_expand']:
+                        p_width, p_height = self.window_normal_info['width'], self.window_normal_info['height']
+                        width = p_width - 220
+                        height = p_height
+                    else:
+                        p_width, p_height = self.window_normal_info['width'], self.window_normal_info['height']
+                        width = p_width + 220
+                        height = p_height
 
-            self.window.set_geometry_hints(None, width, height, 
-                                        screen_w, screen_h,  -1, -1, -1, -1, -1, -1)
-            self.window.resize(width, height)
+                self.window.set_geometry_hints(None, width, height, 
+                                            screen_w, screen_h,  -1, -1, -1, -1, -1, -1)
+                self.window.resize(width, height)
 
         else:
             self.maximize_state = True
@@ -402,13 +406,14 @@ class Player(dbus.service.Object):
         print event
 
     def pause_handler(self, widget, data=None):
-        if not widget.get_active():
+        if not self.game_pause:
             self.update_signal(['game_action', 'pause'])
             self.hand_pause = True
+            self.game_pause = True
         else:
             self.command_continue_game()
             self.hand_pause = False
-        self.game_pause = not widget.get_active() 
+            self.game_pause = False
 
     def command_pause_game(self):
         screenshot_pixbuf = self.get_game_screenshot_pixbuf()
@@ -622,26 +627,27 @@ class ContentPage(gtk.VBox):
         self.screenshot_box = gtk.EventBox()
         self.screenshot_box.connect('expose-event', self.screenshot_box_expose)
 
-        #self.pack_start(self.socket_box, True, True)
-        #self.pack_start(self.screenshot_box, True, True)
+        self.center_play_box = gtk.EventBox()
+        self.center_play_box.connect('expose-event', self.center_play_box_expose)
+        self.center_play_box.set_size_request(72, 72)
+
+        center_align = gtk.Alignment(0.5, 0.5, 0, 0)
+        #center_align.add(self.center_play_box)
+
+        self.play_button = ImageButton(
+                DynamicPixbuf(utils.get_common_image('pause/play_normal.png')),
+                DynamicPixbuf(utils.get_common_image('pause/play_hover.png')),
+                DynamicPixbuf(utils.get_common_image('pause/play_press.png')),
+                )
+        center_align.add(self.play_button)
+        
+        self.screenshot_box.add(center_align)
 
         self.screenshot_pixbuf = None
 
-    def screenshot_box_expose(self, widget, event):
+    def center_play_box_expose(self, widget, event):
         rect = widget.allocation
         cr = widget.window.cairo_create()
-
-        #cr.set_source_rgba(1.0, 1.0, 1.0, 0.0) 
-        #cr.set_operator(cairo.OPERATOR_SOURCE)
-        #cr.paint()
-        
-        if self.screenshot_pixbuf:
-            draw_pixbuf(cr, self.screenshot_pixbuf, rect.x, rect.y)
-
-        cr.set_source_rgba(0, 0, 0, 0.7)
-        cr.rectangle(*rect)
-        cr.fill()
-
         if widget.state == gtk.STATE_PRELIGHT:
             play_pixbuf = utils.get_common_image_pixbuf('pause/play_hover.png')
         else:
@@ -653,6 +659,30 @@ class ContentPage(gtk.VBox):
                 rect.x + (rect.width - play_pixbuf.get_width())/2,
                 rect.y + (rect.height - play_pixbuf.get_height())/2,
                 )
+
+        # Propagate expose to children.
+        propagate_expose(widget, event)
+        return True
+
+    def screenshot_box_expose(self, widget, event):
+        rect = widget.allocation
+        cr = widget.window.cairo_create()
+
+        #cr.set_source_rgba(1.0, 1.0, 1.0, 0.0) 
+        #cr.set_operator(cairo.OPERATOR_SOURCE)
+        #cr.paint()
+        
+        if self.screenshot_pixbuf:
+            draw_pixbuf(
+                    cr, 
+                    self.screenshot_pixbuf, 
+                    rect.x + (rect.width - self.screenshot_pixbuf.get_width())/2, 
+                    rect.y + (rect.height - self.screenshot_pixbuf.get_height())/2,
+                    )
+
+        cr.set_source_rgba(0, 0, 0, 0.7)
+        cr.rectangle(*rect)
+        cr.fill()
 
         # Propagate expose to children.
         propagate_expose(widget, event)
