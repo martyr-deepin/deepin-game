@@ -429,13 +429,15 @@ class Player(dbus.service.Object):
         pass
 
     def get_game_screenshot_pixbuf(self):
+        if self.fullscreen_state:
+            self.paned_box.bottom_window.hide()
 
         rect = self.content_page.get_allocation()
         #rect = self.window.get_allocation()
         width = rect.width
         height = rect.height
         pixbuf = gtk.gdk.Pixbuf(gtk.gdk.COLORSPACE_RGB, False, 8, width, height)
-        pixbuf = pixbuf.get_from_drawable(self.content_page.window, self.content_page.window.get_colormap(), 
+        pixbuf = pixbuf.get_from_drawable(self.content_page.socket_box.window, self.content_page.window.get_colormap(), 
                                             rect.x, rect.y, 0, 0, width, height)
         return pixbuf
 
