@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-09 15:35+0800\n"
+"POT-Creation-Date: 2013-09-10 17:14+0800\n"
 "PO-Revision-Date: 2013-09-09 10:20+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -69,7 +69,7 @@ msgstr "Toggle"
 msgid "Click here to refresh"
 msgstr "Click here to refresh"
 
-#: ../src/dialog.py:85 ../src/share.py:568 ../src/game_center.py:87
+#: ../src/dialog.py:85 ../src/share.py:568 ../src/game_center.py:88
 msgid "Deepin Games"
 msgstr "Deepin Games"
 
@@ -174,44 +174,52 @@ msgstr "failed"
 msgid "Unknow reason"
 msgstr "Unknow reason"
 
-#: ../src/game_center.py:136
+#: ../src/game_center.py:139
 msgid "Home"
 msgstr "Home"
 
-#: ../src/game_center.py:137
+#: ../src/game_center.py:140
 msgid "Topics"
 msgstr "Topics"
 
-#: ../src/game_center.py:138
+#: ../src/game_center.py:141
 msgid "My Games"
 msgstr "My Games"
 
-#: ../src/game_center.py:156 ../src/game_center.py:169
+#: ../src/game_center.py:159 ../src/game_center.py:172
 msgid "About us"
 msgstr "About us"
 
-#: ../src/game_center.py:167
+#: ../src/game_center.py:170
 msgid "Clear all cached data"
 msgstr "Clear all cached data"
 
-#: ../src/game_center.py:168
+#: ../src/game_center.py:171
 msgid "See what's new"
 msgstr "See what's new"
 
-#: ../src/game_center.py:170
+#: ../src/game_center.py:173
 msgid "Quit"
 msgstr "Quit"
 
-#: ../src/game_center.py:253
+#: ../src/game_center.py:206
+msgid "My favorites"
+msgstr "Favorites"
+
+#: ../src/game_center.py:207
+msgid "My recents"
+msgstr "Recent played"
+
+#: ../src/game_center.py:267
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
 msgstr "%s files are deleted and %s disk space is freed."
 
-#: ../src/game_center.py:256
+#: ../src/game_center.py:270
 msgid "Your game cache is empty."
 msgstr "Your game cache is empty."
 
-#: ../src/player.py:143
+#: ../src/player.py:147
 #, python-format
 msgid "Deepin Games - %s "
 msgstr "Deepin Games - %s "

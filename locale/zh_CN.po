@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-09 15:35+0800\n"
+"POT-Creation-Date: 2013-09-10 17:14+0800\n"
 "PO-Revision-Date: 2013-09-09 10:20+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -69,7 +69,7 @@ msgstr "切换"
 msgid "Click here to refresh"
 msgstr "点击此处刷新"
 
-#: ../src/dialog.py:85 ../src/share.py:568 ../src/game_center.py:87
+#: ../src/dialog.py:85 ../src/share.py:568 ../src/game_center.py:88
 msgid "Deepin Games"
 msgstr "深度游戏"
 
@@ -84,10 +84,10 @@ msgid ""
 "the best games you have ever met. Deepin Games - deeper into the world of "
 "game!\n"
 msgstr ""
-"\t深度游戏是Linux Deepin团队为广大Linux用户量身打造的一款游戏分享平台， 是中国"
-"唯一一款Linux平台下的游戏中心，也是全球为数不多的Linux游戏分享平台。深度游戏提"
-"供了大量精心挑选的精品游戏， 您只需轻轻一点便可享受并分享游戏给您带来的乐趣，"
-"深度游戏， 为快乐而生！\n"
+"\t深度游戏是Linux Deepin团队为广大Linux用户量身打造的一款游戏分享平台， 是中"
+"国唯一一款Linux平台下的游戏中心，也是全球为数不多的Linux游戏分享平台。深度游"
+"戏提供了大量精心挑选的精品游戏， 您只需轻轻一点便可享受并分享游戏给您带来的乐"
+"趣，深度游戏， 为快乐而生！\n"
 
 #: ../src/dialog.py:111
 msgid "Weibo: "
@@ -174,44 +174,52 @@ msgstr "失败"
 msgid "Unknow reason"
 msgstr "未知原因"
 
-#: ../src/game_center.py:136
+#: ../src/game_center.py:139
 msgid "Home"
 msgstr "首页"
 
-#: ../src/game_center.py:137
+#: ../src/game_center.py:140
 msgid "Topics"
 msgstr "游戏专题"
 
-#: ../src/game_center.py:138
+#: ../src/game_center.py:141
 msgid "My Games"
 msgstr "我的游戏"
 
-#: ../src/game_center.py:156 ../src/game_center.py:169
+#: ../src/game_center.py:159 ../src/game_center.py:172
 msgid "About us"
 msgstr "关于我们"
 
-#: ../src/game_center.py:167
+#: ../src/game_center.py:170
 msgid "Clear all cached data"
 msgstr "智能清除所有缓存"
 
-#: ../src/game_center.py:168
+#: ../src/game_center.py:171
 msgid "See what's new"
 msgstr "查看新特性"
 
-#: ../src/game_center.py:170
+#: ../src/game_center.py:173
 msgid "Quit"
 msgstr "退出"
 
-#: ../src/game_center.py:253
+#: ../src/game_center.py:206
+msgid "My favorites"
+msgstr "我的收藏"
+
+#: ../src/game_center.py:207
+msgid "My recents"
+msgstr "最近玩过"
+
+#: ../src/game_center.py:267
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
 msgstr "恭喜您清理了%s个文件，为您节约了%s空间。"
 
-#: ../src/game_center.py:256
+#: ../src/game_center.py:270
 msgid "Your game cache is empty."
 msgstr "您的游戏缓存已经清理干净，不需要再清理。"
 
-#: ../src/player.py:143
+#: ../src/player.py:147
 #, python-format
 msgid "Deepin Games - %s "
 msgstr "深度游戏 - %s "

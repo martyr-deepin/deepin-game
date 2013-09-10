@@ -183,6 +183,8 @@ class GameCenterApp(dbus.service.Object):
         
         self.no_favorite_html_path = os.path.join(static_dir, "error-no-favorite.html")
         self.no_recent_html_path = os.path.join(static_dir, "error-no-recent.html")
+        self.mygame_frame_path = os.path.join(static_dir, "mygame-frame.html")
+        self.gallery_html_path = os.path.join(static_dir, 'game-mygame.html')
 
         skin_config.connect('theme-changed', self.theme_changed_handler)
         global_event.register_event('show-message', self.update_message)
@@ -196,7 +198,15 @@ class GameCenterApp(dbus.service.Object):
         window.css_color = skin_config.theme_name
         location = window.location.href
         parse_result = urlparse.urlparse(location)
-        print parse_result
+
+        frame.get_web_view().execute_script('var global_l18n_str = %s' % json.dumps({
+                'my_favorites': _('My favorites'),
+                'my_recent': _('My recents'),
+                },
+                encoding='UTF-8',
+                ensure_ascii=False,
+                ))
+
         if parse_result.path == self.no_favorite_html_path or parse_result.path == self.no_recent_html_path:
             window.css_language = LANGUAGE
 
@@ -414,12 +424,11 @@ class GameCenterApp(dbus.service.Object):
         self.webview.load_uri(self.home_url)
 
     def show_subject_page(self):
-        self.webview.load_uri(GAME_CENTER_SERVER_ADDRESS+'game/subjects/')
+        self.subject_url = urllib.basejoin(GAME_CENTER_SERVER_ADDRESS, 'game/subjects/?hl=%s' % LANGUAGE)
+        self.webview.load_uri(self.subject_url)
 
     def show_mygame_page(self):
-        self.gallery_html_path = os.path.join(static_dir, 'game-mygame.html')
-        main_frame_path = os.path.join(static_dir, "mygame-frame.html")
-        self.webview.open('file://' + main_frame_path)
+        self.webview.open('file://' + self.mygame_frame_path)
         
     def show_favorite_page(self):
         downloads_dir = os.path.join(CACHE_DIR, 'downloads')

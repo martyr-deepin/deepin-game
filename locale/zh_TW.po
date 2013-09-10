@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-09 15:35+0800\n"
+"POT-Creation-Date: 2013-09-10 17:14+0800\n"
 "PO-Revision-Date: 2013-09-09 10:20+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -68,7 +68,7 @@ msgstr "切換"
 msgid "Click here to refresh"
 msgstr "點擊此處重新整理"
 
-#: ../src/dialog.py:85 ../src/share.py:568 ../src/game_center.py:87
+#: ../src/dialog.py:85 ../src/share.py:568 ../src/game_center.py:88
 msgid "Deepin Games"
 msgstr "深度遊戲"
 
@@ -172,44 +172,52 @@ msgstr "失敗"
 msgid "Unknow reason"
 msgstr "未知原因"
 
-#: ../src/game_center.py:136
+#: ../src/game_center.py:139
 msgid "Home"
 msgstr "首頁"
 
-#: ../src/game_center.py:137
+#: ../src/game_center.py:140
 msgid "Topics"
 msgstr "遊戲主題"
 
-#: ../src/game_center.py:138
+#: ../src/game_center.py:141
 msgid "My Games"
 msgstr "我的遊戲"
 
-#: ../src/game_center.py:156 ../src/game_center.py:169
+#: ../src/game_center.py:159 ../src/game_center.py:172
 msgid "About us"
 msgstr "關於我們"
 
-#: ../src/game_center.py:167
+#: ../src/game_center.py:170
 msgid "Clear all cached data"
 msgstr "清理全部快取數據"
 
-#: ../src/game_center.py:168
+#: ../src/game_center.py:171
 msgid "See what's new"
 msgstr "檢視新特性"
 
-#: ../src/game_center.py:170
+#: ../src/game_center.py:173
 msgid "Quit"
 msgstr "結束"
 
-#: ../src/game_center.py:253
+#: ../src/game_center.py:206
+msgid "My favorites"
+msgstr "我的收藏"
+
+#: ../src/game_center.py:207
+msgid "My recents"
+msgstr "最近玩過"
+
+#: ../src/game_center.py:267
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
 msgstr "清理了%s個檔案，爲您節約了%s硬碟空間。"
 
-#: ../src/game_center.py:256
+#: ../src/game_center.py:270
 msgid "Your game cache is empty."
 msgstr "您的遊戲快取檔案已經清理幹淨。"
 
-#: ../src/player.py:143
+#: ../src/player.py:147
 #, python-format
 msgid "Deepin Games - %s "
 msgstr "深度遊戲 - %s "
