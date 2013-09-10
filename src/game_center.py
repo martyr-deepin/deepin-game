@@ -119,14 +119,15 @@ class GameCenterApp(dbus.service.Object):
         web_settings.set_property("enable-offline-web-application-cache", True)
         #web_settings.set_property("enable-file-access-from-file-uris", True)
         web_settings.set_property('enable-universal-access-from-file-uris', True)
-        #web_settings.set_property("enable-default-context-menu", False)
+        web_settings.set_property("enable-default-context-menu", False)
         self.webview.set_settings(web_settings)
-        self.webview.enable_inspector()
+        #self.webview.enable_inspector()
         self.webview.connect('new-window-policy-decision-requested', self.navigation_policy_decision_requested_cb)
         #self.webview.connect('notify::load-status', self.webview_load_status_handler)
         self.webview.connect('notify::title', self.webview_title_changed_handler)
         self.webview.connect('script-alert', self.webview_script_alert_handler)
         self.webview.connect('window-object-cleared', self.webview_window_object_cleared)
+        #self.webview.connect('load-progress-changed', self.load_progress)
         
         self.home_url = urllib.basejoin(GAME_CENTER_SERVER_ADDRESS, 'game/?hl=%s' % LANGUAGE)
         self.webview.load_uri(self.home_url)
@@ -186,12 +187,16 @@ class GameCenterApp(dbus.service.Object):
         skin_config.connect('theme-changed', self.theme_changed_handler)
         global_event.register_event('show-message', self.update_message)
 
+    def load_progress(self, webview, progress):
+        print progress
+
     def webview_window_object_cleared(self, webview, frame, context, window_object):
         ctx = jswebkit.JSContext(frame.get_global_context())
         window = ctx.EvaluateScript("window")
         window.css_color = skin_config.theme_name
         location = window.location.href
         parse_result = urlparse.urlparse(location)
+        print parse_result
         if parse_result.path == self.no_favorite_html_path or parse_result.path == self.no_recent_html_path:
             window.css_language = LANGUAGE
 

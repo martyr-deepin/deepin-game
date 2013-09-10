@@ -84,9 +84,10 @@ msgid ""
 "the best games you have ever met. Deepin Games - deeper into the world of "
 "game!\n"
 msgstr ""
-"深度游戏是Linux Deepin团队为广大Linux用户量身开发的一款游戏娱乐中心，提供精"
-"品、绿色、安全的游戏，专业团队精心挑选，轻轻点击即可畅享，方便省心。精彩的游"
-"戏专题、分享游戏截图给微博好友，深度游戏，为快乐而生！\n"
+"\t深度游戏是Linux Deepin团队为广大Linux用户量身打造的一款游戏分享平台， 是中国"
+"唯一一款Linux平台下的游戏中心，也是全球为数不多的Linux游戏分享平台。深度游戏提"
+"供了大量精心挑选的精品游戏， 您只需轻轻一点便可享受并分享游戏给您带来的乐趣，"
+"深度游戏， 为快乐而生！\n"
 
 #: ../src/dialog.py:111
 msgid "Weibo: "
