@@ -146,7 +146,7 @@ class Titlebar(EventBox):
         for mask in button_mask:
             setattr(self, titlebar_button_dict[mask][0], titlebar_button_dict[mask][1]())
             button = getattr(self, titlebar_button_dict[mask][0])
-            self.button_box.pack_start(button, False, False, 1)
+            self.button_box.pack_start(button, False, False)
             Tooltip.text(button, titlebar_button_dict[mask][2]).show_delay(button, 2000)
 
         # Show.
