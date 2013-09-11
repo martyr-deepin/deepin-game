@@ -443,7 +443,6 @@ class Player(dbus.service.Object):
         return pixbuf
 
     def share_action(self, widget, data=None):
-        self.external_pause_action()
         if not self.share_show:
             #rect = self.content_page.get_allocation()
             rect = self.window.get_allocation()
@@ -458,12 +457,15 @@ class Player(dbus.service.Object):
             
             self.share_p = subprocess.Popen(['python', share_path, filename], stderr=subprocess.STDOUT, shell=False)
             self.share_show = True
+            self.external_pause_action()
+            self.hand_pause = True
             gtk.timeout_add(200, self.check_share_dialog_close)
 
     def check_share_dialog_close(self):
         if getattr(self, 'share_p'):
             if self.share_p.poll() == 0:
                 self.share_show = False
+                self.hand_pause = False
                 return False
         return True
 
