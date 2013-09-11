@@ -81,6 +81,7 @@ class Player(dbus.service.Object):
         self.guide_box_expand = True
         self.window_normal_info = {}
         self.maximize_state = False
+        self.share_show = False
 
         self.call_flash_game(self.appid)
         self.init_ui()
@@ -258,6 +259,7 @@ class Player(dbus.service.Object):
     def external_pause_action(self):
         if not self.loading and (not self.hand_pause and not self.game_pause):
             self.control_toolbar.pause_button.set_active(True)
+            self.inner_control_toolbar.pause_button.set_active(False)
             self.toggle_pause_action(self.control_toolbar.pause_button)
 
     def external_continue_action(self, widget=None, event=None):
@@ -441,22 +443,29 @@ class Player(dbus.service.Object):
         return pixbuf
 
     def share_action(self, widget, data=None):
-        #from window import get_screenshot_pixbuf
-        #pixbuf = get_screenshot_pixbuf(False)
-
-        #rect = self.content_page.get_allocation()
-        rect = self.window.get_allocation()
-        width = rect.width
-        height = rect.height
-        pixbuf = gtk.gdk.Pixbuf(gtk.gdk.COLORSPACE_RGB, False, 8, width, height)
-        pixbuf = pixbuf.get_from_drawable(self.window.window, self.window.get_colormap(), 
-                                            rect.x, rect.y, 0, 0, width, height)
-
-        filename = self.save_to_tmp_file(pixbuf)
-        share_path = os.path.join(get_parent_dir(__file__), 'share.py')
-        
-        self.share_p = subprocess.Popen(['python', share_path, filename], stderr=subprocess.STDOUT, shell=False)
         self.external_pause_action()
+        if not self.share_show:
+            #rect = self.content_page.get_allocation()
+            rect = self.window.get_allocation()
+            width = rect.width
+            height = rect.height
+            pixbuf = gtk.gdk.Pixbuf(gtk.gdk.COLORSPACE_RGB, False, 8, width, height)
+            pixbuf = pixbuf.get_from_drawable(self.window.window, self.window.get_colormap(), 
+                                                rect.x, rect.y, 0, 0, width, height)
+
+            filename = self.save_to_tmp_file(pixbuf)
+            share_path = os.path.join(get_parent_dir(__file__), 'share.py')
+            
+            self.share_p = subprocess.Popen(['python', share_path, filename], stderr=subprocess.STDOUT, shell=False)
+            self.share_show = True
+            gtk.timeout_add(200, self.check_share_dialog_close)
+
+    def check_share_dialog_close(self):
+        if getattr(self, 'share_p'):
+            if self.share_p.poll() == 0:
+                self.share_show = False
+                return False
+        return True
 
     def save_to_tmp_file(self, pixbuf):
         from tempfile import mkstemp
