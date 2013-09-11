@@ -23,7 +23,6 @@
 import os
 import gtk
 import gobject
-import cairo
 import subprocess
 import dbus
 import dbus.service

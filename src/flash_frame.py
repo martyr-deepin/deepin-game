@@ -58,7 +58,7 @@ class FlashFrame(dbus.service.Object):
 
         self.webview = WebView(COOKIE_FILE)
         self.webview.connect('title-changed', self.title_change_handler)
-        self.webview.enable_inspector()
+        #self.webview.enable_inspector()
         self.paned_box = PanedBox(2, True, 2, True)
         self.paned_box.enter_bottom_win_callback = self.enter_bottom_notify
         self.paned_box.enter_top_win_callback = self.enter_top_notify

@@ -121,7 +121,7 @@ class GameCenterApp(dbus.service.Object):
         web_settings.set_property('enable-universal-access-from-file-uris', True)
         web_settings.set_property("enable-default-context-menu", False)
         self.webview.set_settings(web_settings)
-        #self.webview.enable_inspector()
+        self.webview.enable_inspector()
         self.webview.connect('new-window-policy-decision-requested', self.navigation_policy_decision_requested_cb)
         #self.webview.connect('notify::load-status', self.webview_load_status_handler)
         self.webview.connect('notify::title', self.webview_title_changed_handler)
@@ -206,6 +206,8 @@ class GameCenterApp(dbus.service.Object):
                 encoding='UTF-8',
                 ensure_ascii=False,
                 ))
+        frame.get_web_view().execute_script('var global_language = %s' %
+                json.dumps(LANGUAGE, encoding='UTF-8', ensure_ascii=False))
 
         if parse_result.path == self.no_favorite_html_path or parse_result.path == self.no_recent_html_path:
             window.css_language = LANGUAGE
