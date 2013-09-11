@@ -52,7 +52,7 @@ class progressBarTip(gtk.Window):
         '''
         init docs
         '''
-        gtk.Window.__init__(self)
+        gtk.Window.__init__(self, gtk.WINDOW_POPUP)
         
         self.set_colormap(gtk.gdk.Screen().get_rgba_colormap() or 
                           gtk.gdk.Screen().get_rgb_colormap())
@@ -332,6 +332,9 @@ class StarView(gtk.Button):
                 tips = _('Wow, wonderful')
             self.progressbar_tip.set_content(tips)
             self.queue_draw()
+        else:
+            self.progressbar_tip.show_image_text(_('You score today already'), 'star/star_finish.png')
+            self.show_progressbar_tip(event)
 
     def leave_notify_star_view(self, widget, event):
         self.hide_progressbar_tip()
