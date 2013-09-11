@@ -38,8 +38,8 @@ import utils
 STAR_SIZE = utils.get_common_image_pixbuf('star/star_on.png').get_width()
 
 class ControlToolbar(Statusbar):
-    def __init__(self, appid):
-        Statusbar.__init__(self, 39)
+    def __init__(self, appid, has_star_view=True):
+        Statusbar.__init__(self, 39, )
 
         self.appid = appid
         status_box = gtk.HBox()
@@ -165,7 +165,8 @@ class ControlToolbar(Statusbar):
         status_box.pack_start(favorite_button_align, False, False)
         status_box.pack_start(fullscreen_button_align, False, False)
         status_box.pack_start(share_button_align, False, False)
-        status_box.pack_start(star_box_align)
+        if has_star_view:
+            status_box.pack_start(star_box_align)
 
         self.status_box.pack_start(status_box, True, True)
 
