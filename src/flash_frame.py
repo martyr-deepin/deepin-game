@@ -39,6 +39,8 @@ from deepin_utils.file import get_parent_dir
 
 static_dir = os.path.join(get_parent_dir(__file__, 2), "static")
 
+gtk.rc_parse_string("style 'my_style' {\n    bg[NORMAL]='#000000'\n }\nwidget '*' style 'my_style'")
+    
 class FlashFrame(dbus.service.Object):
     '''
     class docs
