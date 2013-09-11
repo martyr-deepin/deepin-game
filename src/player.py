@@ -174,7 +174,7 @@ class Player(dbus.service.Object):
 
         self.inner_top_titlebar = self.create_top_titlebar()
         self.inner_top_titlebar.change_name(player_title)
-        self.inner_control_toolbar = self.create_toolbar()
+        self.inner_control_toolbar = self.create_toolbar(has_star_view=False)
 
         self.paned_box = PanedBox()
         self.paned_box.add_content_widget(self.page_box)
@@ -222,8 +222,8 @@ class Player(dbus.service.Object):
 
         return titlebar
 
-    def create_toolbar(self):
-        control_toolbar = ControlToolbar(self.appid)
+    def create_toolbar(self, has_star_view=True):
+        control_toolbar = ControlToolbar(self.appid, has_star_view)
         control_toolbar.mute_button.connect('clicked', self.mute_handler)
         control_toolbar.pause_button.connect('button-press-event', self.pause_handler)
         control_toolbar.replay_button.connect('clicked', self.replay_action)
