@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-10 17:14+0800\n"
+"POT-Creation-Date: 2013-09-12 00:52+0800\n"
 "PO-Revision-Date: 2013-09-09 10:20+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -40,6 +40,10 @@ msgstr "Above average"
 #: ../src/star_view.py:332
 msgid "Wow, wonderful"
 msgstr "Excellent"
+
+#: ../src/star_view.py:336 ../src/control_toolbar.py:196
+msgid "You score today already"
+msgstr "Already rated today"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
@@ -202,20 +206,20 @@ msgstr "See what's new"
 msgid "Quit"
 msgstr "Quit"
 
-#: ../src/game_center.py:206
+#: ../src/game_center.py:203
 msgid "My favorites"
 msgstr "Favorites"
 
-#: ../src/game_center.py:207
+#: ../src/game_center.py:204
 msgid "My recents"
 msgstr "Recent played"
 
-#: ../src/game_center.py:267
+#: ../src/game_center.py:272
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
 msgstr "%s files are deleted and %s disk space is freed."
 
-#: ../src/game_center.py:270
+#: ../src/game_center.py:275
 msgid "Your game cache is empty."
 msgstr "Your game cache is empty."
 
@@ -240,26 +244,26 @@ msgstr "Favorite"
 msgid "Replay"
 msgstr "Replay"
 
-#: ../src/control_toolbar.py:105
+#: ../src/control_toolbar.py:107
 msgid "Pause"
 msgstr "Pause"
 
-#: ../src/control_toolbar.py:106
+#: ../src/control_toolbar.py:108
 msgid "Continue"
 msgstr "Continue"
 
-#: ../src/control_toolbar.py:120
+#: ../src/control_toolbar.py:126
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
-#: ../src/control_toolbar.py:134
+#: ../src/control_toolbar.py:127
+msgid "Normal"
+msgstr "Normal"
+
+#: ../src/control_toolbar.py:141
 msgid "Share"
 msgstr "Share"
 
-#: ../src/control_toolbar.py:188
-msgid "You score today already"
-msgstr "Already rated today"
-
-#: ../src/control_toolbar.py:191
+#: ../src/control_toolbar.py:199
 msgid "Ratings success"
 msgstr "Rating was successful"

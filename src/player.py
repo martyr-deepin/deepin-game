@@ -191,7 +191,7 @@ class Player(dbus.service.Object):
         if self.fullscreen_state:
             from dtk.ui.keymap import get_keyevent_name
             if get_keyevent_name(event, True) == 'Escape':
-                self.control_toolbar.fullscreen_button.clicked()
+                self.fullscreen_handler(self.control_toolbar.fullscreen_button, None)
 
     def create_top_titlebar(self,
                      button_mask=['min', "close"],
@@ -227,7 +227,7 @@ class Player(dbus.service.Object):
         control_toolbar.mute_button.connect('clicked', self.mute_handler)
         control_toolbar.pause_button.connect('button-press-event', self.pause_handler)
         control_toolbar.replay_button.connect('clicked', self.replay_action)
-        control_toolbar.fullscreen_button.connect('clicked', self.fullscreen_handler)
+        control_toolbar.fullscreen_button.connect('button-release-event', self.fullscreen_handler)
         control_toolbar.share_button.connect('clicked', self.share_action)
         control_toolbar.favorite_button.connect('button-release-event', self.favorite_action)
         control_toolbar.leave_callback = self.leave_callback
@@ -367,6 +367,7 @@ class Player(dbus.service.Object):
             self.show_top = False
             self.page_align.set_padding(0, 0, 2, 2)
             self.application.window.unfullscreen()
+            self.control_toolbar.fullscreen_button.set_active(False)
         else:
             self.fullscreen_state = True
             # for fullscreen mode
@@ -383,6 +384,7 @@ class Player(dbus.service.Object):
             self.guide_box.hide_all()
             self.page_align.set_padding(0, 0, 0, 0)
             self.application.window.fullscreen()
+            self.inner_control_toolbar.fullscreen_button.set_active(True)
 
     def mute_handler(self, widget, data=None):
         #if self.current_sink_index:

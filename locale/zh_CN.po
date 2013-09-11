@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-10 17:14+0800\n"
+"POT-Creation-Date: 2013-09-12 00:52+0800\n"
 "PO-Revision-Date: 2013-09-09 10:20+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -40,6 +40,10 @@ msgstr "值得一玩"
 #: ../src/star_view.py:332
 msgid "Wow, wonderful"
 msgstr "哇，太棒了"
+
+#: ../src/star_view.py:336 ../src/control_toolbar.py:196
+msgid "You score today already"
+msgstr "您今天已评过"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
@@ -202,20 +206,20 @@ msgstr "查看新特性"
 msgid "Quit"
 msgstr "退出"
 
-#: ../src/game_center.py:206
+#: ../src/game_center.py:203
 msgid "My favorites"
 msgstr "我的收藏"
 
-#: ../src/game_center.py:207
+#: ../src/game_center.py:204
 msgid "My recents"
 msgstr "最近玩过"
 
-#: ../src/game_center.py:267
+#: ../src/game_center.py:272
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
 msgstr "恭喜您清理了%s个文件，为您节约了%s空间。"
 
-#: ../src/game_center.py:270
+#: ../src/game_center.py:275
 msgid "Your game cache is empty."
 msgstr "您的游戏缓存已经清理干净，不需要再清理。"
 
@@ -240,26 +244,26 @@ msgstr "收藏"
 msgid "Replay"
 msgstr "重玩"
 
-#: ../src/control_toolbar.py:105
+#: ../src/control_toolbar.py:107
 msgid "Pause"
 msgstr "暂停"
 
-#: ../src/control_toolbar.py:106
+#: ../src/control_toolbar.py:108
 msgid "Continue"
 msgstr "继续"
 
-#: ../src/control_toolbar.py:120
+#: ../src/control_toolbar.py:126
 msgid "Fullscreen"
 msgstr "全屏"
 
-#: ../src/control_toolbar.py:134
+#: ../src/control_toolbar.py:127
+msgid "Normal"
+msgstr "恢复"
+
+#: ../src/control_toolbar.py:141
 msgid "Share"
 msgstr "分享"
 
-#: ../src/control_toolbar.py:188
-msgid "You score today already"
-msgstr "您今天已评过"
-
-#: ../src/control_toolbar.py:191
+#: ../src/control_toolbar.py:199
 msgid "Ratings success"
 msgstr "评分成功"

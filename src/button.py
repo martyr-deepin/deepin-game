@@ -158,6 +158,7 @@ class ToggleButton(gtk.ToggleButton):
                  label_color=None,
                  padding_middle=0, 
                  padding_edge=0, 
+                 more_width=0,
                  font_size=DEFAULT_FONT_SIZE,
                  draw_background=False,
                  ):
@@ -183,6 +184,7 @@ class ToggleButton(gtk.ToggleButton):
         label_width = 0
         self.padding_middle = padding_middle
         self.padding_edge = padding_edge
+        self.more_width = more_width
 
         self.active_button_label = active_button_label
         self.inactive_button_label = inactive_button_label
@@ -193,7 +195,7 @@ class ToggleButton(gtk.ToggleButton):
         self.button_height = inactive_normal_dpixbuf.get_pixbuf().get_height()
         if self.active_button_label:
             label_width = get_content_size(self.active_button_label, self.font_size)[0]
-        self.set_size_request(self.button_width + label_width + self.padding_middle + self.padding_edge*2,
+        self.set_size_request(self.button_width + label_width + self.padding_middle + self.padding_edge*2 + more_width,
                               self.button_height)
         
         self.connect("button-press-event", self.press_toggle_button)
@@ -303,7 +305,7 @@ class ToggleButton(gtk.ToggleButton):
             draw_text(cr, button_label, 
                         rect.x + image.get_width() + self.padding_edge + self.padding_middle,
                         rect.y, 
-                        rect.width - image.get_width() - self.padding_edge * 2 - self.padding_middle,
+                        rect.width - image.get_width() - self.padding_edge * 2 - self.padding_middle + self.more_width,
                         rect.height,
                         font_size, 
                         label_color,

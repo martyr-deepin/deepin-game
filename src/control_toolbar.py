@@ -32,7 +32,7 @@ from button import Button, ToggleButton
 from events import global_event
 from cookie_parser import get_cookie_star, set_cookie_star
 from download_manager import SetStarScore
-from nls import _
+from nls import _, LANGUAGE
 import utils
 
 STAR_SIZE = utils.get_common_image_pixbuf('star/star_on.png').get_width()
@@ -93,8 +93,10 @@ class ControlToolbar(Statusbar):
         replay_button_align.set_padding(3, 6, 3, 3)
         replay_button_align.add(self.replay_button)
 
-        self.hand_pause = False
-        self.game_pause = False
+        if LANGUAGE == 'en_US':
+            more_width = 14
+        else:
+            more_width = 0
         self.pause_button = ToggleButton(
                 app_theme.get_pixbuf('pause/pause_normal.png'),
                 app_theme.get_pixbuf('pause/play_normal.png'),
@@ -106,18 +108,23 @@ class ControlToolbar(Statusbar):
                 inactive_button_label = _('Continue'),
                 draw_background=True,
                 padding_edge=10,
-                padding_middle=6)
+                padding_middle=6,
+                more_width=more_width)
         #self.pause_button.connect('button-press-event', self.pause_handler)
         pause_button_align = gtk.Alignment()
         pause_button_align.set(0, 0.5, 0, 0)
         pause_button_align.set_padding(3, 6, 10, 3)
         pause_button_align.add(self.pause_button)
 
-        self.fullscreen_button = Button(
+        self.fullscreen_button = ToggleButton(
                 app_theme.get_pixbuf('fullscreen/fullscreen_normal.png'),
+                app_theme.get_pixbuf('fullscreen/unfullscreen_normal.png'),
                 app_theme.get_pixbuf('fullscreen/fullscreen_hover.png'),
+                app_theme.get_pixbuf('fullscreen/unfullscreen_hover.png'),
                 app_theme.get_pixbuf('fullscreen/fullscreen_press.png'),
-                button_label = _('Fullscreen'),
+                app_theme.get_pixbuf('fullscreen/unfullscreen_press.png'),
+                active_button_label = _('Fullscreen'),
+                inactive_button_label = _('Normal'),
                 draw_background=True,
                 padding_edge=10,
                 padding_middle=6)
