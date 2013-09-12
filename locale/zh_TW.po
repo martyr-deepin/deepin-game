@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-12 00:52+0800\n"
+"POT-Creation-Date: 2013-09-12 15:59+0800\n"
 "PO-Revision-Date: 2013-09-09 10:20+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -60,7 +60,7 @@ msgstr "最大化"
 msgid "Minimum"
 msgstr "最小值"
 
-#: ../src/titlebar.py:57 ../src/dialog.py:124
+#: ../src/titlebar.py:57 ../src/dialog.py:125
 msgid "Close"
 msgstr "關閉"
 
@@ -85,12 +85,12 @@ msgid ""
 "Deepin Games is designed by Linux Deepin for Linux users. Here you will find "
 "good and safe games elaborately selected by professionals. Click and play "
 "the best games you have ever met. Deepin Games - deeper into the world of "
-"game!\n"
+"game!"
 msgstr ""
 "\t深度遊戲是Linux Deepin團隊爲廣大Linux玩家量身打造的一款遊戲分享平臺，是中國"
 "唯一一款Linux平臺下的遊戲中心，也是全球爲數不多的Linux遊戲分享平臺。深度遊戲"
 "提供了大量精心挑選的精品遊戲，您只需輕輕一點便可享受並分享遊戲給您帶來的樂"
-"趣。深度遊戲，爲快樂而生！\n"
+"趣。深度遊戲，爲快樂而生！"
 
 #: ../src/dialog.py:111
 msgid "Weibo: "
@@ -103,6 +103,10 @@ msgstr "官方論壇："
 #: ../src/dialog.py:113
 msgid "Feedback: "
 msgstr "回饋："
+
+#: ../src/dialog.py:114
+msgid "Game deliver: "
+msgstr "遊戲投遞："
 
 #: ../src/share.py:74
 msgid "share to web"

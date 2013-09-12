@@ -77,7 +77,7 @@ class AboutDialog(DialogBox):
                 mask_type=2, 
                 close_callback=self.dialog_close_action)
         self.connect('delete-event', self.dialog_close_action)
-        self.set_size_request(480, 344)
+        self.set_size_request(480, 350)
         self.set_position(gtk.WIN_POS_CENTER_ON_PARENT)
 
         main_box = gtk.VBox(spacing=15)
@@ -100,7 +100,7 @@ class AboutDialog(DialogBox):
         title_box.pack_start(align, True, True)
         title_box.pack_start(info_box, False, False)
         
-        describe = _("Deepin Games is designed by Linux Deepin for Linux users. Here you will find good and safe games elaborately selected by professionals. Click and play the best games you have ever met. Deepin Games - deeper into the world of game!\n")
+        describe = _("Deepin Games is designed by Linux Deepin for Linux users. Here you will find good and safe games elaborately selected by professionals. Click and play the best games you have ever met. Deepin Games - deeper into the world of game!")
         
         describe_label = Label(describe, enable_select=False, wrap_width=430, text_size=10)
         main_box.pack_start(title_box, False, False)
@@ -108,12 +108,13 @@ class AboutDialog(DialogBox):
         main_box.pack_start(describe_label, False, False)
 
         links = [
-                (_('Weibo: '), 'http://weibo.com/linuxdeepinnew'),
-                (_('Forum: '), 'http://www.linuxdeepin.com/forum'),
-                (_('Feedback: '), 'http://www.linuxdeepin.com/mantis')
+                (_('Weibo: '), None, 'http://weibo.com/linuxdeepinnew'),
+                (_('Forum: '), None, 'http://www.linuxdeepin.com/forum'),
+                (_('Feedback: '), None, 'http://www.linuxdeepin.com/mantis'),
+                (_('Game deliver: '), 'game@linuxdeepin.com', 'mailto:game@linuxdeepin.com'),
                 ]
         for l in links:
-            main_box.pack_start(self.create_link_box(l[0], l[1]), False, False)
+            main_box.pack_start(self.create_link_box(l[0], l[1], l[2]), False, False)
         
         main_align = gtk.Alignment()
         main_align.set_padding(25, 0, 20, 20)
@@ -128,13 +129,15 @@ class AboutDialog(DialogBox):
         ok_button_align.add(self.ok_button)
         self.right_button_box.pack_start(ok_button_align, False, False)
 
-    def create_link_box(self, text, link):
-        label = Label(text)
-        link_button = LinkButton(link)
-
+    def create_link_box(self, text, link_text, link):
         box = gtk.HBox()
+
+        label = Label(text)
         box.pack_start(label, False, False)
+
+        link_button = LinkButton(link=link, text=link_text)
         box.pack_start(link_button, False, False)
+
         return box
         
     def dialog_close_action(self, widget=None, event=None):

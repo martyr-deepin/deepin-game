@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-12 00:52+0800\n"
+"POT-Creation-Date: 2013-09-12 15:59+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,7 @@ msgstr ""
 msgid "Minimum"
 msgstr ""
 
-#: ../src/titlebar.py:57 ../src/dialog.py:124
+#: ../src/titlebar.py:57 ../src/dialog.py:125
 msgid "Close"
 msgstr ""
 
@@ -86,7 +86,7 @@ msgid ""
 "Deepin Games is designed by Linux Deepin for Linux users. Here you will find "
 "good and safe games elaborately selected by professionals. Click and play "
 "the best games you have ever met. Deepin Games - deeper into the world of "
-"game!\n"
+"game!"
 msgstr ""
 
 #: ../src/dialog.py:111
@@ -99,6 +99,10 @@ msgstr ""
 
 #: ../src/dialog.py:113
 msgid "Feedback: "
+msgstr ""
+
+#: ../src/dialog.py:114
+msgid "Game deliver: "
 msgstr ""
 
 #: ../src/share.py:74
