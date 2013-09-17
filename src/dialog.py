@@ -107,17 +107,26 @@ class AboutDialog(DialogBox):
         main_box.pack_start(create_separator_box(), False, True)
         main_box.pack_start(describe_label, False, False)
 
+        links_table = gtk.Table(4, 2)
+
         links = [
                 (_('Weibo: '), None, 'http://weibo.com/linuxdeepinnew'),
                 (_('Forum: '), None, 'http://www.linuxdeepin.com/forum'),
                 (_('Feedback: '), None, 'http://www.linuxdeepin.com/mantis'),
                 (_('Game deliver: '), 'game@linuxdeepin.com', 'mailto:game@linuxdeepin.com'),
                 ]
-        for l in links:
-            main_box.pack_start(self.create_link_box(l[0], l[1], l[2]), False, False)
+        for (i, l) in enumerate(links):
+            left_text = Label(l[0])
+            left_text_align = self.create_right_align()
+            left_text_align.add(left_text)
+            right_link = LinkButton(text=l[1], link=l[2])
+            links_table.attach(left_text_align, 0, 1, i, i+1, xoptions=gtk.FILL, xpadding=5, ypadding=4)
+            links_table.attach(right_link, 1, 2, i, i+1, xoptions=gtk.FILL)
+            #main_box.pack_start(self.create_link_box(l[0], l[1], l[2]), False, False)
         
+        main_box.pack_start(links_table, False, False)
         main_align = gtk.Alignment()
-        main_align.set_padding(25, 0, 20, 20)
+        main_align.set_padding(20, 0, 20, 20)
         main_align.set(0, 0, 1, 1)
         main_align.add(main_box)
         self.body_box.pack_start(main_align)
@@ -128,6 +137,10 @@ class AboutDialog(DialogBox):
         ok_button_align.set_padding(9, 11, 0, 10)
         ok_button_align.add(self.ok_button)
         self.right_button_box.pack_start(ok_button_align, False, False)
+
+    def create_right_align(self):
+        align = gtk.Alignment(1, 0.5, 0, 0)
+        return align
 
     def create_link_box(self, text, link_text, link):
         box = gtk.HBox()
@@ -143,3 +156,7 @@ class AboutDialog(DialogBox):
     def dialog_close_action(self, widget=None, event=None):
         self.hide_all()
         return True
+
+if __name__ == '__main__':
+    AboutDialog('About Deepin Games').show_all()
+    gtk.main()
