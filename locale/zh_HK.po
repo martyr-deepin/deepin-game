@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-12 15:59+0800\n"
+"POT-Creation-Date: 2013-10-22 16:15+0800\n"
 "PO-Revision-Date: 2013-09-13 19:38+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -40,8 +40,7 @@ msgstr "值得一試"
 msgid "Wow, wonderful"
 msgstr "哇塞，太棒了"
 
-#: ../src/star_view.py:336
-#: ../src/control_toolbar.py:196
+#: ../src/star_view.py:336 ../src/control_toolbar.py:196
 msgid "You score today already"
 msgstr "你今天已評價過。"
 
@@ -61,8 +60,7 @@ msgstr "最大化"
 msgid "Minimum"
 msgstr "最小值"
 
-#: ../src/titlebar.py:57
-#: ../src/dialog.py:125
+#: ../src/titlebar.py:57 ../src/dialog.py:134
 msgid "Close"
 msgstr "關閉"
 
@@ -70,14 +68,15 @@ msgstr "關閉"
 msgid "Toggle"
 msgstr "切換"
 
-#: ../src/widgets.py:155
-#: ../src/widgets.py:236
+#: ../src/widgets.py:159 ../src/widgets.py:240
 msgid "Click here to refresh"
 msgstr "點擊此處重新整理"
 
-#: ../src/dialog.py:85
-#: ../src/share.py:568
-#: ../src/game_center.py:88
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "確認"
+
+#: ../src/dialog.py:85 ../src/share.py:582 ../src/game_center.py:88
 msgid "Deepin Games"
 msgstr "深度遊戲"
 
@@ -86,97 +85,103 @@ msgid "Version: "
 msgstr "版本："
 
 #: ../src/dialog.py:103
-msgid "Deepin Games is designed by Linux Deepin for Linux users. Here you will find good and safe games elaborately selected by professionals. Click and play the best games you have ever met. Deepin Games - deeper into the world of game!"
-msgstr "\t深度遊戲是Linux Deepin團隊爲廣大Linux玩家量身打造的一款遊戲分享平台，是中國唯一一款Linux平台下的遊戲中心，也是全球爲數不多的Linux遊戲分享平台。深度遊戲提供了大量精心挑選的精品遊戲，只需輕輕一點便可享受並分享遊戲給你帶來的樂趣。深度遊戲，爲快樂而生！"
+msgid ""
+"Deepin Games is designed by Linux Deepin for Linux users. Here you will find "
+"good and safe games elaborately selected by professionals. Click and play "
+"the best games you have ever met. Deepin Games - deeper into the world of "
+"game!"
+msgstr ""
+"\t深度遊戲是Linux Deepin團隊爲廣大Linux玩家量身打造的一款遊戲分享平台，是中國"
+"唯一一款Linux平台下的遊戲中心，也是全球爲數不多的Linux遊戲分享平台。深度遊戲"
+"提供了大量精心挑選的精品遊戲，只需輕輕一點便可享受並分享遊戲給你帶來的樂趣。"
+"深度遊戲，爲快樂而生！"
 
-#: ../src/dialog.py:111
+#: ../src/dialog.py:113
 msgid "Weibo: "
 msgstr "官方微博："
 
-#: ../src/dialog.py:112
+#: ../src/dialog.py:114
 msgid "Forum: "
 msgstr "官方論壇："
 
-#: ../src/dialog.py:113
+#: ../src/dialog.py:115
 msgid "Feedback: "
 msgstr "回饋："
 
-#: ../src/dialog.py:114
+#: ../src/dialog.py:116
 msgid "Game deliver: "
 msgstr "遊戲投遞："
 
-#: ../src/share.py:74
+#: ../src/share.py:78
 msgid "share to web"
 msgstr "分享到網路"
 
-#: ../src/share.py:188
+#: ../src/share.py:192
 msgid "Unable to load page"
 msgstr "無法加載頁面"
 
-#: ../src/share.py:189
+#: ../src/share.py:193
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "加載URL“%s”時出錯"
 
-#: ../src/share.py:317
+#: ../src/share.py:321
 msgid "Click to switch user"
 msgstr "點擊切換使用者"
 
-#: ../src/share.py:335
+#: ../src/share.py:339
 msgid "Click to login"
 msgstr "點擊登入"
 
-#: ../src/share.py:450
+#: ../src/share.py:454
 msgid "loading"
 msgstr "正在加載"
 
-#: ../src/share.py:461
+#: ../src/share.py:465
 msgid "Tweet"
 msgstr "發送微博"
 
-#: ../src/share.py:503
+#: ../src/share.py:507
 msgid "Please input text here"
 msgstr "請在此處輸入文字"
 
-#: ../src/share.py:529
-#: ../src/share.py:540
+#: ../src/share.py:534 ../src/share.py:550
 msgid "error"
 msgstr "錯誤"
 
-#: ../src/share.py:529
+#: ../src/share.py:535
 msgid "Picture does not exist."
 msgstr "圖片不存在。"
 
-#: ../src/share.py:540
+#: ../src/share.py:551
 msgid "Please choose at least one platform to share on"
 msgstr "請選擇至少一個平台分享"
 
-#: ../src/share.py:557
+#: ../src/share.py:571
 msgid "Uploading"
 msgstr "正在上傳"
 
-#: ../src/share.py:568
+#: ../src/share.py:582
 msgid "comes from"
 msgstr "來自"
 
-#: ../src/share.py:615
+#: ../src/share.py:629
 msgid "Follow"
 msgstr "關注"
 
-#: ../src/share.py:638
-#: ../src/share.py:659
+#: ../src/share.py:652 ../src/share.py:673
 msgid "upload to"
 msgstr "上傳至"
 
-#: ../src/share.py:641
+#: ../src/share.py:655
 msgid "successful"
 msgstr "成功"
 
-#: ../src/share.py:664
+#: ../src/share.py:678
 msgid "failed"
 msgstr "失敗"
 
-#: ../src/share.py:672
+#: ../src/share.py:686
 msgid "Unknow reason"
 msgstr "未知原因"
 
@@ -192,8 +197,7 @@ msgstr "遊戲主題"
 msgid "My Games"
 msgstr "我的遊戲"
 
-#: ../src/game_center.py:159
-#: ../src/game_center.py:172
+#: ../src/game_center.py:159 ../src/game_center.py:172
 msgid "About us"
 msgstr "關於我們"
 
@@ -270,4 +274,3 @@ msgstr "分享"
 #: ../src/control_toolbar.py:199
 msgid "Ratings success"
 msgstr "評價成功"
-

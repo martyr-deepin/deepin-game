@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-17 10:44+0800\n"
+"POT-Creation-Date: 2013-10-22 16:15+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,7 @@ msgstr ""
 msgid "Minimum"
 msgstr ""
 
-#: ../src/titlebar.py:57 ../src/dialog.py:125
+#: ../src/titlebar.py:57 ../src/dialog.py:134
 msgid "Close"
 msgstr ""
 
@@ -69,11 +69,15 @@ msgstr ""
 msgid "Toggle"
 msgstr ""
 
-#: ../src/widgets.py:155 ../src/widgets.py:236
+#: ../src/widgets.py:159 ../src/widgets.py:240
 msgid "Click here to refresh"
 msgstr ""
 
-#: ../src/dialog.py:85 ../src/share.py:568 ../src/game_center.py:88
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr ""
+
+#: ../src/dialog.py:85 ../src/share.py:582 ../src/game_center.py:88
 msgid "Deepin Games"
 msgstr ""
 
@@ -89,92 +93,92 @@ msgid ""
 "game!"
 msgstr ""
 
-#: ../src/dialog.py:111
+#: ../src/dialog.py:113
 msgid "Weibo: "
 msgstr ""
 
-#: ../src/dialog.py:112
+#: ../src/dialog.py:114
 msgid "Forum: "
 msgstr ""
 
-#: ../src/dialog.py:113
+#: ../src/dialog.py:115
 msgid "Feedback: "
 msgstr ""
 
-#: ../src/dialog.py:114
+#: ../src/dialog.py:116
 msgid "Game deliver: "
 msgstr ""
 
-#: ../src/share.py:74
+#: ../src/share.py:78
 msgid "share to web"
 msgstr ""
 
-#: ../src/share.py:188
+#: ../src/share.py:192
 msgid "Unable to load page"
 msgstr ""
 
-#: ../src/share.py:189
+#: ../src/share.py:193
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr ""
 
-#: ../src/share.py:317
+#: ../src/share.py:321
 msgid "Click to switch user"
 msgstr ""
 
-#: ../src/share.py:335
+#: ../src/share.py:339
 msgid "Click to login"
 msgstr ""
 
-#: ../src/share.py:450
+#: ../src/share.py:454
 msgid "loading"
 msgstr ""
 
-#: ../src/share.py:461
+#: ../src/share.py:465
 msgid "Tweet"
 msgstr ""
 
-#: ../src/share.py:503
+#: ../src/share.py:507
 msgid "Please input text here"
 msgstr ""
 
-#: ../src/share.py:529 ../src/share.py:540
+#: ../src/share.py:534 ../src/share.py:550
 msgid "error"
 msgstr ""
 
-#: ../src/share.py:529
+#: ../src/share.py:535
 msgid "Picture does not exist."
 msgstr ""
 
-#: ../src/share.py:540
+#: ../src/share.py:551
 msgid "Please choose at least one platform to share on"
 msgstr ""
 
-#: ../src/share.py:557
+#: ../src/share.py:571
 msgid "Uploading"
 msgstr ""
 
-#: ../src/share.py:568
+#: ../src/share.py:582
 msgid "comes from"
 msgstr ""
 
-#: ../src/share.py:615
+#: ../src/share.py:629
 msgid "Follow"
 msgstr ""
 
-#: ../src/share.py:638 ../src/share.py:659
+#: ../src/share.py:652 ../src/share.py:673
 msgid "upload to"
 msgstr ""
 
-#: ../src/share.py:641
+#: ../src/share.py:655
 msgid "successful"
 msgstr ""
 
-#: ../src/share.py:664
+#: ../src/share.py:678
 msgid "failed"
 msgstr ""
 
-#: ../src/share.py:672
+#: ../src/share.py:686
 msgid "Unknow reason"
 msgstr ""
 

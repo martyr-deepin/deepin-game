@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-12 15:59+0800\n"
+"POT-Creation-Date: 2013-10-22 16:15+0800\n"
 "PO-Revision-Date: 2013-09-09 10:20+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -61,7 +61,7 @@ msgstr "Maximize"
 msgid "Minimum"
 msgstr "Minimum"
 
-#: ../src/titlebar.py:57 ../src/dialog.py:125
+#: ../src/titlebar.py:57 ../src/dialog.py:134
 msgid "Close"
 msgstr "Close"
 
@@ -69,11 +69,15 @@ msgstr "Close"
 msgid "Toggle"
 msgstr "Toggle"
 
-#: ../src/widgets.py:155 ../src/widgets.py:236
+#: ../src/widgets.py:159 ../src/widgets.py:240
 msgid "Click here to refresh"
 msgstr "Click here to refresh"
 
-#: ../src/dialog.py:85 ../src/share.py:568 ../src/game_center.py:88
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr ""
+
+#: ../src/dialog.py:85 ../src/share.py:582 ../src/game_center.py:88
 msgid "Deepin Games"
 msgstr "Deepin Games"
 
@@ -92,92 +96,92 @@ msgstr ""
 "good and safe games elaborately selected by professionals. Click and play "
 "the best games you've ever met. Deepin Games — deeper into the game's world!"
 
-#: ../src/dialog.py:111
+#: ../src/dialog.py:113
 msgid "Weibo: "
 msgstr "Weibo: "
 
-#: ../src/dialog.py:112
+#: ../src/dialog.py:114
 msgid "Forum: "
 msgstr "Forum: "
 
-#: ../src/dialog.py:113
+#: ../src/dialog.py:115
 msgid "Feedback: "
 msgstr "Feedback: "
 
-#: ../src/dialog.py:114
+#: ../src/dialog.py:116
 msgid "Game deliver: "
 msgstr "Game Deliver: "
 
-#: ../src/share.py:74
+#: ../src/share.py:78
 msgid "share to web"
 msgstr "share to web"
 
-#: ../src/share.py:188
+#: ../src/share.py:192
 msgid "Unable to load page"
 msgstr "Unable to load page"
 
-#: ../src/share.py:189
+#: ../src/share.py:193
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "Problem occurred while loading the URL '%s'"
 
-#: ../src/share.py:317
+#: ../src/share.py:321
 msgid "Click to switch user"
 msgstr "Click to switch user"
 
-#: ../src/share.py:335
+#: ../src/share.py:339
 msgid "Click to login"
 msgstr "Click to login"
 
-#: ../src/share.py:450
+#: ../src/share.py:454
 msgid "loading"
 msgstr "loading"
 
-#: ../src/share.py:461
+#: ../src/share.py:465
 msgid "Tweet"
 msgstr "Tweet"
 
-#: ../src/share.py:503
+#: ../src/share.py:507
 msgid "Please input text here"
 msgstr "Please input text here"
 
-#: ../src/share.py:529 ../src/share.py:540
+#: ../src/share.py:534 ../src/share.py:550
 msgid "error"
 msgstr "error"
 
-#: ../src/share.py:529
+#: ../src/share.py:535
 msgid "Picture does not exist."
 msgstr "Picture does not exist."
 
-#: ../src/share.py:540
+#: ../src/share.py:551
 msgid "Please choose at least one platform to share on"
 msgstr "Please choose at least one platform to share on"
 
-#: ../src/share.py:557
+#: ../src/share.py:571
 msgid "Uploading"
 msgstr "Uploading"
 
-#: ../src/share.py:568
+#: ../src/share.py:582
 msgid "comes from"
 msgstr "comes from"
 
-#: ../src/share.py:615
+#: ../src/share.py:629
 msgid "Follow"
 msgstr "Follow"
 
-#: ../src/share.py:638 ../src/share.py:659
+#: ../src/share.py:652 ../src/share.py:673
 msgid "upload to"
 msgstr "upload to"
 
-#: ../src/share.py:641
+#: ../src/share.py:655
 msgid "successful"
 msgstr "successful"
 
-#: ../src/share.py:664
+#: ../src/share.py:678
 msgid "failed"
 msgstr "failed"
 
-#: ../src/share.py:672
+#: ../src/share.py:686
 msgid "Unknow reason"
 msgstr "Unknow reason"
 

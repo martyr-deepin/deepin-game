@@ -21,6 +21,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import gtk
+import gobject
 import pango
 from utils import get_common_image, get_common_image_pixbuf
 from ui_utils import set_widget_vcenter
@@ -29,9 +30,12 @@ from nls import LANGUAGE, _
 from dtk.ui.draw import draw_pixbuf, draw_text
 from dtk.ui.utils import get_content_size, is_in_rect
 from dtk.ui.label import Label
-from dtk.ui.button import CloseButton
+from dtk.ui.button import CloseButton, Button
 from dtk.ui.utils import color_hex_to_cairo, set_clickable_cursor
 from dtk.ui.theme import ui_theme
+from dtk.ui.dialog import DialogBox, DIALOG_MASK_SINGLE_PAGE
+from dtk.ui.constant import ALIGN_MIDDLE
+from dtk.ui.keymap import get_keyevent_name
 
 class ActionButton(Label):
     def __init__(self, 
@@ -285,4 +289,71 @@ class NetworkConnectTimeout(gtk.EventBox):
                 self.press_callback()
                 self.is_hover = False
                 self.queue_draw()
+
+class ConfirmDialog(DialogBox):
+    def __init__(self, 
+                 title, 
+                 message, 
+                 default_width=330,
+                 default_height=145,
+                 confirm_callback=None, 
+                 cancel_callback=None, 
+                 cancel_first=True, 
+                 message_text_size=11,
+                 window_type=gtk.WINDOW_TOPLEVEL,
+                 close_callback=None,
+                 text_wrap_width=330,
+                 text_x_align=ALIGN_MIDDLE,
+                 ):
+        DialogBox.__init__(
+            self, title, default_width, default_height, DIALOG_MASK_SINGLE_PAGE,
+            window_type=window_type,
+            close_callback=close_callback,
+            )
+        self.confirm_callback = confirm_callback
+        self.cancel_callback = cancel_callback
+        
+        self.label_align = gtk.Alignment()
+        self.label_align.set(0.5, 0.5, 0, 0)
+        self.label_align.set_padding(0, 0, 8, 8)
+        self.label = Label(
+            message, 
+            text_x_align=text_x_align, 
+            text_size=message_text_size,
+            wrap_width=text_wrap_width,
+            )
+        
+        self.confirm_button = Button(_("OK"))
+        
+        self.confirm_button.connect("clicked", lambda w: self.click_confirm_button())
+        
+        # Connect widgets.
+        self.label_align.add(self.label)
+        self.body_box.pack_start(self.label_align, True, True)
+        
+        self.right_button_box.set_buttons([self.confirm_button,])
+            
+        self.keymap = {
+            "Return" : self.click_confirm_button,
+            "Escape" : self.close,
+            }    
+        
+    def key_press_confirm_dialog(self, widget, event):
+        key_name = get_keyevent_name(event)
+        if self.keymap.has_key(key_name):
+            self.keymap[key_name]()
+            return True
+        else:
+            return False
+        
+    def click_confirm_button(self):
+        '''
+        Internal function to handle click confirm button.
+        '''
+        if self.confirm_callback != None:
+            self.confirm_callback()        
+        
+        self.destroy()
+        
+gobject.type_register(ConfirmDialog)
 

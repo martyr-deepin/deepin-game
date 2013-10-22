@@ -20,9 +20,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from os.path import exists
+import gtk
+import webkit
+import sys
+import threading
+import time
+import pango
+import pangocairo
+
 from weibo_theme import app_theme, app_theme_get_dynamic_color, app_theme_get_dynamic_pixbuf
 from dtk.ui.scrolled_window import ScrolledWindow
-from dtk.ui.dialog import ConfirmDialog, DialogLeftButtonBox, DialogRightButtonBox, DialogBox
+from dtk.ui.dialog import DialogLeftButtonBox, DialogRightButtonBox, DialogBox
 from dtk.ui.browser import WebView
 from dtk.ui.slider import HSlider
 from dtk.ui.button import Button, CheckButton, ImageButton
@@ -33,18 +42,13 @@ import dtk.ui.draw as draw
 import dtk.ui.tooltip as Tooltip
 import dtk.ui.utils as utils
 from dtk.ui.theme import ui_theme
+from dtk.ui.constant import ALIGN_START
+
 from _share import weibo
 from _share.config import COOKIE_FILE
 from nls import _
 from nls import LANGUAGE as default_locale
-from os.path import exists
-import gtk
-import webkit
-import sys
-import threading
-import time
-import pango
-import pangocairo
+from widgets import ConfirmDialog
 
 gtk.gdk.threads_init()
 
@@ -526,7 +530,12 @@ class ShareToWeibo(object):
         '''share_button_clicked callback'''
         # file is not exist.
         if not exists(self.upload_image):
-            d = ConfirmDialog(_("error"), "%s." % ( _("Picture does not exist.")))
+            d = ConfirmDialog(
+                    _("error"),
+                    _("Picture does not exist."),
+                    text_wrap_width=300,
+                    text_x_align=ALIGN_START,
+                    )
             d.show_all()
             d.set_transient_for(self.window)
             return False
@@ -537,7 +546,12 @@ class ShareToWeibo(object):
                 break
         # have no web selected
         if not has_share_web:
-            d = ConfirmDialog(_("error"), _("Please choose at least one platform to share on"))
+            d = ConfirmDialog(
+                    _("error"),
+                    _("Please choose at least one platform to share on"),
+                    text_wrap_width=300,
+                    text_x_align=ALIGN_START,
+                    )
             d.show_all()
             d.set_transient_for(self.window)
             return False
