@@ -472,7 +472,8 @@ class GameCenterApp(dbus.service.Object):
                         info_js_path = os.path.join(downloads_dir, str(id), 'info.json')
                         info = json.load(open(info_js_path))
                         info['index_pic_url'] = os.path.join(downloads_dir, str(id), info['index_pic_url'].split('/')[-1])
-                        info['swf_game'] = os.path.join(downloads_dir, str(id), info['swf_game'].split('/')[-1])
+                        #info['swf_game'] = os.path.join(downloads_dir, str(id), info['swf_game'].split('/')[-1])
+                        info['swf_game'] = urlparse.urlparse(info['swf_game']).path[1:]
                         info['type'] = 'recent'
                         infos.append(info)
                     except:
