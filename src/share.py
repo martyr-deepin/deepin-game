@@ -42,7 +42,6 @@ import dtk.ui.draw as draw
 import dtk.ui.tooltip as Tooltip
 import dtk.ui.utils as utils
 from dtk.ui.theme import ui_theme
-from dtk.ui.constant import ALIGN_START
 
 from _share import weibo
 from _share.config import COOKIE_FILE
@@ -159,6 +158,12 @@ class ShareToWeibo(object):
             self.twitter = weibo.Twitter(self.web_view)
             #self.__weibo_list.append(self.twitter)
         self.__current_weibo = None
+
+        self.weibo_name_l18n = {
+                'Sina': _("Sina"),
+                'Tencent': _("Tencent"),
+                'Twitter': _("Twitter"),
+                }
 
         self.window.body_box.pack_start(self.slider, True, True)
         self.init_share_box()
@@ -526,18 +531,23 @@ class ShareToWeibo(object):
             if button.is_sensitive():
                 button.set_sensitive(False)
 
+    def show_confirm_dialog(self, title, content):
+        d = ConfirmDialog(
+                title,
+                content,
+                text_wrap_width=300,
+                )
+        d.show_all()
+        d.set_transient_for(self.window)
+
     def share_button_clicked(self, button, text_view):
         '''share_button_clicked callback'''
         # file is not exist.
         if not exists(self.upload_image):
-            d = ConfirmDialog(
+            self.show_confirm_dialog(
                     _("error"),
                     _("Picture does not exist."),
-                    text_wrap_width=300,
-                    text_x_align=ALIGN_START,
                     )
-            d.show_all()
-            d.set_transient_for(self.window)
             return False
         has_share_web = False
         for weibo in self.to_share_weibo:
@@ -546,14 +556,10 @@ class ShareToWeibo(object):
                 break
         # have no web selected
         if not has_share_web:
-            d = ConfirmDialog(
+            self.show_confirm_dialog(
                     _("error"),
                     _("Please choose at least one platform to share on"),
-                    text_wrap_width=300,
-                    text_x_align=ALIGN_START,
                     )
-            d.show_all()
-            d.set_transient_for(self.window)
             return False
         # at first, set widget insensitive
         button.set_sensitive(False)
@@ -639,7 +645,7 @@ class ShareToWeibo(object):
             if self.to_share_weibo_res[weibo][0]:   # upload succeed
                 img = gtk.image_new_from_file(app_theme.get_theme_file_path("image/share/share_succeed.png"))
                 #link = LinkButton(_(weibo.t_type), text_size=13, self.to_share_weibo_res[weibo][1])
-                link = Label(_(weibo.t_type), text_size=12, 
+                link = Label(self.weibo_name_l18n[weibo.t_type], text_size=12, 
                     text_color=ui_theme.get_color("link_text"))
                 #, enable_gaussian=True, gaussian_radious=1, border_radious=0)
                 link.add_events(gtk.gdk.BUTTON_PRESS_MASK)
@@ -811,6 +817,10 @@ class ShareToWeibo(object):
             cr.line_to(x+w, y+h-3)
             cr.stroke()
 
+def test():
+    share = ShareToWeibo()
+    share.show()
+    gtk.main()
 
 if __name__ == '__main__':
     filename = ""
@@ -826,3 +836,5 @@ if __name__ == '__main__':
             except:
                 pass
         gtk.main()
+    else:
+        test()

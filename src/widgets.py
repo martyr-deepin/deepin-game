@@ -34,8 +34,8 @@ from dtk.ui.button import CloseButton, Button
 from dtk.ui.utils import color_hex_to_cairo, set_clickable_cursor
 from dtk.ui.theme import ui_theme
 from dtk.ui.dialog import DialogBox, DIALOG_MASK_SINGLE_PAGE
-from dtk.ui.constant import ALIGN_MIDDLE
 from dtk.ui.keymap import get_keyevent_name
+from dtk.ui.constant import ALIGN_START
 
 class ActionButton(Label):
     def __init__(self, 
@@ -303,7 +303,7 @@ class ConfirmDialog(DialogBox):
                  window_type=gtk.WINDOW_TOPLEVEL,
                  close_callback=None,
                  text_wrap_width=330,
-                 text_x_align=ALIGN_MIDDLE,
+                 text_x_align=ALIGN_START,
                  ):
         DialogBox.__init__(
             self, title, default_width, default_height, DIALOG_MASK_SINGLE_PAGE,

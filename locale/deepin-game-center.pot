@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-22 16:15+0800\n"
+"POT-Creation-Date: 2013-10-23 10:51+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,7 +77,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: ../src/dialog.py:85 ../src/share.py:582 ../src/game_center.py:88
+#: ../src/dialog.py:85 ../src/share.py:588 ../src/game_center.py:88
 msgid "Deepin Games"
 msgstr ""
 
@@ -109,76 +109,88 @@ msgstr ""
 msgid "Game deliver: "
 msgstr ""
 
-#: ../src/share.py:78
+#: ../src/share.py:77
 msgid "share to web"
 msgstr ""
 
-#: ../src/share.py:192
+#: ../src/share.py:163
+msgid "Sina"
+msgstr ""
+
+#: ../src/share.py:164
+msgid "Tencent"
+msgstr ""
+
+#: ../src/share.py:165
+msgid "Twitter"
+msgstr ""
+
+#: ../src/share.py:197
 msgid "Unable to load page"
 msgstr ""
 
-#: ../src/share.py:193
+#: ../src/share.py:198
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr ""
 
-#: ../src/share.py:321
+#: ../src/share.py:326
 msgid "Click to switch user"
 msgstr ""
 
-#: ../src/share.py:339
+#: ../src/share.py:344
 msgid "Click to login"
 msgstr ""
 
-#: ../src/share.py:454
+#: ../src/share.py:459
 msgid "loading"
 msgstr ""
 
-#: ../src/share.py:465
+#: ../src/share.py:470
 msgid "Tweet"
 msgstr ""
 
-#: ../src/share.py:507
+#: ../src/share.py:512
 msgid "Please input text here"
 msgstr ""
 
-#: ../src/share.py:534 ../src/share.py:550
+#: ../src/share.py:548 ../src/share.py:560
 msgid "error"
 msgstr ""
 
-#: ../src/share.py:535
+#: ../src/share.py:549
 msgid "Picture does not exist."
 msgstr ""
 
-#: ../src/share.py:551
+#: ../src/share.py:561
 msgid "Please choose at least one platform to share on"
 msgstr ""
 
-#: ../src/share.py:571
+#: ../src/share.py:577
 msgid "Uploading"
 msgstr ""
 
-#: ../src/share.py:582
+#: ../src/share.py:588
 msgid "comes from"
 msgstr ""
 
-#: ../src/share.py:629
+#: ../src/share.py:635
 msgid "Follow"
 msgstr ""
 
-#: ../src/share.py:652 ../src/share.py:673
+#: ../src/share.py:658 ../src/share.py:679
 msgid "upload to"
 msgstr ""
 
-#: ../src/share.py:655
+#: ../src/share.py:661
 msgid "successful"
 msgstr ""
 
-#: ../src/share.py:678
+#: ../src/share.py:684
 msgid "failed"
 msgstr ""
 
-#: ../src/share.py:686
+#: ../src/share.py:692
 msgid "Unknow reason"
 msgstr ""
 
