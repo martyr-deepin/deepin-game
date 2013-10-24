@@ -154,7 +154,7 @@ class NetworkConnectFailed(gtk.EventBox):
         self.connect("motion-notify-event", self.on_motion_notify)
         self.connect("button-press-event", self.on_button_press)
         
-        self.normal_text_dcolor = ui_theme.get_color("labelText")
+        self.normal_text_dcolor = ui_theme.get_color("label_text")
         self.hover_text_dcolor = ui_theme.get_color("globalItemHighlight")
         self.prompt_text = _("Click here to refresh")
         self.text_padding_y = 5
@@ -235,7 +235,7 @@ class NetworkConnectTimeout(gtk.EventBox):
         self.connect("motion-notify-event", self.on_motion_notify)
         self.connect("button-press-event", self.on_button_press)
         
-        self.normal_text_dcolor = ui_theme.get_color("labelText")
+        self.normal_text_dcolor = ui_theme.get_color("label_text")
         self.hover_text_dcolor = ui_theme.get_color("globalItemHighlight")
         self.prompt_text = _("Click here to refresh")
         self.text_padding_y = 5

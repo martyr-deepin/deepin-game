@@ -34,7 +34,8 @@ import urllib
 
 from theme import app_theme
 from deepin_utils.ipc import is_dbus_name_exists
-from dtk.ui.utils import get_widget_root_coordinate
+from deepin_utils.net import is_network_connected
+from dtk.ui.utils import get_widget_root_coordinate, container_remove_all
 from dtk.ui.constant import WIDGET_POS_BOTTOM_LEFT
 from dtk.ui.menu import Menu
 from dtk.ui.application import Application
@@ -47,7 +48,7 @@ from deepin_utils.file import get_parent_dir
 
 from dialog import AboutDialog
 from paned_box import PanedBox
-from widgets import BottomTipBar
+from widgets import BottomTipBar, NetworkConnectFailed
 from navigatebar import Navigatebar
 from animation import favorite_animation
 from utils import get_common_image
@@ -89,6 +90,7 @@ class GameCenterApp(dbus.service.Object):
 
         # Init page box.
         self.page_box = gtk.VBox()
+        self.page_box.connect('expose-event', self.page_box_render)
         
         # Init page align.
         self.page_align = gtk.Alignment()
@@ -130,10 +132,10 @@ class GameCenterApp(dbus.service.Object):
         #self.webview.connect('load-progress-changed', self.load_progress)
         
         self.home_url = urllib.basejoin(GAME_CENTER_SERVER_ADDRESS, 'game/?hl=%s' % LANGUAGE)
-        self.webview.load_uri(self.home_url)
+        self.network_failed_box = NetworkConnectFailed(self.check_network_connection)
+        self.check_network_connection()
+        #self.page_box.add(self.network_failed_box)
 
-        self.page_box.add(self.webview)
-        
         self.navigatebar = Navigatebar(
                 [
                 (None, _("Home"), self.show_home_page),
@@ -188,6 +190,26 @@ class GameCenterApp(dbus.service.Object):
 
         skin_config.connect('theme-changed', self.theme_changed_handler)
         global_event.register_event('show-message', self.update_message)
+
+    def page_box_render(self, widget, event):
+        cr = widget.window.cairo_create()
+        rect = widget.get_allocation()
+        cr.set_source_rgb(1, 1, 1)
+        cr.rectangle(*rect)
+        cr.fill()
+
+    def check_network_connection(self):
+        if is_network_connected():
+            self.network_connected_flag = True
+            self.webview.load_uri(self.home_url)
+            self.switch_page_view(self.webview)
+        else:    
+            self.network_connected_flag = False
+            self.switch_page_view(self.network_failed_box)
+    
+    def switch_page_view(self, box):
+        container_remove_all(self.page_box)
+        self.page_box.add(box)
 
     def load_progress(self, webview, progress):
         print progress
