@@ -49,7 +49,8 @@ from constant import PROGRAM_NAME
 from events import global_event
 import utils
 
-from dtk.ui.utils import alpha_color_hex_to_cairo, container_remove_all, propagate_expose
+from dtk.ui.utils import (alpha_color_hex_to_cairo, container_remove_all, 
+        propagate_expose)
 from dtk.ui.skin_config import skin_config
 from dtk.ui.draw import draw_pixbuf
 from dtk.ui.constant import DEFAULT_FONT_SIZE
@@ -65,7 +66,8 @@ class Player(dbus.service.Object):
     def __init__(self, session_bus, argv, dbus_name, dbus_path):
         dbus.service.Object.__init__(self, session_bus, dbus_path)
 
-        self.appid, self.game_name, self.width, self.height, self.swf_url, self.resizable = argv
+        (self.appid, self.game_name, self.width, self.height, self.swf_url, 
+                self.resizable) = argv
         self.game_name = urllib.unquote(self.game_name)
         self.width = int(self.width)
         self.height = int(self.height)
@@ -457,7 +459,10 @@ class Player(dbus.service.Object):
             filename = self.save_to_tmp_file(pixbuf)
             share_path = os.path.join(get_parent_dir(__file__), 'share.py')
             
-            self.share_p = subprocess.Popen(['python', share_path, filename], stderr=subprocess.STDOUT, shell=False)
+            self.share_p = subprocess.Popen(
+                    ['python', share_path, filename], 
+                    stderr=subprocess.STDOUT, 
+                    shell=False)
             self.share_show = True
             self.external_pause_action()
             self.hand_pause = True
@@ -481,9 +486,15 @@ class Player(dbus.service.Object):
         return filename
 
     def start_loading(self):
-        global_event.register_event('download-app-info-finish', self.app_info_download_finish)
+        global_event.register_event('download-app-info-finish', 
+                self.app_info_download_finish)
         FetchInfo(self.appid).start()
-        self.swf_save_path = os.path.expanduser("~/.cache/deepin-game-center/downloads/%s/%s.swf" % (self.appid, self.appid))
+        self.swf_save_path = os.path.expanduser(
+                "~/.cache/deepin-game-center/downloads/%s/%s" % (
+                    self.appid, 
+                    os.path.split(self.swf_url)[1])
+                )
+        print self.swf_save_path
         if os.path.exists(self.swf_save_path):
             gtk.timeout_add(200, lambda:self.load_game())
         else:
