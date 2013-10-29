@@ -21,6 +21,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import gtk
+import json
 
 from dtk.ui.draw import draw_pixbuf, draw_vlinear
 from dtk.ui.label import Label
@@ -77,6 +78,7 @@ class GuideBox(gtk.VBox):
 
     @post_gui
     def update_content(self, js):
+        js = json.loads(js)
         self.guide_label.set_text(js['summary'])
 
     def draw_mask(self, cr, x, y, w, h):

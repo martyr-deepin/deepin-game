@@ -494,21 +494,24 @@ class Player(dbus.service.Object):
                     self.appid, 
                     os.path.split(self.swf_url)[1])
                 )
-        print self.swf_save_path
         if os.path.exists(self.swf_save_path):
+            print "Starting Game"
             gtk.timeout_add(200, lambda:self.load_game())
         else:
+            print "Download Game"
             gtk.timeout_add(200, self.show_loading_page)
-            
             
     def show_loading_page(self):
         touch_file_dir(self.swf_save_path)
+        print "Touch file dir:", self.swf_save_path
         self.load_html_path = os.path.join(static_dir, 'loading.html')
         self.send_message('load_loading_uri', 'file://' + self.load_html_path)
+        print "Send show loading message:", self.load_html_path
 
     def start_download_swf(self):
         self.remote_path = urllib.basejoin(GAME_CENTER_DATA_ADDRESS, self.swf_url)
         utils.ThreadMethod(urllib.urlretrieve, (self.remote_path, self.swf_save_path + '_tmp', self.report_hook)).start()
+        print "Downloading: %s" % self.remote_path
 
         #self.download_task = TaskObject(self.remote_path, self.swf_save_path, verbose=True)
         #self.download_task.connect("update", self.download_update)
@@ -530,6 +533,7 @@ class Player(dbus.service.Object):
     def load_game(self):
         self.loading = False
         self.update_signal(['download_finish', 'file://%s,%s,%s' % (self.swf_save_path, self.width, self.height)])
+        print "Game SWF Path:", self.swf_save_path
         record_info.record_recent_play(self.appid, self.conf_db)
 
         #self.loading = False
@@ -546,7 +550,7 @@ class Player(dbus.service.Object):
 
     def import_infos(self, infos):
         if not self.loading:
-            self.send_message('app_info_download_finish', json.dumps(infos))
+            self.send_message('app_info_download_finish', infos)
             return False
         return True
 

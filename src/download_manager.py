@@ -20,6 +20,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import sys
+import traceback
+
 import logging
 logging.basicConfig(level=logging.ERROR)
 from pystorm.services import FetchService
@@ -85,11 +88,13 @@ class FetchInfo(td.Thread):
                 info = json.loads(js)
                 json.dump(info, open(self.desc_info_path, 'wb'))
                 self.finish_fetch_info(info['index_pic_url'])
-                global_event.emit('download-app-info-finish', info)
-        except:
+                global_event.emit('download-app-info-finish', json.dumps(info))
+        except Exception, e:
+            traceback.print_exc(sys.stdout)
+            print "Error msg:",e
             if os.path.exists(self.desc_info_path):
                 info = json.load(open(self.desc_info_path))
-                global_event.emit('download-app-info-finish', info)
+                global_event.emit('download-app-info-finish', json.dumps(info))
 
     def finish_fetch_info(self, index_pic_url):
         pic_url = urllib.basejoin(GAME_CENTER_DATA_ADDRESS, index_pic_url)

@@ -59,7 +59,8 @@ class FlashFrame(dbus.service.Object):
         self.plug = gtk.Plug(0)
 
         self.webview = WebView(COOKIE_FILE)
-        self.webview.connect('title-changed', self.title_change_handler)
+        self.webview.connect('title-changed', self.webview_message_handler)
+        self.webview.connect('script-alert', self.webview_message_handler)
         #self.webview.enable_inspector()
         self.paned_box = PanedBox(2, True, 2, True)
         self.paned_box.enter_bottom_win_callback = self.enter_bottom_notify
@@ -99,14 +100,15 @@ class FlashFrame(dbus.service.Object):
     def plug_delete_event(self, widget, event):
         return True
 
-    def title_change_handler(self, widget, frame, new_title):
-        if new_title == 'finish_load':
+    def webview_message_handler(self, webview, frame, message):
+        if message == 'finish_load':
             self.webview.execute_script('loading_flash(%s)' %
                 json.dumps(self.swf_info, encoding="UTF-8", ensure_ascii=False))
-        elif new_title == 'onload_loading':
+        elif message == 'onload_loading':
             self.send_message('onload_loading', '')
             self.webview.execute_script('change_color_theme(%s)' %
                 json.dumps(skin_config.theme_name, encoding="UTF-8", ensure_ascii=False))
+        return True
 
     def load_flash(self, contents):
         flash_html_path = os.path.join(static_dir, 'flash.html')

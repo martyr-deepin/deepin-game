@@ -21,6 +21,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import gtk
+import json
 from dtk.ui.statusbar import Statusbar
 from dtk.ui.threads import post_gui
 from dtk.ui.box import Markbox
@@ -210,6 +211,7 @@ class ControlToolbar(Statusbar):
 
     @post_gui
     def update_star(self, js):
+        js = json.loads(js)
         star = js['star']
         self.star.set_star_level(float(star))
         self.star_mark.set_value(float(star))
