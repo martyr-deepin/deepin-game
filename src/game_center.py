@@ -74,6 +74,7 @@ class GameCenterApp(dbus.service.Object):
     def __init__(self, session_bus):
         dbus.service.Object.__init__(self, session_bus, GAME_CENTER_DBUS_PATH)
         self.conf_db = get_config_file("conf.db")
+        self.in_wizard_showing = False
 
         self.init_ui()
 
@@ -246,6 +247,7 @@ class GameCenterApp(dbus.service.Object):
     
     def ready_show(self):    
         if not utils.is_wizard_showed():
+            self.in_wizard_showing = True
             self.show_wizard_win(True, callback=self.wizard_callback)
             utils.set_wizard_showed()
         else:    
@@ -256,7 +258,7 @@ class GameCenterApp(dbus.service.Object):
 
         lang = LANGUAGE
             
-        Wizard(
+        self.wizard_win = Wizard(
             [get_common_image('wizard/%s/%s.png' % (lang, i)) for i in range(3)],
             (
                 get_common_image('wizard/dot_normal.png'), 
@@ -268,11 +270,13 @@ class GameCenterApp(dbus.service.Object):
             ),
             show_button,
             callback
-            ).show_all()
+            )
+        self.wizard_win.show_all()
         
     def wizard_callback(self):
+        self.in_wizard_showing = False
         self.application.window.show_all()
-        gtk.timeout_add(100, self.application.raise_to_top)
+        gtk.timeout_add(200, self.application.raise_to_top)
 
     def clean_download_cache(self):
         info = {
@@ -515,7 +519,10 @@ class GameCenterApp(dbus.service.Object):
 
     @dbus.service.method(GAME_CENTER_DBUS_NAME, in_signature="", out_signature="")    
     def hello(self):
-        self.application.window.present()
+        if self.in_wizard_showing:
+            self.wizard_win.present()
+        else:
+            self.application.window.present()
 
 if __name__ == '__main__':
     DBusGMainLoop(set_as_default=True)
