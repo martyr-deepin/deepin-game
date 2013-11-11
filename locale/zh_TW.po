@@ -240,7 +240,7 @@ msgstr "清理了%s個檔案，爲您節約了%s硬碟空間。"
 
 #: ../src/game_center.py:275
 msgid "Your game cache is empty."
-msgstr "您的遊戲快取檔案已經清理幹淨。"
+msgstr "您的遊戲快取檔案已經清理乾淨。"
 
 #: ../src/player.py:147
 #, python-format
