@@ -366,15 +366,15 @@ i.star{
 }
 
 .popup_box section{
-	width:680px;
-	height:480px;
+	width:480px;
+	height:320px;
 	margin:0 auto;
 	text-align:center;
 	background:url('../img/popbox-bg.png') no-repeat center;
 }
 
 .popup_box progress{
-	margin-top:270px;
+	margin-top:170px;
 	width:244px;
 }
 
