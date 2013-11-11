@@ -80,7 +80,7 @@ class GameCenterApp(dbus.service.Object):
 
     def init_ui(self):
         self.application = Application()
-        self.application.set_default_size(1082, 666)
+        self.application.set_default_size(1000, 660)
         self.application.set_skin_preview(get_common_image("frame.png"))
         self.application.set_icon(get_common_image("logo48.png"))
         self.application.add_titlebar(
@@ -121,10 +121,11 @@ class GameCenterApp(dbus.service.Object):
         web_settings.set_property("enable-page-cache", True)
         web_settings.set_property("enable-offline-web-application-cache", True)
         #web_settings.set_property("enable-file-access-from-file-uris", True)
+        web_settings.set_property("enable-xss-auditor", False)
         web_settings.set_property('enable-universal-access-from-file-uris', True)
         web_settings.set_property("enable-default-context-menu", False)
         self.webview.set_settings(web_settings)
-        #self.webview.enable_inspector()
+        self.webview.enable_inspector()
         self.webview.connect('new-window-policy-decision-requested', self.navigation_policy_decision_requested_cb)
         #self.webview.connect('notify::load-status', self.webview_load_status_handler)
         self.webview.connect('notify::title', self.webview_title_changed_handler)

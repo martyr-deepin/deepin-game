@@ -8,7 +8,7 @@ a{
 	text-decoration:none;
 }
 #grid { 
-	width: 1024px; 
+	width: 966px; 
 	position: relative; 
 	margin: 6px auto; 
 	z-index: 10; 
@@ -18,22 +18,27 @@ a{
 	position: absolute; 
 }
 
-#grid .a { width: 250px; height: 180px; overflow: hidden; }
-#grid .b { width: 250px; height: 366px; overflow: hidden; }
-#grid .c { width: 506px; height: 180px; overflow: hidden; }
-#grid .d { width: 506px; height: 366px; overflow: hidden; }
+#grid .a { width: 236px; height: 170px; overflow: hidden; }
+#grid .b { width: 236px; height: 346px; overflow: hidden; }
+#grid .c { width: 478px; height: 170px; overflow: hidden; }
+#grid .d { width: 478px; height: 346px; overflow: hidden; }
+
+#grid .a img{ width: 236px; height: 170px; }
+#grid .b img{ width: 236px; height: 346px; }
+#grid .c img{ width: 478px; height: 170px; }
+#grid .d img{ width: 478px; height: 346px; }
 
 #grid a.over { display: block; position: absolute; top: 0; left: 0;}
-#grid .a a.over { width: 250px; height: 125px; }
-#grid .b a.over { width: 250px; height: 311px; }
-#grid .c a.over { width: 506px; height: 126px; }
-#grid .d a.over { width: 506px; height: 311px; }
+#grid .a a.over { width: 236px; height: 125px; }
+#grid .b a.over { width: 236px; height: 311px; }
+#grid .c a.over { width: 478px; height: 125px; }
+#grid .d a.over { width: 478px; height: 311px; }
 
 #grid a.info { display: block; position: absolute; bottom: 0; left: 0;}
-#grid .a a.info { width: 250px; height: 55px; }
-#grid .b a.info { width: 250px; height: 55px; }
-#grid .c a.info { width: 506px; height: 55px; }
-#grid .d a.info { width: 506px; height: 55px; }
+#grid .a a.info { width: 236px; height: 55px; }
+#grid .b a.info { width: 236px; height: 55px; }
+#grid .c a.info { width: 478px; height: 55px; }
+#grid .d a.info { width: 478px; height: 55px; }
 
 #grid .caption img {
 	position: absolute;
@@ -103,10 +108,10 @@ a{
 }
 
 #grid .a .popup,
-#grid .b .popup{ width: 182px; }
+#grid .b .popup{ width: 168px; }
 
 #grid .c .popup,
-#grid .d .popup{ width: 438px; }
+#grid .d .popup{ width: 410px; }
 
 #grid .caption h2 {
 	font-size:18px;
@@ -162,33 +167,9 @@ a{
 
 /******************************************************************************/
 
-#grid { 
-	width: 1024px; 
-	position: relative; 
-	margin: 6px auto; 
-	z-index: 10; 
-}
-
 #grid .item { 
 	position: absolute; 
 }
-
-#grid .a { width: 250px; height: 180px; overflow: hidden; }
-#grid .b { width: 250px; height: 366px; overflow: hidden; }
-#grid .c { width: 506px; height: 180px; overflow: hidden; }
-#grid .d { width: 506px; height: 366px; overflow: hidden; }
-
-#grid a.over { display: block; position: absolute; top: 0; left: 0;}
-#grid .a a.over { width: 250px; height: 125px; }
-#grid .b a.over { width: 250px; height: 311px; }
-#grid .c a.over { width: 506px; height: 126px; }
-#grid .d a.over { width: 506px; height: 311px; }
-
-#grid a.info { display: block; position: absolute; bottom: 0; left: 0;}
-#grid .a a.info { width: 250px; height: 55px; }
-#grid .b a.info { width: 250px; height: 55px; }
-#grid .c a.info { width: 506px; height: 55px; }
-#grid .d a.info { width: 506px; height: 55px; }
 
 #grid .special img {
 	position: absolute;
@@ -256,10 +237,10 @@ a{
 }
 
 #grid .a.special .popup,
-#grid .b.special .popup{ width: 222px; }
+#grid .b.special .popup{ width: 212px; }
 
 #grid .c.special .popup,
-#grid .d.special .popup{ width: 478px; }
+#grid .d.special .popup{ width: 450px; }
 
 #grid .special h2 {
 	font-size:18px;

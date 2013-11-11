@@ -2,7 +2,7 @@ body{font-family: 'Lato', Calibri, Arial, sans-serif,"微软雅黑","文泉驿�
 
 ::-webkit-scrollbar-track-piece{background:#d8d8d8;}
 
-#game-gallery{min-height:535px;}
+#game-gallery{min-height:525px;}
 
 *{
 	padding:0;
@@ -93,7 +93,7 @@ a{
 	padding:6px;
 	z-index:1;
 	overflow: hidden;
-	width:1004px;
+	width:956px;
 	margin:0 auto;
 }
 
@@ -103,7 +103,7 @@ a{
 }
 
 .main_content .game_intro{
-	width:250px;
+	width:236px;
 	padding:0 0 10px 0;
 	margin-right:6px;
 	float:left;
@@ -129,7 +129,7 @@ a{
 	padding:10px 40px 25px 40px;
 	overflow:hidden;
 	background:#FFF;
-	margin-left:255px;
+	margin-left:241px;
 }
 
 .main_content .game_action{
@@ -221,12 +221,13 @@ a{
 
 .game_info .game_rate{
 	padding:0 5px;
-	font-size:24px;
+	font-size:34px;
     line-height: 40px;
+	font-weight:bold;
 }
 
 .game_info .game_rate sub{
-	font-size:18px;
+	font-size:24px;
 	vertical-align:baseline;
 }
 
@@ -249,7 +250,7 @@ a{
 .game_pic{
 	position:relative;
 }
-.game_pic img{ width:250px; margin-bottom:10px;}
+.game_pic img{ width:236px; margin-bottom:10px;}
 
 .game_title{
 	padding:0 6px 6px 6px;
@@ -365,15 +366,15 @@ i.star{
 }
 
 .popup_box section{
-	width:480px;
-	height:320px;
+	width:680px;
+	height:480px;
 	margin:0 auto;
 	text-align:center;
 	background:url('../img/popbox-bg.png') no-repeat center;
 }
 
 .popup_box progress{
-	margin-top:170px;
+	margin-top:270px;
 	width:244px;
 }
 
@@ -429,7 +430,7 @@ i.star{
 }
 
 #rightbox { width:506px; margin-top:20px;position:static;}
-#rightbox .title_pic{ width:506px; height:180px;margin:0;}
+#rightbox .title_pic{ width:478px; height:170px;margin:0;}
 #rightbox  img.title_pic {}
 
 .start {width:200px; margin:0 auto; cursor: pointer;}
@@ -481,6 +482,6 @@ ul.sb_dropdown li a{
 	float:left;
 	font-size:12px;
 }
-ul.sb_dropdown li:hover a{color:#FFF; cursor: default;}
+ul.sb_dropdown li:hover a, ul.sb_dropdown li:hover a i{color:#FFF; cursor: default;}
 
 ul.sb_dropdown li a i{ font-style:normal;}

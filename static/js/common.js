@@ -102,3 +102,8 @@ function change_color_theme(name){
         $("#color_link").attr("href", new_color_link);
     }
 }
+
+function switch_to_detail_page(appid){
+    url = 'http://game-center.linuxdeepin.com/game/details/' + appid;
+    $('#game-gallery').attr('src', url);
+}

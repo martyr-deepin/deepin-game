@@ -201,7 +201,7 @@
 	// --------------------------------------------- GRID METHODS ------------------------------------------------- //
 	
 	var grid=null,rows=200,columns=4,max_rows=200,max_items=200;
-	var row_height=186,column_width=256;
+	var row_height=176,column_width=242;
 	var strict=false,overlay=false,building=false,scroll=false,filter=false;
 	var grid_full=false,loading_items=false;
 	
@@ -843,7 +843,7 @@
 	 * window width. Called from browser resize event handler.
 	 */
 	function set_columns() {
-		var new_columns=Math.floor(($(window).width()-30)/column_width);
+		var new_columns=Math.floor(($(window).width())/column_width);
 		if(debug) trace('calculated columns: '+new_columns);
 		if(new_columns>=4&&new_columns!=columns) {
 			if(debug) trace('changing columns: '+new_columns);
