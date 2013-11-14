@@ -154,6 +154,7 @@ class Player(dbus.service.Object):
         self.application.titlebar.mode_button.connect('toggled', self.change_view)
         self.application.titlebar.close_button.connect('clicked', self.quit)
         #self.application.window.connect('focus-out-event', self.window_out_focus_hander)
+        self.application.window.set_position(gtk.WIN_POS_CENTER)
         self.application.window.connect('focus-in-event', self.window_in_focus_hander)
         self.application.window.connect('window-state-event', self.window_state_change_handler)
         self.application.window.connect('key-press-event', self.window_key_press_handler)
