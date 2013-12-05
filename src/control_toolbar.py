@@ -38,12 +38,46 @@ import utils
 
 STAR_SIZE = utils.get_common_image_pixbuf('star/star_on.png').get_width()
 
+
+"""
+if "pause" in
+    self.widg
+#if "mute" in
+    #self.wid
+if "replay" i
+    self.widg
+if "favorite"
+    self.widg
+if "fullscree
+    self.widg
+if "share" in
+    self.widg
+if "star" in 
+    self.widg
+"""
+
 class ControlToolbar(Statusbar):
-    def __init__(self, appid, has_star_view=True):
+
+    widgets_id = [
+            "pause",
+            "mute",
+            "replay",
+            "favorite",
+            "fullscreen",
+            "share",
+            "star",
+        ]
+
+    def __init__(self,
+            appid, widget_display=[]):
+
         Statusbar.__init__(self, 39, )
 
         self.appid = appid
-        status_box = gtk.HBox()
+        self.widget_display = widget_display
+        self.widget_main_box = gtk.HBox()
+
+        self.register_widgets = {}
 
         self.mute_button = ToggleButton(
                 app_theme.get_pixbuf('mute/sound_normal.png'),
@@ -62,6 +96,7 @@ class ControlToolbar(Statusbar):
         mute_button_align.set(0, 0.5, 0, 0)
         mute_button_align.set_padding(3, 6, 3, 3)
         mute_button_align.add(self.mute_button)
+        self.register_widgets["mute"] = mute_button_align
 
         self.favorite_button = ToggleButton(
                 app_theme.get_pixbuf('favorite/unfavorite_normal.png'),
@@ -79,6 +114,7 @@ class ControlToolbar(Statusbar):
         favorite_button_align.set(0, 0.5, 0, 0)
         favorite_button_align.set_padding(3, 6, 3, 3)
         favorite_button_align.add(self.favorite_button)
+        self.register_widgets['favorite'] = favorite_button_align
 
         self.replay_button = Button(
                 app_theme.get_pixbuf('replay/replay_normal.png'),
@@ -93,6 +129,7 @@ class ControlToolbar(Statusbar):
         replay_button_align.set(0, 0.5, 0, 0)
         replay_button_align.set_padding(3, 6, 3, 3)
         replay_button_align.add(self.replay_button)
+        self.register_widgets["replay"] = replay_button_align
 
         if LANGUAGE == 'en_US':
             more_width = 14
@@ -116,6 +153,7 @@ class ControlToolbar(Statusbar):
         pause_button_align.set(0, 0.5, 0, 0)
         pause_button_align.set_padding(3, 6, 10, 3)
         pause_button_align.add(self.pause_button)
+        self.register_widgets["pause"] = pause_button_align
 
         self.fullscreen_button = ToggleButton(
                 app_theme.get_pixbuf('fullscreen/fullscreen_normal.png'),
@@ -134,6 +172,7 @@ class ControlToolbar(Statusbar):
         fullscreen_button_align.set(0, 0.5, 0, 0)
         fullscreen_button_align.set_padding(3, 6, 3, 3)
         fullscreen_button_align.add(self.fullscreen_button)
+        self.register_widgets["fullscreen"] = fullscreen_button_align
 
         self.share_button = Button(
                 app_theme.get_pixbuf('share/share_normal.png'),
@@ -148,6 +187,7 @@ class ControlToolbar(Statusbar):
         share_button_align.set(0, 0.5, 0, 0)
         share_button_align.set_padding(3, 6, 3, 3)
         share_button_align.add(self.share_button)
+        self.register_widgets["share"] = share_button_align
 
         star_box = gtk.HBox()
         self.star = StarView()
@@ -166,17 +206,24 @@ class ControlToolbar(Statusbar):
         star_box_align = gtk.Alignment(1, 0.5, 0, 0)
         star_box_align.set_padding(0, 0, 3, 0)
         star_box_align.add(star_box)
+        self.register_widgets["star"] = star_box_align
 
-        status_box.pack_start(pause_button_align, False, False)
-        #status_box.pack_start(mute_button_align, False, False)
-        status_box.pack_start(replay_button_align, False, False)
-        status_box.pack_start(favorite_button_align, False, False)
-        status_box.pack_start(fullscreen_button_align, False, False)
-        status_box.pack_start(share_button_align, False, False)
-        if has_star_view:
-            status_box.pack_start(star_box_align)
+        if "pause" in self.widget_display:
+            self.widget_main_box.pack_start(pause_button_align, False, False)
+        #if "mute" in self.widget_display:
+            #self.widget_main_box.pack_start(mute_button_align, False, False)
+        if "replay" in self.widget_display:
+            self.widget_main_box.pack_start(replay_button_align, False, False)
+        if "favorite" in self.widget_display:
+            self.widget_main_box.pack_start(favorite_button_align, False, False)
+        if "fullscreen" in self.widget_display:
+            self.widget_main_box.pack_start(fullscreen_button_align, False, False)
+        if "share" in self.widget_display:
+            self.widget_main_box.pack_start(share_button_align, False, False)
+        if "star" in self.widget_display:
+            self.widget_main_box.pack_end(star_box_align)
 
-        self.status_box.pack_start(status_box, True, True)
+        self.status_box.pack_start(self.widget_main_box, True, True)
 
         self.leave_callback = None
         #self.connect('motion-notify-event', self.leave_event_handler)
@@ -188,6 +235,17 @@ class ControlToolbar(Statusbar):
         self.cookie = get_cookie_star(self.appid)
         if self.cookie:
             self.star.set_read_only(True)
+
+    def show_toolbar_button(self, widgets_id=[]):
+        widgets_id.reverse()
+        self.new_widgets_id = widgets_id
+        gtk.timeout_add(80, self.add_new_widgets)
+
+    def add_new_widgets(self):
+        widget = self.register_widgets[self.new_widgets_id.pop()]
+        self.widget_main_box.pack_start(widget, False, False)
+        widget.show_all()
+        return True if self.new_widgets_id else False
 
     def star_press(self, widget, event):
         (event_x, event_y) = get_event_coords(event)

@@ -28,7 +28,6 @@ import dbus
 import dbus.service
 from dbus.mainloop.glib import DBusGMainLoop
 import urllib
-import json
 import copy
 
 from theme import app_theme
@@ -171,13 +170,15 @@ class Player(dbus.service.Object):
         self.page_align.set(0.5, 0.5, 1, 1)
         self.page_align.set_padding(0, 0, 2, 2)
         
-        self.control_toolbar = self.create_toolbar()
+        self.control_toolbar = self.create_toolbar(["star"])
         self.page_box.pack_start(self.content_page)
         self.page_box.pack_start(self.guide_box, False)
 
         self.inner_top_titlebar = self.create_top_titlebar()
         self.inner_top_titlebar.change_name(player_title)
-        self.inner_control_toolbar = self.create_toolbar(has_star_view=False)
+        inner_widgets = ControlToolbar.widgets_id[:]
+        inner_widgets.remove("star")
+        self.inner_control_toolbar = self.create_toolbar(inner_widgets)
 
         self.paned_box = PanedBox()
         self.paned_box.add_content_widget(self.page_box)
@@ -225,8 +226,8 @@ class Player(dbus.service.Object):
 
         return titlebar
 
-    def create_toolbar(self, has_star_view=True):
-        control_toolbar = ControlToolbar(self.appid, has_star_view)
+    def create_toolbar(self, widget_display=[]):
+        control_toolbar = ControlToolbar(self.appid, widget_display)
         control_toolbar.mute_button.connect('clicked', self.mute_handler)
         control_toolbar.pause_button.connect('button-press-event', self.pause_handler)
         control_toolbar.replay_button.connect('clicked', self.replay_action)
@@ -531,6 +532,7 @@ class Player(dbus.service.Object):
 
     def load_game(self):
         self.loading = False
+        self.control_toolbar.show_toolbar_button(['pause', 'replay', 'favorite', 'fullscreen', 'share'])
         self.update_signal(['download_finish', 'file://%s,%s,%s' % (self.swf_save_path, self.width, self.height)])
         record_info.record_recent_play(self.appid, self.conf_db)
 
