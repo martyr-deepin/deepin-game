@@ -135,7 +135,7 @@ class Player(dbus.service.Object):
 
     def init_ui(self):
         
-        self.application = PlayerApplication(close_callback=self.quit, max_callback=self.max_callback)
+        self.application = PlayerApplication(destroy_func=self.quit, max_callback=self.max_callback)
         if self.width+12 < 642:
             width = 642 + 220
         else:
@@ -345,7 +345,7 @@ class Player(dbus.service.Object):
             self.window_normal_info['height'] = copy.deepcopy(self.window.get_size()[1])
             self.window.maximize()
 
-    def quit(self, widget, data=None):
+    def quit(self, widget=None, data=None):
         if self.game_pause:
             os.system('kill -9 %s' % self.p.pid)
         gtk.main_quit()
@@ -496,10 +496,8 @@ class Player(dbus.service.Object):
                     os.path.split(self.swf_url)[1])
                 )
         if os.path.exists(self.swf_save_path):
-            print "Starting Game"
             gtk.timeout_add(200, lambda:self.load_game())
         else:
-            print "Download Game"
             gtk.timeout_add(200, self.show_loading_page)
             
     def show_loading_page(self):
@@ -534,7 +532,6 @@ class Player(dbus.service.Object):
     def load_game(self):
         self.loading = False
         self.update_signal(['download_finish', 'file://%s,%s,%s' % (self.swf_save_path, self.width, self.height)])
-        print "Game SWF Path:", self.swf_save_path
         record_info.record_recent_play(self.appid, self.conf_db)
 
         #self.loading = False

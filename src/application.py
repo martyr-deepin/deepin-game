@@ -29,8 +29,9 @@ class PlayerApplication(Application):
     def __init__(self, 
                  app_support_colormap=True, 
                  resizable=True,
-                 window_type=gtk.WINDOW_TOPLEVEL, 
-                 close_callback=None,
+                 window_type=gtk.WINDOW_TOPLEVEL,
+                 destroy_func=None,
+                 always_at_center=True,
                  max_callback=None,
                  ):
         '''
@@ -41,14 +42,26 @@ class PlayerApplication(Application):
         @param resizable: Set this option with False if you want window's size fixed, default is True.
         '''
         # Init.
+        Application.__init__(
+                self,
+                app_support_colormap,
+                resizable,
+                window_type,
+                destroy_func,
+                always_at_center
+                )
+
+        ''' Initialize 
         self.app_support_colormap = app_support_colormap
         self.resizable = resizable
         self.window_type = window_type
+        self.close_callback = self.close_window
+        self.skin_preview_pixbuf = None
+        self.destroy_func = destroy_func
+        self.always_at_center = always_at_center
 
-        if close_callback:
-            self.close_callback = close_callback
-        else:
-            self.close_callback = self.close_window
+        self.init()
+        '''
 
         if max_callback:
             self.max_callback = max_callback
@@ -56,9 +69,6 @@ class PlayerApplication(Application):
             self.max_callback = lambda w:self.window.toggle_max_window()
 
         self.skin_preview_pixbuf = None
-
-        # Start application.
-        self.init()
 
     def add_titlebar(self,
                      button_mask=["theme", "menu", 'min',"max", "close"],
