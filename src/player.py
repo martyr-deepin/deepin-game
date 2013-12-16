@@ -461,10 +461,12 @@ class Player(dbus.service.Object):
             filename = self.save_to_tmp_file(pixbuf)
             share_path = os.path.join(get_parent_dir(__file__), 'share.py')
             
-            self.share_p = subprocess.Popen(
-                    ['python', share_path, filename], 
-                    stderr=subprocess.STDOUT, 
-                    shell=False)
+            order = ['python2', share_path, filename]
+            try:
+                self.share_p = subprocess.Popen(order, stderr=subprocess.STDOUT, shell=False)
+            except OSError:    
+                order[0] = 'python'
+                self.share_p = subprocess.Popen(order, stderr=subprocess.STDOUT, shell=False)
             self.share_show = True
             self.external_pause_action()
             self.hand_pause = True
@@ -556,7 +558,12 @@ class Player(dbus.service.Object):
 
     def call_flash_game(self, local_path):
         flash_frame_path = os.path.join(get_parent_dir(__file__), 'flash_frame.py')
-        self.p = subprocess.Popen(['python', flash_frame_path, self.appid], stderr=subprocess.STDOUT, shell=False)
+        order = ['python2', flash_frame_path, self.appid]
+        try:
+            self.p = subprocess.Popen(order, stderr=subprocess.STDOUT, shell=False)
+        except OSError:    
+            order[0] = 'python'
+            self.p = subprocess.Popen(order, stderr=subprocess.STDOUT, shell=False)
 
     def send_message(self, message_type, contents):
         bus = dbus.SessionBus()

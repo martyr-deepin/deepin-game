@@ -1,17 +1,20 @@
-# English translations for PACKAGE package.
-# Copyright (C) 2013 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Automatically generated, 2013.
 #
+# Translators:
+# gamjachib <drios9420@gmail.com>, 2013
+# Paco_Zamo <pacozamo@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Deepin Game Center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-16 09:18+0800\n"
-"PO-Revision-Date: 2013-09-09 10:20+0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: en_US\n"
+"PO-Revision-Date: 2013-12-11 03:34+0000\n"
+"Last-Translator: gamjachib <drios9420@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/deepin-game-"
+"center/language/es/)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,27 +22,27 @@ msgstr ""
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
-msgstr "Change skin"
+msgstr "Cambiar máscara"
 
 #: ../src/titlebar.py:54
 msgid "Main menu"
-msgstr "Main menu"
+msgstr "Menú principal"
 
 #: ../src/titlebar.py:55
 msgid "Maximize"
-msgstr "Maximize"
+msgstr "Maximizar"
 
 #: ../src/titlebar.py:56
 msgid "Minimum"
-msgstr "Minimum"
+msgstr "Mínimo"
 
 #: ../src/titlebar.py:57 ../src/dialog.py:134
 msgid "Close"
-msgstr "Close"
+msgstr "Cerrar"
 
 #: ../src/titlebar.py:58
 msgid "Toggle"
-msgstr "Toggle"
+msgstr "Alternar"
 
 #: ../src/dialog.py:85 ../src/game_center.py:90 ../src/share.py:588
 msgid "Deepin Games"
@@ -47,7 +50,7 @@ msgstr "Deepin Games"
 
 #: ../src/dialog.py:90
 msgid "Version: "
-msgstr "Version: "
+msgstr "Versión:"
 
 #: ../src/dialog.py:103
 msgid ""
@@ -56,140 +59,143 @@ msgid ""
 "the best games you have ever met. Deepin Games - deeper into the world of "
 "game!"
 msgstr ""
-"Deepin Games is designed by Linux Deepin for Linux users. Here you will find "
-"good and safe games elaborately selected by professionals. Click and play "
-"the best games you've ever met. Deepin Games — deeper into the game's world!"
+"Deepin Games ha sido diseñado por Linux Deepin para los usuarios de Linux. "
+"Aquí encontrarás juegos buenos y seguros cuidadosamente seleccionados por "
+"nuestros profesionales. Haga clic y juegue a los mejores juegos que haya "
+"visto nunca. ¡Deepin Games: adentrándose aún más en el mundo del juego!"
 
 #: ../src/dialog.py:113
 msgid "Weibo: "
-msgstr "Weibo: "
+msgstr "Weibo:"
 
 #: ../src/dialog.py:114
 msgid "Forum: "
-msgstr "Forum: "
+msgstr "Foro:"
 
 #: ../src/dialog.py:115
 msgid "Feedback: "
-msgstr "Feedback: "
+msgstr "Comentarios:"
 
 #: ../src/dialog.py:116
 msgid "Game deliver: "
-msgstr "Game Deliver: "
+msgstr "Entrega de juego:"
 
 #: ../src/game_center.py:143
 msgid "Home"
-msgstr "Home"
+msgstr "Inicio"
 
 #: ../src/game_center.py:144
 msgid "Topics"
-msgstr "Topics"
+msgstr "Temas"
 
 #: ../src/game_center.py:145
 msgid "My Games"
-msgstr "My Games"
+msgstr "Mis Juegos"
 
 #: ../src/game_center.py:163 ../src/game_center.py:176
 msgid "About us"
-msgstr "About us"
+msgstr "Acerca de nosotros"
 
 #: ../src/game_center.py:174
 msgid "Clear all cached data"
-msgstr "Clear all cached data"
+msgstr "Limpiar todos los datos en caché"
 
 #: ../src/game_center.py:175
 msgid "See what's new"
-msgstr "See what's new"
+msgstr "Novedades"
 
 #: ../src/game_center.py:177
 msgid "Quit"
-msgstr "Quit"
+msgstr "Salir"
 
 #: ../src/game_center.py:227
 msgid "My favorites"
-msgstr "Favorites"
+msgstr "Mis favoritos"
 
 #: ../src/game_center.py:228
 msgid "My recents"
-msgstr "Recent played"
+msgstr "Recientes"
 
 #: ../src/game_center.py:299
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
-msgstr "%s files are deleted and %s disk space is freed."
+msgstr ""
+"El %s de los archivos han sido borrados y el %s de espacio en disco ha "
+"quedado libre."
 
 #: ../src/game_center.py:302
 msgid "Your game cache is empty."
-msgstr "Your game cache is empty."
+msgstr "La caché de su juego está vacía."
 
 #: ../src/star_view.py:324
 msgid "Boring"
-msgstr "Poor"
+msgstr "Aburrido"
 
 #: ../src/star_view.py:326
 msgid "Nothing special"
-msgstr "Below average"
+msgstr "Nada especial"
 
 #: ../src/star_view.py:328
 msgid "Interesting"
-msgstr "Average"
+msgstr "Interesante"
 
 #: ../src/star_view.py:330
 msgid "Good"
-msgstr "Above average"
+msgstr "Bueno"
 
 #: ../src/star_view.py:332
 msgid "Wow, wonderful"
-msgstr "Excellent"
+msgstr "¡Vaya, increíble!"
 
 #: ../src/star_view.py:336 ../src/control_toolbar.py:255
 msgid "You score today already"
-msgstr "Already rated today"
+msgstr "Ya has puntuado hoy"
 
 #: ../src/guide_box.py:56
 msgid "Introduction"
-msgstr "Introduction"
+msgstr "Introducción"
 
 #: ../src/player.py:148
 #, python-format
 msgid "Deepin Games - %s "
-msgstr "Deepin Games - %s "
+msgstr "Deepin Games - %s"
 
 #: ../src/share.py:77
 msgid "share to web"
-msgstr "share to web"
+msgstr "compartir en la red"
 
 #: ../src/share.py:163
 msgid "Sina"
-msgstr ""
+msgstr "Sina"
 
 #: ../src/share.py:164
 msgid "Tencent"
-msgstr ""
+msgstr "Tencent"
 
 #: ../src/share.py:165
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: ../src/share.py:197
 msgid "Unable to load page"
-msgstr "Unable to load page"
+msgstr "No se puede cargar la página"
 
 #: ../src/share.py:198
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
-msgstr "Problem occurred while loading the URL '%s'"
+msgstr "Ocurrió un problema al cargar los \"%s\" de la URL"
 
 #: ../src/share.py:326
 msgid "Click to switch user"
-msgstr "Click to switch user"
+msgstr "Haga clic para cambiar usuario"
 
 #: ../src/share.py:344
 msgid "Click to login"
-msgstr "Click to login"
+msgstr "Haga clic para iniciar sesión"
 
 #: ../src/share.py:459
 msgid "loading"
-msgstr "loading"
+msgstr "cargando"
 
 #: ../src/share.py:470
 msgid "Tweet"
@@ -197,7 +203,7 @@ msgstr "Tweet"
 
 #: ../src/share.py:512
 msgid "Please input text here"
-msgstr "Please input text here"
+msgstr "Por favor inserte aquí su texto"
 
 #: ../src/share.py:548 ../src/share.py:560
 msgid "error"
@@ -205,75 +211,75 @@ msgstr "error"
 
 #: ../src/share.py:549
 msgid "Picture does not exist."
-msgstr "Picture does not exist."
+msgstr "No existe imagen."
 
 #: ../src/share.py:561
 msgid "Please choose at least one platform to share on"
-msgstr "Please choose at least one platform to share on"
+msgstr "Por favor elija al menos una plataforma para compartir"
 
 #: ../src/share.py:577
 msgid "Uploading"
-msgstr "Uploading"
+msgstr "Subiendo"
 
 #: ../src/share.py:588
 msgid "comes from"
-msgstr "comes from"
+msgstr "viene de"
 
 #: ../src/share.py:635
 msgid "Follow"
-msgstr "Follow"
+msgstr "Sigue"
 
 #: ../src/share.py:658 ../src/share.py:679
 msgid "upload to"
-msgstr "upload to"
+msgstr "subir a"
 
 #: ../src/share.py:661
 msgid "successful"
-msgstr "successful"
+msgstr "correcto"
 
 #: ../src/share.py:684
 msgid "failed"
-msgstr "failed"
+msgstr "con errores"
 
 #: ../src/share.py:692
 msgid "Unknow reason"
-msgstr "Unknow reason"
+msgstr "Motivo desconocido"
 
 #: ../src/widgets.py:159 ../src/widgets.py:240
 msgid "Click here to refresh"
-msgstr "Click here to refresh"
+msgstr "Haga clic aquí para refrescar"
 
 #: ../src/widgets.py:326
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../src/control_toolbar.py:89
 msgid "Volume"
-msgstr "Volume"
+msgstr "Volumen"
 
 #: ../src/control_toolbar.py:90
 msgid "Mute"
-msgstr "Mute"
+msgstr "Silenciar"
 
 #: ../src/control_toolbar.py:108
 msgid "Favorite"
-msgstr "Favorite"
+msgstr "Favorito"
 
 #: ../src/control_toolbar.py:123
 msgid "Replay"
-msgstr "Replay"
+msgstr "Reanudar"
 
 #: ../src/control_toolbar.py:145
 msgid "Pause"
-msgstr "Pause"
+msgstr "Pausa"
 
 #: ../src/control_toolbar.py:146
 msgid "Continue"
-msgstr "Continue"
+msgstr "Continuar"
 
 #: ../src/control_toolbar.py:165
 msgid "Fullscreen"
-msgstr "Fullscreen"
+msgstr "Pantalla completa"
 
 #: ../src/control_toolbar.py:166
 msgid "Normal"
@@ -281,8 +287,8 @@ msgstr "Normal"
 
 #: ../src/control_toolbar.py:181
 msgid "Share"
-msgstr "Share"
+msgstr "Compartir"
 
 #: ../src/control_toolbar.py:258
 msgid "Ratings success"
-msgstr "Rating was successful"
+msgstr "Porcentaje de éxito"

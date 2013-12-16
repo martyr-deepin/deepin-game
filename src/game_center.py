@@ -431,10 +431,15 @@ class GameCenterApp(dbus.service.Object):
     def show_play(self, data):
         data = data.split(',')
         player_path = os.path.join(get_parent_dir(__file__), 'deepin-game-center.py')
-        order = ['python', player_path]
+        order = ['python2', player_path]
         order.append('-p')
         order.append(','.join(data))
-        self.p = subprocess.Popen(order, stderr=subprocess.STDOUT, shell=False)
+        try:
+            self.p = subprocess.Popen(order, stderr=subprocess.STDOUT, shell=False)
+        except OSError:    
+            order[0] = 'python'
+            self.p = subprocess.Popen(order, stderr=subprocess.STDOUT, shell=False)
+
 
     #def mute_handler(self, widget, data=None):
         #active = widget.get_active()
