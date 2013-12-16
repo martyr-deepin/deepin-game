@@ -31,6 +31,7 @@ import threading as td
 import urllib, urllib2
 from constant import GAME_CENTER_SERVER_ADDRESS, PROGRAM_VERSION
 from xdg_support import get_config_file
+from nls import LANGUAGE
 
 LOG_PATH = "/tmp/dgc-frontend.log"
 
@@ -57,11 +58,24 @@ def set_wizard_showed():
 def get_common_image(name):
     return os.path.join(dgc_root_dir, "image", name)
 
+def get_common_locale_image(folder, name):
+    locale_image = os.path.join(dgc_root_dir, "image", folder, LANGUAGE, name)
+    if not os.path.exists(locale_image):
+        locale_image = os.path.join(dgc_root_dir, "image", folder, "en_US", name)
+    return locale_image
+
 def get_common_image_pixbuf(name):
     if os.path.exists(get_common_image(name)):
         return gtk.gdk.pixbuf_new_from_file(get_common_image(name))
     else:
         return None
+
+def get_common_locale_image_pixbuf(folder, name):
+    if os.path.exists(get_common_locale_image(folder, name)):
+        return gtk.gdk.pixbuf_new_from_file(get_common_locale_image(folder, name))
+    else:
+        return None
+
 
 def write_log(message):
     if not os.path.exists(LOG_PATH):

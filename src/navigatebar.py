@@ -29,15 +29,14 @@ from dtk.ui.utils import widget_fix_cycle_destroy_bug, propagate_expose, get_con
 import gobject
 import gtk
 
-from utils import get_common_image_pixbuf
-from nls import LANGUAGE
+from utils import get_common_locale_image_pixbuf
 
 class TopLogoBox(gtk.VBox):
     
     def __init__(self):
         super(TopLogoBox, self).__init__()
         
-        top_logo_pixbuf = get_common_image_pixbuf('top/top_logo_%s.png' % LANGUAGE)
+        top_logo_pixbuf = get_common_locale_image_pixbuf('top', 'top_logo.png')
         top_logo_image = gtk.Image()
         top_logo_image.set_from_pixbuf(top_logo_pixbuf)
         
