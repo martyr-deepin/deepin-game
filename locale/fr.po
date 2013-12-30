@@ -1,0 +1,286 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# FFXP <ffxpstudio@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Deepin Game Center\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-23 10:51+0800\n"
+"PO-Revision-Date: 2013-12-29 15:11+0000\n"
+"Last-Translator: FFXP <ffxpstudio@gmail.com>\n"
+"Language-Team: French (http://www.transifex.com/projects/p/deepin-game-center/language/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../src/guide_box.py:55
+msgid "Introduction"
+msgstr "Introduction"
+
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "Ennuyeux"
+
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "Rien de spécial"
+
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "Intéressant"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "Bon"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "Wow, génial"
+
+#: ../src/star_view.py:336 ../src/control_toolbar.py:196
+msgid "You score today already"
+msgstr ""
+
+#: ../src/titlebar.py:53
+msgid "Change skin"
+msgstr "Modifier l'apparence"
+
+#: ../src/titlebar.py:54
+msgid "Main menu"
+msgstr "Menu principal"
+
+#: ../src/titlebar.py:55
+msgid "Maximize"
+msgstr "Maximiser"
+
+#: ../src/titlebar.py:56
+msgid "Minimum"
+msgstr "Minimum"
+
+#: ../src/titlebar.py:57 ../src/dialog.py:134
+msgid "Close"
+msgstr "Fermer"
+
+#: ../src/titlebar.py:58
+msgid "Toggle"
+msgstr "Activer"
+
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "Cliquer ici pour rafraîchir"
+
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "OK"
+
+#: ../src/dialog.py:85 ../src/share.py:588 ../src/game_center.py:88
+msgid "Deepin Games"
+msgstr "Deepin Games"
+
+#: ../src/dialog.py:90
+msgid "Version: "
+msgstr "Version:"
+
+#: ../src/dialog.py:103
+msgid ""
+"Deepin Games is designed by Linux Deepin for Linux users. Here you will find"
+" good and safe games elaborately selected by professionals. Click and play "
+"the best games you have ever met. Deepin Games - deeper into the world of "
+"game!"
+msgstr "Deepin Games est conçu par Linux Deepin pour les utilisateurs Linux. Vous y trouverez des jeux de qualité et sans danger minutieusement sélectionnés par des professionnels. \nSélectionnez et jouez aux meilleurs jeux. Deepin Games - le meilleur des jeux vidéos!"
+
+#: ../src/dialog.py:113
+msgid "Weibo: "
+msgstr "Weibo:"
+
+#: ../src/dialog.py:114
+msgid "Forum: "
+msgstr "Forum:"
+
+#: ../src/dialog.py:115
+msgid "Feedback: "
+msgstr "Retours utilisateurs:"
+
+#: ../src/dialog.py:116
+msgid "Game deliver: "
+msgstr ""
+
+#: ../src/share.py:77
+msgid "share to web"
+msgstr "Partager sur le web"
+
+#: ../src/share.py:163
+msgid "Sina"
+msgstr "Sina"
+
+#: ../src/share.py:164
+msgid "Tencent"
+msgstr "Tencent"
+
+#: ../src/share.py:165
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../src/share.py:197
+msgid "Unable to load page"
+msgstr "Impossible de charger la page"
+
+#: ../src/share.py:198
+#, python-format
+msgid "Problem occurred while loading the URL '%s'"
+msgstr ""
+
+#: ../src/share.py:326
+msgid "Click to switch user"
+msgstr "Cliquer pour changer d'utilisateur"
+
+#: ../src/share.py:344
+msgid "Click to login"
+msgstr "Cliquer pour vous connecter"
+
+#: ../src/share.py:459
+msgid "loading"
+msgstr "chargement"
+
+#: ../src/share.py:470
+msgid "Tweet"
+msgstr "Tweet"
+
+#: ../src/share.py:512
+msgid "Please input text here"
+msgstr "Insérer du texte ici"
+
+#: ../src/share.py:548 ../src/share.py:560
+msgid "error"
+msgstr "erreur"
+
+#: ../src/share.py:549
+msgid "Picture does not exist."
+msgstr "L'image n'existe pas"
+
+#: ../src/share.py:561
+msgid "Please choose at least one platform to share on"
+msgstr "Choisissez au moins un service sur lequel partager"
+
+#: ../src/share.py:577
+msgid "Uploading"
+msgstr "Téléversement"
+
+#: ../src/share.py:588
+msgid "comes from"
+msgstr "vient de"
+
+#: ../src/share.py:635
+msgid "Follow"
+msgstr "Suivre"
+
+#: ../src/share.py:658 ../src/share.py:679
+msgid "upload to"
+msgstr "téléverser vers"
+
+#: ../src/share.py:661
+msgid "successful"
+msgstr "réussi"
+
+#: ../src/share.py:684
+msgid "failed"
+msgstr "échoué"
+
+#: ../src/share.py:692
+msgid "Unknow reason"
+msgstr "Raison inconnue"
+
+#: ../src/game_center.py:139
+msgid "Home"
+msgstr "Accueil"
+
+#: ../src/game_center.py:140
+msgid "Topics"
+msgstr "Sujets"
+
+#: ../src/game_center.py:141
+msgid "My Games"
+msgstr "Mes Jeux"
+
+#: ../src/game_center.py:159 ../src/game_center.py:172
+msgid "About us"
+msgstr "À propos"
+
+#: ../src/game_center.py:170
+msgid "Clear all cached data"
+msgstr "Supprimer les données en cache"
+
+#: ../src/game_center.py:171
+msgid "See what's new"
+msgstr "Voir les nouveautés"
+
+#: ../src/game_center.py:173
+msgid "Quit"
+msgstr "Quitter"
+
+#: ../src/game_center.py:203
+msgid "My favorites"
+msgstr "Mes favoris"
+
+#: ../src/game_center.py:204
+msgid "My recents"
+msgstr "Récents"
+
+#: ../src/game_center.py:272
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "%s fichiers supprimés et %s d'espace disque libéré"
+
+#: ../src/game_center.py:275
+msgid "Your game cache is empty."
+msgstr "Le cache des jeux est vide"
+
+#: ../src/player.py:147
+#, python-format
+msgid "Deepin Games - %s "
+msgstr "Deepin Games - %s"
+
+#: ../src/control_toolbar.py:54
+msgid "Volume"
+msgstr "Volume"
+
+#: ../src/control_toolbar.py:55
+msgid "Mute"
+msgstr "Muet"
+
+#: ../src/control_toolbar.py:72
+msgid "Favorite"
+msgstr "Favoris"
+
+#: ../src/control_toolbar.py:86
+msgid "Replay"
+msgstr "Rejouer"
+
+#: ../src/control_toolbar.py:107
+msgid "Pause"
+msgstr "Pause"
+
+#: ../src/control_toolbar.py:108
+msgid "Continue"
+msgstr "Continuer"
+
+#: ../src/control_toolbar.py:126
+msgid "Fullscreen"
+msgstr "Plein écran"
+
+#: ../src/control_toolbar.py:127
+msgid "Normal"
+msgstr "Normal"
+
+#: ../src/control_toolbar.py:141
+msgid "Share"
+msgstr "Partager"
+
+#: ../src/control_toolbar.py:199
+msgid "Ratings success"
+msgstr ""

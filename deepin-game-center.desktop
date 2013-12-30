@@ -1,25 +1,34 @@
 [Desktop Entry]
-Name=Deepin Game Center
-Name[zh_CN]=深度游戏中心
-Name[zh_TW]=深度遊戲中心
-Name[zh_HK]=深度遊戲中心
+Categories=Application;Game
 Comment=Deepin Game Center
+Comment[ar]=مركز ألعاب دييبـ إن
+Comment[cs]=Herní středisko
+Comment[fr]=Centre des Jeux de Deepin
 Comment[zh_CN]=深度游戏中心
-Comment[zh_TW]=深度遊戲中心
 Comment[zh_HK]=深度遊戲中心
+Comment[zh_TW]=深度遊戲中心
+Encoding=UTF-8
 Exec=deepin-game-center
 Icon=deepin-game-center
-Terminal=false
-X-MultipleArgs=false
-Type=Application
-Encoding=UTF-8
-Categories=Application;Game
+Name=Deepin Game Center
+Name[ar]=مركز ألعاب دييبـ إن
+Name[cs]=Herní středisko
+Name[fr]=Centre des Jeux de Deepin
+Name[zh_CN]=深度游戏中心
+Name[zh_HK]=深度遊戲中心
+Name[zh_TW]=深度遊戲中心
 StartupNotify=true
+Terminal=false
+Type=Application
 X-Ayatana-Desktop-Shortcuts=OpenMainApplication
+X-MultipleArgs=false
 
 [OpenMainApplication Shortcut Group]
+Exec=/usr/bin/deepin-game-center
 Name=Open Main Application
+Name[ar]=إفتح التطبيق الرئيسي
+Name[cs]=Otevřít hlavní program
+Name[fr]=Ouvrir l'Application Prancipale
 Name[zh_CN]=打开主程序
 Name[zh_TW]=打開主程式
-Exec=/usr/bin/deepin-game-center
 TargetEnvironment=Unity
