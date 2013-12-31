@@ -207,10 +207,16 @@ class NavItem(object):
         self.notify_num = 0
         (self.icon_dpixbuf, self.content, self.clicked_callback) = element
         pixbuf = self.item_hover_pixbuf.get_pixbuf()
+        (self.text_width, self.text_height) = get_content_size(self.content, self.font_size)
         
         # Init item button.
+        self.pixbuf_width_scale = False
         self.item_button = gtk.Button()
-        self.item_button.set_size_request(pixbuf.get_width(), pixbuf.get_height())
+        if self.text_width > pixbuf.get_width():
+            self.item_button.set_size_request(self.text_width + 26, pixbuf.get_height())
+            self.pixbuf_width_scale = True
+        else:
+            self.item_button.set_size_request(pixbuf.get_width(), pixbuf.get_height())
         
         widget_fix_cycle_destroy_bug(self.item_button)
         
@@ -223,7 +229,6 @@ class NavItem(object):
         self.item_box.set_padding(56 - pixbuf.get_height(), 0, padding_x, padding_x)
         self.item_box.add(self.item_button)
         
-        (self.text_width, self.text_height) = get_content_size(self.content, self.font_size)
 
     def wrap_nav_item_clicked_action(self):
         '''
@@ -260,9 +265,19 @@ class NavItem(object):
             select_pixbuf = press_pixbuf
             
         if select_pixbuf:
-            draw_pixbuf(cr, select_pixbuf, rect.x, rect.y)
+            to_draw_pixbuf = select_pixbuf
         elif self.item_normal_pixbuf:
-            draw_pixbuf(cr, self.item_normal_pixbuf.get_pixbuf(), rect.x, rect.y)
+            to_draw_pixbuf = self.item_normal_pixbuf.get_pixbuf()
+        if self.pixbuf_width_scale:
+            to_draw_pixbuf = to_draw_pixbuf.scale_simple(
+                    self.item_button.get_size_request()[0], 
+                    self.item_button.get_size_request()[1], 
+                    gtk.gdk.INTERP_BILINEAR)
+
+        draw_pixbuf(cr, to_draw_pixbuf, rect.x, rect.y)
+        #cr.set_source_rgba(1, 1, 1, 0.3)
+        #draw_round_rectangle(cr, rect.x, rect.y, rect.width, rect.height, 0)
+        #cr.fill()
         
         # Draw navigate item.
         if self.icon_dpixbuf:
@@ -279,7 +294,7 @@ class NavItem(object):
         else:
             nav_item_pixbuf_width = 0
             nav_item_pixbuf_height = 0
-            padding_x = (rect.width - nav_item_pixbuf_width - self.text_width) / 2
+            padding_x = (rect.width - nav_item_pixbuf_width - self.text_width) / 2 - 1
     
         draw_text(cr, 
                     self.content, 

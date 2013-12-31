@@ -51,7 +51,7 @@ from paned_box import PanedBox
 from widgets import BottomTipBar, NetworkConnectFailed
 from navigatebar import Navigatebar
 from animation import favorite_animation
-from utils import get_common_image
+from utils import get_common_image, get_common_locale_image
 import utils
 import record_info
 from xdg_support import get_config_file
@@ -257,17 +257,15 @@ class GameCenterApp(dbus.service.Object):
 
     def show_wizard_win(self, show_button=False, callback=None):    
 
-        lang = LANGUAGE
-            
         self.wizard_win = Wizard(
-            [get_common_image('wizard/%s/%s.png' % (lang, i)) for i in range(3)],
+            [get_common_locale_image('wizard', '%s.png' % i) for i in range(3)],
             (
                 get_common_image('wizard/dot_normal.png'), 
                 get_common_image('wizard/dot_active.png'),
             ),
             (
-                get_common_image('wizard/%s/start_normal.png' % lang), 
-                get_common_image('wizard/%s/start_press.png' % lang), 
+                get_common_locale_image('wizard', 'start_normal.png'), 
+                get_common_locale_image('wizard', 'start_press.png'), 
             ),
             show_button,
             callback
