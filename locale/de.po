@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# M T <michtrz@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game Center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-10 13:40+0800\n"
-"PO-Revision-Date: 2014-02-10 01:51+0000\n"
-"Last-Translator: cxbii <mycxbii@gmail.com>\n"
+"POT-Creation-Date: 2014-02-26 14:51+0800\n"
+"PO-Revision-Date: 2014-02-18 20:52+0000\n"
+"Last-Translator: M T <michtrz@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/deepin-game-"
 "center/language/de/)\n"
 "Language: de\n"
@@ -20,107 +21,107 @@ msgstr ""
 
 #: ../src/control_toolbar.py:89
 msgid "Volume"
-msgstr ""
+msgstr "Lautstärke"
 
 #: ../src/control_toolbar.py:90
 msgid "Mute"
-msgstr ""
+msgstr "Stumm"
 
 #: ../src/control_toolbar.py:108
 msgid "Favorite"
-msgstr ""
+msgstr "Favoriten"
 
 #: ../src/control_toolbar.py:123
 msgid "Replay"
-msgstr ""
+msgstr "Wiederholen"
 
 #: ../src/control_toolbar.py:145
 msgid "Pause"
-msgstr ""
+msgstr "Pause"
 
 #: ../src/control_toolbar.py:146
 msgid "Continue"
-msgstr ""
+msgstr "Fortsetzen"
 
 #: ../src/control_toolbar.py:165
 msgid "Fullscreen"
-msgstr ""
+msgstr "Vollbild"
 
 #: ../src/control_toolbar.py:166
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #: ../src/control_toolbar.py:181
 msgid "Share"
-msgstr ""
+msgstr "Teilen"
 
 #: ../src/control_toolbar.py:255 ../src/star_view.py:336
 msgid "You score today already"
-msgstr ""
+msgstr "Sie haben heute bereits gepunktet"
 
 #: ../src/control_toolbar.py:258
 msgid "Ratings success"
-msgstr ""
+msgstr "Bewertungen erfolgreich"
 
 #: ../src/star_view.py:324
 msgid "Boring"
-msgstr ""
+msgstr "Langweilig"
 
 #: ../src/star_view.py:326
 msgid "Nothing special"
-msgstr ""
+msgstr "Nichts Besonderes"
 
 #: ../src/star_view.py:328
 msgid "Interesting"
-msgstr ""
+msgstr "Interessant"
 
 #: ../src/star_view.py:330
 msgid "Good"
-msgstr ""
+msgstr "Gut"
 
 #: ../src/star_view.py:332
 msgid "Wow, wonderful"
-msgstr ""
+msgstr "Wow, wundervoll"
 
 #: ../src/widgets.py:159 ../src/widgets.py:240
 msgid "Click here to refresh"
-msgstr ""
+msgstr "Hier klicken um zu aktualisieren"
 
 #: ../src/widgets.py:326
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
-msgstr ""
+msgstr "Aussehen ändern"
 
 #: ../src/titlebar.py:54
 msgid "Main menu"
-msgstr ""
+msgstr "Hauptmenü"
 
 #: ../src/titlebar.py:55
 msgid "Maximize"
-msgstr ""
+msgstr "Maximieren"
 
 #: ../src/titlebar.py:56
 msgid "Minimum"
-msgstr ""
+msgstr "Minimieren"
 
 #: ../src/titlebar.py:57 ../src/dialog.py:134
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #: ../src/titlebar.py:58
 msgid "Toggle"
-msgstr ""
+msgstr "Fesstellen"
 
 #: ../src/dialog.py:85 ../src/share.py:588 ../src/game_center.py:90
 msgid "Deepin Games"
-msgstr ""
+msgstr "Deepin Spiele"
 
 #: ../src/dialog.py:90
 msgid "Version: "
-msgstr ""
+msgstr "Version:"
 
 #: ../src/dialog.py:103
 msgid ""
@@ -129,158 +130,162 @@ msgid ""
 "the best games you have ever met. Deepin Games - deeper into the world of "
 "game!"
 msgstr ""
+"Deepin Games kreiert von Linux Deepin für Linux-Nutzer. Hier finden Sie gute "
+"und sichere Spiele, bis ins Einzelne ausgewählt von Profis. Wählen und "
+"spielen Sie die besten Spiele die Sie je gespielt haben. Deepin Games - "
+"Deeper in die Welt der Spiele !"
 
 #: ../src/dialog.py:113
 msgid "Weibo: "
-msgstr ""
+msgstr "Weibo:"
 
 #: ../src/dialog.py:114
 msgid "Forum: "
-msgstr ""
+msgstr "Forum:"
 
 #: ../src/dialog.py:115
 msgid "Feedback: "
-msgstr ""
+msgstr "Bewertung:"
 
 #: ../src/dialog.py:116
 msgid "Game deliver: "
-msgstr ""
+msgstr "Spiellieferant:"
 
 #: ../src/guide_box.py:56
 msgid "Introduction"
-msgstr ""
+msgstr "Einführung"
 
 #: ../src/player.py:148
 #, python-format
 msgid "Deepin Games - %s "
-msgstr ""
+msgstr "Deepin Spiele - %s "
 
 #: ../src/share.py:77
 msgid "share to web"
-msgstr ""
+msgstr "teile im Netz"
 
 #: ../src/share.py:163
 msgid "Sina"
-msgstr ""
+msgstr "Sina"
 
 #: ../src/share.py:164
 msgid "Tencent"
-msgstr ""
+msgstr "Tencent"
 
 #: ../src/share.py:165
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: ../src/share.py:197
 msgid "Unable to load page"
-msgstr ""
+msgstr "Seite kann nicht geladen werden"
 
 #: ../src/share.py:198
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
-msgstr ""
+msgstr "Problem beim Laden der URL '%s'"
 
 #: ../src/share.py:326
 msgid "Click to switch user"
-msgstr ""
+msgstr "Klicken um Benutzer zu wechseln"
 
 #: ../src/share.py:344
 msgid "Click to login"
-msgstr ""
+msgstr "Klicken zum Login"
 
 #: ../src/share.py:459
 msgid "loading"
-msgstr ""
+msgstr "laden"
 
 #: ../src/share.py:470
 msgid "Tweet"
-msgstr ""
+msgstr "Tweet"
 
 #: ../src/share.py:512
 msgid "Please input text here"
-msgstr ""
+msgstr "Bitte Text hier eingeben"
 
 #: ../src/share.py:548 ../src/share.py:560
 msgid "error"
-msgstr ""
+msgstr "Fehler"
 
 #: ../src/share.py:549
 msgid "Picture does not exist."
-msgstr ""
+msgstr "Das Foto ist nicht vorhanden."
 
 #: ../src/share.py:561
 msgid "Please choose at least one platform to share on"
-msgstr ""
+msgstr "Bitte mindestens eine Plattform zum teilen auswählen"
 
 #: ../src/share.py:577
 msgid "Uploading"
-msgstr ""
+msgstr "Hochladen"
 
 #: ../src/share.py:588
 msgid "comes from"
-msgstr ""
+msgstr "stammt aus"
 
 #: ../src/share.py:635
 msgid "Follow"
-msgstr ""
+msgstr "Folgen"
 
 #: ../src/share.py:658 ../src/share.py:679
 msgid "upload to"
-msgstr ""
+msgstr "hochladen zu"
 
 #: ../src/share.py:661
 msgid "successful"
-msgstr ""
+msgstr "erfolgreich"
 
 #: ../src/share.py:684
 msgid "failed"
-msgstr ""
+msgstr "fehlgeschlagen"
 
 #: ../src/share.py:692
 msgid "Unknow reason"
-msgstr ""
+msgstr "Unbekannter Grund"
 
 #: ../src/game_center.py:143
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #: ../src/game_center.py:144
 msgid "Topics"
-msgstr ""
+msgstr "Themen"
 
 #: ../src/game_center.py:145
 msgid "My Games"
-msgstr ""
+msgstr "Meine Spiele"
 
 #: ../src/game_center.py:163 ../src/game_center.py:176
 msgid "About us"
-msgstr ""
+msgstr "Über uns"
 
 #: ../src/game_center.py:174
 msgid "Clear all cached data"
-msgstr ""
+msgstr "Löschen aller zwischengespeicherten Daten"
 
 #: ../src/game_center.py:175
 msgid "See what's new"
-msgstr ""
+msgstr "Sehen Sie sich die Neuerungen an"
 
 #: ../src/game_center.py:177
 msgid "Quit"
-msgstr ""
+msgstr "Verlassen"
 
 #: ../src/game_center.py:227
 msgid "My favorites"
-msgstr ""
+msgstr "Meine Favoriten"
 
 #: ../src/game_center.py:228
 msgid "My recents"
-msgstr ""
+msgstr "Meine zuletzt verwendeten"
 
 #: ../src/game_center.py:297
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
-msgstr ""
+msgstr "%s Dateien werden gelöscht und %s Speicherplatz freigegeben."
 
 #: ../src/game_center.py:300
 msgid "Your game cache is empty."
-msgstr ""
+msgstr "Ihr Spiele-Cache ist leer."
