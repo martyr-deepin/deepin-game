@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-10 13:40+0800\n"
+"POT-Creation-Date: 2014-03-05 09:02+0800\n"
 "PO-Revision-Date: 2013-09-13 19:21+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -16,78 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Volume"
-
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Mute"
-
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Favorite"
-
-#: ../src/control_toolbar.py:123
-msgid "Replay"
-msgstr "Replay"
-
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Pause"
-
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Continue"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Fullscreen"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normal"
-
-#: ../src/control_toolbar.py:181
-msgid "Share"
-msgstr "Share"
-
-#: ../src/control_toolbar.py:255 ../src/star_view.py:336
-msgid "You score today already"
-msgstr "Already rated today"
-
-#: ../src/control_toolbar.py:258
-msgid "Ratings success"
-msgstr "Rating was successful"
-
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Poor"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Below average"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Average"
-
-#: ../src/star_view.py:330
-msgid "Good"
-msgstr "Above average"
-
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Excellent"
-
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Click here to refresh"
-
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr ""
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
@@ -113,7 +41,7 @@ msgstr "Close"
 msgid "Toggle"
 msgstr "Toggle"
 
-#: ../src/dialog.py:85 ../src/share.py:588 ../src/game_center.py:90
+#: ../src/dialog.py:85 ../src/game_center.py:90 ../src/share.py:588
 msgid "Deepin Games"
 msgstr "Deepin Games"
 
@@ -147,6 +75,75 @@ msgstr "Feedback: "
 #: ../src/dialog.py:116
 msgid "Game deliver: "
 msgstr "Game Deliver: "
+
+#: ../src/game_center.py:143
+msgid "Home"
+msgstr "Home"
+
+#: ../src/game_center.py:144
+msgid "Topics"
+msgstr "Topics"
+
+#: ../src/game_center.py:145
+msgid "My Games"
+msgstr "My Games"
+
+#: ../src/game_center.py:163 ../src/game_center.py:176
+msgid "About us"
+msgstr "About us"
+
+#: ../src/game_center.py:174
+msgid "Clear all cached data"
+msgstr "Clear all cached data"
+
+#: ../src/game_center.py:175
+msgid "See what's new"
+msgstr "See what's new"
+
+#: ../src/game_center.py:177
+msgid "Quit"
+msgstr "Quit"
+
+#: ../src/game_center.py:227
+msgid "My favorites"
+msgstr "Favourites"
+
+#: ../src/game_center.py:228
+msgid "My recents"
+msgstr "Recent played"
+
+#: ../src/game_center.py:297
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "%s files are deleted and %s disk space is freed."
+
+#: ../src/game_center.py:300
+msgid "Your game cache is empty."
+msgstr "Your game cache is empty."
+
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "Poor"
+
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "Below average"
+
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "Average"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "Above average"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "Excellent"
+
+#: ../src/star_view.py:336 ../src/control_toolbar.py:255
+msgid "You score today already"
+msgstr "Already rated today"
 
 #: ../src/guide_box.py:56
 msgid "Introduction"
@@ -242,47 +239,50 @@ msgstr "failed"
 msgid "Unknow reason"
 msgstr "Unknown reason"
 
-#: ../src/game_center.py:143
-msgid "Home"
-msgstr "Home"
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "Click here to refresh"
 
-#: ../src/game_center.py:144
-msgid "Topics"
-msgstr "Topics"
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr ""
 
-#: ../src/game_center.py:145
-msgid "My Games"
-msgstr "My Games"
+#: ../src/control_toolbar.py:89
+msgid "Volume"
+msgstr "Volume"
 
-#: ../src/game_center.py:163 ../src/game_center.py:176
-msgid "About us"
-msgstr "About us"
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "Mute"
 
-#: ../src/game_center.py:174
-msgid "Clear all cached data"
-msgstr "Clear all cached data"
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "Favorite"
 
-#: ../src/game_center.py:175
-msgid "See what's new"
-msgstr "See what's new"
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "Replay"
 
-#: ../src/game_center.py:177
-msgid "Quit"
-msgstr "Quit"
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "Pause"
 
-#: ../src/game_center.py:227
-msgid "My favorites"
-msgstr "Favourites"
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "Continue"
 
-#: ../src/game_center.py:228
-msgid "My recents"
-msgstr "Recent played"
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "Fullscreen"
 
-#: ../src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr "%s files are deleted and %s disk space is freed."
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "Normal"
 
-#: ../src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "Your game cache is empty."
+#: ../src/control_toolbar.py:181
+msgid "Share"
+msgstr "Share"
+
+#: ../src/control_toolbar.py:258
+msgid "Ratings success"
+msgstr "Rating was successful"

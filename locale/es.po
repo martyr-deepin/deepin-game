@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game Center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-26 14:51+0800\n"
+"POT-Creation-Date: 2014-03-05 09:02+0800\n"
 "PO-Revision-Date: 2013-12-11 03:34+0000\n"
 "Last-Translator: gamjachib <drios9420@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/deepin-game-"
@@ -19,78 +19,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Volumen"
-
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Silenciar"
-
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Favorito"
-
-#: ../src/control_toolbar.py:123
-msgid "Replay"
-msgstr "Reanudar"
-
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Pausa"
-
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Continuar"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Pantalla completa"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normal"
-
-#: ../src/control_toolbar.py:181
-msgid "Share"
-msgstr "Compartir"
-
-#: ../src/control_toolbar.py:255 ../src/star_view.py:336
-msgid "You score today already"
-msgstr "Ya has puntuado hoy"
-
-#: ../src/control_toolbar.py:258
-msgid "Ratings success"
-msgstr "Porcentaje de éxito"
-
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Aburrido"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Nada especial"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Interesante"
-
-#: ../src/star_view.py:330
-msgid "Good"
-msgstr "Bueno"
-
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "¡Vaya, increíble!"
-
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Haga clic aquí para refrescar"
-
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "OK"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
@@ -116,7 +44,7 @@ msgstr "Cerrar"
 msgid "Toggle"
 msgstr "Alternar"
 
-#: ../src/dialog.py:85 ../src/share.py:588 ../src/game_center.py:90
+#: ../src/dialog.py:85 ../src/game_center.py:90 ../src/share.py:588
 msgid "Deepin Games"
 msgstr "Deepin Games"
 
@@ -151,6 +79,77 @@ msgstr "Comentarios:"
 #: ../src/dialog.py:116
 msgid "Game deliver: "
 msgstr "Entrega de juego:"
+
+#: ../src/game_center.py:143
+msgid "Home"
+msgstr "Inicio"
+
+#: ../src/game_center.py:144
+msgid "Topics"
+msgstr "Temas"
+
+#: ../src/game_center.py:145
+msgid "My Games"
+msgstr "Mis Juegos"
+
+#: ../src/game_center.py:163 ../src/game_center.py:176
+msgid "About us"
+msgstr "Acerca de nosotros"
+
+#: ../src/game_center.py:174
+msgid "Clear all cached data"
+msgstr "Limpiar todos los datos en caché"
+
+#: ../src/game_center.py:175
+msgid "See what's new"
+msgstr "Novedades"
+
+#: ../src/game_center.py:177
+msgid "Quit"
+msgstr "Salir"
+
+#: ../src/game_center.py:227
+msgid "My favorites"
+msgstr "Mis favoritos"
+
+#: ../src/game_center.py:228
+msgid "My recents"
+msgstr "Recientes"
+
+#: ../src/game_center.py:297
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr ""
+"El %s de los archivos han sido borrados y el %s de espacio en disco ha "
+"quedado libre."
+
+#: ../src/game_center.py:300
+msgid "Your game cache is empty."
+msgstr "La caché de su juego está vacía."
+
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "Aburrido"
+
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "Nada especial"
+
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "Interesante"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "Bueno"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "¡Vaya, increíble!"
+
+#: ../src/star_view.py:336 ../src/control_toolbar.py:255
+msgid "You score today already"
+msgstr "Ya has puntuado hoy"
 
 #: ../src/guide_box.py:56
 msgid "Introduction"
@@ -246,49 +245,50 @@ msgstr "con errores"
 msgid "Unknow reason"
 msgstr "Motivo desconocido"
 
-#: ../src/game_center.py:143
-msgid "Home"
-msgstr "Inicio"
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "Haga clic aquí para refrescar"
 
-#: ../src/game_center.py:144
-msgid "Topics"
-msgstr "Temas"
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "OK"
 
-#: ../src/game_center.py:145
-msgid "My Games"
-msgstr "Mis Juegos"
+#: ../src/control_toolbar.py:89
+msgid "Volume"
+msgstr "Volumen"
 
-#: ../src/game_center.py:163 ../src/game_center.py:176
-msgid "About us"
-msgstr "Acerca de nosotros"
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "Silenciar"
 
-#: ../src/game_center.py:174
-msgid "Clear all cached data"
-msgstr "Limpiar todos los datos en caché"
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "Favorito"
 
-#: ../src/game_center.py:175
-msgid "See what's new"
-msgstr "Novedades"
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "Reanudar"
 
-#: ../src/game_center.py:177
-msgid "Quit"
-msgstr "Salir"
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "Pausa"
 
-#: ../src/game_center.py:227
-msgid "My favorites"
-msgstr "Mis favoritos"
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "Continuar"
 
-#: ../src/game_center.py:228
-msgid "My recents"
-msgstr "Recientes"
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "Pantalla completa"
 
-#: ../src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr ""
-"El %s de los archivos han sido borrados y el %s de espacio en disco ha "
-"quedado libre."
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "Normal"
 
-#: ../src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "La caché de su juego está vacía."
+#: ../src/control_toolbar.py:181
+msgid "Share"
+msgstr "Compartir"
+
+#: ../src/control_toolbar.py:258
+msgid "Ratings success"
+msgstr "Porcentaje de éxito"

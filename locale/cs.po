@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game Center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-26 14:51+0800\n"
+"POT-Creation-Date: 2014-03-05 09:02+0800\n"
 "PO-Revision-Date: 2013-12-22 09:14+0000\n"
 "Last-Translator: fri <pavelfric@seznam.cz>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/deepin-game-center/"
@@ -18,78 +18,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Hlasitost"
-
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Ztlumit"
-
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Oblíbené"
-
-#: ../src/control_toolbar.py:123
-msgid "Replay"
-msgstr "Hrát znovu"
-
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Pozastavit"
-
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Pokračovat"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Celá obrazovka"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normální"
-
-#: ../src/control_toolbar.py:181
-msgid "Share"
-msgstr "Sdílet"
-
-#: ../src/control_toolbar.py:255 ../src/star_view.py:336
-msgid "You score today already"
-msgstr "Váš dnešní výsledek již"
-
-#: ../src/control_toolbar.py:258
-msgid "Ratings success"
-msgstr "Úspěch v hodnocení"
-
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Nuda"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Nic zvláštního"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Zajímavé"
-
-#: ../src/star_view.py:330
-msgid "Good"
-msgstr "Dobré"
-
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Nářez. Úžasné"
-
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Klepněte zde pro obnovení"
-
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "OK"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
@@ -115,7 +43,7 @@ msgstr "Zavřít"
 msgid "Toggle"
 msgstr "Přepnout"
 
-#: ../src/dialog.py:85 ../src/share.py:588 ../src/game_center.py:90
+#: ../src/dialog.py:85 ../src/game_center.py:90 ../src/share.py:588
 msgid "Deepin Games"
 msgstr "Hry"
 
@@ -150,6 +78,75 @@ msgstr "Zpětná vazba: "
 #: ../src/dialog.py:116
 msgid "Game deliver: "
 msgstr "Vydavatel hry: "
+
+#: ../src/game_center.py:143
+msgid "Home"
+msgstr "Domovská složka"
+
+#: ../src/game_center.py:144
+msgid "Topics"
+msgstr "Náměty"
+
+#: ../src/game_center.py:145
+msgid "My Games"
+msgstr "Moje hry"
+
+#: ../src/game_center.py:163 ../src/game_center.py:176
+msgid "About us"
+msgstr "O nás"
+
+#: ../src/game_center.py:174
+msgid "Clear all cached data"
+msgstr "Odstranit všechna data ve vyrovnávací paměti"
+
+#: ../src/game_center.py:175
+msgid "See what's new"
+msgstr "Podívat se na novinky"
+
+#: ../src/game_center.py:177
+msgid "Quit"
+msgstr "Ukončit"
+
+#: ../src/game_center.py:227
+msgid "My favorites"
+msgstr "Moje oblíbené"
+
+#: ../src/game_center.py:228
+msgid "My recents"
+msgstr "Moje nedávné"
+
+#: ../src/game_center.py:297
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "%s souborů smazáno a %s místa na disku uvolněno."
+
+#: ../src/game_center.py:300
+msgid "Your game cache is empty."
+msgstr "Vaše herní vyrovnávací paměť je prázdná."
+
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "Nuda"
+
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "Nic zvláštního"
+
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "Zajímavé"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "Dobré"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "Nářez. Úžasné"
+
+#: ../src/star_view.py:336 ../src/control_toolbar.py:255
+msgid "You score today already"
+msgstr "Váš dnešní výsledek již"
 
 #: ../src/guide_box.py:56
 msgid "Introduction"
@@ -245,47 +242,50 @@ msgstr "Neúspěšné"
 msgid "Unknow reason"
 msgstr "Neznámý důvod"
 
-#: ../src/game_center.py:143
-msgid "Home"
-msgstr "Domovská složka"
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "Klepněte zde pro obnovení"
 
-#: ../src/game_center.py:144
-msgid "Topics"
-msgstr "Náměty"
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "OK"
 
-#: ../src/game_center.py:145
-msgid "My Games"
-msgstr "Moje hry"
+#: ../src/control_toolbar.py:89
+msgid "Volume"
+msgstr "Hlasitost"
 
-#: ../src/game_center.py:163 ../src/game_center.py:176
-msgid "About us"
-msgstr "O nás"
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "Ztlumit"
 
-#: ../src/game_center.py:174
-msgid "Clear all cached data"
-msgstr "Odstranit všechna data ve vyrovnávací paměti"
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "Oblíbené"
 
-#: ../src/game_center.py:175
-msgid "See what's new"
-msgstr "Podívat se na novinky"
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "Hrát znovu"
 
-#: ../src/game_center.py:177
-msgid "Quit"
-msgstr "Ukončit"
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "Pozastavit"
 
-#: ../src/game_center.py:227
-msgid "My favorites"
-msgstr "Moje oblíbené"
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "Pokračovat"
 
-#: ../src/game_center.py:228
-msgid "My recents"
-msgstr "Moje nedávné"
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "Celá obrazovka"
 
-#: ../src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr "%s souborů smazáno a %s místa na disku uvolněno."
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "Normální"
 
-#: ../src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "Vaše herní vyrovnávací paměť je prázdná."
+#: ../src/control_toolbar.py:181
+msgid "Share"
+msgstr "Sdílet"
+
+#: ../src/control_toolbar.py:258
+msgid "Ratings success"
+msgstr "Úspěch v hodnocení"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game Center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-26 14:51+0800\n"
+"POT-Creation-Date: 2014-03-05 09:02+0800\n"
 "PO-Revision-Date: 2013-12-11 02:13+0000\n"
 "Last-Translator: iceleaf916 <iceleaf916@gmail.com>\n"
 "Language-Team: Chinese (Hong Kong) (http://www.transifex.com/projects/p/"
@@ -19,78 +19,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "音量"
-
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "靜音"
-
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "加入喜好"
-
-#: ../src/control_toolbar.py:123
-msgid "Replay"
-msgstr "重玩"
-
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "暫停"
-
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "繼續"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "全螢幕"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "恢復"
-
-#: ../src/control_toolbar.py:181
-msgid "Share"
-msgstr "分享"
-
-#: ../src/control_toolbar.py:255 ../src/star_view.py:336
-msgid "You score today already"
-msgstr "你今天已評價過。"
-
-#: ../src/control_toolbar.py:258
-msgid "Ratings success"
-msgstr "評價成功"
-
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "無趣"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "一般"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "好玩"
-
-#: ../src/star_view.py:330
-msgid "Good"
-msgstr "值得一試"
-
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "哇塞，太棒了"
-
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "點擊此處重新整理"
-
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "確認"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
@@ -116,7 +44,7 @@ msgstr "關閉"
 msgid "Toggle"
 msgstr "切換"
 
-#: ../src/dialog.py:85 ../src/share.py:588 ../src/game_center.py:90
+#: ../src/dialog.py:85 ../src/game_center.py:90 ../src/share.py:588
 msgid "Deepin Games"
 msgstr "深度遊戲"
 
@@ -151,6 +79,75 @@ msgstr "回饋："
 #: ../src/dialog.py:116
 msgid "Game deliver: "
 msgstr "遊戲投遞："
+
+#: ../src/game_center.py:143
+msgid "Home"
+msgstr "首頁"
+
+#: ../src/game_center.py:144
+msgid "Topics"
+msgstr "遊戲主題"
+
+#: ../src/game_center.py:145
+msgid "My Games"
+msgstr "我的遊戲"
+
+#: ../src/game_center.py:163 ../src/game_center.py:176
+msgid "About us"
+msgstr "關於我們"
+
+#: ../src/game_center.py:174
+msgid "Clear all cached data"
+msgstr "清理全部快取數據"
+
+#: ../src/game_center.py:175
+msgid "See what's new"
+msgstr "檢視新特性"
+
+#: ../src/game_center.py:177
+msgid "Quit"
+msgstr "結束"
+
+#: ../src/game_center.py:227
+msgid "My favorites"
+msgstr "我的收藏"
+
+#: ../src/game_center.py:228
+msgid "My recents"
+msgstr "最近玩過"
+
+#: ../src/game_center.py:297
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "清理了%s個檔案，節約了%s硬碟空間。"
+
+#: ../src/game_center.py:300
+msgid "Your game cache is empty."
+msgstr "遊戲快取檔案已經清理幹淨。"
+
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "無趣"
+
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "一般"
+
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "好玩"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "值得一試"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "哇塞，太棒了"
+
+#: ../src/star_view.py:336 ../src/control_toolbar.py:255
+msgid "You score today already"
+msgstr "你今天已評價過。"
 
 #: ../src/guide_box.py:56
 msgid "Introduction"
@@ -246,47 +243,50 @@ msgstr "失敗"
 msgid "Unknow reason"
 msgstr "未知原因"
 
-#: ../src/game_center.py:143
-msgid "Home"
-msgstr "首頁"
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "點擊此處重新整理"
 
-#: ../src/game_center.py:144
-msgid "Topics"
-msgstr "遊戲主題"
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "確認"
 
-#: ../src/game_center.py:145
-msgid "My Games"
-msgstr "我的遊戲"
+#: ../src/control_toolbar.py:89
+msgid "Volume"
+msgstr "音量"
 
-#: ../src/game_center.py:163 ../src/game_center.py:176
-msgid "About us"
-msgstr "關於我們"
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "靜音"
 
-#: ../src/game_center.py:174
-msgid "Clear all cached data"
-msgstr "清理全部快取數據"
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "加入喜好"
 
-#: ../src/game_center.py:175
-msgid "See what's new"
-msgstr "檢視新特性"
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "重玩"
 
-#: ../src/game_center.py:177
-msgid "Quit"
-msgstr "結束"
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "暫停"
 
-#: ../src/game_center.py:227
-msgid "My favorites"
-msgstr "我的收藏"
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "繼續"
 
-#: ../src/game_center.py:228
-msgid "My recents"
-msgstr "最近玩過"
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "全螢幕"
 
-#: ../src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr "清理了%s個檔案，節約了%s硬碟空間。"
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "恢復"
 
-#: ../src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "遊戲快取檔案已經清理幹淨。"
+#: ../src/control_toolbar.py:181
+msgid "Share"
+msgstr "分享"
+
+#: ../src/control_toolbar.py:258
+msgid "Ratings success"
+msgstr "評價成功"

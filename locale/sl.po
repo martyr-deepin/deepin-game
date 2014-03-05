@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game Center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-26 14:51+0800\n"
+"POT-Creation-Date: 2014-03-05 09:02+0800\n"
 "PO-Revision-Date: 2014-02-20 21:13+0000\n"
 "Last-Translator: kloki <klokimass@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/deepin-game-"
@@ -19,78 +19,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
-
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Glasnost"
-
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Utišaj"
-
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Najljubše"
-
-#: ../src/control_toolbar.py:123
-msgid "Replay"
-msgstr "Ponovno igraj"
-
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Pavza"
-
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Nadaljuj"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Celozaslonski način"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normalno"
-
-#: ../src/control_toolbar.py:181
-msgid "Share"
-msgstr "Deli"
-
-#: ../src/control_toolbar.py:255 ../src/star_view.py:336
-msgid "You score today already"
-msgstr "Vaš današnji rezultat"
-
-#: ../src/control_toolbar.py:258
-msgid "Ratings success"
-msgstr "Uspeh v oceni"
-
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Dolgočasno"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Nič posebnega"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Zanimivo"
-
-#: ../src/star_view.py:330
-msgid "Good"
-msgstr "Dobro"
-
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Vau, čudovito"
-
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Kliknite za osvežitev"
-
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "Vredu"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
@@ -116,7 +44,7 @@ msgstr "Zapri"
 msgid "Toggle"
 msgstr "Preklopi"
 
-#: ../src/dialog.py:85 ../src/share.py:588 ../src/game_center.py:90
+#: ../src/dialog.py:85 ../src/game_center.py:90 ../src/share.py:588
 msgid "Deepin Games"
 msgstr "Deepin igre"
 
@@ -151,6 +79,75 @@ msgstr "Povratne informacije:"
 #: ../src/dialog.py:116
 msgid "Game deliver: "
 msgstr "Založnik igre:"
+
+#: ../src/game_center.py:143
+msgid "Home"
+msgstr "Dom"
+
+#: ../src/game_center.py:144
+msgid "Topics"
+msgstr "Teme"
+
+#: ../src/game_center.py:145
+msgid "My Games"
+msgstr "Moje igre"
+
+#: ../src/game_center.py:163 ../src/game_center.py:176
+msgid "About us"
+msgstr "O nas"
+
+#: ../src/game_center.py:174
+msgid "Clear all cached data"
+msgstr "Počisti vse podatke iz predpomnilnika"
+
+#: ../src/game_center.py:175
+msgid "See what's new"
+msgstr "Poglej kaj je novega"
+
+#: ../src/game_center.py:177
+msgid "Quit"
+msgstr "Končaj"
+
+#: ../src/game_center.py:227
+msgid "My favorites"
+msgstr "Moje najljubše"
+
+#: ../src/game_center.py:228
+msgid "My recents"
+msgstr "Moje nedavne"
+
+#: ../src/game_center.py:297
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "%s datotek je izbrisanih in %s prostora na disku je sproščenega."
+
+#: ../src/game_center.py:300
+msgid "Your game cache is empty."
+msgstr "Predpomnilnik vaše igre je prazen."
+
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "Dolgočasno"
+
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "Nič posebnega"
+
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "Zanimivo"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "Dobro"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "Vau, čudovito"
+
+#: ../src/star_view.py:336 ../src/control_toolbar.py:255
+msgid "You score today already"
+msgstr "Vaš današnji rezultat"
 
 #: ../src/guide_box.py:56
 msgid "Introduction"
@@ -246,47 +243,50 @@ msgstr "neuspešno"
 msgid "Unknow reason"
 msgstr "Neznan razlog"
 
-#: ../src/game_center.py:143
-msgid "Home"
-msgstr "Dom"
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "Kliknite za osvežitev"
 
-#: ../src/game_center.py:144
-msgid "Topics"
-msgstr "Teme"
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "Vredu"
 
-#: ../src/game_center.py:145
-msgid "My Games"
-msgstr "Moje igre"
+#: ../src/control_toolbar.py:89
+msgid "Volume"
+msgstr "Glasnost"
 
-#: ../src/game_center.py:163 ../src/game_center.py:176
-msgid "About us"
-msgstr "O nas"
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "Utišaj"
 
-#: ../src/game_center.py:174
-msgid "Clear all cached data"
-msgstr "Počisti vse podatke iz predpomnilnika"
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "Najljubše"
 
-#: ../src/game_center.py:175
-msgid "See what's new"
-msgstr "Poglej kaj je novega"
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "Ponovno igraj"
 
-#: ../src/game_center.py:177
-msgid "Quit"
-msgstr "Končaj"
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "Pavza"
 
-#: ../src/game_center.py:227
-msgid "My favorites"
-msgstr "Moje najljubše"
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "Nadaljuj"
 
-#: ../src/game_center.py:228
-msgid "My recents"
-msgstr "Moje nedavne"
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "Celozaslonski način"
 
-#: ../src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr "%s datotek je izbrisanih in %s prostora na disku je sproščenega."
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "Normalno"
 
-#: ../src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "Predpomnilnik vaše igre je prazen."
+#: ../src/control_toolbar.py:181
+msgid "Share"
+msgstr "Deli"
+
+#: ../src/control_toolbar.py:258
+msgid "Ratings success"
+msgstr "Uspeh v oceni"

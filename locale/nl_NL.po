@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game Center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-26 14:51+0800\n"
+"POT-Creation-Date: 2014-03-05 09:02+0800\n"
 "PO-Revision-Date: 2014-02-09 13:59+0000\n"
 "Last-Translator: jasper580 <jasperweyne@gmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/"
@@ -18,78 +18,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Volume"
-
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Dempen"
-
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Favoriet"
-
-#: ../src/control_toolbar.py:123
-msgid "Replay"
-msgstr "Opnieuw afspelen"
-
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Pauzeer"
-
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Hervat"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Volledig Scherm"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normaal"
-
-#: ../src/control_toolbar.py:181
-msgid "Share"
-msgstr "Deel"
-
-#: ../src/control_toolbar.py:255 ../src/star_view.py:336
-msgid "You score today already"
-msgstr "Je score vandaag tot nu toe"
-
-#: ../src/control_toolbar.py:258
-msgid "Ratings success"
-msgstr "Recensies succes"
-
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Saai"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Niet bijzonder"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Interessant"
-
-#: ../src/star_view.py:330
-msgid "Good"
-msgstr "Goed"
-
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Wauw, geweldig"
-
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Klik hier om te verversen"
-
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "OK"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
@@ -115,7 +43,7 @@ msgstr "Sluit"
 msgid "Toggle"
 msgstr "Schakel"
 
-#: ../src/dialog.py:85 ../src/share.py:588 ../src/game_center.py:90
+#: ../src/dialog.py:85 ../src/game_center.py:90 ../src/share.py:588
 msgid "Deepin Games"
 msgstr "Deepin Games"
 
@@ -150,6 +78,75 @@ msgstr "Feedback:"
 #: ../src/dialog.py:116
 msgid "Game deliver: "
 msgstr "Game geleverd:"
+
+#: ../src/game_center.py:143
+msgid "Home"
+msgstr "Thuis"
+
+#: ../src/game_center.py:144
+msgid "Topics"
+msgstr "Onderwerpen"
+
+#: ../src/game_center.py:145
+msgid "My Games"
+msgstr "Mijn Games"
+
+#: ../src/game_center.py:163 ../src/game_center.py:176
+msgid "About us"
+msgstr "Over ons"
+
+#: ../src/game_center.py:174
+msgid "Clear all cached data"
+msgstr "Verwijder alle gecachede data"
+
+#: ../src/game_center.py:175
+msgid "See what's new"
+msgstr "Bekijk wat er nieuw is"
+
+#: ../src/game_center.py:177
+msgid "Quit"
+msgstr "Afsluiten"
+
+#: ../src/game_center.py:227
+msgid "My favorites"
+msgstr "Mijn favorieten"
+
+#: ../src/game_center.py:228
+msgid "My recents"
+msgstr "Recent"
+
+#: ../src/game_center.py:297
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "%s bestanden zijn verwijderd en %s opslagruimte is vrijgemaakt."
+
+#: ../src/game_center.py:300
+msgid "Your game cache is empty."
+msgstr "Je game cache is leeg."
+
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "Saai"
+
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "Niet bijzonder"
+
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "Interessant"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "Goed"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "Wauw, geweldig"
+
+#: ../src/star_view.py:336 ../src/control_toolbar.py:255
+msgid "You score today already"
+msgstr "Je score vandaag tot nu toe"
 
 #: ../src/guide_box.py:56
 msgid "Introduction"
@@ -245,47 +242,50 @@ msgstr "gefaald"
 msgid "Unknow reason"
 msgstr "Onbekende reden"
 
-#: ../src/game_center.py:143
-msgid "Home"
-msgstr "Thuis"
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "Klik hier om te verversen"
 
-#: ../src/game_center.py:144
-msgid "Topics"
-msgstr "Onderwerpen"
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "OK"
 
-#: ../src/game_center.py:145
-msgid "My Games"
-msgstr "Mijn Games"
+#: ../src/control_toolbar.py:89
+msgid "Volume"
+msgstr "Volume"
 
-#: ../src/game_center.py:163 ../src/game_center.py:176
-msgid "About us"
-msgstr "Over ons"
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "Dempen"
 
-#: ../src/game_center.py:174
-msgid "Clear all cached data"
-msgstr "Verwijder alle gecachede data"
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "Favoriet"
 
-#: ../src/game_center.py:175
-msgid "See what's new"
-msgstr "Bekijk wat er nieuw is"
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "Opnieuw afspelen"
 
-#: ../src/game_center.py:177
-msgid "Quit"
-msgstr "Afsluiten"
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "Pauzeer"
 
-#: ../src/game_center.py:227
-msgid "My favorites"
-msgstr "Mijn favorieten"
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "Hervat"
 
-#: ../src/game_center.py:228
-msgid "My recents"
-msgstr "Recent"
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "Volledig Scherm"
 
-#: ../src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr "%s bestanden zijn verwijderd en %s opslagruimte is vrijgemaakt."
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "Normaal"
 
-#: ../src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "Je game cache is leeg."
+#: ../src/control_toolbar.py:181
+msgid "Share"
+msgstr "Deel"
+
+#: ../src/control_toolbar.py:258
+msgid "Ratings success"
+msgstr "Recensies succes"

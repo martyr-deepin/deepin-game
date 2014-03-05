@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game Center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-26 14:51+0800\n"
+"POT-Creation-Date: 2014-03-05 09:02+0800\n"
 "PO-Revision-Date: 2013-12-16 20:18+0000\n"
 "Last-Translator: addegsson <addegsson@gmail.com>\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/deepin-"
@@ -18,78 +18,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Volym"
-
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Tyst"
-
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Favorit"
-
-#: ../src/control_toolbar.py:123
-msgid "Replay"
-msgstr "Spela om"
-
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Pausa"
-
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Fortsätt"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Helskärm"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normal"
-
-#: ../src/control_toolbar.py:181
-msgid "Share"
-msgstr "Dela"
-
-#: ../src/control_toolbar.py:255 ../src/star_view.py:336
-msgid "You score today already"
-msgstr "Du har redan poängsatt idag"
-
-#: ../src/control_toolbar.py:258
-msgid "Ratings success"
-msgstr "Betygsättning lyckades"
-
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Tråkigt"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Inget speciellt"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Intressant"
-
-#: ../src/star_view.py:330
-msgid "Good"
-msgstr "Bra"
-
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Wow, underbart"
-
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Klicka här för att uppdatera"
-
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "Okej"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
@@ -115,7 +43,7 @@ msgstr "Stäng"
 msgid "Toggle"
 msgstr "Växla"
 
-#: ../src/dialog.py:85 ../src/share.py:588 ../src/game_center.py:90
+#: ../src/dialog.py:85 ../src/game_center.py:90 ../src/share.py:588
 msgid "Deepin Games"
 msgstr "Deepin Spel"
 
@@ -150,6 +78,75 @@ msgstr "Åsikter:"
 #: ../src/dialog.py:116
 msgid "Game deliver: "
 msgstr "Spelet levererar:"
+
+#: ../src/game_center.py:143
+msgid "Home"
+msgstr "Hem"
+
+#: ../src/game_center.py:144
+msgid "Topics"
+msgstr "Ämnen"
+
+#: ../src/game_center.py:145
+msgid "My Games"
+msgstr "Mina spel"
+
+#: ../src/game_center.py:163 ../src/game_center.py:176
+msgid "About us"
+msgstr "Om oss"
+
+#: ../src/game_center.py:174
+msgid "Clear all cached data"
+msgstr "Rensa all cache "
+
+#: ../src/game_center.py:175
+msgid "See what's new"
+msgstr "Se nyheter"
+
+#: ../src/game_center.py:177
+msgid "Quit"
+msgstr "Avsluta"
+
+#: ../src/game_center.py:227
+msgid "My favorites"
+msgstr "Mina favoriter"
+
+#: ../src/game_center.py:228
+msgid "My recents"
+msgstr "Mina senaste"
+
+#: ../src/game_center.py:297
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "%s filer är raderade och %s diskutrymme är frigort."
+
+#: ../src/game_center.py:300
+msgid "Your game cache is empty."
+msgstr "Din spelcache är tom."
+
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "Tråkigt"
+
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "Inget speciellt"
+
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "Intressant"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "Bra"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "Wow, underbart"
+
+#: ../src/star_view.py:336 ../src/control_toolbar.py:255
+msgid "You score today already"
+msgstr "Du har redan poängsatt idag"
 
 #: ../src/guide_box.py:56
 msgid "Introduction"
@@ -245,47 +242,50 @@ msgstr "misslyckades"
 msgid "Unknow reason"
 msgstr "Okänd anledning"
 
-#: ../src/game_center.py:143
-msgid "Home"
-msgstr "Hem"
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "Klicka här för att uppdatera"
 
-#: ../src/game_center.py:144
-msgid "Topics"
-msgstr "Ämnen"
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "Okej"
 
-#: ../src/game_center.py:145
-msgid "My Games"
-msgstr "Mina spel"
+#: ../src/control_toolbar.py:89
+msgid "Volume"
+msgstr "Volym"
 
-#: ../src/game_center.py:163 ../src/game_center.py:176
-msgid "About us"
-msgstr "Om oss"
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "Tyst"
 
-#: ../src/game_center.py:174
-msgid "Clear all cached data"
-msgstr "Rensa all cache "
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "Favorit"
 
-#: ../src/game_center.py:175
-msgid "See what's new"
-msgstr "Se nyheter"
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "Spela om"
 
-#: ../src/game_center.py:177
-msgid "Quit"
-msgstr "Avsluta"
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "Pausa"
 
-#: ../src/game_center.py:227
-msgid "My favorites"
-msgstr "Mina favoriter"
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "Fortsätt"
 
-#: ../src/game_center.py:228
-msgid "My recents"
-msgstr "Mina senaste"
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "Helskärm"
 
-#: ../src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr "%s filer är raderade och %s diskutrymme är frigort."
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "Normal"
 
-#: ../src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "Din spelcache är tom."
+#: ../src/control_toolbar.py:181
+msgid "Share"
+msgstr "Dela"
+
+#: ../src/control_toolbar.py:258
+msgid "Ratings success"
+msgstr "Betygsättning lyckades"
