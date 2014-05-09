@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game Center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 09:02+0800\n"
-"PO-Revision-Date: 2014-02-20 21:13+0000\n"
+"POT-Creation-Date: 2014-05-09 16:53+0800\n"
+"PO-Revision-Date: 2014-04-04 08:43+0000\n"
 "Last-Translator: kloki <klokimass@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/deepin-game-"
 "center/language/sl/)\n"
@@ -20,39 +20,44 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
 
-#: ../src/titlebar.py:53
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "%s datotek je izbrisanih in %s prostora na disku je sproščenega."
+
+msgid "About us"
+msgstr "O nas"
+
+msgid "Boring"
+msgstr "Dolgočasno"
+
 msgid "Change skin"
 msgstr "Zamenjaj preobleko"
 
-#: ../src/titlebar.py:54
-msgid "Main menu"
-msgstr "Glavni meni"
+msgid "Clear all cached data"
+msgstr "Počisti vse podatke iz predpomnilnika"
 
-#: ../src/titlebar.py:55
-msgid "Maximize"
-msgstr "Povečaj"
+msgid "Click here to refresh"
+msgstr "Kliknite za osvežitev"
 
-#: ../src/titlebar.py:56
-msgid "Minimum"
-msgstr "Pomanjšaj"
+msgid "Click to login"
+msgstr "Kliknite za prijavo"
 
-#: ../src/titlebar.py:57 ../src/dialog.py:134
+msgid "Click to switch user"
+msgstr "Kliknite za zamenjavo uporabnika"
+
 msgid "Close"
 msgstr "Zapri"
 
-#: ../src/titlebar.py:58
-msgid "Toggle"
-msgstr "Preklopi"
+msgid "Continue"
+msgstr "Nadaljuj"
 
-#: ../src/dialog.py:85 ../src/game_center.py:90 ../src/share.py:588
 msgid "Deepin Games"
 msgstr "Deepin igre"
 
-#: ../src/dialog.py:90
-msgid "Version: "
-msgstr "Različica:"
+#, python-format
+msgid "Deepin Games - %s "
+msgstr "Igre Deepin - %s"
 
-#: ../src/dialog.py:103
 msgid ""
 "Deepin Games is designed by Linux Deepin for Linux users. Here you will find "
 "good and safe games elaborately selected by professionals. Click and play "
@@ -64,229 +69,159 @@ msgstr ""
 "strokovnjakov. Kliknite in igrajte najboljše igre. Igre Deepin - globje v "
 "svet iger!"
 
-#: ../src/dialog.py:113
-msgid "Weibo: "
-msgstr "Weibo:"
+msgid "Favorite"
+msgstr "Najljubše"
 
-#: ../src/dialog.py:114
-msgid "Forum: "
-msgstr "Forum:"
-
-#: ../src/dialog.py:115
 msgid "Feedback: "
 msgstr "Povratne informacije:"
 
-#: ../src/dialog.py:116
+msgid "Follow"
+msgstr "Sledi"
+
+msgid "Forum: "
+msgstr "Forum:"
+
+msgid "Fullscreen"
+msgstr "Celozaslonski način"
+
 msgid "Game deliver: "
 msgstr "Založnik igre:"
 
-#: ../src/game_center.py:143
-msgid "Home"
-msgstr "Dom"
-
-#: ../src/game_center.py:144
-msgid "Topics"
-msgstr "Teme"
-
-#: ../src/game_center.py:145
-msgid "My Games"
-msgstr "Moje igre"
-
-#: ../src/game_center.py:163 ../src/game_center.py:176
-msgid "About us"
-msgstr "O nas"
-
-#: ../src/game_center.py:174
-msgid "Clear all cached data"
-msgstr "Počisti vse podatke iz predpomnilnika"
-
-#: ../src/game_center.py:175
-msgid "See what's new"
-msgstr "Poglej kaj je novega"
-
-#: ../src/game_center.py:177
-msgid "Quit"
-msgstr "Končaj"
-
-#: ../src/game_center.py:227
-msgid "My favorites"
-msgstr "Moje najljubše"
-
-#: ../src/game_center.py:228
-msgid "My recents"
-msgstr "Moje nedavne"
-
-#: ../src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr "%s datotek je izbrisanih in %s prostora na disku je sproščenega."
-
-#: ../src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "Predpomnilnik vaše igre je prazen."
-
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Dolgočasno"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Nič posebnega"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Zanimivo"
-
-#: ../src/star_view.py:330
 msgid "Good"
 msgstr "Dobro"
 
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Vau, čudovito"
+msgid "Home"
+msgstr "Dom"
 
-#: ../src/star_view.py:336 ../src/control_toolbar.py:255
-msgid "You score today already"
-msgstr "Vaš današnji rezultat"
+msgid "Interesting"
+msgstr "Zanimivo"
 
-#: ../src/guide_box.py:56
 msgid "Introduction"
 msgstr "Uvod"
 
-#: ../src/player.py:148
-#, python-format
-msgid "Deepin Games - %s "
-msgstr "Igre Deepin - %s"
+msgid "Main menu"
+msgstr "Glavni meni"
 
-#: ../src/share.py:77
-msgid "share to web"
-msgstr "deli s spletom"
+msgid "Maximize"
+msgstr "Povečaj"
 
-#: ../src/share.py:163
-msgid "Sina"
-msgstr "Sina"
+msgid "Minimum"
+msgstr "Pomanjšaj"
 
-#: ../src/share.py:164
-msgid "Tencent"
-msgstr "Tencent"
+msgid "Mute"
+msgstr "Utišaj"
 
-#: ../src/share.py:165
-msgid "Twitter"
-msgstr "Twitter"
+msgid "My Games"
+msgstr "Moje igre"
 
-#: ../src/share.py:197
-msgid "Unable to load page"
-msgstr "Ni možno naložiti strani"
+msgid "My favorites"
+msgstr "Moje najljubše"
 
-#: ../src/share.py:198
+msgid "My recents"
+msgstr "Moje nedavne"
+
+msgid "Normal"
+msgstr "Normalno"
+
+msgid "Nothing special"
+msgstr "Nič posebnega"
+
+msgid "OK"
+msgstr "Vredu"
+
+msgid "Pause"
+msgstr "Premor"
+
+msgid "Picture does not exist."
+msgstr "Slika ne obstaja."
+
+msgid "Please choose at least one platform to share on"
+msgstr "Prosim, izberite vsaj eno platformo za deljenje"
+
+msgid "Please input text here"
+msgstr "Prosim tukaj vpišite besedilo"
+
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "Pojavila se je težava pri nalaganju URL '%s'"
 
-#: ../src/share.py:326
-msgid "Click to switch user"
-msgstr "Kliknite za zamenjavo uporabnika"
+msgid "Quit"
+msgstr "Končaj"
 
-#: ../src/share.py:344
-msgid "Click to login"
-msgstr "Kliknite za prijavo"
+msgid "Ratings success"
+msgstr "Uspeh v oceni"
 
-#: ../src/share.py:459
-msgid "loading"
-msgstr "nalagam"
-
-#: ../src/share.py:470
-msgid "Tweet"
-msgstr "Tweet"
-
-#: ../src/share.py:512
-msgid "Please input text here"
-msgstr "Prosim tukaj vpišite besedilo"
-
-#: ../src/share.py:548 ../src/share.py:560
-msgid "error"
-msgstr "napaka"
-
-#: ../src/share.py:549
-msgid "Picture does not exist."
-msgstr "Slika ne obstaja."
-
-#: ../src/share.py:561
-msgid "Please choose at least one platform to share on"
-msgstr "Prosim, izberite vsaj eno platformo za deljenje"
-
-#: ../src/share.py:577
-msgid "Uploading"
-msgstr "Prenašanje"
-
-#: ../src/share.py:588
-msgid "comes from"
-msgstr "prihaja iz"
-
-#: ../src/share.py:635
-msgid "Follow"
-msgstr "Sledi"
-
-#: ../src/share.py:658 ../src/share.py:679
-msgid "upload to"
-msgstr "Prenesi v"
-
-#: ../src/share.py:661
-msgid "successful"
-msgstr "uspešno"
-
-#: ../src/share.py:684
-msgid "failed"
-msgstr "neuspešno"
-
-#: ../src/share.py:692
-msgid "Unknow reason"
-msgstr "Neznan razlog"
-
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Kliknite za osvežitev"
-
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "Vredu"
-
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Glasnost"
-
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Utišaj"
-
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Najljubše"
-
-#: ../src/control_toolbar.py:123
 msgid "Replay"
 msgstr "Ponovno igraj"
 
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Pavza"
+msgid "See what's new"
+msgstr "Poglej kaj je novega"
 
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Nadaljuj"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Celozaslonski način"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normalno"
-
-#: ../src/control_toolbar.py:181
 msgid "Share"
 msgstr "Deli"
 
-#: ../src/control_toolbar.py:258
-msgid "Ratings success"
-msgstr "Uspeh v oceni"
+msgid "Sina"
+msgstr "Sina"
+
+msgid "Tencent"
+msgstr "Tencent"
+
+msgid "Toggle"
+msgstr "Preklopi"
+
+msgid "Topics"
+msgstr "Teme"
+
+msgid "Tweet"
+msgstr "Tvitaj"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Unable to load page"
+msgstr "Strani ni možno naložiti"
+
+msgid "Unknow reason"
+msgstr "Neznan razlog"
+
+msgid "Uploading"
+msgstr "Prenašanje"
+
+msgid "Version: "
+msgstr "Različica:"
+
+msgid "Volume"
+msgstr "Glasnost"
+
+msgid "Weibo: "
+msgstr "Weibo:"
+
+msgid "Wow, wonderful"
+msgstr "Vau, čudovito"
+
+msgid "You score today already"
+msgstr "Danes ste že podali oceno"
+
+msgid "Your game cache is empty."
+msgstr "Predpomnilnik vaše igre je prazen."
+
+msgid "comes from"
+msgstr "prihaja iz"
+
+msgid "error"
+msgstr "napaka"
+
+msgid "failed"
+msgstr "neuspešno"
+
+msgid "loading"
+msgstr "nalagam"
+
+msgid "share to web"
+msgstr "deli s spletom"
+
+msgid "successful"
+msgstr "uspešno"
+
+msgid "upload to"
+msgstr "Prenesi v"

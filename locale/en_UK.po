@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 09:02+0800\n"
+"POT-Creation-Date: 2014-05-09 16:53+0800\n"
 "PO-Revision-Date: 2013-09-13 19:21+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,39 +17,44 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/titlebar.py:53
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "%s files are deleted and %s disk space is freed."
+
+msgid "About us"
+msgstr "About us"
+
+msgid "Boring"
+msgstr "Poor"
+
 msgid "Change skin"
 msgstr "Change skin"
 
-#: ../src/titlebar.py:54
-msgid "Main menu"
-msgstr "Main menu"
+msgid "Clear all cached data"
+msgstr "Clear all cached data"
 
-#: ../src/titlebar.py:55
-msgid "Maximize"
-msgstr "Maximize"
+msgid "Click here to refresh"
+msgstr "Click here to refresh"
 
-#: ../src/titlebar.py:56
-msgid "Minimum"
-msgstr "Minimum"
+msgid "Click to login"
+msgstr "Click to login"
 
-#: ../src/titlebar.py:57 ../src/dialog.py:134
+msgid "Click to switch user"
+msgstr "Click to switch user"
+
 msgid "Close"
 msgstr "Close"
 
-#: ../src/titlebar.py:58
-msgid "Toggle"
-msgstr "Toggle"
+msgid "Continue"
+msgstr "Continue"
 
-#: ../src/dialog.py:85 ../src/game_center.py:90 ../src/share.py:588
 msgid "Deepin Games"
 msgstr "Deepin Games"
 
-#: ../src/dialog.py:90
-msgid "Version: "
-msgstr "Version: "
+#, python-format
+msgid "Deepin Games - %s "
+msgstr "Deepin Games - %s "
 
-#: ../src/dialog.py:103
 msgid ""
 "Deepin Games is designed by Linux Deepin for Linux users. Here you will find "
 "good and safe games elaborately selected by professionals. Click and play "
@@ -60,229 +65,159 @@ msgstr ""
 "good and safe games elaborately selected by professionals. Click and play "
 "the best games you've ever met. Deepin Games — deeper into the game's world!"
 
-#: ../src/dialog.py:113
-msgid "Weibo: "
-msgstr "Weibo: "
+msgid "Favorite"
+msgstr "Favorite"
 
-#: ../src/dialog.py:114
-msgid "Forum: "
-msgstr "Forum: "
-
-#: ../src/dialog.py:115
 msgid "Feedback: "
 msgstr "Feedback: "
 
-#: ../src/dialog.py:116
+msgid "Follow"
+msgstr "Follow"
+
+msgid "Forum: "
+msgstr "Forum: "
+
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
 msgid "Game deliver: "
 msgstr "Game Deliver: "
 
-#: ../src/game_center.py:143
-msgid "Home"
-msgstr "Home"
-
-#: ../src/game_center.py:144
-msgid "Topics"
-msgstr "Topics"
-
-#: ../src/game_center.py:145
-msgid "My Games"
-msgstr "My Games"
-
-#: ../src/game_center.py:163 ../src/game_center.py:176
-msgid "About us"
-msgstr "About us"
-
-#: ../src/game_center.py:174
-msgid "Clear all cached data"
-msgstr "Clear all cached data"
-
-#: ../src/game_center.py:175
-msgid "See what's new"
-msgstr "See what's new"
-
-#: ../src/game_center.py:177
-msgid "Quit"
-msgstr "Quit"
-
-#: ../src/game_center.py:227
-msgid "My favorites"
-msgstr "Favourites"
-
-#: ../src/game_center.py:228
-msgid "My recents"
-msgstr "Recent played"
-
-#: ../src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr "%s files are deleted and %s disk space is freed."
-
-#: ../src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "Your game cache is empty."
-
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Poor"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Below average"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Average"
-
-#: ../src/star_view.py:330
 msgid "Good"
 msgstr "Above average"
 
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Excellent"
+msgid "Home"
+msgstr "Home"
 
-#: ../src/star_view.py:336 ../src/control_toolbar.py:255
-msgid "You score today already"
-msgstr "Already rated today"
+msgid "Interesting"
+msgstr "Average"
 
-#: ../src/guide_box.py:56
 msgid "Introduction"
 msgstr "Introduction"
 
-#: ../src/player.py:148
-#, python-format
-msgid "Deepin Games - %s "
-msgstr "Deepin Games - %s "
+msgid "Main menu"
+msgstr "Main menu"
 
-#: ../src/share.py:77
-msgid "share to web"
-msgstr "share to web"
+msgid "Maximize"
+msgstr "Maximize"
 
-#: ../src/share.py:163
-msgid "Sina"
+msgid "Minimum"
+msgstr "Minimum"
+
+msgid "Mute"
+msgstr "Mute"
+
+msgid "My Games"
+msgstr "My Games"
+
+msgid "My favorites"
+msgstr "Favourites"
+
+msgid "My recents"
+msgstr "Recent played"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Nothing special"
+msgstr "Below average"
+
+msgid "OK"
 msgstr ""
 
-#: ../src/share.py:164
-msgid "Tencent"
-msgstr ""
+msgid "Pause"
+msgstr "Pause"
 
-#: ../src/share.py:165
-msgid "Twitter"
-msgstr ""
+msgid "Picture does not exist."
+msgstr "Picture does not exist."
 
-#: ../src/share.py:197
-msgid "Unable to load page"
-msgstr "Unable to load page"
+msgid "Please choose at least one platform to share on"
+msgstr "Please choose at least one platform to share on"
 
-#: ../src/share.py:198
+msgid "Please input text here"
+msgstr "Text your comment here..."
+
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "Problem occurred while loading the URL '%s'"
 
-#: ../src/share.py:326
-msgid "Click to switch user"
-msgstr "Click to switch user"
+msgid "Quit"
+msgstr "Quit"
 
-#: ../src/share.py:344
-msgid "Click to login"
-msgstr "Click to login"
+msgid "Ratings success"
+msgstr "Rating was successful"
 
-#: ../src/share.py:459
-msgid "loading"
-msgstr "loading"
-
-#: ../src/share.py:470
-msgid "Tweet"
-msgstr "Tweet"
-
-#: ../src/share.py:512
-msgid "Please input text here"
-msgstr "Text your comment here..."
-
-#: ../src/share.py:548 ../src/share.py:560
-msgid "error"
-msgstr "error"
-
-#: ../src/share.py:549
-msgid "Picture does not exist."
-msgstr "Picture does not exist."
-
-#: ../src/share.py:561
-msgid "Please choose at least one platform to share on"
-msgstr "Please choose at least one platform to share on"
-
-#: ../src/share.py:577
-msgid "Uploading"
-msgstr "Uploading"
-
-#: ../src/share.py:588
-msgid "comes from"
-msgstr "comes from"
-
-#: ../src/share.py:635
-msgid "Follow"
-msgstr "Follow"
-
-#: ../src/share.py:658 ../src/share.py:679
-msgid "upload to"
-msgstr "upload to"
-
-#: ../src/share.py:661
-msgid "successful"
-msgstr "successful"
-
-#: ../src/share.py:684
-msgid "failed"
-msgstr "failed"
-
-#: ../src/share.py:692
-msgid "Unknow reason"
-msgstr "Unknown reason"
-
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Click here to refresh"
-
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr ""
-
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Volume"
-
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Mute"
-
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Favorite"
-
-#: ../src/control_toolbar.py:123
 msgid "Replay"
 msgstr "Replay"
 
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Pause"
+msgid "See what's new"
+msgstr "See what's new"
 
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Continue"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Fullscreen"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normal"
-
-#: ../src/control_toolbar.py:181
 msgid "Share"
 msgstr "Share"
 
-#: ../src/control_toolbar.py:258
-msgid "Ratings success"
-msgstr "Rating was successful"
+msgid "Sina"
+msgstr ""
+
+msgid "Tencent"
+msgstr ""
+
+msgid "Toggle"
+msgstr "Toggle"
+
+msgid "Topics"
+msgstr "Topics"
+
+msgid "Tweet"
+msgstr "Tweet"
+
+msgid "Twitter"
+msgstr ""
+
+msgid "Unable to load page"
+msgstr "Unable to load page"
+
+msgid "Unknow reason"
+msgstr "Unknown reason"
+
+msgid "Uploading"
+msgstr "Uploading"
+
+msgid "Version: "
+msgstr "Version: "
+
+msgid "Volume"
+msgstr "Volume"
+
+msgid "Weibo: "
+msgstr "Weibo: "
+
+msgid "Wow, wonderful"
+msgstr "Excellent"
+
+msgid "You score today already"
+msgstr "Already rated today"
+
+msgid "Your game cache is empty."
+msgstr "Your game cache is empty."
+
+msgid "comes from"
+msgstr "comes from"
+
+msgid "error"
+msgstr "error"
+
+msgid "failed"
+msgstr "failed"
+
+msgid "loading"
+msgstr "loading"
+
+msgid "share to web"
+msgstr "share to web"
+
+msgid "successful"
+msgstr "successful"
+
+msgid "upload to"
+msgstr "upload to"
