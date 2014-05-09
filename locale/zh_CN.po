@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game Center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 09:02+0800\n"
+"POT-Creation-Date: 2014-05-09 16:53+0800\n"
 "PO-Revision-Date: 2013-12-11 02:09+0000\n"
 "Last-Translator: iceleaf916 <iceleaf916@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/deepin-"
@@ -19,39 +19,44 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../src/titlebar.py:53
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "恭喜您清理了%s个文件，为您节约了%s空间。"
+
+msgid "About us"
+msgstr "关于我们"
+
+msgid "Boring"
+msgstr "没劲"
+
 msgid "Change skin"
 msgstr "换肤"
 
-#: ../src/titlebar.py:54
-msgid "Main menu"
-msgstr "主菜单"
+msgid "Clear all cached data"
+msgstr "智能清除所有缓存"
 
-#: ../src/titlebar.py:55
-msgid "Maximize"
-msgstr "最大化"
+msgid "Click here to refresh"
+msgstr "点击此处刷新"
 
-#: ../src/titlebar.py:56
-msgid "Minimum"
-msgstr "最小化"
+msgid "Click to login"
+msgstr "点击登陆"
 
-#: ../src/titlebar.py:57 ../src/dialog.py:134
+msgid "Click to switch user"
+msgstr "点击切换用户"
+
 msgid "Close"
 msgstr "关闭"
 
-#: ../src/titlebar.py:58
-msgid "Toggle"
-msgstr "切换"
+msgid "Continue"
+msgstr "继续"
 
-#: ../src/dialog.py:85 ../src/game_center.py:90 ../src/share.py:588
 msgid "Deepin Games"
 msgstr "深度游戏"
 
-#: ../src/dialog.py:90
-msgid "Version: "
-msgstr "版本："
+#, python-format
+msgid "Deepin Games - %s "
+msgstr "深度游戏 - %s "
 
-#: ../src/dialog.py:103
 msgid ""
 "Deepin Games is designed by Linux Deepin for Linux users. Here you will find "
 "good and safe games elaborately selected by professionals. Click and play "
@@ -63,229 +68,159 @@ msgstr ""
 "戏提供了大量精心挑选的精品游戏， 您只需轻轻一点便可享受并分享游戏给您带来的乐"
 "趣，深度游戏， 为快乐而生！"
 
-#: ../src/dialog.py:113
-msgid "Weibo: "
-msgstr "官方微博："
+msgid "Favorite"
+msgstr "收藏"
 
-#: ../src/dialog.py:114
-msgid "Forum: "
-msgstr "官方论坛："
-
-#: ../src/dialog.py:115
 msgid "Feedback: "
 msgstr "意见反馈："
 
-#: ../src/dialog.py:116
+msgid "Follow"
+msgstr "关注"
+
+msgid "Forum: "
+msgstr "官方论坛："
+
+msgid "Fullscreen"
+msgstr "全屏"
+
 msgid "Game deliver: "
 msgstr "游戏投递："
 
-#: ../src/game_center.py:143
-msgid "Home"
-msgstr "首页"
-
-#: ../src/game_center.py:144
-msgid "Topics"
-msgstr "游戏专题"
-
-#: ../src/game_center.py:145
-msgid "My Games"
-msgstr "我的游戏"
-
-#: ../src/game_center.py:163 ../src/game_center.py:176
-msgid "About us"
-msgstr "关于我们"
-
-#: ../src/game_center.py:174
-msgid "Clear all cached data"
-msgstr "智能清除所有缓存"
-
-#: ../src/game_center.py:175
-msgid "See what's new"
-msgstr "查看新特性"
-
-#: ../src/game_center.py:177
-msgid "Quit"
-msgstr "退出"
-
-#: ../src/game_center.py:227
-msgid "My favorites"
-msgstr "我的收藏"
-
-#: ../src/game_center.py:228
-msgid "My recents"
-msgstr "最近玩过"
-
-#: ../src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr "恭喜您清理了%s个文件，为您节约了%s空间。"
-
-#: ../src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "您的游戏缓存已经清理干净，不需要再清理。"
-
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "没劲"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "一般吧"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "好玩"
-
-#: ../src/star_view.py:330
 msgid "Good"
 msgstr "值得一玩"
 
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "哇，太棒了"
+msgid "Home"
+msgstr "首页"
 
-#: ../src/star_view.py:336 ../src/control_toolbar.py:255
-msgid "You score today already"
-msgstr "您今天已评过"
+msgid "Interesting"
+msgstr "好玩"
 
-#: ../src/guide_box.py:56
 msgid "Introduction"
 msgstr "游戏简介"
 
-#: ../src/player.py:148
-#, python-format
-msgid "Deepin Games - %s "
-msgstr "深度游戏 - %s "
+msgid "Main menu"
+msgstr "主菜单"
 
-#: ../src/share.py:77
-msgid "share to web"
-msgstr "分享至网络"
+msgid "Maximize"
+msgstr "最大化"
 
-#: ../src/share.py:163
-msgid "Sina"
-msgstr "新浪微博"
+msgid "Minimum"
+msgstr "最小化"
 
-#: ../src/share.py:164
-msgid "Tencent"
-msgstr "腾讯微博"
+msgid "Mute"
+msgstr "静音"
 
-#: ../src/share.py:165
-msgid "Twitter"
-msgstr "Twitter"
+msgid "My Games"
+msgstr "我的游戏"
 
-#: ../src/share.py:197
-msgid "Unable to load page"
-msgstr "无法加载页面"
+msgid "My favorites"
+msgstr "我的收藏"
 
-#: ../src/share.py:198
+msgid "My recents"
+msgstr "最近玩过"
+
+msgid "Normal"
+msgstr "恢复"
+
+msgid "Nothing special"
+msgstr "一般吧"
+
+msgid "OK"
+msgstr "确认"
+
+msgid "Pause"
+msgstr "暂停"
+
+msgid "Picture does not exist."
+msgstr "图片不存在"
+
+msgid "Please choose at least one platform to share on"
+msgstr "请选择至少一个平台分享"
+
+msgid "Please input text here"
+msgstr "请在此输入文字"
+
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "加载 URL '%s' 时出错"
 
-#: ../src/share.py:326
-msgid "Click to switch user"
-msgstr "点击切换用户"
+msgid "Quit"
+msgstr "退出"
 
-#: ../src/share.py:344
-msgid "Click to login"
-msgstr "点击登陆"
+msgid "Ratings success"
+msgstr "评分成功"
 
-#: ../src/share.py:459
-msgid "loading"
-msgstr "加载中"
-
-#: ../src/share.py:470
-msgid "Tweet"
-msgstr "发送微博"
-
-#: ../src/share.py:512
-msgid "Please input text here"
-msgstr "请在此输入文字"
-
-#: ../src/share.py:548 ../src/share.py:560
-msgid "error"
-msgstr "错误"
-
-#: ../src/share.py:549
-msgid "Picture does not exist."
-msgstr "图片不存在"
-
-#: ../src/share.py:561
-msgid "Please choose at least one platform to share on"
-msgstr "请选择至少一个平台分享"
-
-#: ../src/share.py:577
-msgid "Uploading"
-msgstr "上传中"
-
-#: ../src/share.py:588
-msgid "comes from"
-msgstr "来自"
-
-#: ../src/share.py:635
-msgid "Follow"
-msgstr "关注"
-
-#: ../src/share.py:658 ../src/share.py:679
-msgid "upload to"
-msgstr "上传至"
-
-#: ../src/share.py:661
-msgid "successful"
-msgstr "成功"
-
-#: ../src/share.py:684
-msgid "failed"
-msgstr "失败"
-
-#: ../src/share.py:692
-msgid "Unknow reason"
-msgstr "未知原因"
-
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "点击此处刷新"
-
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "确认"
-
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "声音"
-
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "静音"
-
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "收藏"
-
-#: ../src/control_toolbar.py:123
 msgid "Replay"
 msgstr "重玩"
 
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "暂停"
+msgid "See what's new"
+msgstr "查看新特性"
 
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "继续"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "全屏"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "恢复"
-
-#: ../src/control_toolbar.py:181
 msgid "Share"
 msgstr "分享"
 
-#: ../src/control_toolbar.py:258
-msgid "Ratings success"
-msgstr "评分成功"
+msgid "Sina"
+msgstr "新浪微博"
+
+msgid "Tencent"
+msgstr "腾讯微博"
+
+msgid "Toggle"
+msgstr "切换"
+
+msgid "Topics"
+msgstr "游戏专题"
+
+msgid "Tweet"
+msgstr "发送微博"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Unable to load page"
+msgstr "无法加载页面"
+
+msgid "Unknow reason"
+msgstr "未知原因"
+
+msgid "Uploading"
+msgstr "上传中"
+
+msgid "Version: "
+msgstr "版本："
+
+msgid "Volume"
+msgstr "声音"
+
+msgid "Weibo: "
+msgstr "官方微博："
+
+msgid "Wow, wonderful"
+msgstr "哇，太棒了"
+
+msgid "You score today already"
+msgstr "您今天已评过"
+
+msgid "Your game cache is empty."
+msgstr "您的游戏缓存已经清理干净，不需要再清理。"
+
+msgid "comes from"
+msgstr "来自"
+
+msgid "error"
+msgstr "错误"
+
+msgid "failed"
+msgstr "失败"
+
+msgid "loading"
+msgstr "加载中"
+
+msgid "share to web"
+msgstr "分享至网络"
+
+msgid "successful"
+msgstr "成功"
+
+msgid "upload to"
+msgstr "上传至"

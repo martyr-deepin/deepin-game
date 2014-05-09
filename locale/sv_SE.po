@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game Center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 09:02+0800\n"
-"PO-Revision-Date: 2013-12-16 20:18+0000\n"
+"POT-Creation-Date: 2014-05-09 16:53+0800\n"
+"PO-Revision-Date: 2014-05-08 13:42+0000\n"
 "Last-Translator: addegsson <addegsson@gmail.com>\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/deepin-"
 "game-center/language/sv_SE/)\n"
@@ -19,39 +19,44 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/titlebar.py:53
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "%s filer är raderade och %s diskutrymme är frigort."
+
+msgid "About us"
+msgstr "Om oss"
+
+msgid "Boring"
+msgstr "Tråkigt"
+
 msgid "Change skin"
 msgstr "Byt skal"
 
-#: ../src/titlebar.py:54
-msgid "Main menu"
-msgstr "Huvudmeny"
+msgid "Clear all cached data"
+msgstr "Rensa all cache "
 
-#: ../src/titlebar.py:55
-msgid "Maximize"
-msgstr "Maximera"
+msgid "Click here to refresh"
+msgstr "Klicka här för att uppdatera"
 
-#: ../src/titlebar.py:56
-msgid "Minimum"
-msgstr "Minimera"
+msgid "Click to login"
+msgstr "Tryck för att logga in"
 
-#: ../src/titlebar.py:57 ../src/dialog.py:134
+msgid "Click to switch user"
+msgstr "Tryck för att byta användare"
+
 msgid "Close"
 msgstr "Stäng"
 
-#: ../src/titlebar.py:58
-msgid "Toggle"
-msgstr "Växla"
+msgid "Continue"
+msgstr "Fortsätt"
 
-#: ../src/dialog.py:85 ../src/game_center.py:90 ../src/share.py:588
 msgid "Deepin Games"
 msgstr "Deepin Spel"
 
-#: ../src/dialog.py:90
-msgid "Version: "
-msgstr "Version: "
+#, python-format
+msgid "Deepin Games - %s "
+msgstr "Deepin Spel - %s "
 
-#: ../src/dialog.py:103
 msgid ""
 "Deepin Games is designed by Linux Deepin for Linux users. Here you will find "
 "good and safe games elaborately selected by professionals. Click and play "
@@ -63,229 +68,159 @@ msgstr ""
 "spela de bästa spelen du någonsin mött. Deepin Spel - djupare ned i "
 "spelvärlden!"
 
-#: ../src/dialog.py:113
-msgid "Weibo: "
-msgstr "Weibo: "
+msgid "Favorite"
+msgstr "Favorit"
 
-#: ../src/dialog.py:114
-msgid "Forum: "
-msgstr "Forum: "
-
-#: ../src/dialog.py:115
 msgid "Feedback: "
 msgstr "Åsikter:"
 
-#: ../src/dialog.py:116
+msgid "Follow"
+msgstr "Följ"
+
+msgid "Forum: "
+msgstr "Forum: "
+
+msgid "Fullscreen"
+msgstr "Helskärm"
+
 msgid "Game deliver: "
 msgstr "Spelet levererar:"
 
-#: ../src/game_center.py:143
-msgid "Home"
-msgstr "Hem"
-
-#: ../src/game_center.py:144
-msgid "Topics"
-msgstr "Ämnen"
-
-#: ../src/game_center.py:145
-msgid "My Games"
-msgstr "Mina spel"
-
-#: ../src/game_center.py:163 ../src/game_center.py:176
-msgid "About us"
-msgstr "Om oss"
-
-#: ../src/game_center.py:174
-msgid "Clear all cached data"
-msgstr "Rensa all cache "
-
-#: ../src/game_center.py:175
-msgid "See what's new"
-msgstr "Se nyheter"
-
-#: ../src/game_center.py:177
-msgid "Quit"
-msgstr "Avsluta"
-
-#: ../src/game_center.py:227
-msgid "My favorites"
-msgstr "Mina favoriter"
-
-#: ../src/game_center.py:228
-msgid "My recents"
-msgstr "Mina senaste"
-
-#: ../src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr "%s filer är raderade och %s diskutrymme är frigort."
-
-#: ../src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "Din spelcache är tom."
-
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Tråkigt"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Inget speciellt"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Intressant"
-
-#: ../src/star_view.py:330
 msgid "Good"
 msgstr "Bra"
 
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Wow, underbart"
+msgid "Home"
+msgstr "Hem"
 
-#: ../src/star_view.py:336 ../src/control_toolbar.py:255
-msgid "You score today already"
-msgstr "Du har redan poängsatt idag"
+msgid "Interesting"
+msgstr "Intressant"
 
-#: ../src/guide_box.py:56
 msgid "Introduction"
 msgstr "Introduktion"
 
-#: ../src/player.py:148
-#, python-format
-msgid "Deepin Games - %s "
-msgstr "Deepin Spel - %s "
+msgid "Main menu"
+msgstr "Huvudmeny"
 
-#: ../src/share.py:77
-msgid "share to web"
-msgstr "Dela på webben"
+msgid "Maximize"
+msgstr "Maximera"
 
-#: ../src/share.py:163
-msgid "Sina"
-msgstr "Sina"
+msgid "Minimum"
+msgstr "Minimera"
 
-#: ../src/share.py:164
-msgid "Tencent"
-msgstr "Tencent"
+msgid "Mute"
+msgstr "Tyst"
 
-#: ../src/share.py:165
-msgid "Twitter"
-msgstr "Twitter"
+msgid "My Games"
+msgstr "Mina spel"
 
-#: ../src/share.py:197
-msgid "Unable to load page"
-msgstr "Misslyckades att ladda sidan"
+msgid "My favorites"
+msgstr "Mina favoriter"
 
-#: ../src/share.py:198
+msgid "My recents"
+msgstr "Mina senaste"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Nothing special"
+msgstr "Inget speciellt"
+
+msgid "OK"
+msgstr "Okej"
+
+msgid "Pause"
+msgstr "Pausa"
+
+msgid "Picture does not exist."
+msgstr "Bilden finns inte"
+
+msgid "Please choose at least one platform to share on"
+msgstr "Ange minst en plattform att dela på"
+
+msgid "Please input text here"
+msgstr "Skriv här"
+
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "Ett problem uppstod vid laddningen av URL '%s'"
 
-#: ../src/share.py:326
-msgid "Click to switch user"
-msgstr "Tryck för att byta användare"
+msgid "Quit"
+msgstr "Avsluta"
 
-#: ../src/share.py:344
-msgid "Click to login"
-msgstr "Tryck för att logga in"
+msgid "Ratings success"
+msgstr "Betygsättning lyckades"
 
-#: ../src/share.py:459
-msgid "loading"
-msgstr "laddar"
-
-#: ../src/share.py:470
-msgid "Tweet"
-msgstr "Tweet"
-
-#: ../src/share.py:512
-msgid "Please input text here"
-msgstr "Skriv här"
-
-#: ../src/share.py:548 ../src/share.py:560
-msgid "error"
-msgstr "fel"
-
-#: ../src/share.py:549
-msgid "Picture does not exist."
-msgstr "Bilden finns inte"
-
-#: ../src/share.py:561
-msgid "Please choose at least one platform to share on"
-msgstr "Ange minst en plattform att dela på"
-
-#: ../src/share.py:577
-msgid "Uploading"
-msgstr "Laddar upp"
-
-#: ../src/share.py:588
-msgid "comes from"
-msgstr "kommer från"
-
-#: ../src/share.py:635
-msgid "Follow"
-msgstr "Följ"
-
-#: ../src/share.py:658 ../src/share.py:679
-msgid "upload to"
-msgstr "ladda upp till"
-
-#: ../src/share.py:661
-msgid "successful"
-msgstr "lyckades"
-
-#: ../src/share.py:684
-msgid "failed"
-msgstr "misslyckades"
-
-#: ../src/share.py:692
-msgid "Unknow reason"
-msgstr "Okänd anledning"
-
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Klicka här för att uppdatera"
-
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "Okej"
-
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Volym"
-
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Tyst"
-
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Favorit"
-
-#: ../src/control_toolbar.py:123
 msgid "Replay"
 msgstr "Spela om"
 
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Pausa"
+msgid "See what's new"
+msgstr "Se nyheter"
 
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Fortsätt"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Helskärm"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normal"
-
-#: ../src/control_toolbar.py:181
 msgid "Share"
 msgstr "Dela"
 
-#: ../src/control_toolbar.py:258
-msgid "Ratings success"
-msgstr "Betygsättning lyckades"
+msgid "Sina"
+msgstr "Sina"
+
+msgid "Tencent"
+msgstr "Tencent"
+
+msgid "Toggle"
+msgstr "Växla"
+
+msgid "Topics"
+msgstr "Ämnen"
+
+msgid "Tweet"
+msgstr "Tweet"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Unable to load page"
+msgstr "Misslyckades att ladda sidan"
+
+msgid "Unknow reason"
+msgstr "Okänd anledning"
+
+msgid "Uploading"
+msgstr "Laddar upp"
+
+msgid "Version: "
+msgstr "Version: "
+
+msgid "Volume"
+msgstr "Volym"
+
+msgid "Weibo: "
+msgstr "Weibo: "
+
+msgid "Wow, wonderful"
+msgstr "Wow, underbart"
+
+msgid "You score today already"
+msgstr "Du har redan poängsatt idag"
+
+msgid "Your game cache is empty."
+msgstr "Din spelcache är tom."
+
+msgid "comes from"
+msgstr "kommer från"
+
+msgid "error"
+msgstr "fel"
+
+msgid "failed"
+msgstr "misslyckades"
+
+msgid "loading"
+msgstr "laddar"
+
+msgid "share to web"
+msgstr "Dela på webben"
+
+msgid "successful"
+msgstr "lyckades"
+
+msgid "upload to"
+msgstr "ladda upp till"

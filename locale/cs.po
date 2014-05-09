@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game Center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 09:02+0800\n"
+"POT-Creation-Date: 2014-05-09 16:53+0800\n"
 "PO-Revision-Date: 2013-12-22 09:14+0000\n"
 "Last-Translator: fri <pavelfric@seznam.cz>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/deepin-game-center/"
@@ -19,39 +19,44 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../src/titlebar.py:53
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "%s souborů smazáno a %s místa na disku uvolněno."
+
+msgid "About us"
+msgstr "O nás"
+
+msgid "Boring"
+msgstr "Nuda"
+
 msgid "Change skin"
 msgstr "Změnit podobu"
 
-#: ../src/titlebar.py:54
-msgid "Main menu"
-msgstr "Hlavní nabídka"
+msgid "Clear all cached data"
+msgstr "Odstranit všechna data ve vyrovnávací paměti"
 
-#: ../src/titlebar.py:55
-msgid "Maximize"
-msgstr "Zvětšit"
+msgid "Click here to refresh"
+msgstr "Klepněte zde pro obnovení"
 
-#: ../src/titlebar.py:56
-msgid "Minimum"
-msgstr "Nejmenší"
+msgid "Click to login"
+msgstr "Klepněte pro přihlášení"
 
-#: ../src/titlebar.py:57 ../src/dialog.py:134
+msgid "Click to switch user"
+msgstr "Klepněte pro přepnutí uživatele"
+
 msgid "Close"
 msgstr "Zavřít"
 
-#: ../src/titlebar.py:58
-msgid "Toggle"
-msgstr "Přepnout"
+msgid "Continue"
+msgstr "Pokračovat"
 
-#: ../src/dialog.py:85 ../src/game_center.py:90 ../src/share.py:588
 msgid "Deepin Games"
 msgstr "Hry"
 
-#: ../src/dialog.py:90
-msgid "Version: "
-msgstr "Verze: "
+#, python-format
+msgid "Deepin Games - %s "
+msgstr "Hry Deepin - %s "
 
-#: ../src/dialog.py:103
 msgid ""
 "Deepin Games is designed by Linux Deepin for Linux users. Here you will find "
 "good and safe games elaborately selected by professionals. Click and play "
@@ -63,229 +68,159 @@ msgstr ""
 "nejlepší hry, se kterými jste se kdy setkali. Hry v Deepinu - hlouběji do "
 "světa her!"
 
-#: ../src/dialog.py:113
-msgid "Weibo: "
-msgstr "Weibo: "
+msgid "Favorite"
+msgstr "Oblíbené"
 
-#: ../src/dialog.py:114
-msgid "Forum: "
-msgstr "Fórum: "
-
-#: ../src/dialog.py:115
 msgid "Feedback: "
 msgstr "Zpětná vazba: "
 
-#: ../src/dialog.py:116
+msgid "Follow"
+msgstr "Sledovat"
+
+msgid "Forum: "
+msgstr "Fórum: "
+
+msgid "Fullscreen"
+msgstr "Celá obrazovka"
+
 msgid "Game deliver: "
 msgstr "Vydavatel hry: "
 
-#: ../src/game_center.py:143
-msgid "Home"
-msgstr "Domovská složka"
-
-#: ../src/game_center.py:144
-msgid "Topics"
-msgstr "Náměty"
-
-#: ../src/game_center.py:145
-msgid "My Games"
-msgstr "Moje hry"
-
-#: ../src/game_center.py:163 ../src/game_center.py:176
-msgid "About us"
-msgstr "O nás"
-
-#: ../src/game_center.py:174
-msgid "Clear all cached data"
-msgstr "Odstranit všechna data ve vyrovnávací paměti"
-
-#: ../src/game_center.py:175
-msgid "See what's new"
-msgstr "Podívat se na novinky"
-
-#: ../src/game_center.py:177
-msgid "Quit"
-msgstr "Ukončit"
-
-#: ../src/game_center.py:227
-msgid "My favorites"
-msgstr "Moje oblíbené"
-
-#: ../src/game_center.py:228
-msgid "My recents"
-msgstr "Moje nedávné"
-
-#: ../src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr "%s souborů smazáno a %s místa na disku uvolněno."
-
-#: ../src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "Vaše herní vyrovnávací paměť je prázdná."
-
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Nuda"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Nic zvláštního"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Zajímavé"
-
-#: ../src/star_view.py:330
 msgid "Good"
 msgstr "Dobré"
 
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Nářez. Úžasné"
+msgid "Home"
+msgstr "Domovská složka"
 
-#: ../src/star_view.py:336 ../src/control_toolbar.py:255
-msgid "You score today already"
-msgstr "Váš dnešní výsledek již"
+msgid "Interesting"
+msgstr "Zajímavé"
 
-#: ../src/guide_box.py:56
 msgid "Introduction"
 msgstr "Úvod"
 
-#: ../src/player.py:148
-#, python-format
-msgid "Deepin Games - %s "
-msgstr "Hry Deepin - %s "
+msgid "Main menu"
+msgstr "Hlavní nabídka"
 
-#: ../src/share.py:77
-msgid "share to web"
-msgstr "Sdílet na internetu"
+msgid "Maximize"
+msgstr "Zvětšit"
 
-#: ../src/share.py:163
-msgid "Sina"
-msgstr "Sina"
+msgid "Minimum"
+msgstr "Nejmenší"
 
-#: ../src/share.py:164
-msgid "Tencent"
-msgstr "Tencent"
+msgid "Mute"
+msgstr "Ztlumit"
 
-#: ../src/share.py:165
-msgid "Twitter"
-msgstr "Twitter"
+msgid "My Games"
+msgstr "Moje hry"
 
-#: ../src/share.py:197
-msgid "Unable to load page"
-msgstr "Nelze nahrát stránku"
+msgid "My favorites"
+msgstr "Moje oblíbené"
 
-#: ../src/share.py:198
+msgid "My recents"
+msgstr "Moje nedávné"
+
+msgid "Normal"
+msgstr "Normální"
+
+msgid "Nothing special"
+msgstr "Nic zvláštního"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Pause"
+msgstr "Pozastavit"
+
+msgid "Picture does not exist."
+msgstr "Obrázek neexistuje."
+
+msgid "Please choose at least one platform to share on"
+msgstr "Vyberte, prosím, alespoň jeden systém, na kterém se má sdílet"
+
+msgid "Please input text here"
+msgstr "Zadejte, prosím, text zde"
+
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "Při nahrávání adresy (URL) '%s' se vyskytly potíže"
 
-#: ../src/share.py:326
-msgid "Click to switch user"
-msgstr "Klepněte pro přepnutí uživatele"
+msgid "Quit"
+msgstr "Ukončit"
 
-#: ../src/share.py:344
-msgid "Click to login"
-msgstr "Klepněte pro přihlášení"
+msgid "Ratings success"
+msgstr "Úspěch v hodnocení"
 
-#: ../src/share.py:459
-msgid "loading"
-msgstr "Nahrává se "
-
-#: ../src/share.py:470
-msgid "Tweet"
-msgstr "Zpráva"
-
-#: ../src/share.py:512
-msgid "Please input text here"
-msgstr "Zadejte, prosím, text zde"
-
-#: ../src/share.py:548 ../src/share.py:560
-msgid "error"
-msgstr "Chyba"
-
-#: ../src/share.py:549
-msgid "Picture does not exist."
-msgstr "Obrázek neexistuje."
-
-#: ../src/share.py:561
-msgid "Please choose at least one platform to share on"
-msgstr "Vyberte, prosím, alespoň jeden systém, na kterém se má sdílet"
-
-#: ../src/share.py:577
-msgid "Uploading"
-msgstr "Nahrávání"
-
-#: ../src/share.py:588
-msgid "comes from"
-msgstr "Přichází od"
-
-#: ../src/share.py:635
-msgid "Follow"
-msgstr "Sledovat"
-
-#: ../src/share.py:658 ../src/share.py:679
-msgid "upload to"
-msgstr "Nahrát na"
-
-#: ../src/share.py:661
-msgid "successful"
-msgstr "Úspěšné"
-
-#: ../src/share.py:684
-msgid "failed"
-msgstr "Neúspěšné"
-
-#: ../src/share.py:692
-msgid "Unknow reason"
-msgstr "Neznámý důvod"
-
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Klepněte zde pro obnovení"
-
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "OK"
-
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Hlasitost"
-
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Ztlumit"
-
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Oblíbené"
-
-#: ../src/control_toolbar.py:123
 msgid "Replay"
 msgstr "Hrát znovu"
 
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Pozastavit"
+msgid "See what's new"
+msgstr "Podívat se na novinky"
 
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Pokračovat"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Celá obrazovka"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normální"
-
-#: ../src/control_toolbar.py:181
 msgid "Share"
 msgstr "Sdílet"
 
-#: ../src/control_toolbar.py:258
-msgid "Ratings success"
-msgstr "Úspěch v hodnocení"
+msgid "Sina"
+msgstr "Sina"
+
+msgid "Tencent"
+msgstr "Tencent"
+
+msgid "Toggle"
+msgstr "Přepnout"
+
+msgid "Topics"
+msgstr "Náměty"
+
+msgid "Tweet"
+msgstr "Zpráva"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Unable to load page"
+msgstr "Nelze nahrát stránku"
+
+msgid "Unknow reason"
+msgstr "Neznámý důvod"
+
+msgid "Uploading"
+msgstr "Nahrávání"
+
+msgid "Version: "
+msgstr "Verze: "
+
+msgid "Volume"
+msgstr "Hlasitost"
+
+msgid "Weibo: "
+msgstr "Weibo: "
+
+msgid "Wow, wonderful"
+msgstr "Nářez. Úžasné"
+
+msgid "You score today already"
+msgstr "Váš dnešní výsledek již"
+
+msgid "Your game cache is empty."
+msgstr "Vaše herní vyrovnávací paměť je prázdná."
+
+msgid "comes from"
+msgstr "Přichází od"
+
+msgid "error"
+msgstr "Chyba"
+
+msgid "failed"
+msgstr "Neúspěšné"
+
+msgid "loading"
+msgstr "Nahrává se "
+
+msgid "share to web"
+msgstr "Sdílet na internetu"
+
+msgid "successful"
+msgstr "Úspěšné"
+
+msgid "upload to"
+msgstr "Nahrát na"

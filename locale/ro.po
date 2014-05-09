@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game Center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 09:02+0800\n"
-"PO-Revision-Date: 2014-02-17 08:31+0000\n"
+"POT-Creation-Date: 2014-05-09 16:53+0800\n"
+"PO-Revision-Date: 2014-05-08 13:42+0000\n"
 "Last-Translator: pacificator <pacificator2@gmail.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/deepin-game-"
 "center/language/ro/)\n"
@@ -20,39 +20,44 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
 "2:1));\n"
 
-#: ../src/titlebar.py:53
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "%s fișiere au fost șterse și %s spațiu pe disc a fost eliberat."
+
+msgid "About us"
+msgstr "Despre noi"
+
+msgid "Boring"
+msgstr "Plictisitor"
+
 msgid "Change skin"
 msgstr "Schimbă aspectul"
 
-#: ../src/titlebar.py:54
-msgid "Main menu"
-msgstr "Meniu principal"
+msgid "Clear all cached data"
+msgstr "Șterge toate datele memorate în cache"
 
-#: ../src/titlebar.py:55
-msgid "Maximize"
-msgstr "Mărește"
+msgid "Click here to refresh"
+msgstr "Click pentru reîmprospătare"
 
-#: ../src/titlebar.py:56
-msgid "Minimum"
-msgstr "Minimum"
+msgid "Click to login"
+msgstr "Apasă pentru intrare"
 
-#: ../src/titlebar.py:57 ../src/dialog.py:134
+msgid "Click to switch user"
+msgstr "Apasă pentru a schimba utilizatorul"
+
 msgid "Close"
 msgstr "Închide"
 
-#: ../src/titlebar.py:58
-msgid "Toggle"
-msgstr "Înlătură"
+msgid "Continue"
+msgstr "Continuă"
 
-#: ../src/dialog.py:85 ../src/game_center.py:90 ../src/share.py:588
 msgid "Deepin Games"
 msgstr "Jocuri Deepin"
 
-#: ../src/dialog.py:90
-msgid "Version: "
-msgstr "Versiune:"
+#, python-format
+msgid "Deepin Games - %s "
+msgstr "Jocuri Deepin - %s"
 
-#: ../src/dialog.py:103
 msgid ""
 "Deepin Games is designed by Linux Deepin for Linux users. Here you will find "
 "good and safe games elaborately selected by professionals. Click and play "
@@ -64,229 +69,159 @@ msgstr ""
 "Accesați și jucați cele mai bune jocuri întâlnite vreo dată. Jocuri Deepin - "
 "mai adânc în lumea jocurilor!"
 
-#: ../src/dialog.py:113
-msgid "Weibo: "
-msgstr "Weibo: "
+msgid "Favorite"
+msgstr "Favorit"
 
-#: ../src/dialog.py:114
-msgid "Forum: "
-msgstr "Forum: "
-
-#: ../src/dialog.py:115
 msgid "Feedback: "
 msgstr "Feedback: "
 
-#: ../src/dialog.py:116
+msgid "Follow"
+msgstr "Urmărește"
+
+msgid "Forum: "
+msgstr "Forum: "
+
+msgid "Fullscreen"
+msgstr "Ecran complet"
+
 msgid "Game deliver: "
 msgstr "Joc oferit de:"
 
-#: ../src/game_center.py:143
-msgid "Home"
-msgstr "Acasă"
-
-#: ../src/game_center.py:144
-msgid "Topics"
-msgstr "Subiecte"
-
-#: ../src/game_center.py:145
-msgid "My Games"
-msgstr "Jocurile Mele"
-
-#: ../src/game_center.py:163 ../src/game_center.py:176
-msgid "About us"
-msgstr "Despre noi"
-
-#: ../src/game_center.py:174
-msgid "Clear all cached data"
-msgstr "Șterge toate datele memorate în cache"
-
-#: ../src/game_center.py:175
-msgid "See what's new"
-msgstr "Vezi noutățile"
-
-#: ../src/game_center.py:177
-msgid "Quit"
-msgstr "Ieși"
-
-#: ../src/game_center.py:227
-msgid "My favorites"
-msgstr "Favoritele mele"
-
-#: ../src/game_center.py:228
-msgid "My recents"
-msgstr "Recente"
-
-#: ../src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr "%s fișiere au fost șterse și %s spațiu pe disc a fost eliberat."
-
-#: ../src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "Memoria cache a jocului este goală."
-
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Plictisitor"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Nimic special"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Interesant"
-
-#: ../src/star_view.py:330
 msgid "Good"
 msgstr "Bun"
 
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Oau, minunat"
+msgid "Home"
+msgstr "Acasă"
 
-#: ../src/star_view.py:336 ../src/control_toolbar.py:255
-msgid "You score today already"
-msgstr "Ai punctat deja astăzi"
+msgid "Interesting"
+msgstr "Interesant"
 
-#: ../src/guide_box.py:56
 msgid "Introduction"
 msgstr "Introducere"
 
-#: ../src/player.py:148
-#, python-format
-msgid "Deepin Games - %s "
-msgstr "Jocuri Deepin - %s"
+msgid "Main menu"
+msgstr "Meniu principal"
 
-#: ../src/share.py:77
-msgid "share to web"
-msgstr "distribuie pe web"
+msgid "Maximize"
+msgstr "Mărește"
 
-#: ../src/share.py:163
-msgid "Sina"
-msgstr "Sina"
+msgid "Minimum"
+msgstr "Minimum"
 
-#: ../src/share.py:164
-msgid "Tencent"
-msgstr "Tencent"
+msgid "Mute"
+msgstr "Mut"
 
-#: ../src/share.py:165
-msgid "Twitter"
-msgstr "Twitter"
+msgid "My Games"
+msgstr "Jocurile Mele"
 
-#: ../src/share.py:197
-msgid "Unable to load page"
-msgstr "Imposibil de încărcat pagina"
+msgid "My favorites"
+msgstr "Favoritele mele"
 
-#: ../src/share.py:198
+msgid "My recents"
+msgstr "Recente"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Nothing special"
+msgstr "Nimic special"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Pause"
+msgstr "Pauză"
+
+msgid "Picture does not exist."
+msgstr "Imaginea nu există."
+
+msgid "Please choose at least one platform to share on"
+msgstr "Vă rugăm să alegeți cel puțin o platformă pentru a distribui"
+
+msgid "Please input text here"
+msgstr "Introduceți textul aici"
+
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "A apărut o problemă la încărcarea URL '%s'"
 
-#: ../src/share.py:326
-msgid "Click to switch user"
-msgstr "Apasă pentru a schimba utilizatorul"
+msgid "Quit"
+msgstr "Ieși"
 
-#: ../src/share.py:344
-msgid "Click to login"
-msgstr "Apasă pentru intrare"
+msgid "Ratings success"
+msgstr "Aprecieri"
 
-#: ../src/share.py:459
-msgid "loading"
-msgstr "se încarcă"
-
-#: ../src/share.py:470
-msgid "Tweet"
-msgstr "Tweet"
-
-#: ../src/share.py:512
-msgid "Please input text here"
-msgstr "Introduceți textul aici"
-
-#: ../src/share.py:548 ../src/share.py:560
-msgid "error"
-msgstr "eroare"
-
-#: ../src/share.py:549
-msgid "Picture does not exist."
-msgstr "Imaginea nu există."
-
-#: ../src/share.py:561
-msgid "Please choose at least one platform to share on"
-msgstr "Vă rugăm să alegeți cel puțin o platformă pentru a distribui"
-
-#: ../src/share.py:577
-msgid "Uploading"
-msgstr "Încarcă"
-
-#: ../src/share.py:588
-msgid "comes from"
-msgstr "vin de la"
-
-#: ../src/share.py:635
-msgid "Follow"
-msgstr "Urmărește"
-
-#: ../src/share.py:658 ../src/share.py:679
-msgid "upload to"
-msgstr "încarcă pe"
-
-#: ../src/share.py:661
-msgid "successful"
-msgstr "reușită"
-
-#: ../src/share.py:684
-msgid "failed"
-msgstr "eșec"
-
-#: ../src/share.py:692
-msgid "Unknow reason"
-msgstr "Motiv necunoscut"
-
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Click pentru reîmprospătare"
-
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "OK"
-
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Volum"
-
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Mut"
-
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Favorit"
-
-#: ../src/control_toolbar.py:123
 msgid "Replay"
 msgstr "Joacă din nou"
 
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Pauză"
+msgid "See what's new"
+msgstr "Vezi noutățile"
 
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Continuă"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Ecran complet"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normal"
-
-#: ../src/control_toolbar.py:181
 msgid "Share"
 msgstr "Distribuie"
 
-#: ../src/control_toolbar.py:258
-msgid "Ratings success"
-msgstr "Aprecieri"
+msgid "Sina"
+msgstr "Sina"
+
+msgid "Tencent"
+msgstr "Tencent"
+
+msgid "Toggle"
+msgstr "Înlătură"
+
+msgid "Topics"
+msgstr "Subiecte"
+
+msgid "Tweet"
+msgstr "Tweet"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Unable to load page"
+msgstr "Imposibil de încărcat pagina"
+
+msgid "Unknow reason"
+msgstr "Motiv necunoscut"
+
+msgid "Uploading"
+msgstr "Încarcă"
+
+msgid "Version: "
+msgstr "Versiune:"
+
+msgid "Volume"
+msgstr "Volum"
+
+msgid "Weibo: "
+msgstr "Weibo: "
+
+msgid "Wow, wonderful"
+msgstr "Oau, minunat"
+
+msgid "You score today already"
+msgstr "Ai punctat deja astăzi"
+
+msgid "Your game cache is empty."
+msgstr "Memoria cache a jocului este goală."
+
+msgid "comes from"
+msgstr "vin de la"
+
+msgid "error"
+msgstr "eroare"
+
+msgid "failed"
+msgstr "eșec"
+
+msgid "loading"
+msgstr "se încarcă"
+
+msgid "share to web"
+msgstr "distribuie pe web"
+
+msgid "successful"
+msgstr "reușită"
+
+msgid "upload to"
+msgstr "încarcă pe"

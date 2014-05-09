@@ -3,58 +3,59 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# inashdeen <inashdeen@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game Center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-09 16:53+0800\n"
-"PO-Revision-Date: 2014-02-10 03:26+0000\n"
-"Last-Translator: cxbii <mycxbii@gmail.com>\n"
-"Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/deepin-"
-"game-center/language/sk_SK/)\n"
-"Language: sk_SK\n"
+"PO-Revision-Date: 2014-05-08 13:42+0000\n"
+"Last-Translator: inashdeen <inashdeen@gmail.com>\n"
+"Language-Team: Malay (http://www.transifex.com/projects/p/deepin-game-center/"
+"language/ms/)\n"
+"Language: ms\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
-msgstr ""
+msgstr "%s fail telah dipadam dan %s ruangan disk telah dibebaskan."
 
 msgid "About us"
-msgstr ""
+msgstr "Tentang kami"
 
 msgid "Boring"
-msgstr ""
+msgstr "Bosan"
 
 msgid "Change skin"
-msgstr ""
+msgstr "Tukar kekulit"
 
 msgid "Clear all cached data"
-msgstr ""
+msgstr "Bersihkan semua data cache"
 
 msgid "Click here to refresh"
-msgstr ""
+msgstr "Klik di sini untuk segar semula"
 
 msgid "Click to login"
-msgstr ""
+msgstr "Klik untuk log masu"
 
 msgid "Click to switch user"
-msgstr ""
+msgstr "Klik untuk penukar pengguna"
 
 msgid "Close"
-msgstr ""
+msgstr "Tutup"
 
 msgid "Continue"
-msgstr ""
+msgstr "Sambung"
 
 msgid "Deepin Games"
-msgstr ""
+msgstr "Permainan Deepin"
 
 #, python-format
 msgid "Deepin Games - %s "
-msgstr ""
+msgstr "Pusat Permainan Deepin - %s"
 
 msgid ""
 "Deepin Games is designed by Linux Deepin for Linux users. Here you will find "
@@ -62,160 +63,164 @@ msgid ""
 "the best games you have ever met. Deepin Games - deeper into the world of "
 "game!"
 msgstr ""
+"Pusat Permainan Deepin dibina oleh Linux Deepin untuk pengguna Linux. Anda "
+"boleh mendapatkan permainan yang bagus dan selamat yang telah dipilih secara "
+"professional. Klik untuk main permainan-permainan terbaik kami. \n"
+"Pusat Permainan Deepin - Dunia Permainan yang lebih luas!"
 
 msgid "Favorite"
-msgstr ""
+msgstr "Kegemaran"
 
 msgid "Feedback: "
-msgstr ""
+msgstr "Maklum balas:"
 
 msgid "Follow"
-msgstr ""
+msgstr "Ikut"
 
 msgid "Forum: "
-msgstr ""
+msgstr "Forum:"
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "Skrin Penuh"
 
 msgid "Game deliver: "
-msgstr ""
+msgstr "Penyampaian permainan:"
 
 msgid "Good"
-msgstr ""
+msgstr "Baik"
 
 msgid "Home"
-msgstr ""
+msgstr "Utama"
 
 msgid "Interesting"
-msgstr ""
+msgstr "Menarik"
 
 msgid "Introduction"
-msgstr ""
+msgstr "Prakata"
 
 msgid "Main menu"
-msgstr ""
+msgstr "Menu utama"
 
 msgid "Maximize"
-msgstr ""
+msgstr "Maksimakan"
 
 msgid "Minimum"
-msgstr ""
+msgstr "Minima"
 
 msgid "Mute"
-msgstr ""
+msgstr "Senyap"
 
 msgid "My Games"
-msgstr ""
+msgstr "Permainanku"
 
 msgid "My favorites"
-msgstr ""
+msgstr "Kegemaranku"
 
 msgid "My recents"
-msgstr ""
+msgstr "Terbaharu"
 
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 msgid "Nothing special"
-msgstr ""
+msgstr "Tiada apa yang menarik"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "Pause"
-msgstr ""
+msgstr "Jeda"
 
 msgid "Picture does not exist."
-msgstr ""
+msgstr "Gambar tidak wujud"
 
 msgid "Please choose at least one platform to share on"
-msgstr ""
+msgstr "Sila pilih sekurang-kurangnya satu platform untuk dikongsikan padanya"
 
 msgid "Please input text here"
-msgstr ""
+msgstr "Sila masukkan teks di sini"
 
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
-msgstr ""
+msgstr "Masalah berlaku ketika memuat URL '%s'"
 
 msgid "Quit"
-msgstr ""
+msgstr "Berhenti"
 
 msgid "Ratings success"
-msgstr ""
+msgstr "Penarafan berjaya"
 
 msgid "Replay"
-msgstr ""
+msgstr "Main Semula"
 
 msgid "See what's new"
-msgstr ""
+msgstr "Lihat apa yang terbaharu"
 
 msgid "Share"
-msgstr ""
+msgstr "Kongsi"
 
 msgid "Sina"
-msgstr ""
+msgstr "Sina"
 
 msgid "Tencent"
-msgstr ""
+msgstr "Tencent"
 
 msgid "Toggle"
-msgstr ""
+msgstr "Togol"
 
 msgid "Topics"
-msgstr ""
+msgstr "Topik"
 
 msgid "Tweet"
-msgstr ""
+msgstr "Tweet"
 
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 msgid "Unable to load page"
-msgstr ""
+msgstr "Tidak dapat memuat halaman"
 
 msgid "Unknow reason"
-msgstr ""
+msgstr "Sebab tidak diketahui"
 
 msgid "Uploading"
-msgstr ""
+msgstr "Memuat naik"
 
 msgid "Version: "
-msgstr ""
+msgstr "Versi:"
 
 msgid "Volume"
-msgstr ""
+msgstr "Volum"
 
 msgid "Weibo: "
-msgstr ""
+msgstr "Weibo:"
 
 msgid "Wow, wonderful"
-msgstr ""
+msgstr "Wow, menarik"
 
 msgid "You score today already"
-msgstr ""
+msgstr "Skor anda pada hari ini"
 
 msgid "Your game cache is empty."
-msgstr ""
+msgstr "cache permainan anda kosong."
 
 msgid "comes from"
-msgstr ""
+msgstr "datang dari"
 
 msgid "error"
-msgstr ""
+msgstr "ralat"
 
 msgid "failed"
-msgstr ""
+msgstr "gagal"
 
 msgid "loading"
-msgstr ""
+msgstr "memuat"
 
 msgid "share to web"
-msgstr ""
+msgstr "Kongsi ke sesawang"
 
 msgid "successful"
-msgstr ""
+msgstr "berjaya"
 
 msgid "upload to"
-msgstr ""
+msgstr "memuat naik ke"

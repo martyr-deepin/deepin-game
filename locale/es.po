@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game Center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 09:02+0800\n"
-"PO-Revision-Date: 2013-12-11 03:34+0000\n"
+"POT-Creation-Date: 2014-05-09 16:53+0800\n"
+"PO-Revision-Date: 2014-05-08 16:00+0000\n"
 "Last-Translator: gamjachib <drios9420@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/deepin-game-"
 "center/language/es/)\n"
@@ -20,39 +20,46 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/titlebar.py:53
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr ""
+"El %s de los archivos han sido borrados y el %s de espacio en disco ha "
+"quedado libre."
+
+msgid "About us"
+msgstr "Acerca de nosotros"
+
+msgid "Boring"
+msgstr "Aburrido"
+
 msgid "Change skin"
 msgstr "Cambiar máscara"
 
-#: ../src/titlebar.py:54
-msgid "Main menu"
-msgstr "Menú principal"
+msgid "Clear all cached data"
+msgstr "Limpiar todos los datos en caché"
 
-#: ../src/titlebar.py:55
-msgid "Maximize"
-msgstr "Maximizar"
+msgid "Click here to refresh"
+msgstr "Haga clic aquí para refrescar"
 
-#: ../src/titlebar.py:56
-msgid "Minimum"
-msgstr "Mínimo"
+msgid "Click to login"
+msgstr "Haga clic para iniciar sesión"
 
-#: ../src/titlebar.py:57 ../src/dialog.py:134
+msgid "Click to switch user"
+msgstr "Haga clic para cambiar usuario"
+
 msgid "Close"
 msgstr "Cerrar"
 
-#: ../src/titlebar.py:58
-msgid "Toggle"
-msgstr "Alternar"
+msgid "Continue"
+msgstr "Continuar"
 
-#: ../src/dialog.py:85 ../src/game_center.py:90 ../src/share.py:588
 msgid "Deepin Games"
 msgstr "Deepin Games"
 
-#: ../src/dialog.py:90
-msgid "Version: "
-msgstr "Versión:"
+#, python-format
+msgid "Deepin Games - %s "
+msgstr "Deepin Games - %s"
 
-#: ../src/dialog.py:103
 msgid ""
 "Deepin Games is designed by Linux Deepin for Linux users. Here you will find "
 "good and safe games elaborately selected by professionals. Click and play "
@@ -64,231 +71,159 @@ msgstr ""
 "nuestros profesionales. Haga clic y juegue a los mejores juegos que haya "
 "visto nunca. ¡Deepin Games: adentrándose aún más en el mundo del juego!"
 
-#: ../src/dialog.py:113
-msgid "Weibo: "
-msgstr "Weibo:"
+msgid "Favorite"
+msgstr "Favorito"
 
-#: ../src/dialog.py:114
-msgid "Forum: "
-msgstr "Foro:"
-
-#: ../src/dialog.py:115
 msgid "Feedback: "
 msgstr "Comentarios:"
 
-#: ../src/dialog.py:116
+msgid "Follow"
+msgstr "Sigue"
+
+msgid "Forum: "
+msgstr "Foro:"
+
+msgid "Fullscreen"
+msgstr "Pantalla completa"
+
 msgid "Game deliver: "
 msgstr "Entrega de juego:"
 
-#: ../src/game_center.py:143
-msgid "Home"
-msgstr "Inicio"
-
-#: ../src/game_center.py:144
-msgid "Topics"
-msgstr "Temas"
-
-#: ../src/game_center.py:145
-msgid "My Games"
-msgstr "Mis Juegos"
-
-#: ../src/game_center.py:163 ../src/game_center.py:176
-msgid "About us"
-msgstr "Acerca de nosotros"
-
-#: ../src/game_center.py:174
-msgid "Clear all cached data"
-msgstr "Limpiar todos los datos en caché"
-
-#: ../src/game_center.py:175
-msgid "See what's new"
-msgstr "Novedades"
-
-#: ../src/game_center.py:177
-msgid "Quit"
-msgstr "Salir"
-
-#: ../src/game_center.py:227
-msgid "My favorites"
-msgstr "Mis favoritos"
-
-#: ../src/game_center.py:228
-msgid "My recents"
-msgstr "Recientes"
-
-#: ../src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr ""
-"El %s de los archivos han sido borrados y el %s de espacio en disco ha "
-"quedado libre."
-
-#: ../src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "La caché de su juego está vacía."
-
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Aburrido"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Nada especial"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Interesante"
-
-#: ../src/star_view.py:330
 msgid "Good"
 msgstr "Bueno"
 
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "¡Vaya, increíble!"
+msgid "Home"
+msgstr "Inicio"
 
-#: ../src/star_view.py:336 ../src/control_toolbar.py:255
-msgid "You score today already"
-msgstr "Ya has puntuado hoy"
+msgid "Interesting"
+msgstr "Interesante"
 
-#: ../src/guide_box.py:56
 msgid "Introduction"
 msgstr "Introducción"
 
-#: ../src/player.py:148
-#, python-format
-msgid "Deepin Games - %s "
-msgstr "Deepin Games - %s"
+msgid "Main menu"
+msgstr "Menú principal"
 
-#: ../src/share.py:77
-msgid "share to web"
-msgstr "compartir en la red"
+msgid "Maximize"
+msgstr "Maximizar"
 
-#: ../src/share.py:163
-msgid "Sina"
-msgstr "Sina"
+msgid "Minimum"
+msgstr "Mínimo"
 
-#: ../src/share.py:164
-msgid "Tencent"
-msgstr "Tencent"
+msgid "Mute"
+msgstr "Silenciar"
 
-#: ../src/share.py:165
-msgid "Twitter"
-msgstr "Twitter"
+msgid "My Games"
+msgstr "Mis Juegos"
 
-#: ../src/share.py:197
-msgid "Unable to load page"
-msgstr "No se puede cargar la página"
+msgid "My favorites"
+msgstr "Mis favoritos"
 
-#: ../src/share.py:198
+msgid "My recents"
+msgstr "Recientes"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Nothing special"
+msgstr "Nada especial"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Pause"
+msgstr "Pausa"
+
+msgid "Picture does not exist."
+msgstr "No existe imagen."
+
+msgid "Please choose at least one platform to share on"
+msgstr "Por favor elija al menos una plataforma para compartir"
+
+msgid "Please input text here"
+msgstr "Por favor inserte aquí su texto"
+
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "Ocurrió un problema al cargar los \"%s\" de la URL"
 
-#: ../src/share.py:326
-msgid "Click to switch user"
-msgstr "Haga clic para cambiar usuario"
+msgid "Quit"
+msgstr "Salir"
 
-#: ../src/share.py:344
-msgid "Click to login"
-msgstr "Haga clic para iniciar sesión"
+msgid "Ratings success"
+msgstr "Porcentaje de éxito"
 
-#: ../src/share.py:459
-msgid "loading"
-msgstr "cargando"
-
-#: ../src/share.py:470
-msgid "Tweet"
-msgstr "Tweet"
-
-#: ../src/share.py:512
-msgid "Please input text here"
-msgstr "Por favor inserte aquí su texto"
-
-#: ../src/share.py:548 ../src/share.py:560
-msgid "error"
-msgstr "error"
-
-#: ../src/share.py:549
-msgid "Picture does not exist."
-msgstr "No existe imagen."
-
-#: ../src/share.py:561
-msgid "Please choose at least one platform to share on"
-msgstr "Por favor elija al menos una plataforma para compartir"
-
-#: ../src/share.py:577
-msgid "Uploading"
-msgstr "Subiendo"
-
-#: ../src/share.py:588
-msgid "comes from"
-msgstr "viene de"
-
-#: ../src/share.py:635
-msgid "Follow"
-msgstr "Sigue"
-
-#: ../src/share.py:658 ../src/share.py:679
-msgid "upload to"
-msgstr "subir a"
-
-#: ../src/share.py:661
-msgid "successful"
-msgstr "correcto"
-
-#: ../src/share.py:684
-msgid "failed"
-msgstr "con errores"
-
-#: ../src/share.py:692
-msgid "Unknow reason"
-msgstr "Motivo desconocido"
-
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Haga clic aquí para refrescar"
-
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "OK"
-
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Volumen"
-
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Silenciar"
-
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Favorito"
-
-#: ../src/control_toolbar.py:123
 msgid "Replay"
 msgstr "Reanudar"
 
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Pausa"
+msgid "See what's new"
+msgstr "Novedades"
 
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Continuar"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Pantalla completa"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normal"
-
-#: ../src/control_toolbar.py:181
 msgid "Share"
 msgstr "Compartir"
 
-#: ../src/control_toolbar.py:258
-msgid "Ratings success"
-msgstr "Porcentaje de éxito"
+msgid "Sina"
+msgstr "Sina"
+
+msgid "Tencent"
+msgstr "Tencent"
+
+msgid "Toggle"
+msgstr "Alternar"
+
+msgid "Topics"
+msgstr "Temas"
+
+msgid "Tweet"
+msgstr "Tweet"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Unable to load page"
+msgstr "No se puede cargar la página"
+
+msgid "Unknow reason"
+msgstr "Motivo desconocido"
+
+msgid "Uploading"
+msgstr "Subiendo"
+
+msgid "Version: "
+msgstr "Versión:"
+
+msgid "Volume"
+msgstr "Volumen"
+
+msgid "Weibo: "
+msgstr "Weibo:"
+
+msgid "Wow, wonderful"
+msgstr "¡Vaya, increíble!"
+
+msgid "You score today already"
+msgstr "Ya has puntuado hoy"
+
+msgid "Your game cache is empty."
+msgstr "La caché de su juego está vacía."
+
+msgid "comes from"
+msgstr "viene de"
+
+msgid "error"
+msgstr "error"
+
+msgid "failed"
+msgstr "con errores"
+
+msgid "loading"
+msgstr "cargando"
+
+msgid "share to web"
+msgstr "compartir en la red"
+
+msgid "successful"
+msgstr "correcto"
+
+msgid "upload to"
+msgstr "subir a"
