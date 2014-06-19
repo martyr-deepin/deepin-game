@@ -82,7 +82,7 @@ class AboutDialog(DialogBox):
 
         main_box = gtk.VBox(spacing=15)
         logo_image = gtk.image_new_from_pixbuf(get_common_image_pixbuf('logo24.png'))
-        logo_name = Label(_("Deepin Games"), text_size=10)
+        logo_name = Label(_("Deepin Game"), text_size=10)
         logo_box = gtk.HBox(spacing=2)
         logo_box.pack_start(logo_image, False, False)
         logo_box.pack_start(logo_name, False, False)
@@ -100,7 +100,10 @@ class AboutDialog(DialogBox):
         title_box.pack_start(align, True, True)
         title_box.pack_start(info_box, False, False)
         
-        describe = _("Deepin Games is designed by Linux Deepin for Linux users. Here you will find good and safe games elaborately selected by professionals. Click and play the best games you have ever met. Deepin Games - deeper into the world of game!")
+        describe = _("Deepin Game is designed by Deepin for Linux users. Here "
+                "you will elaborately find good and safe games selected by "
+                "professionals. Click and play the best games you have ever "
+                "met. Deepin Game just for happiness!")
         
         describe_label = Label(describe, enable_select=False, wrap_width=430, text_size=10)
         main_box.pack_start(title_box, False, False)

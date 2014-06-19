@@ -74,7 +74,7 @@ class ShareToWeibo(object):
         self.__win_width = 602
         open(COOKIE_FILE,'wb').close()
 
-        self.window = DialogBox(_("share to web"), close_callback=gtk.main_quit)
+        self.window = DialogBox(_("Share to social networks"), close_callback=gtk.main_quit)
         self.window.set_keep_above(True)
         self.window.set_size_request(self.__win_width+20, 288)
         self.window.set_resizable(False)
@@ -456,7 +456,7 @@ class ShareToWeibo(object):
         #weibo_box = gtk.HBox(False, 1)
         #weibo_box.set_size_request(-1, 50)
         weibo_box_list = []
-        self.loading_label = Label("%s..." % _("loading"), text_size=12,
+        self.loading_label = Label("%s..." % _("Loading"), text_size=12,
             label_width=70, enable_select=False)
         weibo_box_list.append(self.loading_label)
 
@@ -467,7 +467,7 @@ class ShareToWeibo(object):
         left_box.set_buttons(weibo_box_list)
 
         # share button
-        button = Button(_("Tweet"))
+        button = Button(_("Share"))
         #button.set_size_request(75, 25)
         button.connect("clicked", self.share_button_clicked, text_view)
         buf.connect("changed", self.text_view_changed, button)  # check char num
@@ -545,8 +545,8 @@ class ShareToWeibo(object):
         # file is not exist.
         if not exists(self.upload_image):
             self.show_confirm_dialog(
-                    _("error"),
-                    _("Picture does not exist."),
+                    _("Error"),
+                    _("Nonexistent picture"),
                     )
             return False
         has_share_web = False
@@ -557,7 +557,7 @@ class ShareToWeibo(object):
         # have no web selected
         if not has_share_web:
             self.show_confirm_dialog(
-                    _("error"),
+                    _("Error"),
                     _("Please choose at least one platform to share on"),
                     )
             return False
@@ -574,7 +574,7 @@ class ShareToWeibo(object):
                 img.disconnect_by_func(self.weibo_login)
             except:
                 pass
-        button.set_label(_("Uploading"))
+        button.set_label(_("Sharing"))
         t = threading.Thread(target=self.share_to_weibo_thread, args=(text_view, ))
         t.setDaemon(True)
         t.start()
@@ -585,7 +585,7 @@ class ShareToWeibo(object):
         buf = text_view.get_buffer()
         text = buf.get_text(*buf.get_bounds())
         if text.strip() == "":
-            text = "%s %s" % (_("comes from"), _("Deepin Games"))
+            text = _("from Deepin Game")
         # get deepin official info
         self.deepin_info[self.sina] = self.sina.get_deepin_info()
         self.deepin_info[self.qq] = self.qq.get_deepin_info()
@@ -655,10 +655,10 @@ class ShareToWeibo(object):
                 link_box = gtk.HBox(False)
                 link_box.pack_start(link, False, False)
                 utils.set_clickable_cursor(link)
-                text = _("upload to")
+                text = _("Share to")
                 label = Label(text, text_size=12, 
                     text_color=font_color, enable_select=False)
-                text = _("successful")
+                text = _("Successful")
                 label1 = Label(text, text_size=12, 
                     text_color=font_color, enable_select=False)
                 tip_box.pack_start(img, False, False, 15)
@@ -676,12 +676,12 @@ class ShareToWeibo(object):
             else:   # upload failed
                 img = gtk.image_new_from_file(app_theme.get_theme_file_path("image/share/share_failed.png"))
                 #text = "% %s %s." % (_(weibo.t_type), _("upload failed"))
-                text = _("upload to")
+                text = _("Share to")
                 label1 = Label(text, text_size=12, 
                     text_color=font_color, enable_select=False)
                 label2 = Label(_(weibo.t_type), text_size=12, 
                     text_color=font_color, enable_select=False)
-                text = _("failed")
+                text = _("Failed")
                 label3 = Label(text, text_size=12, 
                     text_color=font_color, enable_select=False)
                 if weibo.curl.error:
@@ -689,7 +689,7 @@ class ShareToWeibo(object):
                 elif weibo.get_error_msg():
                     error = "(%s)" % _(weibo.get_error_msg()) 
                 else:
-                    error = "(%s)" % _("Unknow reason")
+                    error = "(%s)" % _("Unknown reason")
                 #print "%s: %s" % (weibo.t_type, error)
                 #print "%s: %s" % (weibo.t_type, weibo.get_error_msg())
                 label = Label(text, text_size=12,

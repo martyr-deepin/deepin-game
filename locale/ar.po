@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game Center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-09 16:53+0800\n"
+"POT-Creation-Date: 2014-06-19 09:14+0800\n"
 "PO-Revision-Date: 2014-04-21 07:32+0000\n"
 "Last-Translator: abs1515 <ayobbasher@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/deepin-game-"
@@ -20,207 +20,305 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr "%s تم حذف الملفات و %s مساحة القرص تم تحريرها."
-
-msgid "About us"
-msgstr "عنا"
-
-msgid "Boring"
-msgstr "ممل"
-
+#: ../src/titlebar.py:53
 msgid "Change skin"
 msgstr "تغيير السمة"
 
-msgid "Clear all cached data"
-msgstr "تنظيف كل البيانات المؤقته"
+#: ../src/titlebar.py:54
+msgid "Main menu"
+msgstr "القائمة الرئيسية"
 
-msgid "Click here to refresh"
-msgstr "أنقر هنا للتحديث"
+#: ../src/titlebar.py:55
+msgid "Maximize"
+msgstr "تكبير"
 
-msgid "Click to login"
-msgstr "انقر للدخول"
+#: ../src/titlebar.py:56
+#, fuzzy
+msgid "Minimize"
+msgstr "تكبير"
 
-msgid "Click to switch user"
-msgstr "انقر لتبديل المستخدم"
-
+#: ../src/titlebar.py:57 ../src/dialog.py:137
 msgid "Close"
 msgstr "غلق"
 
-msgid "Continue"
-msgstr "استمرار"
+#: ../src/titlebar.py:58
+msgid "Toggle"
+msgstr "تبديل"
 
-msgid "Deepin Games"
+#: ../src/dialog.py:85 ../src/game_center.py:90
+#, fuzzy
+msgid "Deepin Game"
 msgstr "ألعاب دييبـ إن"
 
-#, python-format
-msgid "Deepin Games - %s "
-msgstr " ألعاب دييبـ إن - %s"
+#: ../src/dialog.py:90
+msgid "Version: "
+msgstr "الإصدار:"
 
+#: ../src/dialog.py:103
+#, fuzzy
 msgid ""
-"Deepin Games is designed by Linux Deepin for Linux users. Here you will find "
-"good and safe games elaborately selected by professionals. Click and play "
-"the best games you have ever met. Deepin Games - deeper into the world of "
-"game!"
+"Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
+"find good and safe games selected by professionals. Click and play the best "
+"games you have ever met. Deepin Game just for happiness!"
 msgstr ""
 "تم تصميم ألعاب دييبـ إن بواسطة فريق ليونكس دييبـ إن, لجميع مستخدمي ليونكس. "
 "هنا سوف تجد ألعاب جيدة و امنة تم اختيارها من قبل محترفين. انقر و العب أفضل "
 "ألالعاب التي يمكنك رؤيتها. ألعاب دييبـ إن - أعمق في عالم ألالعاب!"
 
-msgid "Favorite"
-msgstr "المفضلة"
+#: ../src/dialog.py:116
+msgid "Weibo: "
+msgstr "ويبو:"
 
-msgid "Feedback: "
-msgstr "ردود الفعل:"
-
-msgid "Follow"
-msgstr "تابع"
-
+#: ../src/dialog.py:117
 msgid "Forum: "
 msgstr "المنتدي:"
 
-msgid "Fullscreen"
-msgstr "ملء الشاشة"
+#: ../src/dialog.py:118
+msgid "Feedback: "
+msgstr "ردود الفعل:"
 
+#: ../src/dialog.py:119
 msgid "Game deliver: "
 msgstr "مقدم اللعبة:"
 
-msgid "Good"
-msgstr "جيد"
-
+#: ../src/game_center.py:143
 msgid "Home"
 msgstr "المنزل"
 
-msgid "Interesting"
-msgstr "مثير للاهتمام"
+#: ../src/game_center.py:144
+msgid "Topics"
+msgstr "المواضيع"
 
-msgid "Introduction"
-msgstr "مقدمة"
-
-msgid "Main menu"
-msgstr "القائمة الرئيسية"
-
-msgid "Maximize"
-msgstr "تكبير"
-
-msgid "Minimum"
-msgstr "تصغير"
-
-msgid "Mute"
-msgstr "صامت"
-
+#: ../src/game_center.py:145
 msgid "My Games"
 msgstr "ألعابي"
 
+#: ../src/game_center.py:163 ../src/game_center.py:176
+msgid "About us"
+msgstr "عنا"
+
+#: ../src/game_center.py:174
+#, fuzzy
+msgid "Clear Caches"
+msgstr "تنظيف كل البيانات المؤقته"
+
+#: ../src/game_center.py:175
+msgid "View New Features"
+msgstr ""
+
+#: ../src/game_center.py:177
+msgid "Quit"
+msgstr "خروج"
+
+#: ../src/game_center.py:227
 msgid "My favorites"
 msgstr "المفضلة"
 
+#: ../src/game_center.py:228
 msgid "My recents"
 msgstr "الأخيرة"
 
-msgid "Normal"
-msgstr "عادي"
+#: ../src/game_center.py:297
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "%s تم حذف الملفات و %s مساحة القرص تم تحريرها."
 
+#: ../src/game_center.py:300
+msgid "Your game cache is empty."
+msgstr "البيانات المؤقته الخاصة بالالعاب فارغة"
+
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "ممل"
+
+#: ../src/star_view.py:326
 msgid "Nothing special"
 msgstr "لا شيء مميز"
 
-msgid "OK"
-msgstr "حسنا"
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "مثير للاهتمام"
 
-msgid "Pause"
-msgstr "وقوف مؤقت"
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "جيد"
 
-msgid "Picture does not exist."
-msgstr "الصورة غير موجودة."
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "مدهش"
 
-msgid "Please choose at least one platform to share on"
-msgstr "الرجاء قم بإختيار منصة واحد على الأقل للمشاركة "
+#: ../src/star_view.py:336 ../src/control_toolbar.py:255
+#, fuzzy
+msgid "You scored today already"
+msgstr "نتيجتك اليوم جاهزة"
 
-msgid "Please input text here"
-msgstr "الرجاء أدخال النص هنا"
+#: ../src/guide_box.py:56
+msgid "Introduction"
+msgstr "مقدمة"
 
+#: ../src/player.py:148
+#, fuzzy, python-format
+msgid "Deepin Game - %s "
+msgstr " ألعاب دييبـ إن - %s"
+
+#: ../src/share.py:77
+msgid "Share to social networks"
+msgstr ""
+
+#: ../src/share.py:163
+msgid "Sina"
+msgstr "سينا"
+
+#: ../src/share.py:164
+msgid "Tencent"
+msgstr "تينسنت"
+
+#: ../src/share.py:165
+msgid "Twitter"
+msgstr "تويتر"
+
+#: ../src/share.py:197
+msgid "Unable to load page"
+msgstr "غير قادر على تحميل الصفحة"
+
+#: ../src/share.py:198
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "حدثت مشكلة أثناء تحميل الـ URL '%s'"
 
-msgid "Quit"
-msgstr "خروج"
+#: ../src/share.py:326
+msgid "Click to switch user"
+msgstr "انقر لتبديل المستخدم"
 
-msgid "Ratings success"
-msgstr "تم التقييم بنجاح"
+#: ../src/share.py:344
+msgid "Click to login"
+msgstr "انقر للدخول"
 
-msgid "Replay"
-msgstr "تعليق"
+#: ../src/share.py:459
+#, fuzzy
+msgid "Loading"
+msgstr "يتم التحميل"
 
-msgid "See what's new"
-msgstr "رؤية ما هو الجديد"
-
+#: ../src/share.py:470 ../src/control_toolbar.py:181
 msgid "Share"
 msgstr "مشاركة"
 
-msgid "Sina"
-msgstr "سينا"
+#: ../src/share.py:512
+msgid "Please input text here"
+msgstr "الرجاء أدخال النص هنا"
 
-msgid "Tencent"
-msgstr "تينسنت"
+#: ../src/share.py:548 ../src/share.py:560
+#, fuzzy
+msgid "Error"
+msgstr "خطأ"
 
-msgid "Toggle"
-msgstr "تبديل"
+#: ../src/share.py:549
+msgid "Nonexistent picture"
+msgstr ""
 
-msgid "Topics"
-msgstr "المواضيع"
+#: ../src/share.py:561
+msgid "Please choose at least one platform to share on"
+msgstr "الرجاء قم بإختيار منصة واحد على الأقل للمشاركة "
 
-msgid "Tweet"
-msgstr "تغريد"
+#: ../src/share.py:577
+#, fuzzy
+msgid "Sharing"
+msgstr "مشاركة"
 
-msgid "Twitter"
-msgstr "تويتر"
+#: ../src/share.py:588
+#, fuzzy
+msgid "from Deepin Game"
+msgstr "ألعاب دييبـ إن"
 
-msgid "Unable to load page"
-msgstr "غير قادر على تحميل الصفحة"
+#: ../src/share.py:635
+msgid "Follow"
+msgstr "تابع"
 
-msgid "Unknow reason"
+#: ../src/share.py:658 ../src/share.py:679
+#, fuzzy
+msgid "Share to"
+msgstr "مشاركة"
+
+#: ../src/share.py:661
+#, fuzzy
+msgid "Successful"
+msgstr "ناجح"
+
+#: ../src/share.py:684
+#, fuzzy
+msgid "Failed"
+msgstr "فشل"
+
+#: ../src/share.py:692
+#, fuzzy
+msgid "Unknown reason"
 msgstr "سبب غير معروف"
 
-msgid "Uploading"
-msgstr "يتم الرفع"
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "أنقر هنا للتحديث"
 
-msgid "Version: "
-msgstr "الإصدار:"
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "حسنا"
 
+#: ../src/control_toolbar.py:89
 msgid "Volume"
 msgstr "الصوت"
 
-msgid "Weibo: "
-msgstr "ويبو:"
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "صامت"
 
-msgid "Wow, wonderful"
-msgstr "مدهش"
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "المفضلة"
 
-msgid "You score today already"
-msgstr "نتيجتك اليوم جاهزة"
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "تعليق"
 
-msgid "Your game cache is empty."
-msgstr "البيانات المؤقته الخاصة بالالعاب فارغة"
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "وقوف مؤقت"
 
-msgid "comes from"
-msgstr "أتى من"
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "استمرار"
 
-msgid "error"
-msgstr "خطأ"
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "ملء الشاشة"
 
-msgid "failed"
-msgstr "فشل"
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "عادي"
 
-msgid "loading"
-msgstr "يتم التحميل"
+#: ../src/control_toolbar.py:258
+#, fuzzy
+msgid "Ratings successfully"
+msgstr "تم التقييم بنجاح"
 
-msgid "share to web"
-msgstr "مشاركة عن طريق الويب"
+#~ msgid "Minimum"
+#~ msgstr "تصغير"
 
-msgid "successful"
-msgstr "ناجح"
+#~ msgid "See what's new"
+#~ msgstr "رؤية ما هو الجديد"
 
-msgid "upload to"
-msgstr "رفع إلى"
+#~ msgid "share to web"
+#~ msgstr "مشاركة عن طريق الويب"
+
+#~ msgid "Tweet"
+#~ msgstr "تغريد"
+
+#~ msgid "Picture does not exist."
+#~ msgstr "الصورة غير موجودة."
+
+#~ msgid "Uploading"
+#~ msgstr "يتم الرفع"
+
+#~ msgid "comes from"
+#~ msgstr "أتى من"
+
+#~ msgid "upload to"
+#~ msgstr "رفع إلى"

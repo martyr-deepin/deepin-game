@@ -53,7 +53,7 @@ titlebar_button_dict = {
         'theme': ('theme_button', ThemeButton, _('Change skin')),
         'menu': ('menu_button', MenuButton, _('Main menu')),
         'max': ('max_button', MaxButton, _('Maximize')),
-        'min': ('min_button', MinButton, _('Minimum')),
+        'min': ('min_button', MinButton, _('Minimize')),
         'close': ('close_button', CloseButton, _('Close')),
         'mode': ('mode_button', create_revert_button, _('Toggle')),
         }

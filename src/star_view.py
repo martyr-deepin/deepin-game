@@ -333,7 +333,7 @@ class StarView(gtk.Button):
             self.progressbar_tip.set_content(tips)
             self.queue_draw()
         else:
-            self.progressbar_tip.show_image_text(_('You score today already'), 'star/star_finish.png')
+            self.progressbar_tip.show_image_text(_('You scored today already'), 'star/star_finish.png')
             self.show_progressbar_tip(event)
 
     def leave_notify_star_view(self, widget, event):

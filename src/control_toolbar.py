@@ -252,10 +252,10 @@ class ControlToolbar(Statusbar):
         star = int(min(event_x / (STAR_SIZE / 2) + 1, 10))
 
         if self.star.read_only:
-            self.star.progressbar_tip.show_image_text(_('You score today already'), 'star/star_finish.png')
+            self.star.progressbar_tip.show_image_text(_('You scored today already'), 'star/star_finish.png')
             self.star.show_progressbar_tip(event)
         else:
-            self.star.progressbar_tip.show_image_text(_('Ratings success'), 'star/star_success.png')
+            self.star.progressbar_tip.show_image_text(_('Ratings successfully'), 'star/star_success.png')
             self.star.show_progressbar_tip(event)
             if getattr(self, 'appid'):
                 SetStarScore(self.appid, star).start()

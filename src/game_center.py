@@ -87,7 +87,7 @@ class GameCenterApp(dbus.service.Object):
                 ["theme", "menu", "max","min", "close"],
                 show_title=False
                 )
-        self.application.window.set_title(_("Deepin Games"))
+        self.application.window.set_title(_("Deepin Game"))
 
         # Init page box.
         self.page_box = gtk.VBox()
@@ -171,8 +171,8 @@ class GameCenterApp(dbus.service.Object):
 
         menu = Menu(
             [
-             (None, _("Clear all cached data"), self.clean_download_cache),
-             (None, _("See what's new"), lambda : self.show_wizard_win()),
+             (None, _("Clear Caches"), self.clean_download_cache),
+             (None, _("View New Features"), lambda : self.show_wizard_win()),
              (None, _("About us"), self.show_about_dialog),
              (None, _("Quit"), lambda: gtk.main_quit()),
              ],
