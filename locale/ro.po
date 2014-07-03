@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-03 08:44+0800\n"
+"POT-Creation-Date: 2014-07-03 09:32+0800\n"
 "PO-Revision-Date: 2014-06-30 04:34+0000\n"
 "Last-Translator: cxbii <chenxiangbang@linuxdeepin.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/deepin-game/"
@@ -20,200 +20,264 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
 "2:1));\n"
 
+#: src/game_center.py:297
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
 msgstr "%s fișiere au fost șterse și %s spațiu pe disc a fost eliberat."
 
+#: src/game_center.py:163 src/game_center.py:176
 msgid "About us"
 msgstr "Despre noi"
 
+#: src/star_view.py:324
 msgid "Boring"
 msgstr "Plictisitor"
 
+#: src/titlebar.py:53
 msgid "Change skin"
 msgstr "Schimbă aspectul"
 
+#: src/game_center.py:174
 msgid "Clear Caches"
 msgstr ""
 
+#: src/widgets.py:159 src/widgets.py:240
 msgid "Click here to refresh"
 msgstr "Click pentru reîmprospătare"
 
+#: src/share.py:344
 msgid "Click to login"
 msgstr "Apasă pentru intrare"
 
+#: src/share.py:326
 msgid "Click to switch user"
 msgstr "Apasă pentru a schimba utilizatorul"
 
+#: src/titlebar.py:57 src/dialog.py:137
 msgid "Close"
 msgstr "Închide"
 
+#: src/control_toolbar.py:146
 msgid "Continue"
 msgstr "Continuă"
 
+#: src/dialog.py:85 src/game_center.py:90
 msgid "Deepin Game"
 msgstr ""
 
+#: src/player.py:148
 #, python-format
 msgid "Deepin Game - %s "
 msgstr ""
 
+#: src/dialog.py:103
 msgid ""
 "Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
 "find good and safe games selected by professionals. Click and play the best "
 "games you have ever met. Deepin Game just for happiness!"
 msgstr ""
 
+#: src/share.py:548 src/share.py:560
 msgid "Error"
 msgstr ""
 
+#: src/share.py:684
 msgid "Failed"
 msgstr ""
 
+#: src/control_toolbar.py:108
 msgid "Favorite"
 msgstr "Favorit"
 
+#: src/dialog.py:118
 msgid "Feedback: "
 msgstr "Feedback: "
 
+#: src/share.py:635
 msgid "Follow"
 msgstr "Urmărește"
 
+#: src/dialog.py:117
 msgid "Forum: "
 msgstr "Forum: "
 
+#: src/control_toolbar.py:165
 msgid "Fullscreen"
 msgstr "Ecran complet"
 
+#: src/dialog.py:119
 msgid "Game deliver: "
 msgstr "Joc oferit de:"
 
+#: src/star_view.py:330
 msgid "Good"
 msgstr "Bun"
 
+#: src/game_center.py:143
 msgid "Home"
 msgstr "Acasă"
 
+#: src/star_view.py:328
 msgid "Interesting"
 msgstr "Interesant"
 
+#: src/guide_box.py:56
 msgid "Introduction"
 msgstr "Introducere"
 
+#: src/share.py:459
 msgid "Loading"
 msgstr ""
 
+#: src/titlebar.py:54
 msgid "Main menu"
 msgstr "Meniu principal"
 
+#: src/titlebar.py:55
 msgid "Maximize"
 msgstr "Mărește"
 
+#: src/titlebar.py:56
 msgid "Minimize"
 msgstr ""
 
+#: src/control_toolbar.py:90
 msgid "Mute"
 msgstr "Mut"
 
+#: src/game_center.py:145
 msgid "My Games"
 msgstr "Jocurile Mele"
 
+#: src/game_center.py:227
 msgid "My favorites"
 msgstr "Favoritele mele"
 
+#: src/game_center.py:228
 msgid "My recents"
 msgstr "Recente"
 
+#: src/share.py:549
 msgid "Nonexistent picture"
 msgstr ""
 
+#: src/control_toolbar.py:166
 msgid "Normal"
 msgstr "Normal"
 
+#: src/star_view.py:326
 msgid "Nothing special"
 msgstr "Nimic special"
 
+#: src/widgets.py:326
 msgid "OK"
 msgstr "OK"
 
+#: src/control_toolbar.py:145
 msgid "Pause"
 msgstr "Pauză"
 
+#: src/share.py:561
 msgid "Please choose at least one platform to share on"
 msgstr "Vă rugăm să alegeți cel puțin o platformă pentru a distribui"
 
+#: src/share.py:512
 msgid "Please input text here"
 msgstr "Introduceți textul aici"
 
+#: src/share.py:198
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "A apărut o problemă la încărcarea URL '%s'"
 
+#: src/game_center.py:177
 msgid "Quit"
 msgstr "Ieși"
 
+#: src/control_toolbar.py:258
 msgid "Ratings successfully"
 msgstr ""
 
+#: src/control_toolbar.py:123
 msgid "Replay"
 msgstr "Joacă din nou"
 
+#: src/control_toolbar.py:181 src/share.py:470
 msgid "Share"
 msgstr "Distribuie"
 
+#: src/share.py:658 src/share.py:679
 msgid "Share to"
 msgstr ""
 
+#: src/share.py:77
 msgid "Share to social networks"
 msgstr ""
 
+#: src/share.py:577
 msgid "Sharing"
 msgstr ""
 
+#: src/share.py:163
 msgid "Sina"
 msgstr "Sina"
 
+#: src/share.py:661
 msgid "Successful"
 msgstr ""
 
+#: src/share.py:164
 msgid "Tencent"
 msgstr "Tencent"
 
+#: src/titlebar.py:58
 msgid "Toggle"
 msgstr "Înlătură"
 
+#: src/game_center.py:144
 msgid "Topics"
 msgstr "Subiecte"
 
+#: src/share.py:165
 msgid "Twitter"
 msgstr "Twitter"
 
+#: src/share.py:197
 msgid "Unable to load page"
 msgstr "Imposibil de încărcat pagina"
 
+#: src/share.py:692
 msgid "Unknown reason"
 msgstr ""
 
+#: src/dialog.py:90
 msgid "Version: "
 msgstr "Versiune:"
 
+#: src/game_center.py:175
 msgid "View New Features"
 msgstr ""
 
+#: src/control_toolbar.py:89
 msgid "Volume"
 msgstr "Volum"
 
+#: src/dialog.py:116
 msgid "Weibo: "
 msgstr "Weibo: "
 
+#: src/star_view.py:332
 msgid "Wow, wonderful"
 msgstr "Oau, minunat"
 
+#: src/control_toolbar.py:255 src/star_view.py:336
 msgid "You scored today already"
 msgstr ""
 
+#: src/game_center.py:300
 msgid "Your game cache is empty."
 msgstr "Memoria cache a jocului este goală."
 
+#: src/share.py:588
 msgid "from Deepin Game"
 msgstr ""

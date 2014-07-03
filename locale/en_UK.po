@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-03 08:44+0800\n"
+"POT-Creation-Date: 2014-07-03 09:32+0800\n"
 "PO-Revision-Date: 2013-09-13 19:21+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,46 +17,59 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: src/game_center.py:297
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
 msgstr "%s files are deleted and %s disk space is freed."
 
+#: src/game_center.py:163 src/game_center.py:176
 msgid "About us"
 msgstr "About us"
 
+#: src/star_view.py:324
 msgid "Boring"
 msgstr "Poor"
 
+#: src/titlebar.py:53
 msgid "Change skin"
 msgstr "Change skin"
 
+#: src/game_center.py:174
 #, fuzzy
 msgid "Clear Caches"
 msgstr "Clear all cached data"
 
+#: src/widgets.py:159 src/widgets.py:240
 msgid "Click here to refresh"
 msgstr "Click here to refresh"
 
+#: src/share.py:344
 msgid "Click to login"
 msgstr "Click to login"
 
+#: src/share.py:326
 msgid "Click to switch user"
 msgstr "Click to switch user"
 
+#: src/titlebar.py:57 src/dialog.py:137
 msgid "Close"
 msgstr "Close"
 
+#: src/control_toolbar.py:146
 msgid "Continue"
 msgstr "Continue"
 
+#: src/dialog.py:85 src/game_center.py:90
 #, fuzzy
 msgid "Deepin Game"
 msgstr "Deepin Games"
 
+#: src/player.py:148
 #, fuzzy, python-format
 msgid "Deepin Game - %s "
 msgstr "Deepin Games - %s "
 
+#: src/dialog.py:103
 #, fuzzy
 msgid ""
 "Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
@@ -67,167 +80,218 @@ msgstr ""
 "good and safe games elaborately selected by professionals. Click and play "
 "the best games you've ever met. Deepin Games — deeper into the game's world!"
 
+#: src/share.py:548 src/share.py:560
 #, fuzzy
 msgid "Error"
 msgstr "error"
 
+#: src/share.py:684
 #, fuzzy
 msgid "Failed"
 msgstr "failed"
 
+#: src/control_toolbar.py:108
 msgid "Favorite"
 msgstr "Favorite"
 
+#: src/dialog.py:118
 msgid "Feedback: "
 msgstr "Feedback: "
 
+#: src/share.py:635
 msgid "Follow"
 msgstr "Follow"
 
+#: src/dialog.py:117
 msgid "Forum: "
 msgstr "Forum: "
 
+#: src/control_toolbar.py:165
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
+#: src/dialog.py:119
 msgid "Game deliver: "
 msgstr "Game Deliver: "
 
+#: src/star_view.py:330
 msgid "Good"
 msgstr "Above average"
 
+#: src/game_center.py:143
 msgid "Home"
 msgstr "Home"
 
+#: src/star_view.py:328
 msgid "Interesting"
 msgstr "Average"
 
+#: src/guide_box.py:56
 msgid "Introduction"
 msgstr "Introduction"
 
+#: src/share.py:459
 #, fuzzy
 msgid "Loading"
 msgstr "loading"
 
+#: src/titlebar.py:54
 msgid "Main menu"
 msgstr "Main menu"
 
+#: src/titlebar.py:55
 msgid "Maximize"
 msgstr "Maximize"
 
+#: src/titlebar.py:56
 #, fuzzy
 msgid "Minimize"
 msgstr "Maximize"
 
+#: src/control_toolbar.py:90
 msgid "Mute"
 msgstr "Mute"
 
+#: src/game_center.py:145
 msgid "My Games"
 msgstr "My Games"
 
+#: src/game_center.py:227
 msgid "My favorites"
 msgstr "Favourites"
 
+#: src/game_center.py:228
 msgid "My recents"
 msgstr "Recent played"
 
+#: src/share.py:549
 msgid "Nonexistent picture"
 msgstr ""
 
+#: src/control_toolbar.py:166
 msgid "Normal"
 msgstr "Normal"
 
+#: src/star_view.py:326
 msgid "Nothing special"
 msgstr "Below average"
 
+#: src/widgets.py:326
 msgid "OK"
 msgstr ""
 
+#: src/control_toolbar.py:145
 msgid "Pause"
 msgstr "Pause"
 
+#: src/share.py:561
 msgid "Please choose at least one platform to share on"
 msgstr "Please choose at least one platform to share on"
 
+#: src/share.py:512
 msgid "Please input text here"
 msgstr "Text your comment here..."
 
+#: src/share.py:198
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "Problem occurred while loading the URL '%s'"
 
+#: src/game_center.py:177
 msgid "Quit"
 msgstr "Quit"
 
+#: src/control_toolbar.py:258
 #, fuzzy
 msgid "Ratings successfully"
 msgstr "Rating was successful"
 
+#: src/control_toolbar.py:123
 msgid "Replay"
 msgstr "Replay"
 
+#: src/control_toolbar.py:181 src/share.py:470
 msgid "Share"
 msgstr "Share"
 
+#: src/share.py:658 src/share.py:679
 #, fuzzy
 msgid "Share to"
 msgstr "Share"
 
+#: src/share.py:77
 msgid "Share to social networks"
 msgstr ""
 
+#: src/share.py:577
 #, fuzzy
 msgid "Sharing"
 msgstr "Share"
 
+#: src/share.py:163
 msgid "Sina"
 msgstr ""
 
+#: src/share.py:661
 #, fuzzy
 msgid "Successful"
 msgstr "successful"
 
+#: src/share.py:164
 msgid "Tencent"
 msgstr ""
 
+#: src/titlebar.py:58
 msgid "Toggle"
 msgstr "Toggle"
 
+#: src/game_center.py:144
 msgid "Topics"
 msgstr "Topics"
 
+#: src/share.py:165
 msgid "Twitter"
 msgstr ""
 
+#: src/share.py:197
 msgid "Unable to load page"
 msgstr "Unable to load page"
 
+#: src/share.py:692
 #, fuzzy
 msgid "Unknown reason"
 msgstr "Unknown reason"
 
+#: src/dialog.py:90
 msgid "Version: "
 msgstr "Version: "
 
+#: src/game_center.py:175
 msgid "View New Features"
 msgstr ""
 
+#: src/control_toolbar.py:89
 msgid "Volume"
 msgstr "Volume"
 
+#: src/dialog.py:116
 msgid "Weibo: "
 msgstr "Weibo: "
 
+#: src/star_view.py:332
 msgid "Wow, wonderful"
 msgstr "Excellent"
 
+#: src/control_toolbar.py:255 src/star_view.py:336
 #, fuzzy
 msgid "You scored today already"
 msgstr "Already rated today"
 
+#: src/game_center.py:300
 msgid "Your game cache is empty."
 msgstr "Your game cache is empty."
 
+#: src/share.py:588
 #, fuzzy
 msgid "from Deepin Game"
 msgstr "Deepin Games"
