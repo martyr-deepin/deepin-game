@@ -35,7 +35,6 @@ msgid "Change skin"
 msgstr "Change skin"
 
 #: src/game_center.py:174
-#, fuzzy
 msgid "Clear Caches"
 msgstr "Clear all cached data"
 
@@ -60,17 +59,14 @@ msgid "Continue"
 msgstr "Continue"
 
 #: src/dialog.py:85 src/game_center.py:90
-#, fuzzy
 msgid "Deepin Game"
 msgstr "Deepin Games"
 
 #: src/player.py:148
-#, fuzzy, python-format
 msgid "Deepin Game - %s "
 msgstr "Deepin Games - %s "
 
 #: src/dialog.py:103
-#, fuzzy
 msgid ""
 "Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
 "find good and safe games selected by professionals. Click and play the best "
@@ -81,12 +77,10 @@ msgstr ""
 "the best games you've ever met. Deepin Games — deeper into the game's world!"
 
 #: src/share.py:548 src/share.py:560
-#, fuzzy
 msgid "Error"
 msgstr "error"
 
 #: src/share.py:684
-#, fuzzy
 msgid "Failed"
 msgstr "failed"
 
@@ -131,7 +125,6 @@ msgid "Introduction"
 msgstr "Introduction"
 
 #: src/share.py:459
-#, fuzzy
 msgid "Loading"
 msgstr "loading"
 
@@ -144,7 +137,6 @@ msgid "Maximize"
 msgstr "Maximize"
 
 #: src/titlebar.py:56
-#, fuzzy
 msgid "Minimize"
 msgstr "Maximize"
 
@@ -202,7 +194,6 @@ msgid "Quit"
 msgstr "Quit"
 
 #: src/control_toolbar.py:258
-#, fuzzy
 msgid "Ratings successfully"
 msgstr "Rating was successful"
 
@@ -215,7 +206,6 @@ msgid "Share"
 msgstr "Share"
 
 #: src/share.py:658 src/share.py:679
-#, fuzzy
 msgid "Share to"
 msgstr "Share"
 
@@ -224,7 +214,6 @@ msgid "Share to social networks"
 msgstr ""
 
 #: src/share.py:577
-#, fuzzy
 msgid "Sharing"
 msgstr "Share"
 
@@ -233,7 +222,6 @@ msgid "Sina"
 msgstr ""
 
 #: src/share.py:661
-#, fuzzy
 msgid "Successful"
 msgstr "successful"
 
@@ -258,7 +246,6 @@ msgid "Unable to load page"
 msgstr "Unable to load page"
 
 #: src/share.py:692
-#, fuzzy
 msgid "Unknown reason"
 msgstr "Unknown reason"
 
@@ -283,7 +270,6 @@ msgid "Wow, wonderful"
 msgstr "Excellent"
 
 #: src/control_toolbar.py:255 src/star_view.py:336
-#, fuzzy
 msgid "You scored today already"
 msgstr "Already rated today"
 
@@ -292,7 +278,6 @@ msgid "Your game cache is empty."
 msgstr "Your game cache is empty."
 
 #: src/share.py:588
-#, fuzzy
 msgid "from Deepin Game"
 msgstr "Deepin Games"
 
