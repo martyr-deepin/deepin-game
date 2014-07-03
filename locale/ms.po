@@ -6,12 +6,12 @@
 # inashdeen <inashdeen@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: Deepin Game Center\n"
+"Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-19 09:14+0800\n"
-"PO-Revision-Date: 2014-05-08 13:42+0000\n"
-"Last-Translator: inashdeen <inashdeen@gmail.com>\n"
-"Language-Team: Malay (http://www.transifex.com/projects/p/deepin-game-center/"
+"POT-Creation-Date: 2014-07-03 08:44+0800\n"
+"PO-Revision-Date: 2014-06-30 04:34+0000\n"
+"Last-Translator: cxbii <chenxiangbang@linuxdeepin.com>\n"
+"Language-Team: Malay (http://www.transifex.com/projects/p/deepin-game/"
 "language/ms/)\n"
 "Language: ms\n"
 "MIME-Version: 1.0\n"
@@ -19,306 +19,200 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../src/titlebar.py:53
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "%s fail telah dipadam dan %s ruangan disk telah dibebaskan."
+
+msgid "About us"
+msgstr "Tentang kami"
+
+msgid "Boring"
+msgstr "Bosan"
+
 msgid "Change skin"
 msgstr "Tukar kekulit"
 
-#: ../src/titlebar.py:54
-msgid "Main menu"
-msgstr "Menu utama"
+msgid "Clear Caches"
+msgstr ""
 
-#: ../src/titlebar.py:55
-msgid "Maximize"
-msgstr "Maksimakan"
+msgid "Click here to refresh"
+msgstr "Klik di sini untuk segar semula"
 
-#: ../src/titlebar.py:56
-#, fuzzy
-msgid "Minimize"
-msgstr "Maksimakan"
+msgid "Click to login"
+msgstr "Klik untuk log masu"
 
-#: ../src/titlebar.py:57 ../src/dialog.py:137
+msgid "Click to switch user"
+msgstr "Klik untuk penukar pengguna"
+
 msgid "Close"
 msgstr "Tutup"
 
-#: ../src/titlebar.py:58
-msgid "Toggle"
-msgstr "Togol"
+msgid "Continue"
+msgstr "Sambung"
 
-#: ../src/dialog.py:85 ../src/game_center.py:90
-#, fuzzy
 msgid "Deepin Game"
-msgstr "Permainan Deepin"
+msgstr ""
 
-#: ../src/dialog.py:90
-msgid "Version: "
-msgstr "Versi:"
+#, python-format
+msgid "Deepin Game - %s "
+msgstr ""
 
-#: ../src/dialog.py:103
-#, fuzzy
 msgid ""
 "Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
 "find good and safe games selected by professionals. Click and play the best "
 "games you have ever met. Deepin Game just for happiness!"
 msgstr ""
-"Pusat Permainan Deepin dibina oleh Linux Deepin untuk pengguna Linux. Anda "
-"boleh mendapatkan permainan yang bagus dan selamat yang telah dipilih secara "
-"professional. Klik untuk main permainan-permainan terbaik kami. \n"
-"Pusat Permainan Deepin - Dunia Permainan yang lebih luas!"
 
-#: ../src/dialog.py:116
-msgid "Weibo: "
-msgstr "Weibo:"
+msgid "Error"
+msgstr ""
 
-#: ../src/dialog.py:117
-msgid "Forum: "
-msgstr "Forum:"
+msgid "Failed"
+msgstr ""
 
-#: ../src/dialog.py:118
+msgid "Favorite"
+msgstr "Kegemaran"
+
 msgid "Feedback: "
 msgstr "Maklum balas:"
 
-#: ../src/dialog.py:119
+msgid "Follow"
+msgstr "Ikut"
+
+msgid "Forum: "
+msgstr "Forum:"
+
+msgid "Fullscreen"
+msgstr "Skrin Penuh"
+
 msgid "Game deliver: "
 msgstr "Penyampaian permainan:"
 
-#: ../src/game_center.py:143
-msgid "Home"
-msgstr "Utama"
-
-#: ../src/game_center.py:144
-msgid "Topics"
-msgstr "Topik"
-
-#: ../src/game_center.py:145
-msgid "My Games"
-msgstr "Permainanku"
-
-#: ../src/game_center.py:163 ../src/game_center.py:176
-msgid "About us"
-msgstr "Tentang kami"
-
-#: ../src/game_center.py:174
-#, fuzzy
-msgid "Clear Caches"
-msgstr "Bersihkan semua data cache"
-
-#: ../src/game_center.py:175
-msgid "View New Features"
-msgstr ""
-
-#: ../src/game_center.py:177
-msgid "Quit"
-msgstr "Berhenti"
-
-#: ../src/game_center.py:227
-msgid "My favorites"
-msgstr "Kegemaranku"
-
-#: ../src/game_center.py:228
-msgid "My recents"
-msgstr "Terbaharu"
-
-#: ../src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr "%s fail telah dipadam dan %s ruangan disk telah dibebaskan."
-
-#: ../src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "cache permainan anda kosong."
-
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Bosan"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Tiada apa yang menarik"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Menarik"
-
-#: ../src/star_view.py:330
 msgid "Good"
 msgstr "Baik"
 
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Wow, menarik"
+msgid "Home"
+msgstr "Utama"
 
-#: ../src/star_view.py:336 ../src/control_toolbar.py:255
-#, fuzzy
-msgid "You scored today already"
-msgstr "Skor anda pada hari ini"
+msgid "Interesting"
+msgstr "Menarik"
 
-#: ../src/guide_box.py:56
 msgid "Introduction"
 msgstr "Prakata"
 
-#: ../src/player.py:148
-#, fuzzy, python-format
-msgid "Deepin Game - %s "
-msgstr "Pusat Permainan Deepin - %s"
-
-#: ../src/share.py:77
-msgid "Share to social networks"
+msgid "Loading"
 msgstr ""
 
-#: ../src/share.py:163
-msgid "Sina"
-msgstr "Sina"
+msgid "Main menu"
+msgstr "Menu utama"
 
-#: ../src/share.py:164
-msgid "Tencent"
-msgstr "Tencent"
+msgid "Maximize"
+msgstr "Maksimakan"
 
-#: ../src/share.py:165
-msgid "Twitter"
-msgstr "Twitter"
+msgid "Minimize"
+msgstr ""
 
-#: ../src/share.py:197
-msgid "Unable to load page"
-msgstr "Tidak dapat memuat halaman"
+msgid "Mute"
+msgstr "Senyap"
 
-#: ../src/share.py:198
+msgid "My Games"
+msgstr "Permainanku"
+
+msgid "My favorites"
+msgstr "Kegemaranku"
+
+msgid "My recents"
+msgstr "Terbaharu"
+
+msgid "Nonexistent picture"
+msgstr ""
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Nothing special"
+msgstr "Tiada apa yang menarik"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Pause"
+msgstr "Jeda"
+
+msgid "Please choose at least one platform to share on"
+msgstr "Sila pilih sekurang-kurangnya satu platform untuk dikongsikan padanya"
+
+msgid "Please input text here"
+msgstr "Sila masukkan teks di sini"
+
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "Masalah berlaku ketika memuat URL '%s'"
 
-#: ../src/share.py:326
-msgid "Click to switch user"
-msgstr "Klik untuk penukar pengguna"
+msgid "Quit"
+msgstr "Berhenti"
 
-#: ../src/share.py:344
-msgid "Click to login"
-msgstr "Klik untuk log masu"
-
-#: ../src/share.py:459
-#, fuzzy
-msgid "Loading"
-msgstr "memuat"
-
-#: ../src/share.py:470 ../src/control_toolbar.py:181
-msgid "Share"
-msgstr "Kongsi"
-
-#: ../src/share.py:512
-msgid "Please input text here"
-msgstr "Sila masukkan teks di sini"
-
-#: ../src/share.py:548 ../src/share.py:560
-#, fuzzy
-msgid "Error"
-msgstr "ralat"
-
-#: ../src/share.py:549
-msgid "Nonexistent picture"
+msgid "Ratings successfully"
 msgstr ""
 
-#: ../src/share.py:561
-msgid "Please choose at least one platform to share on"
-msgstr "Sila pilih sekurang-kurangnya satu platform untuk dikongsikan padanya"
-
-#: ../src/share.py:577
-#, fuzzy
-msgid "Sharing"
-msgstr "Kongsi"
-
-#: ../src/share.py:588
-#, fuzzy
-msgid "from Deepin Game"
-msgstr "Permainan Deepin"
-
-#: ../src/share.py:635
-msgid "Follow"
-msgstr "Ikut"
-
-#: ../src/share.py:658 ../src/share.py:679
-#, fuzzy
-msgid "Share to"
-msgstr "Kongsi"
-
-#: ../src/share.py:661
-#, fuzzy
-msgid "Successful"
-msgstr "berjaya"
-
-#: ../src/share.py:684
-#, fuzzy
-msgid "Failed"
-msgstr "gagal"
-
-#: ../src/share.py:692
-#, fuzzy
-msgid "Unknown reason"
-msgstr "Sebab tidak diketahui"
-
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Klik di sini untuk segar semula"
-
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "OK"
-
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Volum"
-
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Senyap"
-
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Kegemaran"
-
-#: ../src/control_toolbar.py:123
 msgid "Replay"
 msgstr "Main Semula"
 
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Jeda"
+msgid "Share"
+msgstr "Kongsi"
 
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Sambung"
+msgid "Share to"
+msgstr ""
 
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Skrin Penuh"
+msgid "Share to social networks"
+msgstr ""
 
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normal"
+msgid "Sharing"
+msgstr ""
 
-#: ../src/control_toolbar.py:258
-#, fuzzy
-msgid "Ratings successfully"
-msgstr "Penarafan berjaya"
+msgid "Sina"
+msgstr "Sina"
 
-#~ msgid "Minimum"
-#~ msgstr "Minima"
+msgid "Successful"
+msgstr ""
 
-#~ msgid "See what's new"
-#~ msgstr "Lihat apa yang terbaharu"
+msgid "Tencent"
+msgstr "Tencent"
 
-#~ msgid "share to web"
-#~ msgstr "Kongsi ke sesawang"
+msgid "Toggle"
+msgstr "Togol"
 
-#~ msgid "Tweet"
-#~ msgstr "Tweet"
+msgid "Topics"
+msgstr "Topik"
 
-#~ msgid "Picture does not exist."
-#~ msgstr "Gambar tidak wujud"
+msgid "Twitter"
+msgstr "Twitter"
 
-#~ msgid "Uploading"
-#~ msgstr "Memuat naik"
+msgid "Unable to load page"
+msgstr "Tidak dapat memuat halaman"
 
-#~ msgid "comes from"
-#~ msgstr "datang dari"
+msgid "Unknown reason"
+msgstr ""
 
-#~ msgid "upload to"
-#~ msgstr "memuat naik ke"
+msgid "Version: "
+msgstr "Versi:"
+
+msgid "View New Features"
+msgstr ""
+
+msgid "Volume"
+msgstr "Volum"
+
+msgid "Weibo: "
+msgstr "Weibo:"
+
+msgid "Wow, wonderful"
+msgstr "Wow, menarik"
+
+msgid "You scored today already"
+msgstr ""
+
+msgid "Your game cache is empty."
+msgstr "cache permainan anda kosong."
+
+msgid "from Deepin Game"
+msgstr ""

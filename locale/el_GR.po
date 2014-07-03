@@ -3,16 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# GoldBlossom <angelnonis@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: Deepin Game Center\n"
+"Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-03 08:44+0800\n"
-"PO-Revision-Date: 2013-12-20 13:35+0000\n"
-"Last-Translator: liuwenhuan <liuwenhuan@gmail.com>\n"
-"Language-Team: Spanish (Paraguay) (http://www.transifex.com/projects/p/"
-"deepin-game-center/language/es_PY/)\n"
-"Language: es_PY\n"
+"PO-Revision-Date: 2014-06-30 04:41+0000\n"
+"Last-Translator: cxbii <chenxiangbang@linuxdeepin.com>\n"
+"Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/deepin-"
+"game/language/el_GR/)\n"
+"Language: el_GR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,33 +22,34 @@ msgstr ""
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
 msgstr ""
+"%s αυτά τα αρχεία έχουν διαγραφεί και έχει απελευθερωθει %s χώρος στο δίσκο."
 
 msgid "About us"
-msgstr ""
+msgstr "Σχετικά με εμάς"
 
 msgid "Boring"
-msgstr ""
+msgstr "Βαρετό"
 
 msgid "Change skin"
-msgstr ""
+msgstr "Αλλαγή εμφάνισης"
 
 msgid "Clear Caches"
 msgstr ""
 
 msgid "Click here to refresh"
-msgstr ""
+msgstr "Κάντε κλικ εδώ για ανανέωση"
 
 msgid "Click to login"
-msgstr ""
+msgstr "Κάντε κλικ για να συνδεθείτε"
 
 msgid "Click to switch user"
-msgstr ""
+msgstr "Κάντε κλικ για αλλαγή χρήστη"
 
 msgid "Close"
-msgstr ""
+msgstr "Κλείσιμο"
 
 msgid "Continue"
-msgstr ""
+msgstr "Συνέχεια"
 
 msgid "Deepin Game"
 msgstr ""
@@ -69,95 +71,95 @@ msgid "Failed"
 msgstr ""
 
 msgid "Favorite"
-msgstr ""
+msgstr "Αγαπημένο"
 
 msgid "Feedback: "
-msgstr ""
+msgstr "Η γνώμη σας:"
 
 msgid "Follow"
-msgstr ""
+msgstr "Ακολουθήστε"
 
 msgid "Forum: "
-msgstr ""
+msgstr "Φόρουμ:"
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "Πλήρης οθόνη"
 
 msgid "Game deliver: "
-msgstr ""
+msgstr "Παραδώσει παιχνιδιού:"
 
 msgid "Good"
-msgstr ""
+msgstr "Καλό"
 
 msgid "Home"
-msgstr ""
+msgstr "Αρχική"
 
 msgid "Interesting"
-msgstr ""
+msgstr "Ενδιαφέρων"
 
 msgid "Introduction"
-msgstr ""
+msgstr "Εισαγωγή"
 
 msgid "Loading"
 msgstr ""
 
 msgid "Main menu"
-msgstr ""
+msgstr "Κεντρικό μενού"
 
 msgid "Maximize"
-msgstr ""
+msgstr "Μεγιστοποίηση"
 
 msgid "Minimize"
 msgstr ""
 
 msgid "Mute"
-msgstr ""
+msgstr "Σίγαση"
 
 msgid "My Games"
-msgstr ""
+msgstr "Τα Παιχνίδια μου"
 
 msgid "My favorites"
-msgstr ""
+msgstr "Τα αγαπημένα μου"
 
 msgid "My recents"
-msgstr ""
+msgstr "Τα πιο πρόσφατα μου"
 
 msgid "Nonexistent picture"
 msgstr ""
 
 msgid "Normal"
-msgstr ""
+msgstr "Κανονικό"
 
 msgid "Nothing special"
-msgstr ""
+msgstr "Τίποτα το ιδιαίτερο"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "Pause"
-msgstr ""
+msgstr "Παύση"
 
 msgid "Please choose at least one platform to share on"
-msgstr ""
+msgstr "Παρακαλώ επιλέξτε τουλάχιστον μία πλατφόρμα για δημοσίευση σε"
 
 msgid "Please input text here"
-msgstr ""
+msgstr "Παρακαλώ εισάγετε κείμενο εδώ"
 
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
-msgstr ""
+msgstr "Πρόβλημα κατά τη φόρτωση του URL '%s'"
 
 msgid "Quit"
-msgstr ""
+msgstr "Έξοδος"
 
 msgid "Ratings successfully"
 msgstr ""
 
 msgid "Replay"
-msgstr ""
+msgstr "Ξαναπαίζω"
 
 msgid "Share"
-msgstr ""
+msgstr "Μοιραστείτε"
 
 msgid "Share to"
 msgstr ""
@@ -169,49 +171,49 @@ msgid "Sharing"
 msgstr ""
 
 msgid "Sina"
-msgstr ""
+msgstr "Sina"
 
 msgid "Successful"
 msgstr ""
 
 msgid "Tencent"
-msgstr ""
+msgstr "Tencent"
 
 msgid "Toggle"
-msgstr ""
+msgstr "Εναλλαγή"
 
 msgid "Topics"
-msgstr ""
+msgstr "Θέματα"
 
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 msgid "Unable to load page"
-msgstr ""
+msgstr "Δεν είναι δυνατή η φόρτωση της σελίδας"
 
 msgid "Unknown reason"
 msgstr ""
 
 msgid "Version: "
-msgstr ""
+msgstr "Έκδοση:"
 
 msgid "View New Features"
-msgstr ""
+msgstr "Εμφάνιση νέο χαρακτηριστικό"
 
 msgid "Volume"
-msgstr ""
+msgstr "Τόμος"
 
 msgid "Weibo: "
-msgstr ""
+msgstr "Weibo: "
 
 msgid "Wow, wonderful"
-msgstr ""
+msgstr "Πω πω, υπέροχο!"
 
 msgid "You scored today already"
 msgstr ""
 
 msgid "Your game cache is empty."
-msgstr ""
+msgstr "Η προσωρινή μνήμη του παιχνίδι σας είναι άδεια."
 
 msgid "from Deepin Game"
 msgstr ""

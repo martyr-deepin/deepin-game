@@ -1,0 +1,218 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# samson <sambelet@yahoo.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: Deepin Game\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-03 08:44+0800\n"
+"PO-Revision-Date: 2014-06-30 15:01+0000\n"
+"Last-Translator: samson <sambelet@yahoo.com>\n"
+"Language-Team: Amharic (http://www.transifex.com/projects/p/deepin-game/"
+"language/am/)\n"
+"Language: am\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "%s ፋይሎች ጠፍተዋል እና %s ነፃ የዲስክ ቦታ"
+
+msgid "About us"
+msgstr "ስለ እኛ"
+
+msgid "Boring"
+msgstr "ደባሪ"
+
+msgid "Change skin"
+msgstr "ቆዳውን መቀየሪያ"
+
+msgid "Clear Caches"
+msgstr "Caches ማጽጃ"
+
+msgid "Click here to refresh"
+msgstr "ለማነቃቃት እዚህ ይጫኑ"
+
+msgid "Click to login"
+msgstr "ለመግባት ይጫኑ"
+
+msgid "Click to switch user"
+msgstr "ይጫኑ ተጠቃሚ ለመቀየር"
+
+msgid "Close"
+msgstr "መዝጊያ"
+
+msgid "Continue"
+msgstr "ይቀጥሉ"
+
+msgid "Deepin Game"
+msgstr "ጨዋታዎች"
+
+#, python-format
+msgid "Deepin Game - %s "
+msgstr "ጨዋታዎች - %s "
+
+msgid ""
+"Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
+"find good and safe games selected by professionals. Click and play the best "
+"games you have ever met. Deepin Game just for happiness!"
+msgstr ""
+
+msgid "Error"
+msgstr "ስህተት"
+
+msgid "Failed"
+msgstr "ወድቋል"
+
+msgid "Favorite"
+msgstr "የምወዳቸው"
+
+msgid "Feedback: "
+msgstr ""
+
+msgid "Follow"
+msgstr "ይከተሉ"
+
+msgid "Forum: "
+msgstr "ሸንጎ: "
+
+msgid "Fullscreen"
+msgstr "በሙሉ መመልከቻ ዘዴ"
+
+msgid "Game deliver: "
+msgstr "ጨዋታ አቅራቢው: "
+
+msgid "Good"
+msgstr "ጥሩ"
+
+msgid "Home"
+msgstr "ቤት"
+
+msgid "Interesting"
+msgstr "አስደናቂ"
+
+msgid "Introduction"
+msgstr "መግቢያ"
+
+msgid "Loading"
+msgstr "በመጫን ላይ"
+
+msgid "Main menu"
+msgstr "ዋናው ዝርዝር"
+
+msgid "Maximize"
+msgstr "ማሳደጊያ"
+
+msgid "Minimize"
+msgstr "ማሳነሻ"
+
+msgid "Mute"
+msgstr "መቀነሻ"
+
+msgid "My Games"
+msgstr "የኔ ጨዋታዎች"
+
+msgid "My favorites"
+msgstr "እኔ የምወዳቸው"
+
+msgid "My recents"
+msgstr "የኔ የቅርብ ጊዜ"
+
+msgid "Nonexistent picture"
+msgstr "ስእሉ አልተገኘም"
+
+msgid "Normal"
+msgstr "መደበኛ"
+
+msgid "Nothing special"
+msgstr "አዲስ ነገር የለም"
+
+msgid "OK"
+msgstr "እሺ"
+
+msgid "Pause"
+msgstr "ማቆሚያ"
+
+msgid "Please choose at least one platform to share on"
+msgstr "እባክዎን አንድ መድረክ ይምረጡ ለማካፈል በ"
+
+msgid "Please input text here"
+msgstr "እባክዎን ጽሁፍ እዚህ ያስገቡ"
+
+#, python-format
+msgid "Problem occurred while loading the URL '%s'"
+msgstr "ችግር ተፈጥሯል በመጫን ላይ እንዳለ URL '%s'"
+
+msgid "Quit"
+msgstr "ማጥፊያ"
+
+msgid "Ratings successfully"
+msgstr ""
+
+msgid "Replay"
+msgstr "እንደገና ማጫወቻ"
+
+msgid "Share"
+msgstr "ማካፈያ"
+
+msgid "Share to"
+msgstr "ማካፈያ ወደ"
+
+msgid "Share to social networks"
+msgstr "ወደ ሕብረተሰብ ኔትዎርክ ማካፈያ "
+
+msgid "Sharing"
+msgstr "ማካፈያ"
+
+msgid "Sina"
+msgstr "ሲና"
+
+msgid "Successful"
+msgstr "ተሳክቷል"
+
+msgid "Tencent"
+msgstr "ቴንሴንት"
+
+msgid "Toggle"
+msgstr "መቀያየሪያ"
+
+msgid "Topics"
+msgstr "አርእስቶች"
+
+msgid "Twitter"
+msgstr "ትዊተር"
+
+msgid "Unable to load page"
+msgstr "ገጹን መጫን አልተቻለም"
+
+msgid "Unknown reason"
+msgstr "ባልታወቀ ምክንያት"
+
+msgid "Version: "
+msgstr "እትም: "
+
+msgid "View New Features"
+msgstr "አዲስ ገጽታዎች መመልከቻ"
+
+msgid "Volume"
+msgstr "መጠን"
+
+msgid "Weibo: "
+msgstr "ብሎግ: "
+
+msgid "Wow, wonderful"
+msgstr "አስደናቂ"
+
+msgid "You scored today already"
+msgstr "ዛሬ ጥሩ ውጤት አስመዝግበዋል"
+
+msgid "Your game cache is empty."
+msgstr "የ እርስዎ የጨዋታ cache ባዶ ነው"
+
+msgid "from Deepin Game"
+msgstr "ከ ጨዋታዎች"
