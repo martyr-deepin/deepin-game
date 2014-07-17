@@ -25,8 +25,8 @@ import traceback
 
 import logging
 logging.basicConfig(level=logging.ERROR)
-from pystorm.services import FetchService
-from pystorm.tasks import TaskObject
+from deepin_storm.services import FetchService
+from deepin_storm.tasks import TaskObject
 from constant import GAME_CENTER_DATA_ADDRESS, GAME_CENTER_SERVER_ADDRESS
 import os
 import json
