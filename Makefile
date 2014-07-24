@@ -20,4 +20,4 @@ install:
 	cp -r weibo_theme ${DESTDIR}${PREFIX}/share/deepin-game
 	cp image/deepin-game-center.svg ${DESTDIR}${PREFIX}/share/icons/hicolor/scalable/apps
 	cp deepin-game-center.desktop ${DESTDIR}${PREFIX}/share/applications
-	ln -sf ${DESTDIR}${PREFIX}/share/deepin-game/src/deepin-game-center.py ${DESTDIR}${PREFIX}/bin/deepin-game-center
+	ln -sf ${PREFIX}/share/deepin-game/src/deepin-game-center.py ${DESTDIR}${PREFIX}/bin/deepin-game-center
