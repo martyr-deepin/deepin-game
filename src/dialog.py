@@ -103,7 +103,7 @@ class AboutDialog(DialogBox):
         describe = _("Deepin Game is designed by Deepin for Linux users. Here "
                 "you will elaborately find good and safe games selected by "
                 "professionals. Click and play the best games you have ever "
-                "met. Deepin Game just for happiness!")
+                "seen. Deepin Game just for happiness!")
         
         describe_label = Label(describe, enable_select=False, wrap_width=430, text_size=10)
         main_box.pack_start(title_box, False, False)
@@ -116,7 +116,7 @@ class AboutDialog(DialogBox):
                 (_('Weibo: '), None, 'http://weibo.com/linuxdeepinnew'),
                 (_('Forum: '), None, 'http://www.linuxdeepin.com/forum'),
                 (_('Feedback: '), None, 'http://www.linuxdeepin.com/mantis'),
-                (_('Game deliver: '), 'game@linuxdeepin.com', 'mailto:game@linuxdeepin.com'),
+                (_('Game upload: '), 'game@linuxdeepin.com', 'mailto:game@linuxdeepin.com'),
                 ]
         for (i, l) in enumerate(links):
             left_text = Label(l[0])

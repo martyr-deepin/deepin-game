@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-03 09:32+0800\n"
+"POT-Creation-Date: 2014-07-25 10:29+0800\n"
 "PO-Revision-Date: 2014-07-01 15:51+0000\n"
 "Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/deepin-"
@@ -23,264 +23,268 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: src/game_center.py:297
+#: ../src/titlebar.py:53
+msgid "Change skin"
+msgstr "Zmień skórkę"
+
+#: ../src/titlebar.py:54
+msgid "Main menu"
+msgstr "Menu główne"
+
+#: ../src/titlebar.py:55
+msgid "Maximize"
+msgstr "Maksymalizuj"
+
+#: ../src/titlebar.py:56
+msgid "Minimize"
+msgstr "Minimalizuj"
+
+#: ../src/titlebar.py:57 ../src/dialog.py:137
+msgid "Close"
+msgstr "Zamknij"
+
+#: ../src/titlebar.py:58
+msgid "Toggle"
+msgstr "Przełącz"
+
+#: ../src/dialog.py:85 ../src/game_center.py:90
+msgid "Deepin Game"
+msgstr "Gry Deepin"
+
+#: ../src/dialog.py:90
+msgid "Version: "
+msgstr "Wersja:"
+
+#: ../src/dialog.py:103
+msgid ""
+"Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
+"find good and safe games selected by professionals. Click and play the best "
+"games you have ever seen. Deepin Game just for happiness!"
+msgstr ""
+
+#: ../src/dialog.py:116
+msgid "Weibo: "
+msgstr "Weibo:"
+
+#: ../src/dialog.py:117
+msgid "Forum: "
+msgstr "Forum:"
+
+#: ../src/dialog.py:118
+msgid "Feedback: "
+msgstr "Opinia:"
+
+#: ../src/dialog.py:119
+msgid "Game upload: "
+msgstr ""
+
+#: ../src/game_center.py:143
+msgid "Home"
+msgstr "Początek"
+
+#: ../src/game_center.py:144
+msgid "Topics"
+msgstr "Tematyka"
+
+#: ../src/game_center.py:145
+msgid "My Games"
+msgstr "Moje gry"
+
+#: ../src/game_center.py:163 ../src/game_center.py:176
+msgid "About us"
+msgstr "O nas"
+
+#: ../src/game_center.py:174
+msgid "Clear Caches"
+msgstr "Wyczyść pamięć podręczną"
+
+#: ../src/game_center.py:175
+msgid "View New Features"
+msgstr "Zobacz nowe możliwości"
+
+#: ../src/game_center.py:177
+msgid "Quit"
+msgstr "Wyjdź"
+
+#: ../src/game_center.py:227
+msgid "My favorites"
+msgstr "Moje ulubione"
+
+#: ../src/game_center.py:228
+msgid "My recents"
+msgstr "Moje ostatnie"
+
+#: ../src/game_center.py:297
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
 msgstr "Zostało usuniętych %s plików i zwolniono %s miejsca na dysku."
 
-#: src/game_center.py:163 src/game_center.py:176
-msgid "About us"
-msgstr "O nas"
+#: ../src/game_center.py:300
+msgid "Your game cache is empty."
+msgstr "Twoja pamięć podręczna gry jest pusta."
 
-#: src/star_view.py:324
+#: ../src/star_view.py:324
 msgid "Boring"
 msgstr "Nuda"
 
-#: src/titlebar.py:53
-msgid "Change skin"
-msgstr "Zmień skórkę"
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "Nic nadzwyczajnego"
 
-#: src/game_center.py:174
-msgid "Clear Caches"
-msgstr "Wyczyść pamięć podręczną"
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "Interesujące"
 
-#: src/widgets.py:159 src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Kliknij, aby odświeżyć"
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "Dobra"
 
-#: src/share.py:344
-msgid "Click to login"
-msgstr "Kliknij, aby zalogować"
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "Wow, wyśmienita"
 
-#: src/share.py:326
-msgid "Click to switch user"
-msgstr "Kliknij, aby przełączyć użytkownika"
+#: ../src/star_view.py:336 ../src/control_toolbar.py:255
+msgid "You scored today already"
+msgstr "Dziś już oceniłeś"
 
-#: src/titlebar.py:57 src/dialog.py:137
-msgid "Close"
-msgstr "Zamknij"
+#: ../src/guide_box.py:56
+msgid "Introduction"
+msgstr "Wprowadzenie"
 
-#: src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Kontynuuj"
-
-#: src/dialog.py:85 src/game_center.py:90
-msgid "Deepin Game"
-msgstr "Gry Deepin"
-
-#: src/player.py:148
+#: ../src/player.py:148
 #, python-format
 msgid "Deepin Game - %s "
 msgstr "Gry Deepin - %s"
 
-#: src/dialog.py:103
-msgid ""
-"Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
-"find good and safe games selected by professionals. Click and play the best "
-"games you have ever met. Deepin Game just for happiness!"
-msgstr ""
+#: ../src/share.py:77
+msgid "Share to social networks"
+msgstr "Udostępnij do sieci społecznościowych"
 
-#: src/share.py:548 src/share.py:560
-msgid "Error"
-msgstr "Błąd"
+#: ../src/share.py:163
+msgid "Sina"
+msgstr "Sina"
 
-#: src/share.py:684
-msgid "Failed"
-msgstr "Wystąpił błąd"
+#: ../src/share.py:164
+msgid "Tencent"
+msgstr "Tencent"
 
-#: src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Ulubiony"
+#: ../src/share.py:165
+msgid "Twitter"
+msgstr "Twitter"
 
-#: src/dialog.py:118
-msgid "Feedback: "
-msgstr "Opinia:"
+#: ../src/share.py:197
+msgid "Unable to load page"
+msgstr "Nie można wczytać strony"
 
-#: src/share.py:635
-msgid "Follow"
-msgstr "Podążaj"
-
-#: src/dialog.py:117
-msgid "Forum: "
-msgstr "Forum:"
-
-#: src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Pełny ekran"
-
-#: src/dialog.py:119
-msgid "Game deliver: "
-msgstr "Dostawca gry:"
-
-#: src/star_view.py:330
-msgid "Good"
-msgstr "Dobra"
-
-#: src/game_center.py:143
-msgid "Home"
-msgstr "Początek"
-
-#: src/star_view.py:328
-msgid "Interesting"
-msgstr "Interesujące"
-
-#: src/guide_box.py:56
-msgid "Introduction"
-msgstr "Wprowadzenie"
-
-#: src/share.py:459
-msgid "Loading"
-msgstr "Wczytywanie"
-
-#: src/titlebar.py:54
-msgid "Main menu"
-msgstr "Menu główne"
-
-#: src/titlebar.py:55
-msgid "Maximize"
-msgstr "Maksymalizuj"
-
-#: src/titlebar.py:56
-msgid "Minimize"
-msgstr "Minimalizuj"
-
-#: src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Wycisz"
-
-#: src/game_center.py:145
-msgid "My Games"
-msgstr "Moje gry"
-
-#: src/game_center.py:227
-msgid "My favorites"
-msgstr "Moje ulubione"
-
-#: src/game_center.py:228
-msgid "My recents"
-msgstr "Moje ostatnie"
-
-#: src/share.py:549
-msgid "Nonexistent picture"
-msgstr "Nieistniejący obrazek"
-
-#: src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normalnie"
-
-#: src/star_view.py:326
-msgid "Nothing special"
-msgstr "Nic nadzwyczajnego"
-
-#: src/widgets.py:326
-msgid "OK"
-msgstr "OK"
-
-#: src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Pauza"
-
-#: src/share.py:561
-msgid "Please choose at least one platform to share on"
-msgstr "Proszę wybrać przynajmniej jedną platformę do udostępnienia"
-
-#: src/share.py:512
-msgid "Please input text here"
-msgstr "Wprowadź tutaj tekst"
-
-#: src/share.py:198
+#: ../src/share.py:198
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "Wystąpił problem podczas wczytywania strony '%s'"
 
-#: src/game_center.py:177
-msgid "Quit"
-msgstr "Wyjdź"
+#: ../src/share.py:326
+msgid "Click to switch user"
+msgstr "Kliknij, aby przełączyć użytkownika"
 
-#: src/control_toolbar.py:258
-msgid "Ratings successfully"
-msgstr "Pomyślne ocenienie"
+#: ../src/share.py:344
+msgid "Click to login"
+msgstr "Kliknij, aby zalogować"
 
-#: src/control_toolbar.py:123
-msgid "Replay"
-msgstr "Powtórka"
+#: ../src/share.py:459
+msgid "Loading"
+msgstr "Wczytywanie"
 
-#: src/control_toolbar.py:181 src/share.py:470
+#: ../src/share.py:470 ../src/control_toolbar.py:181
 msgid "Share"
 msgstr "Udostępnij"
 
-#: src/share.py:658 src/share.py:679
-msgid "Share to"
-msgstr "Udostępnij na"
+#: ../src/share.py:512
+msgid "Please input text here"
+msgstr "Wprowadź tutaj tekst"
 
-#: src/share.py:77
-msgid "Share to social networks"
-msgstr "Udostępnij do sieci społecznościowych"
+#: ../src/share.py:548 ../src/share.py:560
+msgid "Error"
+msgstr "Błąd"
 
-#: src/share.py:577
+#: ../src/share.py:549
+msgid "Nonexistent picture"
+msgstr "Nieistniejący obrazek"
+
+#: ../src/share.py:561
+msgid "Please choose at least one platform to share on"
+msgstr "Proszę wybrać przynajmniej jedną platformę do udostępnienia"
+
+#: ../src/share.py:577
 msgid "Sharing"
 msgstr "Udostępnianie"
 
-#: src/share.py:163
-msgid "Sina"
-msgstr "Sina"
+#: ../src/share.py:588
+msgid "from Deepin Game"
+msgstr "z Gier Deepin"
 
-#: src/share.py:661
+#: ../src/share.py:635
+msgid "Follow"
+msgstr "Podążaj"
+
+#: ../src/share.py:658 ../src/share.py:679
+msgid "Share to"
+msgstr "Udostępnij na"
+
+#: ../src/share.py:661
 msgid "Successful"
 msgstr "Zakończone powodzeniem"
 
-#: src/share.py:164
-msgid "Tencent"
-msgstr "Tencent"
+#: ../src/share.py:684
+msgid "Failed"
+msgstr "Wystąpił błąd"
 
-#: src/titlebar.py:58
-msgid "Toggle"
-msgstr "Przełącz"
-
-#: src/game_center.py:144
-msgid "Topics"
-msgstr "Tematyka"
-
-#: src/share.py:165
-msgid "Twitter"
-msgstr "Twitter"
-
-#: src/share.py:197
-msgid "Unable to load page"
-msgstr "Nie można wczytać strony"
-
-#: src/share.py:692
+#: ../src/share.py:692
 msgid "Unknown reason"
 msgstr "Nieznany powód"
 
-#: src/dialog.py:90
-msgid "Version: "
-msgstr "Wersja:"
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "Kliknij, aby odświeżyć"
 
-#: src/game_center.py:175
-msgid "View New Features"
-msgstr "Zobacz nowe możliwości"
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "OK"
 
-#: src/control_toolbar.py:89
+#: ../src/control_toolbar.py:89
 msgid "Volume"
 msgstr "Głośność"
 
-#: src/dialog.py:116
-msgid "Weibo: "
-msgstr "Weibo:"
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "Wycisz"
 
-#: src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Wow, wyśmienita"
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "Ulubiony"
 
-#: src/control_toolbar.py:255 src/star_view.py:336
-msgid "You scored today already"
-msgstr "Dziś już oceniłeś"
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "Powtórka"
 
-#: src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "Twoja pamięć podręczna gry jest pusta."
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "Pauza"
 
-#: src/share.py:588
-msgid "from Deepin Game"
-msgstr "z Gier Deepin"
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "Kontynuuj"
+
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "Pełny ekran"
+
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "Normalnie"
+
+#: ../src/control_toolbar.py:258
+#, fuzzy
+msgid "Rated successfully"
+msgstr "Pomyślne ocenienie"
+
+#~ msgid "Game deliver: "
+#~ msgstr "Dostawca gry:"

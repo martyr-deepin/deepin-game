@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-03 09:32+0800\n"
+"POT-Creation-Date: 2014-07-25 10:29+0800\n"
 "PO-Revision-Date: 2014-06-30 04:34+0000\n"
 "Last-Translator: fri\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/deepin-game/"
@@ -22,268 +22,273 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr "%s souborů smazáno a %s místa na disku uvolněno."
-
-#: src/game_center.py:163 src/game_center.py:176
-msgid "About us"
-msgstr "O nás"
-
-#: src/star_view.py:324
-msgid "Boring"
-msgstr "Nuda"
-
-#: src/titlebar.py:53
+#: ../src/titlebar.py:53
 msgid "Change skin"
 msgstr "Změnit podobu"
 
-#: src/game_center.py:174
-msgid "Clear Caches"
-msgstr "Smazat vyrovnávací paměti"
+#: ../src/titlebar.py:54
+msgid "Main menu"
+msgstr "Hlavní nabídka"
 
-#: src/widgets.py:159 src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Klepněte zde pro obnovení"
+#: ../src/titlebar.py:55
+msgid "Maximize"
+msgstr "Zvětšit"
 
-#: src/share.py:344
-msgid "Click to login"
-msgstr "Klepněte pro přihlášení"
+#: ../src/titlebar.py:56
+msgid "Minimize"
+msgstr "Zmenšit"
 
-#: src/share.py:326
-msgid "Click to switch user"
-msgstr "Klepněte pro přepnutí uživatele"
-
-#: src/titlebar.py:57 src/dialog.py:137
+#: ../src/titlebar.py:57 ../src/dialog.py:137
 msgid "Close"
 msgstr "Zavřít"
 
-#: src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Pokračovat"
+#: ../src/titlebar.py:58
+msgid "Toggle"
+msgstr "Přepnout"
 
-#: src/dialog.py:85 src/game_center.py:90
+#: ../src/dialog.py:85 ../src/game_center.py:90
 msgid "Deepin Game"
 msgstr "Hry Deepin"
 
-#: src/player.py:148
-#, python-format
-msgid "Deepin Game - %s "
-msgstr "Hry Deepin - %s "
+#: ../src/dialog.py:90
+msgid "Version: "
+msgstr "Verze: "
 
-#: src/dialog.py:103
+#: ../src/dialog.py:103
+#, fuzzy
 msgid ""
 "Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
 "find good and safe games selected by professionals. Click and play the best "
-"games you have ever met. Deepin Game just for happiness!"
+"games you have ever seen. Deepin Game just for happiness!"
 msgstr ""
 "Hry Deepin jsou navrženy Deepinem pro uživatele Linuxu. Zde naleznete dobré "
 "a bezpečné hry vybrané profesionály. Klepněte a hrajte nejlepší hry, s "
 "jakými jste se kdy potkal. Hry Deepin jsou tu proto, aby přinášely pocit "
 "blaženosti!"
 
-#: src/share.py:548 src/share.py:560
-msgid "Error"
-msgstr "Chyba"
+#: ../src/dialog.py:116
+msgid "Weibo: "
+msgstr "Weibo: "
 
-#: src/share.py:684
-msgid "Failed"
-msgstr "Nepodařilo se"
-
-#: src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Oblíbené"
-
-#: src/dialog.py:118
-msgid "Feedback: "
-msgstr "Zpětná vazba: "
-
-#: src/share.py:635
-msgid "Follow"
-msgstr "Sledovat"
-
-#: src/dialog.py:117
+#: ../src/dialog.py:117
 msgid "Forum: "
 msgstr "Fórum: "
 
-#: src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Celá obrazovka"
+#: ../src/dialog.py:118
+msgid "Feedback: "
+msgstr "Zpětná vazba: "
 
-#: src/dialog.py:119
-msgid "Game deliver: "
-msgstr "Vydavatel hry: "
+#: ../src/dialog.py:119
+msgid "Game upload: "
+msgstr ""
 
-#: src/star_view.py:330
-msgid "Good"
-msgstr "Dobré"
-
-#: src/game_center.py:143
+#: ../src/game_center.py:143
 msgid "Home"
 msgstr "Domovská složka"
 
-#: src/star_view.py:328
-msgid "Interesting"
-msgstr "Zajímavé"
+#: ../src/game_center.py:144
+msgid "Topics"
+msgstr "Náměty"
 
-#: src/guide_box.py:56
-msgid "Introduction"
-msgstr "Úvod"
-
-#: src/share.py:459
-msgid "Loading"
-msgstr "Nahrává se"
-
-#: src/titlebar.py:54
-msgid "Main menu"
-msgstr "Hlavní nabídka"
-
-#: src/titlebar.py:55
-msgid "Maximize"
-msgstr "Zvětšit"
-
-#: src/titlebar.py:56
-msgid "Minimize"
-msgstr "Zmenšit"
-
-#: src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Ztlumit"
-
-#: src/game_center.py:145
+#: ../src/game_center.py:145
 msgid "My Games"
 msgstr "Moje hry"
 
-#: src/game_center.py:227
+#: ../src/game_center.py:163 ../src/game_center.py:176
+msgid "About us"
+msgstr "O nás"
+
+#: ../src/game_center.py:174
+msgid "Clear Caches"
+msgstr "Smazat vyrovnávací paměti"
+
+#: ../src/game_center.py:175
+msgid "View New Features"
+msgstr "Podívat se na nové vlastnosti"
+
+#: ../src/game_center.py:177
+msgid "Quit"
+msgstr "Ukončit"
+
+#: ../src/game_center.py:227
 msgid "My favorites"
 msgstr "Moje oblíbené"
 
-#: src/game_center.py:228
+#: ../src/game_center.py:228
 msgid "My recents"
 msgstr "Moje nedávné"
 
-#: src/share.py:549
-msgid "Nonexistent picture"
-msgstr "Neexistující obrázek"
+#: ../src/game_center.py:297
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "%s souborů smazáno a %s místa na disku uvolněno."
 
-#: src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normální"
+#: ../src/game_center.py:300
+msgid "Your game cache is empty."
+msgstr "Vaše herní vyrovnávací paměť je prázdná."
 
-#: src/star_view.py:326
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "Nuda"
+
+#: ../src/star_view.py:326
 msgid "Nothing special"
 msgstr "Nic zvláštního"
 
-#: src/widgets.py:326
-msgid "OK"
-msgstr "OK"
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "Zajímavé"
 
-#: src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Pozastavit"
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "Dobré"
 
-#: src/share.py:561
-msgid "Please choose at least one platform to share on"
-msgstr "Vyberte, prosím, alespoň jeden systém, na kterém se má sdílet"
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "Nářez. Úžasné"
 
-#: src/share.py:512
-msgid "Please input text here"
-msgstr "Zadejte, prosím, text zde"
+#: ../src/star_view.py:336 ../src/control_toolbar.py:255
+msgid "You scored today already"
+msgstr "Již jste dnes bodoval"
 
-#: src/share.py:198
+#: ../src/guide_box.py:56
+msgid "Introduction"
+msgstr "Úvod"
+
+#: ../src/player.py:148
+#, python-format
+msgid "Deepin Game - %s "
+msgstr "Hry Deepin - %s "
+
+#: ../src/share.py:77
+msgid "Share to social networks"
+msgstr "Sdílet na společenských sítích"
+
+#: ../src/share.py:163
+msgid "Sina"
+msgstr "Sina"
+
+#: ../src/share.py:164
+msgid "Tencent"
+msgstr "Tencent"
+
+#: ../src/share.py:165
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../src/share.py:197
+msgid "Unable to load page"
+msgstr "Nelze nahrát stránku"
+
+#: ../src/share.py:198
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "Při nahrávání adresy (URL) '%s' se vyskytly potíže"
 
-#: src/game_center.py:177
-msgid "Quit"
-msgstr "Ukončit"
+#: ../src/share.py:326
+msgid "Click to switch user"
+msgstr "Klepněte pro přepnutí uživatele"
 
-#: src/control_toolbar.py:258
-msgid "Ratings successfully"
-msgstr "Hodnocení proběhlo úspěšně"
+#: ../src/share.py:344
+msgid "Click to login"
+msgstr "Klepněte pro přihlášení"
 
-#: src/control_toolbar.py:123
-msgid "Replay"
-msgstr "Hrát znovu"
+#: ../src/share.py:459
+msgid "Loading"
+msgstr "Nahrává se"
 
-#: src/control_toolbar.py:181 src/share.py:470
+#: ../src/share.py:470 ../src/control_toolbar.py:181
 msgid "Share"
 msgstr "Sdílet"
 
-#: src/share.py:658 src/share.py:679
-msgid "Share to"
-msgstr "Sdílet"
+#: ../src/share.py:512
+msgid "Please input text here"
+msgstr "Zadejte, prosím, text zde"
 
-#: src/share.py:77
-msgid "Share to social networks"
-msgstr "Sdílet na společenských sítích"
+#: ../src/share.py:548 ../src/share.py:560
+msgid "Error"
+msgstr "Chyba"
 
-#: src/share.py:577
+#: ../src/share.py:549
+msgid "Nonexistent picture"
+msgstr "Neexistující obrázek"
+
+#: ../src/share.py:561
+msgid "Please choose at least one platform to share on"
+msgstr "Vyberte, prosím, alespoň jeden systém, na kterém se má sdílet"
+
+#: ../src/share.py:577
 msgid "Sharing"
 msgstr "Sdílení"
 
-#: src/share.py:163
-msgid "Sina"
-msgstr "Sina"
+#: ../src/share.py:588
+msgid "from Deepin Game"
+msgstr "z her Deepin"
 
-#: src/share.py:661
+#: ../src/share.py:635
+msgid "Follow"
+msgstr "Sledovat"
+
+#: ../src/share.py:658 ../src/share.py:679
+msgid "Share to"
+msgstr "Sdílet"
+
+#: ../src/share.py:661
 msgid "Successful"
 msgstr "Úspěšné"
 
-#: src/share.py:164
-msgid "Tencent"
-msgstr "Tencent"
+#: ../src/share.py:684
+msgid "Failed"
+msgstr "Nepodařilo se"
 
-#: src/titlebar.py:58
-msgid "Toggle"
-msgstr "Přepnout"
-
-#: src/game_center.py:144
-msgid "Topics"
-msgstr "Náměty"
-
-#: src/share.py:165
-msgid "Twitter"
-msgstr "Twitter"
-
-#: src/share.py:197
-msgid "Unable to load page"
-msgstr "Nelze nahrát stránku"
-
-#: src/share.py:692
+#: ../src/share.py:692
 msgid "Unknown reason"
 msgstr "Neznámý důvod"
 
-#: src/dialog.py:90
-msgid "Version: "
-msgstr "Verze: "
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "Klepněte zde pro obnovení"
 
-#: src/game_center.py:175
-msgid "View New Features"
-msgstr "Podívat se na nové vlastnosti"
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "OK"
 
-#: src/control_toolbar.py:89
+#: ../src/control_toolbar.py:89
 msgid "Volume"
 msgstr "Hlasitost"
 
-#: src/dialog.py:116
-msgid "Weibo: "
-msgstr "Weibo: "
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "Ztlumit"
 
-#: src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Nářez. Úžasné"
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "Oblíbené"
 
-#: src/control_toolbar.py:255 src/star_view.py:336
-msgid "You scored today already"
-msgstr "Již jste dnes bodoval"
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "Hrát znovu"
 
-#: src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "Vaše herní vyrovnávací paměť je prázdná."
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "Pozastavit"
 
-#: src/share.py:588
-msgid "from Deepin Game"
-msgstr "z her Deepin"
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "Pokračovat"
+
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "Celá obrazovka"
+
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "Normální"
+
+#: ../src/control_toolbar.py:258
+#, fuzzy
+msgid "Rated successfully"
+msgstr "Hodnocení proběhlo úspěšně"
+
+#~ msgid "Game deliver: "
+#~ msgstr "Vydavatel hry: "

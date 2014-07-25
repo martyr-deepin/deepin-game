@@ -255,7 +255,7 @@ class ControlToolbar(Statusbar):
             self.star.progressbar_tip.show_image_text(_('You scored today already'), 'star/star_finish.png')
             self.star.show_progressbar_tip(event)
         else:
-            self.star.progressbar_tip.show_image_text(_('Ratings successfully'), 'star/star_success.png')
+            self.star.progressbar_tip.show_image_text(_('Rated successfully'), 'star/star_success.png')
             self.star.show_progressbar_tip(event)
             if getattr(self, 'appid'):
                 SetStarScore(self.appid, star).start()

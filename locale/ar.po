@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-03 09:32+0800\n"
+"POT-Creation-Date: 2014-07-25 10:29+0800\n"
 "PO-Revision-Date: 2014-06-30 04:34+0000\n"
 "Last-Translator: cxbii <chenxiangbang@linuxdeepin.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/deepin-game/"
@@ -20,264 +20,267 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: src/game_center.py:297
+#: ../src/titlebar.py:53
+msgid "Change skin"
+msgstr "تغيير السمة"
+
+#: ../src/titlebar.py:54
+msgid "Main menu"
+msgstr "القائمة الرئيسية"
+
+#: ../src/titlebar.py:55
+msgid "Maximize"
+msgstr "تكبير"
+
+#: ../src/titlebar.py:56
+msgid "Minimize"
+msgstr ""
+
+#: ../src/titlebar.py:57 ../src/dialog.py:137
+msgid "Close"
+msgstr "غلق"
+
+#: ../src/titlebar.py:58
+msgid "Toggle"
+msgstr "تبديل"
+
+#: ../src/dialog.py:85 ../src/game_center.py:90
+msgid "Deepin Game"
+msgstr ""
+
+#: ../src/dialog.py:90
+msgid "Version: "
+msgstr "الإصدار:"
+
+#: ../src/dialog.py:103
+msgid ""
+"Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
+"find good and safe games selected by professionals. Click and play the best "
+"games you have ever seen. Deepin Game just for happiness!"
+msgstr ""
+
+#: ../src/dialog.py:116
+msgid "Weibo: "
+msgstr "ويبو:"
+
+#: ../src/dialog.py:117
+msgid "Forum: "
+msgstr "المنتدي:"
+
+#: ../src/dialog.py:118
+msgid "Feedback: "
+msgstr "ردود الفعل:"
+
+#: ../src/dialog.py:119
+msgid "Game upload: "
+msgstr ""
+
+#: ../src/game_center.py:143
+msgid "Home"
+msgstr "المنزل"
+
+#: ../src/game_center.py:144
+msgid "Topics"
+msgstr "المواضيع"
+
+#: ../src/game_center.py:145
+msgid "My Games"
+msgstr "ألعابي"
+
+#: ../src/game_center.py:163 ../src/game_center.py:176
+msgid "About us"
+msgstr "عنا"
+
+#: ../src/game_center.py:174
+msgid "Clear Caches"
+msgstr ""
+
+#: ../src/game_center.py:175
+msgid "View New Features"
+msgstr "عرض الخصائص الجديدة"
+
+#: ../src/game_center.py:177
+msgid "Quit"
+msgstr "خروج"
+
+#: ../src/game_center.py:227
+msgid "My favorites"
+msgstr "المفضلة"
+
+#: ../src/game_center.py:228
+msgid "My recents"
+msgstr "الأخيرة"
+
+#: ../src/game_center.py:297
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
 msgstr "%s تم حذف الملفات و %s مساحة القرص تم تحريرها."
 
-#: src/game_center.py:163 src/game_center.py:176
-msgid "About us"
-msgstr "عنا"
+#: ../src/game_center.py:300
+msgid "Your game cache is empty."
+msgstr "البيانات المؤقته الخاصة بالالعاب فارغة"
 
-#: src/star_view.py:324
+#: ../src/star_view.py:324
 msgid "Boring"
 msgstr "ممل"
 
-#: src/titlebar.py:53
-msgid "Change skin"
-msgstr "تغيير السمة"
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "لا شيء مميز"
 
-#: src/game_center.py:174
-msgid "Clear Caches"
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "مثير للاهتمام"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "جيد"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "مدهش"
+
+#: ../src/star_view.py:336 ../src/control_toolbar.py:255
+msgid "You scored today already"
 msgstr ""
 
-#: src/widgets.py:159 src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "أنقر هنا للتحديث"
+#: ../src/guide_box.py:56
+msgid "Introduction"
+msgstr "مقدمة"
 
-#: src/share.py:344
-msgid "Click to login"
-msgstr "انقر للدخول"
-
-#: src/share.py:326
-msgid "Click to switch user"
-msgstr "انقر لتبديل المستخدم"
-
-#: src/titlebar.py:57 src/dialog.py:137
-msgid "Close"
-msgstr "غلق"
-
-#: src/control_toolbar.py:146
-msgid "Continue"
-msgstr "استمرار"
-
-#: src/dialog.py:85 src/game_center.py:90
-msgid "Deepin Game"
-msgstr ""
-
-#: src/player.py:148
+#: ../src/player.py:148
 #, python-format
 msgid "Deepin Game - %s "
 msgstr ""
 
-#: src/dialog.py:103
-msgid ""
-"Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
-"find good and safe games selected by professionals. Click and play the best "
-"games you have ever met. Deepin Game just for happiness!"
+#: ../src/share.py:77
+msgid "Share to social networks"
 msgstr ""
 
-#: src/share.py:548 src/share.py:560
-msgid "Error"
-msgstr ""
+#: ../src/share.py:163
+msgid "Sina"
+msgstr "سينا"
 
-#: src/share.py:684
-msgid "Failed"
-msgstr ""
+#: ../src/share.py:164
+msgid "Tencent"
+msgstr "تينسنت"
 
-#: src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "المفضلة"
+#: ../src/share.py:165
+msgid "Twitter"
+msgstr "تويتر"
 
-#: src/dialog.py:118
-msgid "Feedback: "
-msgstr "ردود الفعل:"
+#: ../src/share.py:197
+msgid "Unable to load page"
+msgstr "غير قادر على تحميل الصفحة"
 
-#: src/share.py:635
-msgid "Follow"
-msgstr "تابع"
-
-#: src/dialog.py:117
-msgid "Forum: "
-msgstr "المنتدي:"
-
-#: src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "ملء الشاشة"
-
-#: src/dialog.py:119
-msgid "Game deliver: "
-msgstr "مقدم اللعبة:"
-
-#: src/star_view.py:330
-msgid "Good"
-msgstr "جيد"
-
-#: src/game_center.py:143
-msgid "Home"
-msgstr "المنزل"
-
-#: src/star_view.py:328
-msgid "Interesting"
-msgstr "مثير للاهتمام"
-
-#: src/guide_box.py:56
-msgid "Introduction"
-msgstr "مقدمة"
-
-#: src/share.py:459
-msgid "Loading"
-msgstr ""
-
-#: src/titlebar.py:54
-msgid "Main menu"
-msgstr "القائمة الرئيسية"
-
-#: src/titlebar.py:55
-msgid "Maximize"
-msgstr "تكبير"
-
-#: src/titlebar.py:56
-msgid "Minimize"
-msgstr ""
-
-#: src/control_toolbar.py:90
-msgid "Mute"
-msgstr "صامت"
-
-#: src/game_center.py:145
-msgid "My Games"
-msgstr "ألعابي"
-
-#: src/game_center.py:227
-msgid "My favorites"
-msgstr "المفضلة"
-
-#: src/game_center.py:228
-msgid "My recents"
-msgstr "الأخيرة"
-
-#: src/share.py:549
-msgid "Nonexistent picture"
-msgstr ""
-
-#: src/control_toolbar.py:166
-msgid "Normal"
-msgstr "عادي"
-
-#: src/star_view.py:326
-msgid "Nothing special"
-msgstr "لا شيء مميز"
-
-#: src/widgets.py:326
-msgid "OK"
-msgstr "حسنا"
-
-#: src/control_toolbar.py:145
-msgid "Pause"
-msgstr "وقوف مؤقت"
-
-#: src/share.py:561
-msgid "Please choose at least one platform to share on"
-msgstr "الرجاء قم بإختيار منصة واحد على الأقل للمشاركة "
-
-#: src/share.py:512
-msgid "Please input text here"
-msgstr "الرجاء أدخال النص هنا"
-
-#: src/share.py:198
+#: ../src/share.py:198
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "حدثت مشكلة أثناء تحميل الـ URL '%s'"
 
-#: src/game_center.py:177
-msgid "Quit"
-msgstr "خروج"
+#: ../src/share.py:326
+msgid "Click to switch user"
+msgstr "انقر لتبديل المستخدم"
 
-#: src/control_toolbar.py:258
-msgid "Ratings successfully"
+#: ../src/share.py:344
+msgid "Click to login"
+msgstr "انقر للدخول"
+
+#: ../src/share.py:459
+msgid "Loading"
 msgstr ""
 
-#: src/control_toolbar.py:123
-msgid "Replay"
-msgstr "تعليق"
-
-#: src/control_toolbar.py:181 src/share.py:470
+#: ../src/share.py:470 ../src/control_toolbar.py:181
 msgid "Share"
 msgstr "مشاركة"
 
-#: src/share.py:658 src/share.py:679
-msgid "Share to"
+#: ../src/share.py:512
+msgid "Please input text here"
+msgstr "الرجاء أدخال النص هنا"
+
+#: ../src/share.py:548 ../src/share.py:560
+msgid "Error"
 msgstr ""
 
-#: src/share.py:77
-msgid "Share to social networks"
+#: ../src/share.py:549
+msgid "Nonexistent picture"
 msgstr ""
 
-#: src/share.py:577
+#: ../src/share.py:561
+msgid "Please choose at least one platform to share on"
+msgstr "الرجاء قم بإختيار منصة واحد على الأقل للمشاركة "
+
+#: ../src/share.py:577
 msgid "Sharing"
 msgstr ""
 
-#: src/share.py:163
-msgid "Sina"
-msgstr "سينا"
+#: ../src/share.py:588
+msgid "from Deepin Game"
+msgstr ""
 
-#: src/share.py:661
+#: ../src/share.py:635
+msgid "Follow"
+msgstr "تابع"
+
+#: ../src/share.py:658 ../src/share.py:679
+msgid "Share to"
+msgstr ""
+
+#: ../src/share.py:661
 msgid "Successful"
 msgstr ""
 
-#: src/share.py:164
-msgid "Tencent"
-msgstr "تينسنت"
+#: ../src/share.py:684
+msgid "Failed"
+msgstr ""
 
-#: src/titlebar.py:58
-msgid "Toggle"
-msgstr "تبديل"
-
-#: src/game_center.py:144
-msgid "Topics"
-msgstr "المواضيع"
-
-#: src/share.py:165
-msgid "Twitter"
-msgstr "تويتر"
-
-#: src/share.py:197
-msgid "Unable to load page"
-msgstr "غير قادر على تحميل الصفحة"
-
-#: src/share.py:692
+#: ../src/share.py:692
 msgid "Unknown reason"
 msgstr ""
 
-#: src/dialog.py:90
-msgid "Version: "
-msgstr "الإصدار:"
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "أنقر هنا للتحديث"
 
-#: src/game_center.py:175
-msgid "View New Features"
-msgstr "عرض الخصائص الجديدة"
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "حسنا"
 
-#: src/control_toolbar.py:89
+#: ../src/control_toolbar.py:89
 msgid "Volume"
 msgstr "الصوت"
 
-#: src/dialog.py:116
-msgid "Weibo: "
-msgstr "ويبو:"
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "صامت"
 
-#: src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "مدهش"
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "المفضلة"
 
-#: src/control_toolbar.py:255 src/star_view.py:336
-msgid "You scored today already"
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "تعليق"
+
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "وقوف مؤقت"
+
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "استمرار"
+
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "ملء الشاشة"
+
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "عادي"
+
+#: ../src/control_toolbar.py:258
+msgid "Rated successfully"
 msgstr ""
 
-#: src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "البيانات المؤقته الخاصة بالالعاب فارغة"
-
-#: src/share.py:588
-msgid "from Deepin Game"
-msgstr ""
+#~ msgid "Game deliver: "
+#~ msgstr "مقدم اللعبة:"

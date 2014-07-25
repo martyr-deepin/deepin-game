@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-03 09:32+0800\n"
+"POT-Creation-Date: 2014-07-25 10:29+0800\n"
 "PO-Revision-Date: 2014-07-02 08:32+0000\n"
 "Last-Translator: cxbii <chenxiangbang@linuxdeepin.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/deepin-"
@@ -19,268 +19,268 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr "恭喜您清理了 %s 个文件，为您节约了 %s 空间。"
-
-#: src/game_center.py:163 src/game_center.py:176
-msgid "About us"
-msgstr "关于我们"
-
-#: src/star_view.py:324
-msgid "Boring"
-msgstr "没劲"
-
-#: src/titlebar.py:53
+#: ../src/titlebar.py:53
 msgid "Change skin"
 msgstr "换肤"
 
-#: src/game_center.py:174
-msgid "Clear Caches"
-msgstr "清除缓存"
+#: ../src/titlebar.py:54
+msgid "Main menu"
+msgstr "主菜单"
 
-#: src/widgets.py:159 src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "点击此处刷新"
+#: ../src/titlebar.py:55
+msgid "Maximize"
+msgstr "最大化"
 
-#: src/share.py:344
-msgid "Click to login"
-msgstr "点击登陆"
+#: ../src/titlebar.py:56
+msgid "Minimize"
+msgstr "最小化"
 
-#: src/share.py:326
-msgid "Click to switch user"
-msgstr "点击切换用户"
-
-#: src/titlebar.py:57 src/dialog.py:137
+#: ../src/titlebar.py:57 ../src/dialog.py:137
 msgid "Close"
 msgstr "关闭"
 
-#: src/control_toolbar.py:146
-msgid "Continue"
-msgstr "继续"
+#: ../src/titlebar.py:58
+msgid "Toggle"
+msgstr "切换"
 
-#: src/dialog.py:85 src/game_center.py:90
+#: ../src/dialog.py:85 ../src/game_center.py:90
 msgid "Deepin Game"
 msgstr "深度游戏"
 
-#: src/player.py:148
-#, python-format
-msgid "Deepin Game - %s "
-msgstr "深度游戏 - %s "
+#: ../src/dialog.py:90
+msgid "Version: "
+msgstr "版本："
 
-#: src/dialog.py:103
+#: ../src/dialog.py:103
 msgid ""
 "Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
 "find good and safe games selected by professionals. Click and play the best "
-"games you have ever met. Deepin Game just for happiness!"
+"games you have ever seen. Deepin Game just for happiness!"
 msgstr ""
 "\t深度游戏是Deepin团队为广大Linux用户量身打造的一款游戏分享平台， 是中国唯一"
 "一款Linux平台下的游戏中心，也是全球为数不多的Linux游戏分享平台。深度游戏提供"
 "了大量精心挑选的精品游戏，您只需轻轻一点便可享受并分享游戏给您带来的乐趣，深"
 "度游戏，为快乐而生！"
 
-#: src/share.py:548 src/share.py:560
-msgid "Error"
-msgstr "错误"
+#: ../src/dialog.py:116
+msgid "Weibo: "
+msgstr "官方微博："
 
-#: src/share.py:684
-msgid "Failed"
-msgstr "失败"
-
-#: src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "收藏"
-
-#: src/dialog.py:118
-msgid "Feedback: "
-msgstr "意见反馈："
-
-#: src/share.py:635
-msgid "Follow"
-msgstr "关注"
-
-#: src/dialog.py:117
+#: ../src/dialog.py:117
 msgid "Forum: "
 msgstr "官方论坛："
 
-#: src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "全屏"
+#: ../src/dialog.py:118
+msgid "Feedback: "
+msgstr "意见反馈："
 
-#: src/dialog.py:119
-msgid "Game deliver: "
+#: ../src/dialog.py:119
+msgid "Game upload: "
 msgstr "游戏投递："
 
-#: src/star_view.py:330
-msgid "Good"
-msgstr "值得一玩"
-
-#: src/game_center.py:143
+#: ../src/game_center.py:143
 msgid "Home"
 msgstr "首页推荐"
 
-#: src/star_view.py:328
-msgid "Interesting"
-msgstr "好玩"
+#: ../src/game_center.py:144
+msgid "Topics"
+msgstr "游戏专题"
 
-#: src/guide_box.py:56
-msgid "Introduction"
-msgstr "游戏简介"
-
-#: src/share.py:459
-msgid "Loading"
-msgstr "加载中"
-
-#: src/titlebar.py:54
-msgid "Main menu"
-msgstr "主菜单"
-
-#: src/titlebar.py:55
-msgid "Maximize"
-msgstr "最大化"
-
-#: src/titlebar.py:56
-msgid "Minimize"
-msgstr "最小化"
-
-#: src/control_toolbar.py:90
-msgid "Mute"
-msgstr "静音"
-
-#: src/game_center.py:145
+#: ../src/game_center.py:145
 msgid "My Games"
 msgstr "我的游戏"
 
-#: src/game_center.py:227
+#: ../src/game_center.py:163 ../src/game_center.py:176
+msgid "About us"
+msgstr "关于我们"
+
+#: ../src/game_center.py:174
+msgid "Clear Caches"
+msgstr "清除缓存"
+
+#: ../src/game_center.py:175
+msgid "View New Features"
+msgstr "查看新特性"
+
+#: ../src/game_center.py:177
+msgid "Quit"
+msgstr "退出"
+
+#: ../src/game_center.py:227
 msgid "My favorites"
 msgstr "我的收藏"
 
-#: src/game_center.py:228
+#: ../src/game_center.py:228
 msgid "My recents"
 msgstr "最近玩过"
 
-#: src/share.py:549
-msgid "Nonexistent picture"
-msgstr "图片不存在"
+#: ../src/game_center.py:297
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "恭喜您清理了 %s 个文件，为您节约了 %s 空间。"
 
-#: src/control_toolbar.py:166
-msgid "Normal"
-msgstr "恢复"
+#: ../src/game_center.py:300
+msgid "Your game cache is empty."
+msgstr "您的游戏缓存已经清理干净，不需要再清理。"
 
-#: src/star_view.py:326
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "没劲"
+
+#: ../src/star_view.py:326
 msgid "Nothing special"
 msgstr "一般吧"
 
-#: src/widgets.py:326
-msgid "OK"
-msgstr "确认"
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "好玩"
 
-#: src/control_toolbar.py:145
-msgid "Pause"
-msgstr "暂停"
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "值得一玩"
 
-#: src/share.py:561
-msgid "Please choose at least one platform to share on"
-msgstr "请选择至少一个平台分享"
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "哇，太棒了"
 
-#: src/share.py:512
-msgid "Please input text here"
-msgstr "请在此输入文字"
+#: ../src/star_view.py:336 ../src/control_toolbar.py:255
+msgid "You scored today already"
+msgstr "您今天已评过分。"
 
-#: src/share.py:198
+#: ../src/guide_box.py:56
+msgid "Introduction"
+msgstr "游戏简介"
+
+#: ../src/player.py:148
+#, python-format
+msgid "Deepin Game - %s "
+msgstr "深度游戏 - %s "
+
+#: ../src/share.py:77
+msgid "Share to social networks"
+msgstr "分享至社交网络"
+
+#: ../src/share.py:163
+msgid "Sina"
+msgstr "新浪微博"
+
+#: ../src/share.py:164
+msgid "Tencent"
+msgstr "腾讯微博"
+
+#: ../src/share.py:165
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../src/share.py:197
+msgid "Unable to load page"
+msgstr "无法加载页面"
+
+#: ../src/share.py:198
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "加载 URL '%s' 时出错"
 
-#: src/game_center.py:177
-msgid "Quit"
-msgstr "退出"
+#: ../src/share.py:326
+msgid "Click to switch user"
+msgstr "点击切换用户"
 
-#: src/control_toolbar.py:258
-msgid "Ratings successfully"
-msgstr "评分成功"
+#: ../src/share.py:344
+msgid "Click to login"
+msgstr "点击登陆"
 
-#: src/control_toolbar.py:123
-msgid "Replay"
-msgstr "重玩"
+#: ../src/share.py:459
+msgid "Loading"
+msgstr "加载中"
 
-#: src/control_toolbar.py:181 src/share.py:470
+#: ../src/share.py:470 ../src/control_toolbar.py:181
 msgid "Share"
 msgstr "立即分享"
 
-#: src/share.py:658 src/share.py:679
-msgid "Share to"
-msgstr "分享至"
+#: ../src/share.py:512
+msgid "Please input text here"
+msgstr "请在此输入文字"
 
-#: src/share.py:77
-msgid "Share to social networks"
-msgstr "分享至社交网络"
+#: ../src/share.py:548 ../src/share.py:560
+msgid "Error"
+msgstr "错误"
 
-#: src/share.py:577
+#: ../src/share.py:549
+msgid "Nonexistent picture"
+msgstr "图片不存在"
+
+#: ../src/share.py:561
+msgid "Please choose at least one platform to share on"
+msgstr "请选择至少一个平台分享"
+
+#: ../src/share.py:577
 msgid "Sharing"
 msgstr "分享中"
 
-#: src/share.py:163
-msgid "Sina"
-msgstr "新浪微博"
+#: ../src/share.py:588
+msgid "from Deepin Game"
+msgstr "来自深度游戏"
 
-#: src/share.py:661
+#: ../src/share.py:635
+msgid "Follow"
+msgstr "关注"
+
+#: ../src/share.py:658 ../src/share.py:679
+msgid "Share to"
+msgstr "分享至"
+
+#: ../src/share.py:661
 msgid "Successful"
 msgstr "成功"
 
-#: src/share.py:164
-msgid "Tencent"
-msgstr "腾讯微博"
+#: ../src/share.py:684
+msgid "Failed"
+msgstr "失败"
 
-#: src/titlebar.py:58
-msgid "Toggle"
-msgstr "切换"
-
-#: src/game_center.py:144
-msgid "Topics"
-msgstr "游戏专题"
-
-#: src/share.py:165
-msgid "Twitter"
-msgstr "Twitter"
-
-#: src/share.py:197
-msgid "Unable to load page"
-msgstr "无法加载页面"
-
-#: src/share.py:692
+#: ../src/share.py:692
 msgid "Unknown reason"
 msgstr "未知原因"
 
-#: src/dialog.py:90
-msgid "Version: "
-msgstr "版本："
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "点击此处刷新"
 
-#: src/game_center.py:175
-msgid "View New Features"
-msgstr "查看新特性"
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "确认"
 
-#: src/control_toolbar.py:89
+#: ../src/control_toolbar.py:89
 msgid "Volume"
 msgstr "声音"
 
-#: src/dialog.py:116
-msgid "Weibo: "
-msgstr "官方微博："
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "静音"
 
-#: src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "哇，太棒了"
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "收藏"
 
-#: src/control_toolbar.py:255 src/star_view.py:336
-msgid "You scored today already"
-msgstr "您今天已评过分。"
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "重玩"
 
-#: src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "您的游戏缓存已经清理干净，不需要再清理。"
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "暂停"
 
-#: src/share.py:588
-msgid "from Deepin Game"
-msgstr "来自深度游戏"
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "继续"
+
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "全屏"
+
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "恢复"
+
+#: ../src/control_toolbar.py:258
+msgid "Rated successfully"
+msgstr "评分成功"

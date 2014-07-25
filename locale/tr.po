@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-03 09:32+0800\n"
+"POT-Creation-Date: 2014-07-25 10:29+0800\n"
 "PO-Revision-Date: 2014-06-30 04:34+0000\n"
 "Last-Translator: cxbii <chenxiangbang@linuxdeepin.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/deepin-game/"
@@ -21,268 +21,273 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr "%s dosya silindi ve %s disk alanı kurtarıldı."
-
-#: src/game_center.py:163 src/game_center.py:176
-msgid "About us"
-msgstr "Hakkında"
-
-#: src/star_view.py:324
-msgid "Boring"
-msgstr "Sıkıcı"
-
-#: src/titlebar.py:53
+#: ../src/titlebar.py:53
 msgid "Change skin"
 msgstr "Görünümü değiştir"
 
-#: src/game_center.py:174
-msgid "Clear Caches"
-msgstr "Önbelleği Temizle"
+#: ../src/titlebar.py:54
+msgid "Main menu"
+msgstr "Ana menü"
 
-#: src/widgets.py:159 src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Güncellemek için tıkla"
+#: ../src/titlebar.py:55
+msgid "Maximize"
+msgstr "Büyüt"
 
-#: src/share.py:344
-msgid "Click to login"
-msgstr "Giriş için tıklayın"
+#: ../src/titlebar.py:56
+msgid "Minimize"
+msgstr "Küçült"
 
-#: src/share.py:326
-msgid "Click to switch user"
-msgstr "Kullanıcıyı değiştir"
-
-#: src/titlebar.py:57 src/dialog.py:137
+#: ../src/titlebar.py:57 ../src/dialog.py:137
 msgid "Close"
 msgstr "Kapat"
 
-#: src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Devamet"
+#: ../src/titlebar.py:58
+msgid "Toggle"
+msgstr "Geçiş"
 
-#: src/dialog.py:85 src/game_center.py:90
+#: ../src/dialog.py:85 ../src/game_center.py:90
 msgid "Deepin Game"
 msgstr "Deepin Game"
 
-#: src/player.py:148
-#, python-format
-msgid "Deepin Game - %s "
-msgstr "Deepin Game - %s "
+#: ../src/dialog.py:90
+msgid "Version: "
+msgstr "Versiyon:"
 
-#: src/dialog.py:103
+#: ../src/dialog.py:103
+#, fuzzy
 msgid ""
 "Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
 "find good and safe games selected by professionals. Click and play the best "
-"games you have ever met. Deepin Game just for happiness!"
+"games you have ever seen. Deepin Game just for happiness!"
 msgstr ""
 "Deepin Game Deepin tarafından Linux kullanıcıları için tasarlandı. Burada "
 "özenle profesyoneller tarafından seçilmiş iyi ve güvenli oyunları "
 "bulacaksınız. Tıklayın ve şimdiye kadar tanışacağınız en iyi oyunları "
 "oynayın. Deepin Game sadece eğlence için!"
 
-#: src/share.py:548 src/share.py:560
-msgid "Error"
-msgstr "Hata"
+#: ../src/dialog.py:116
+msgid "Weibo: "
+msgstr "Weibo:"
 
-#: src/share.py:684
-msgid "Failed"
-msgstr "Başarısız"
-
-#: src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Favori"
-
-#: src/dialog.py:118
-msgid "Feedback: "
-msgstr "Geribildirim:"
-
-#: src/share.py:635
-msgid "Follow"
-msgstr "Takip et"
-
-#: src/dialog.py:117
+#: ../src/dialog.py:117
 msgid "Forum: "
 msgstr "Forum:"
 
-#: src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Tam ekran"
+#: ../src/dialog.py:118
+msgid "Feedback: "
+msgstr "Geribildirim:"
 
-#: src/dialog.py:119
-msgid "Game deliver: "
-msgstr "Oyunu gönder:"
+#: ../src/dialog.py:119
+msgid "Game upload: "
+msgstr ""
 
-#: src/star_view.py:330
-msgid "Good"
-msgstr "Güzel"
-
-#: src/game_center.py:143
+#: ../src/game_center.py:143
 msgid "Home"
 msgstr "Ev"
 
-#: src/star_view.py:328
-msgid "Interesting"
-msgstr "İlginç"
+#: ../src/game_center.py:144
+msgid "Topics"
+msgstr "Başlıklar"
 
-#: src/guide_box.py:56
-msgid "Introduction"
-msgstr "Başlangıç"
-
-#: src/share.py:459
-msgid "Loading"
-msgstr "Yükleniyor"
-
-#: src/titlebar.py:54
-msgid "Main menu"
-msgstr "Ana menü"
-
-#: src/titlebar.py:55
-msgid "Maximize"
-msgstr "Büyüt"
-
-#: src/titlebar.py:56
-msgid "Minimize"
-msgstr "Küçült"
-
-#: src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Sessiz"
-
-#: src/game_center.py:145
+#: ../src/game_center.py:145
 msgid "My Games"
 msgstr "Oyunlarım"
 
-#: src/game_center.py:227
+#: ../src/game_center.py:163 ../src/game_center.py:176
+msgid "About us"
+msgstr "Hakkında"
+
+#: ../src/game_center.py:174
+msgid "Clear Caches"
+msgstr "Önbelleği Temizle"
+
+#: ../src/game_center.py:175
+msgid "View New Features"
+msgstr "Yeni Özellikleri Görüntüle"
+
+#: ../src/game_center.py:177
+msgid "Quit"
+msgstr "Çıkış"
+
+#: ../src/game_center.py:227
 msgid "My favorites"
 msgstr "Favorilerim"
 
-#: src/game_center.py:228
+#: ../src/game_center.py:228
 msgid "My recents"
 msgstr "Son kullanılanlar"
 
-#: src/share.py:549
-msgid "Nonexistent picture"
-msgstr "Varolmayan resim"
+#: ../src/game_center.py:297
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "%s dosya silindi ve %s disk alanı kurtarıldı."
 
-#: src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normal"
+#: ../src/game_center.py:300
+msgid "Your game cache is empty."
+msgstr "Oyun önbelleği temiz."
 
-#: src/star_view.py:326
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "Sıkıcı"
+
+#: ../src/star_view.py:326
 msgid "Nothing special"
 msgstr "Şöyle böyle"
 
-#: src/widgets.py:326
-msgid "OK"
-msgstr "Tamam"
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "İlginç"
 
-#: src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Duraklat"
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "Güzel"
 
-#: src/share.py:561
-msgid "Please choose at least one platform to share on"
-msgstr "Paylaşmak için bir platform seçin"
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "Wow, harika"
 
-#: src/share.py:512
-msgid "Please input text here"
-msgstr "Lütfen buraya yazın"
+#: ../src/star_view.py:336 ../src/control_toolbar.py:255
+msgid "You scored today already"
+msgstr "Bugün yeni skor yok"
 
-#: src/share.py:198
+#: ../src/guide_box.py:56
+msgid "Introduction"
+msgstr "Başlangıç"
+
+#: ../src/player.py:148
+#, python-format
+msgid "Deepin Game - %s "
+msgstr "Deepin Game - %s "
+
+#: ../src/share.py:77
+msgid "Share to social networks"
+msgstr "Share to social networks"
+
+#: ../src/share.py:163
+msgid "Sina"
+msgstr "Sina"
+
+#: ../src/share.py:164
+msgid "Tencent"
+msgstr "Tencent"
+
+#: ../src/share.py:165
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../src/share.py:197
+msgid "Unable to load page"
+msgstr "Sayfa yüklenemedi"
+
+#: ../src/share.py:198
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "'%s' URL'yi yüklerken sorun oluştu"
 
-#: src/game_center.py:177
-msgid "Quit"
-msgstr "Çıkış"
+#: ../src/share.py:326
+msgid "Click to switch user"
+msgstr "Kullanıcıyı değiştir"
 
-#: src/control_toolbar.py:258
-msgid "Ratings successfully"
-msgstr "Oylama başarılı"
+#: ../src/share.py:344
+msgid "Click to login"
+msgstr "Giriş için tıklayın"
 
-#: src/control_toolbar.py:123
-msgid "Replay"
-msgstr "Tekrar"
+#: ../src/share.py:459
+msgid "Loading"
+msgstr "Yükleniyor"
 
-#: src/control_toolbar.py:181 src/share.py:470
+#: ../src/share.py:470 ../src/control_toolbar.py:181
 msgid "Share"
 msgstr "Paylaş"
 
-#: src/share.py:658 src/share.py:679
-msgid "Share to"
-msgstr "Share to"
+#: ../src/share.py:512
+msgid "Please input text here"
+msgstr "Lütfen buraya yazın"
 
-#: src/share.py:77
-msgid "Share to social networks"
-msgstr "Share to social networks"
+#: ../src/share.py:548 ../src/share.py:560
+msgid "Error"
+msgstr "Hata"
 
-#: src/share.py:577
+#: ../src/share.py:549
+msgid "Nonexistent picture"
+msgstr "Varolmayan resim"
+
+#: ../src/share.py:561
+msgid "Please choose at least one platform to share on"
+msgstr "Paylaşmak için bir platform seçin"
+
+#: ../src/share.py:577
 msgid "Sharing"
 msgstr "Sharing"
 
-#: src/share.py:163
-msgid "Sina"
-msgstr "Sina"
+#: ../src/share.py:588
+msgid "from Deepin Game"
+msgstr "Deepin Game'den"
 
-#: src/share.py:661
+#: ../src/share.py:635
+msgid "Follow"
+msgstr "Takip et"
+
+#: ../src/share.py:658 ../src/share.py:679
+msgid "Share to"
+msgstr "Share to"
+
+#: ../src/share.py:661
 msgid "Successful"
 msgstr "Başarılı"
 
-#: src/share.py:164
-msgid "Tencent"
-msgstr "Tencent"
+#: ../src/share.py:684
+msgid "Failed"
+msgstr "Başarısız"
 
-#: src/titlebar.py:58
-msgid "Toggle"
-msgstr "Geçiş"
-
-#: src/game_center.py:144
-msgid "Topics"
-msgstr "Başlıklar"
-
-#: src/share.py:165
-msgid "Twitter"
-msgstr "Twitter"
-
-#: src/share.py:197
-msgid "Unable to load page"
-msgstr "Sayfa yüklenemedi"
-
-#: src/share.py:692
+#: ../src/share.py:692
 msgid "Unknown reason"
 msgstr "Bilinmeyen bir nedenle"
 
-#: src/dialog.py:90
-msgid "Version: "
-msgstr "Versiyon:"
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "Güncellemek için tıkla"
 
-#: src/game_center.py:175
-msgid "View New Features"
-msgstr "Yeni Özellikleri Görüntüle"
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "Tamam"
 
-#: src/control_toolbar.py:89
+#: ../src/control_toolbar.py:89
 msgid "Volume"
 msgstr "Ses"
 
-#: src/dialog.py:116
-msgid "Weibo: "
-msgstr "Weibo:"
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "Sessiz"
 
-#: src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Wow, harika"
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "Favori"
 
-#: src/control_toolbar.py:255 src/star_view.py:336
-msgid "You scored today already"
-msgstr "Bugün yeni skor yok"
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "Tekrar"
 
-#: src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "Oyun önbelleği temiz."
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "Duraklat"
 
-#: src/share.py:588
-msgid "from Deepin Game"
-msgstr "Deepin Game'den"
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "Devamet"
+
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "Tam ekran"
+
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "Normal"
+
+#: ../src/control_toolbar.py:258
+#, fuzzy
+msgid "Rated successfully"
+msgstr "Oylama başarılı"
+
+#~ msgid "Game deliver: "
+#~ msgstr "Oyunu gönder:"

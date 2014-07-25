@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-03 09:32+0800\n"
+"POT-Creation-Date: 2014-07-25 10:29+0800\n"
 "PO-Revision-Date: 2014-06-30 04:41+0000\n"
 "Last-Translator: cxbii <chenxiangbang@linuxdeepin.com>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/deepin-"
@@ -19,265 +19,268 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/game_center.py:297
+#: ../src/titlebar.py:53
+msgid "Change skin"
+msgstr "Αλλαγή εμφάνισης"
+
+#: ../src/titlebar.py:54
+msgid "Main menu"
+msgstr "Κεντρικό μενού"
+
+#: ../src/titlebar.py:55
+msgid "Maximize"
+msgstr "Μεγιστοποίηση"
+
+#: ../src/titlebar.py:56
+msgid "Minimize"
+msgstr ""
+
+#: ../src/titlebar.py:57 ../src/dialog.py:137
+msgid "Close"
+msgstr "Κλείσιμο"
+
+#: ../src/titlebar.py:58
+msgid "Toggle"
+msgstr "Εναλλαγή"
+
+#: ../src/dialog.py:85 ../src/game_center.py:90
+msgid "Deepin Game"
+msgstr ""
+
+#: ../src/dialog.py:90
+msgid "Version: "
+msgstr "Έκδοση:"
+
+#: ../src/dialog.py:103
+msgid ""
+"Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
+"find good and safe games selected by professionals. Click and play the best "
+"games you have ever seen. Deepin Game just for happiness!"
+msgstr ""
+
+#: ../src/dialog.py:116
+msgid "Weibo: "
+msgstr "Weibo: "
+
+#: ../src/dialog.py:117
+msgid "Forum: "
+msgstr "Φόρουμ:"
+
+#: ../src/dialog.py:118
+msgid "Feedback: "
+msgstr "Η γνώμη σας:"
+
+#: ../src/dialog.py:119
+msgid "Game upload: "
+msgstr ""
+
+#: ../src/game_center.py:143
+msgid "Home"
+msgstr "Αρχική"
+
+#: ../src/game_center.py:144
+msgid "Topics"
+msgstr "Θέματα"
+
+#: ../src/game_center.py:145
+msgid "My Games"
+msgstr "Τα Παιχνίδια μου"
+
+#: ../src/game_center.py:163 ../src/game_center.py:176
+msgid "About us"
+msgstr "Σχετικά με εμάς"
+
+#: ../src/game_center.py:174
+msgid "Clear Caches"
+msgstr ""
+
+#: ../src/game_center.py:175
+msgid "View New Features"
+msgstr "Εμφάνιση νέο χαρακτηριστικό"
+
+#: ../src/game_center.py:177
+msgid "Quit"
+msgstr "Έξοδος"
+
+#: ../src/game_center.py:227
+msgid "My favorites"
+msgstr "Τα αγαπημένα μου"
+
+#: ../src/game_center.py:228
+msgid "My recents"
+msgstr "Τα πιο πρόσφατα μου"
+
+#: ../src/game_center.py:297
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
 msgstr ""
 "%s αυτά τα αρχεία έχουν διαγραφεί και έχει απελευθερωθει %s χώρος στο δίσκο."
 
-#: src/game_center.py:163 src/game_center.py:176
-msgid "About us"
-msgstr "Σχετικά με εμάς"
+#: ../src/game_center.py:300
+msgid "Your game cache is empty."
+msgstr "Η προσωρινή μνήμη του παιχνίδι σας είναι άδεια."
 
-#: src/star_view.py:324
+#: ../src/star_view.py:324
 msgid "Boring"
 msgstr "Βαρετό"
 
-#: src/titlebar.py:53
-msgid "Change skin"
-msgstr "Αλλαγή εμφάνισης"
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "Τίποτα το ιδιαίτερο"
 
-#: src/game_center.py:174
-msgid "Clear Caches"
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "Ενδιαφέρων"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "Καλό"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "Πω πω, υπέροχο!"
+
+#: ../src/star_view.py:336 ../src/control_toolbar.py:255
+msgid "You scored today already"
 msgstr ""
 
-#: src/widgets.py:159 src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Κάντε κλικ εδώ για ανανέωση"
+#: ../src/guide_box.py:56
+msgid "Introduction"
+msgstr "Εισαγωγή"
 
-#: src/share.py:344
-msgid "Click to login"
-msgstr "Κάντε κλικ για να συνδεθείτε"
-
-#: src/share.py:326
-msgid "Click to switch user"
-msgstr "Κάντε κλικ για αλλαγή χρήστη"
-
-#: src/titlebar.py:57 src/dialog.py:137
-msgid "Close"
-msgstr "Κλείσιμο"
-
-#: src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Συνέχεια"
-
-#: src/dialog.py:85 src/game_center.py:90
-msgid "Deepin Game"
-msgstr ""
-
-#: src/player.py:148
+#: ../src/player.py:148
 #, python-format
 msgid "Deepin Game - %s "
 msgstr ""
 
-#: src/dialog.py:103
-msgid ""
-"Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
-"find good and safe games selected by professionals. Click and play the best "
-"games you have ever met. Deepin Game just for happiness!"
+#: ../src/share.py:77
+msgid "Share to social networks"
 msgstr ""
 
-#: src/share.py:548 src/share.py:560
-msgid "Error"
-msgstr ""
+#: ../src/share.py:163
+msgid "Sina"
+msgstr "Sina"
 
-#: src/share.py:684
-msgid "Failed"
-msgstr ""
+#: ../src/share.py:164
+msgid "Tencent"
+msgstr "Tencent"
 
-#: src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Αγαπημένο"
+#: ../src/share.py:165
+msgid "Twitter"
+msgstr "Twitter"
 
-#: src/dialog.py:118
-msgid "Feedback: "
-msgstr "Η γνώμη σας:"
+#: ../src/share.py:197
+msgid "Unable to load page"
+msgstr "Δεν είναι δυνατή η φόρτωση της σελίδας"
 
-#: src/share.py:635
-msgid "Follow"
-msgstr "Ακολουθήστε"
-
-#: src/dialog.py:117
-msgid "Forum: "
-msgstr "Φόρουμ:"
-
-#: src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Πλήρης οθόνη"
-
-#: src/dialog.py:119
-msgid "Game deliver: "
-msgstr "Παραδώσει παιχνιδιού:"
-
-#: src/star_view.py:330
-msgid "Good"
-msgstr "Καλό"
-
-#: src/game_center.py:143
-msgid "Home"
-msgstr "Αρχική"
-
-#: src/star_view.py:328
-msgid "Interesting"
-msgstr "Ενδιαφέρων"
-
-#: src/guide_box.py:56
-msgid "Introduction"
-msgstr "Εισαγωγή"
-
-#: src/share.py:459
-msgid "Loading"
-msgstr ""
-
-#: src/titlebar.py:54
-msgid "Main menu"
-msgstr "Κεντρικό μενού"
-
-#: src/titlebar.py:55
-msgid "Maximize"
-msgstr "Μεγιστοποίηση"
-
-#: src/titlebar.py:56
-msgid "Minimize"
-msgstr ""
-
-#: src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Σίγαση"
-
-#: src/game_center.py:145
-msgid "My Games"
-msgstr "Τα Παιχνίδια μου"
-
-#: src/game_center.py:227
-msgid "My favorites"
-msgstr "Τα αγαπημένα μου"
-
-#: src/game_center.py:228
-msgid "My recents"
-msgstr "Τα πιο πρόσφατα μου"
-
-#: src/share.py:549
-msgid "Nonexistent picture"
-msgstr ""
-
-#: src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Κανονικό"
-
-#: src/star_view.py:326
-msgid "Nothing special"
-msgstr "Τίποτα το ιδιαίτερο"
-
-#: src/widgets.py:326
-msgid "OK"
-msgstr "OK"
-
-#: src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Παύση"
-
-#: src/share.py:561
-msgid "Please choose at least one platform to share on"
-msgstr "Παρακαλώ επιλέξτε τουλάχιστον μία πλατφόρμα για δημοσίευση σε"
-
-#: src/share.py:512
-msgid "Please input text here"
-msgstr "Παρακαλώ εισάγετε κείμενο εδώ"
-
-#: src/share.py:198
+#: ../src/share.py:198
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "Πρόβλημα κατά τη φόρτωση του URL '%s'"
 
-#: src/game_center.py:177
-msgid "Quit"
-msgstr "Έξοδος"
+#: ../src/share.py:326
+msgid "Click to switch user"
+msgstr "Κάντε κλικ για αλλαγή χρήστη"
 
-#: src/control_toolbar.py:258
-msgid "Ratings successfully"
+#: ../src/share.py:344
+msgid "Click to login"
+msgstr "Κάντε κλικ για να συνδεθείτε"
+
+#: ../src/share.py:459
+msgid "Loading"
 msgstr ""
 
-#: src/control_toolbar.py:123
-msgid "Replay"
-msgstr "Ξαναπαίζω"
-
-#: src/control_toolbar.py:181 src/share.py:470
+#: ../src/share.py:470 ../src/control_toolbar.py:181
 msgid "Share"
 msgstr "Μοιραστείτε"
 
-#: src/share.py:658 src/share.py:679
-msgid "Share to"
+#: ../src/share.py:512
+msgid "Please input text here"
+msgstr "Παρακαλώ εισάγετε κείμενο εδώ"
+
+#: ../src/share.py:548 ../src/share.py:560
+msgid "Error"
 msgstr ""
 
-#: src/share.py:77
-msgid "Share to social networks"
+#: ../src/share.py:549
+msgid "Nonexistent picture"
 msgstr ""
 
-#: src/share.py:577
+#: ../src/share.py:561
+msgid "Please choose at least one platform to share on"
+msgstr "Παρακαλώ επιλέξτε τουλάχιστον μία πλατφόρμα για δημοσίευση σε"
+
+#: ../src/share.py:577
 msgid "Sharing"
 msgstr ""
 
-#: src/share.py:163
-msgid "Sina"
-msgstr "Sina"
+#: ../src/share.py:588
+msgid "from Deepin Game"
+msgstr ""
 
-#: src/share.py:661
+#: ../src/share.py:635
+msgid "Follow"
+msgstr "Ακολουθήστε"
+
+#: ../src/share.py:658 ../src/share.py:679
+msgid "Share to"
+msgstr ""
+
+#: ../src/share.py:661
 msgid "Successful"
 msgstr ""
 
-#: src/share.py:164
-msgid "Tencent"
-msgstr "Tencent"
+#: ../src/share.py:684
+msgid "Failed"
+msgstr ""
 
-#: src/titlebar.py:58
-msgid "Toggle"
-msgstr "Εναλλαγή"
-
-#: src/game_center.py:144
-msgid "Topics"
-msgstr "Θέματα"
-
-#: src/share.py:165
-msgid "Twitter"
-msgstr "Twitter"
-
-#: src/share.py:197
-msgid "Unable to load page"
-msgstr "Δεν είναι δυνατή η φόρτωση της σελίδας"
-
-#: src/share.py:692
+#: ../src/share.py:692
 msgid "Unknown reason"
 msgstr ""
 
-#: src/dialog.py:90
-msgid "Version: "
-msgstr "Έκδοση:"
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "Κάντε κλικ εδώ για ανανέωση"
 
-#: src/game_center.py:175
-msgid "View New Features"
-msgstr "Εμφάνιση νέο χαρακτηριστικό"
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "OK"
 
-#: src/control_toolbar.py:89
+#: ../src/control_toolbar.py:89
 msgid "Volume"
 msgstr "Τόμος"
 
-#: src/dialog.py:116
-msgid "Weibo: "
-msgstr "Weibo: "
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "Σίγαση"
 
-#: src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Πω πω, υπέροχο!"
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "Αγαπημένο"
 
-#: src/control_toolbar.py:255 src/star_view.py:336
-msgid "You scored today already"
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "Ξαναπαίζω"
+
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "Παύση"
+
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "Συνέχεια"
+
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "Πλήρης οθόνη"
+
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "Κανονικό"
+
+#: ../src/control_toolbar.py:258
+msgid "Rated successfully"
 msgstr ""
 
-#: src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "Η προσωρινή μνήμη του παιχνίδι σας είναι άδεια."
-
-#: src/share.py:588
-msgid "from Deepin Game"
-msgstr ""
+#~ msgid "Game deliver: "
+#~ msgstr "Παραδώσει παιχνιδιού:"

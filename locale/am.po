@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-03 09:32+0800\n"
+"POT-Creation-Date: 2014-07-25 10:29+0800\n"
 "PO-Revision-Date: 2014-06-30 15:01+0000\n"
 "Last-Translator: samson <sambelet@yahoo.com>\n"
 "Language-Team: Amharic (http://www.transifex.com/projects/p/deepin-game/"
@@ -19,264 +19,268 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: src/game_center.py:297
+#: ../src/titlebar.py:53
+msgid "Change skin"
+msgstr "ቆዳውን መቀየሪያ"
+
+#: ../src/titlebar.py:54
+msgid "Main menu"
+msgstr "ዋናው ዝርዝር"
+
+#: ../src/titlebar.py:55
+msgid "Maximize"
+msgstr "ማሳደጊያ"
+
+#: ../src/titlebar.py:56
+msgid "Minimize"
+msgstr "ማሳነሻ"
+
+#: ../src/titlebar.py:57 ../src/dialog.py:137
+msgid "Close"
+msgstr "መዝጊያ"
+
+#: ../src/titlebar.py:58
+msgid "Toggle"
+msgstr "መቀያየሪያ"
+
+#: ../src/dialog.py:85 ../src/game_center.py:90
+msgid "Deepin Game"
+msgstr "ጨዋታዎች"
+
+#: ../src/dialog.py:90
+msgid "Version: "
+msgstr "እትም: "
+
+#: ../src/dialog.py:103
+msgid ""
+"Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
+"find good and safe games selected by professionals. Click and play the best "
+"games you have ever seen. Deepin Game just for happiness!"
+msgstr ""
+
+#: ../src/dialog.py:116
+msgid "Weibo: "
+msgstr "ብሎግ: "
+
+#: ../src/dialog.py:117
+msgid "Forum: "
+msgstr "ሸንጎ: "
+
+#: ../src/dialog.py:118
+msgid "Feedback: "
+msgstr ""
+
+#: ../src/dialog.py:119
+msgid "Game upload: "
+msgstr ""
+
+#: ../src/game_center.py:143
+msgid "Home"
+msgstr "ቤት"
+
+#: ../src/game_center.py:144
+msgid "Topics"
+msgstr "አርእስቶች"
+
+#: ../src/game_center.py:145
+msgid "My Games"
+msgstr "የኔ ጨዋታዎች"
+
+#: ../src/game_center.py:163 ../src/game_center.py:176
+msgid "About us"
+msgstr "ስለ እኛ"
+
+#: ../src/game_center.py:174
+msgid "Clear Caches"
+msgstr "Caches ማጽጃ"
+
+#: ../src/game_center.py:175
+msgid "View New Features"
+msgstr "አዲስ ገጽታዎች መመልከቻ"
+
+#: ../src/game_center.py:177
+msgid "Quit"
+msgstr "ማጥፊያ"
+
+#: ../src/game_center.py:227
+msgid "My favorites"
+msgstr "እኔ የምወዳቸው"
+
+#: ../src/game_center.py:228
+msgid "My recents"
+msgstr "የኔ የቅርብ ጊዜ"
+
+#: ../src/game_center.py:297
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
 msgstr "%s ፋይሎች ጠፍተዋል እና %s ነፃ የዲስክ ቦታ"
 
-#: src/game_center.py:163 src/game_center.py:176
-msgid "About us"
-msgstr "ስለ እኛ"
+#: ../src/game_center.py:300
+msgid "Your game cache is empty."
+msgstr "የ እርስዎ የጨዋታ cache ባዶ ነው"
 
-#: src/star_view.py:324
+#: ../src/star_view.py:324
 msgid "Boring"
 msgstr "ደባሪ"
 
-#: src/titlebar.py:53
-msgid "Change skin"
-msgstr "ቆዳውን መቀየሪያ"
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "አዲስ ነገር የለም"
 
-#: src/game_center.py:174
-msgid "Clear Caches"
-msgstr "Caches ማጽጃ"
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "አስደናቂ"
 
-#: src/widgets.py:159 src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "ለማነቃቃት እዚህ ይጫኑ"
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "ጥሩ"
 
-#: src/share.py:344
-msgid "Click to login"
-msgstr "ለመግባት ይጫኑ"
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "አስደናቂ"
 
-#: src/share.py:326
-msgid "Click to switch user"
-msgstr "ይጫኑ ተጠቃሚ ለመቀየር"
+#: ../src/star_view.py:336 ../src/control_toolbar.py:255
+msgid "You scored today already"
+msgstr "ዛሬ ጥሩ ውጤት አስመዝግበዋል"
 
-#: src/titlebar.py:57 src/dialog.py:137
-msgid "Close"
-msgstr "መዝጊያ"
+#: ../src/guide_box.py:56
+msgid "Introduction"
+msgstr "መግቢያ"
 
-#: src/control_toolbar.py:146
-msgid "Continue"
-msgstr "ይቀጥሉ"
-
-#: src/dialog.py:85 src/game_center.py:90
-msgid "Deepin Game"
-msgstr "ጨዋታዎች"
-
-#: src/player.py:148
+#: ../src/player.py:148
 #, python-format
 msgid "Deepin Game - %s "
 msgstr "ጨዋታዎች - %s "
 
-#: src/dialog.py:103
-msgid ""
-"Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
-"find good and safe games selected by professionals. Click and play the best "
-"games you have ever met. Deepin Game just for happiness!"
-msgstr ""
+#: ../src/share.py:77
+msgid "Share to social networks"
+msgstr "ወደ ሕብረተሰብ ኔትዎርክ ማካፈያ "
 
-#: src/share.py:548 src/share.py:560
-msgid "Error"
-msgstr "ስህተት"
+#: ../src/share.py:163
+msgid "Sina"
+msgstr "ሲና"
 
-#: src/share.py:684
-msgid "Failed"
-msgstr "ወድቋል"
+#: ../src/share.py:164
+msgid "Tencent"
+msgstr "ቴንሴንት"
 
-#: src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "የምወዳቸው"
+#: ../src/share.py:165
+msgid "Twitter"
+msgstr "ትዊተር"
 
-#: src/dialog.py:118
-msgid "Feedback: "
-msgstr ""
+#: ../src/share.py:197
+msgid "Unable to load page"
+msgstr "ገጹን መጫን አልተቻለም"
 
-#: src/share.py:635
-msgid "Follow"
-msgstr "ይከተሉ"
-
-#: src/dialog.py:117
-msgid "Forum: "
-msgstr "ሸንጎ: "
-
-#: src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "በሙሉ መመልከቻ ዘዴ"
-
-#: src/dialog.py:119
-msgid "Game deliver: "
-msgstr "ጨዋታ አቅራቢው: "
-
-#: src/star_view.py:330
-msgid "Good"
-msgstr "ጥሩ"
-
-#: src/game_center.py:143
-msgid "Home"
-msgstr "ቤት"
-
-#: src/star_view.py:328
-msgid "Interesting"
-msgstr "አስደናቂ"
-
-#: src/guide_box.py:56
-msgid "Introduction"
-msgstr "መግቢያ"
-
-#: src/share.py:459
-msgid "Loading"
-msgstr "በመጫን ላይ"
-
-#: src/titlebar.py:54
-msgid "Main menu"
-msgstr "ዋናው ዝርዝር"
-
-#: src/titlebar.py:55
-msgid "Maximize"
-msgstr "ማሳደጊያ"
-
-#: src/titlebar.py:56
-msgid "Minimize"
-msgstr "ማሳነሻ"
-
-#: src/control_toolbar.py:90
-msgid "Mute"
-msgstr "መቀነሻ"
-
-#: src/game_center.py:145
-msgid "My Games"
-msgstr "የኔ ጨዋታዎች"
-
-#: src/game_center.py:227
-msgid "My favorites"
-msgstr "እኔ የምወዳቸው"
-
-#: src/game_center.py:228
-msgid "My recents"
-msgstr "የኔ የቅርብ ጊዜ"
-
-#: src/share.py:549
-msgid "Nonexistent picture"
-msgstr "ስእሉ አልተገኘም"
-
-#: src/control_toolbar.py:166
-msgid "Normal"
-msgstr "መደበኛ"
-
-#: src/star_view.py:326
-msgid "Nothing special"
-msgstr "አዲስ ነገር የለም"
-
-#: src/widgets.py:326
-msgid "OK"
-msgstr "እሺ"
-
-#: src/control_toolbar.py:145
-msgid "Pause"
-msgstr "ማቆሚያ"
-
-#: src/share.py:561
-msgid "Please choose at least one platform to share on"
-msgstr "እባክዎን አንድ መድረክ ይምረጡ ለማካፈል በ"
-
-#: src/share.py:512
-msgid "Please input text here"
-msgstr "እባክዎን ጽሁፍ እዚህ ያስገቡ"
-
-#: src/share.py:198
+#: ../src/share.py:198
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
 msgstr "ችግር ተፈጥሯል በመጫን ላይ እንዳለ URL '%s'"
 
-#: src/game_center.py:177
-msgid "Quit"
-msgstr "ማጥፊያ"
+#: ../src/share.py:326
+msgid "Click to switch user"
+msgstr "ይጫኑ ተጠቃሚ ለመቀየር"
 
-#: src/control_toolbar.py:258
-msgid "Ratings successfully"
-msgstr ""
+#: ../src/share.py:344
+msgid "Click to login"
+msgstr "ለመግባት ይጫኑ"
 
-#: src/control_toolbar.py:123
-msgid "Replay"
-msgstr "እንደገና ማጫወቻ"
+#: ../src/share.py:459
+msgid "Loading"
+msgstr "በመጫን ላይ"
 
-#: src/control_toolbar.py:181 src/share.py:470
+#: ../src/share.py:470 ../src/control_toolbar.py:181
 msgid "Share"
 msgstr "ማካፈያ"
 
-#: src/share.py:658 src/share.py:679
-msgid "Share to"
-msgstr "ማካፈያ ወደ"
+#: ../src/share.py:512
+msgid "Please input text here"
+msgstr "እባክዎን ጽሁፍ እዚህ ያስገቡ"
 
-#: src/share.py:77
-msgid "Share to social networks"
-msgstr "ወደ ሕብረተሰብ ኔትዎርክ ማካፈያ "
+#: ../src/share.py:548 ../src/share.py:560
+msgid "Error"
+msgstr "ስህተት"
 
-#: src/share.py:577
+#: ../src/share.py:549
+msgid "Nonexistent picture"
+msgstr "ስእሉ አልተገኘም"
+
+#: ../src/share.py:561
+msgid "Please choose at least one platform to share on"
+msgstr "እባክዎን አንድ መድረክ ይምረጡ ለማካፈል በ"
+
+#: ../src/share.py:577
 msgid "Sharing"
 msgstr "ማካፈያ"
 
-#: src/share.py:163
-msgid "Sina"
-msgstr "ሲና"
+#: ../src/share.py:588
+msgid "from Deepin Game"
+msgstr "ከ ጨዋታዎች"
 
-#: src/share.py:661
+#: ../src/share.py:635
+msgid "Follow"
+msgstr "ይከተሉ"
+
+#: ../src/share.py:658 ../src/share.py:679
+msgid "Share to"
+msgstr "ማካፈያ ወደ"
+
+#: ../src/share.py:661
 msgid "Successful"
 msgstr "ተሳክቷል"
 
-#: src/share.py:164
-msgid "Tencent"
-msgstr "ቴንሴንት"
+#: ../src/share.py:684
+msgid "Failed"
+msgstr "ወድቋል"
 
-#: src/titlebar.py:58
-msgid "Toggle"
-msgstr "መቀያየሪያ"
-
-#: src/game_center.py:144
-msgid "Topics"
-msgstr "አርእስቶች"
-
-#: src/share.py:165
-msgid "Twitter"
-msgstr "ትዊተር"
-
-#: src/share.py:197
-msgid "Unable to load page"
-msgstr "ገጹን መጫን አልተቻለም"
-
-#: src/share.py:692
+#: ../src/share.py:692
 msgid "Unknown reason"
 msgstr "ባልታወቀ ምክንያት"
 
-#: src/dialog.py:90
-msgid "Version: "
-msgstr "እትም: "
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "ለማነቃቃት እዚህ ይጫኑ"
 
-#: src/game_center.py:175
-msgid "View New Features"
-msgstr "አዲስ ገጽታዎች መመልከቻ"
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "እሺ"
 
-#: src/control_toolbar.py:89
+#: ../src/control_toolbar.py:89
 msgid "Volume"
 msgstr "መጠን"
 
-#: src/dialog.py:116
-msgid "Weibo: "
-msgstr "ብሎግ: "
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "መቀነሻ"
 
-#: src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "አስደናቂ"
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "የምወዳቸው"
 
-#: src/control_toolbar.py:255 src/star_view.py:336
-msgid "You scored today already"
-msgstr "ዛሬ ጥሩ ውጤት አስመዝግበዋል"
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "እንደገና ማጫወቻ"
 
-#: src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr "የ እርስዎ የጨዋታ cache ባዶ ነው"
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "ማቆሚያ"
 
-#: src/share.py:588
-msgid "from Deepin Game"
-msgstr "ከ ጨዋታዎች"
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "ይቀጥሉ"
+
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "በሙሉ መመልከቻ ዘዴ"
+
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "መደበኛ"
+
+#: ../src/control_toolbar.py:258
+#, fuzzy
+msgid "Rated successfully"
+msgstr "ተሳክቷል"
+
+#~ msgid "Game deliver: "
+#~ msgstr "ጨዋታ አቅራቢው: "
