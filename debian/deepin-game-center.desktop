@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=Deepin Game Center
+Name[zh_CN]=深度游戏中心
+Name[zh_TW]=深度遊戲中心
+Name[zh_HK]=深度遊戲中心
+Comment=Deepin Game Center
+Comment[zh_CN]=深度游戏中心
+Comment[zh_TW]=深度遊戲中心
+Comment[zh_HK]=深度遊戲中心
+Exec=deepin-game-center
+Icon=deepin-game-center
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Encoding=UTF-8
+Categories=Application;Game
+StartupNotify=true

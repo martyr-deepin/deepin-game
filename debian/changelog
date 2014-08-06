@@ -1,0 +1,341 @@
+deepin-game-center (1.0.1+20140725105102~0d08292e5f) trusty; urgency=low
+
+  * Build from git 0d08292e5fdcfdb14c7c00e894869a2d35230163
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 25 Jul 2014 10:51:03 +0800
+
+deepin-game-center (1.0.1+20140725102011~b12aa39304) trusty; urgency=low
+
+  * Build from git b12aa393047a235c36a8ad6ecfae4b2bb2120164
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 25 Jul 2014 10:20:12 +0800
+
+deepin-game-center (1.0.1+20140725085500~b12aa39304) trusty; urgency=low
+
+  * Build from git b12aa393047a235c36a8ad6ecfae4b2bb2120164
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 25 Jul 2014 08:55:00 +0800
+
+deepin-game-center (1.0.1+20140717124222~1746f0a865) trusty; urgency=low
+
+  * Build from git 1746f0a865577bdfb97dd4fec0a0d0800f7043ba
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 17 Jul 2014 12:42:23 +0800
+
+deepin-game-center (1.0.1+20140703161335~b88c43cf52) trusty; urgency=low
+
+  * Build from git b88c43cf5287e16358bca5d2a7bdffc7cbf349a6
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 03 Jul 2014 16:13:36 +0800
+
+deepin-game-center (1.0.1+20140703094408~f9cd25998d) trusty; urgency=low
+
+  * Build from git f9cd25998dc7bc2607314b9510587248e5f259dd
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 03 Jul 2014 09:44:09 +0800
+
+deepin-game-center (1.0.1-20140701102244~7c53ebffca) trusty; urgency=low
+
+  * Build from git 7c53ebffca05f4dc1805ecfec80aced716af7106
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 01 Jul 2014 10:22:45 +0800
+
+deepin-game-center (1.0.1-20140630114204~b737625f57) trusty; urgency=low
+
+  * Build from git b737625f572e36b3f763e1805c726f3d8b7da154
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 30 Jun 2014 11:42:04 +0800
+
+deepin-game-center (1.0.1-20140626155106~b737625f57) trusty; urgency=low
+
+  * Build from git b737625f572e36b3f763e1805c726f3d8b7da154
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 26 Jun 2014 15:51:07 +0800
+
+deepin-game-center (1.0.1-20140626142103~c13af517f3) trusty; urgency=low
+
+  * Build from git c13af517f30e4d09fdf08715187354d4574d859b
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 26 Jun 2014 14:21:03 +0800
+
+deepin-game-center (1.0.1-20140624170143~df94d3d712) trusty; urgency=low
+
+  * Build from git df94d3d712656627a06098679e210343059c0452
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 24 Jun 2014 17:01:44 +0800
+
+deepin-game-center (1.0.1-20140619094951~06a98e8823) trusty; urgency=low
+
+  * Build from git 06a98e8823af5148172e487f951782197a261932
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 19 Jun 2014 09:49:52 +0800
+
+deepin-game-center (1.0.1-20140610145314~db89cbb33f) trusty; urgency=low
+
+  * Build from git db89cbb33f273ced9f95a83f5a73e02a935213a6
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 10 Jun 2014 14:53:15 +0800
+
+deepin-game-center (1.0.1-20140610140125~63b8eef1a8) trusty; urgency=low
+
+  * Build from git 63b8eef1a83f51481d2685a9bca3c13a6dd50dce
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 10 Jun 2014 14:01:25 +0800
+
+deepin-game-center (1.0.1-20140610121040~63b8eef1a8) trusty; urgency=low
+
+  * Build from git 63b8eef1a83f51481d2685a9bca3c13a6dd50dce
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 10 Jun 2014 12:10:42 +0800
+
+deepin-game-center (1.0.1-20140606160042~47040acf17) trusty; urgency=low
+
+  * Build from git 47040acf171ff233e3906325bc33a7ed5bdb13f6
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 06 Jun 2014 16:00:42 +0800
+
+deepin-game-center (1.0.1-20140504123501~1c2e767958) trusty; urgency=medium
+
+  * Build from git 1c2e7679580dae249fc109b8ecc05d82e42dcc0f
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sun, 04 May 2014 12:35:02 +0800
+
+deepin-game-center (1.0.0+git20131206095624~17b0021847) saucy; urgency=low
+
+  * Build from git revision 17b00218471b0452e8be55537e68fa4dee68001a
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 06 Dec 2013 09:56:25 +0800
+
+deepin-game-center (1.0.0+git20131205154258~17b0021847) raring; urgency=low
+
+  * Build from git revision 17b00218471b0452e8be55537e68fa4dee68001a
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 05 Dec 2013 15:42:59 +0800
+
+deepin-game-center (1.0.0+git20131205114126~45c79026a3) raring; urgency=low
+
+  * Build from git revision 45c79026a385351acb206c4ea5eee7c82f9b64a7
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 05 Dec 2013 11:41:26 +0800
+
+deepin-game-center (1.0.0+git20131114141207~54b1664316) raring; urgency=low
+
+  * Build from git revision 54b16643161cc3de20739ad14216fd6ed1887624
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 14 Nov 2013 14:12:07 +0800
+
+deepin-game-center (1.0.0+git20131113151930~5743432d11) raring; urgency=low
+
+  * Build from git revision 5743432d119bd51386b6198c76cd81d7fcaf38ee
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 13 Nov 2013 15:19:30 +0800
+
+deepin-game-center (1.0.0+git20131111174243~7dc51f5f14) raring; urgency=low
+
+  * Build from git revision 7dc51f5f14a795acb978ddc91bb0a8f7c92aaa4f
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 11 Nov 2013 17:42:43 +0800
+
+deepin-game-center (1.0.0+git20131111172428~8adfa93fcc) raring; urgency=low
+
+  * Build from git revision 8adfa93fccffc23c72eacceb744aa105b94a0f2b
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 11 Nov 2013 17:24:28 +0800
+
+deepin-game-center (1.0.0+git20131108090727~364fcea1ff) raring; urgency=low
+
+  * Build from git revision 364fcea1ff9c5098f92e38ea5cbff8cee5c43811
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 08 Nov 2013 09:07:27 +0800
+
+deepin-game-center (1.0.0+git20131031144037~129e8e8f77) raring; urgency=low
+
+  * Build from git revision 129e8e8f77316506505d7d1a63d4bf954146338a
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 31 Oct 2013 14:40:37 +0800
+
+deepin-game-center (1.0.0+git20131031113855~62dd875376) raring; urgency=low
+
+  * Build from git revision 62dd875376cb65dd75a27ff58294f94130d8d043
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 31 Oct 2013 11:38:56 +0800
+
+deepin-game-center (1.0.0+git20131029141020~320af1993e) raring; urgency=low
+
+  * Build from git revision 320af1993ec9e2fa97a7e5250c25c5388542a8ca
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 29 Oct 2013 14:10:20 +0800
+
+deepin-game-center (1.0.0+git20131024165758~979d075f34) raring; urgency=low
+
+  * Build from git revision 979d075f34ec770b219a9cb7ff03a50ba330fbd5
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 24 Oct 2013 16:57:59 +0800
+
+deepin-game-center (1.0.0+git20131024113825~ca0be28d5a) raring; urgency=low
+
+  * Build from git revision ca0be28d5a1eeb14cbeb049f5681fe31644f6d51
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 24 Oct 2013 11:38:25 +0800
+
+deepin-game-center (1.0.0+git20131022162057~5d5deda04f) raring; urgency=low
+
+  * Build from git revision 5d5deda04f546d44085c1ff8944d887d7b41eecf
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 22 Oct 2013 16:20:57 +0800
+
+deepin-game-center (1.0.0+git20131022113401~16077fdf2f) raring; urgency=low
+
+  * Build from git revision 16077fdf2f4421283a679f141e6719176277fe46
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 22 Oct 2013 11:34:01 +0800
+
+deepin-game-center (1.0.0+git20131022110307~8a797d33ad) raring; urgency=low
+
+  * Build from git revision 8a797d33ad0f13b9f0f45711dd021b7ebc7102d4
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 22 Oct 2013 11:03:07 +0800
+
+deepin-game-center (1.0.0+git20131015153131~fd8c418bcf) raring; urgency=low
+
+  * Build from git revision fd8c418bcf78fad6f756ed471b8f8e459e3e68b6
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 15 Oct 2013 15:31:31 +0800
+
+deepin-game-center (1.0.0+git20131015153015~fd8c418bcf) raring; urgency=low
+
+  * Build from git revision fd8c418bcf78fad6f756ed471b8f8e459e3e68b6
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 15 Oct 2013 15:30:15 +0800
+
+deepin-game-center (1.0.0+git20130912161306~987a92a8c5) raring; urgency=low
+
+  * Build from git revision 987a92a8c57ba7db0a04325d1338d169eacad19f
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 12 Sep 2013 16:13:06 +0800
+
+deepin-game-center (1.0.0+git20130912130239~c84b4ad321) raring; urgency=low
+
+  * Build from git revision c84b4ad321ed546a1254b4edca67b4b00bffe25f
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 12 Sep 2013 13:02:39 +0800
+
+deepin-game-center (1.0.0+git20130912103804~8827560b69) raring; urgency=low
+
+  * Build from git revision 8827560b69ad7a93ebb2efa6b5f600ab2e5ffcbf
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 12 Sep 2013 10:38:04 +0800
+
+deepin-game-center (1.0.0+git20130912091329~8827560b69) raring; urgency=low
+
+  * Update version to 1.0.0 
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 12 Sep 2013 09:43:08 +0800
+
+deepin-game-center (0.0.1+git20130912091329~8827560b69) raring; urgency=low
+
+  * Build from git revision 8827560b69ad7a93ebb2efa6b5f600ab2e5ffcbf
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 12 Sep 2013 09:13:29 +0800
+
+deepin-game-center (0.0.1+git20130912091013~859a278793) raring; urgency=low
+
+  * Build from git revision 859a278793c3159afe4e840c252a405e4a0ed9f3
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 12 Sep 2013 09:10:14 +0800
+
+deepin-game-center (0.0.1+git20130910150735~2e021359e9) raring; urgency=low
+
+  * Build from git revision 2e021359e92e74e9539fb658d6cd53b7d41356ad
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 10 Sep 2013 15:07:35 +0800
+
+deepin-game-center (0.0.1+git20130905181055~bfc57dacc3) raring; urgency=low
+
+  * Build from git revision bfc57dacc39bd561e34885a2869c5073a20eda31
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 05 Sep 2013 18:10:55 +0800
+
+deepin-game-center (0.0.1+git20130905180716~bfc57dacc3) raring; urgency=low
+
+  * Build from git revision bfc57dacc39bd561e34885a2869c5073a20eda31
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 05 Sep 2013 18:07:16 +0800
+
+deepin-game-center (0.0.1+git20130905174019~bfc57dacc3) raring; urgency=low
+
+  * Build from git revision bfc57dacc39bd561e34885a2869c5073a20eda31
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 05 Sep 2013 17:40:19 +0800
+
+deepin-game-center (0.0.1+git20130905172837~9225e65376) raring; urgency=low
+
+  * Build from git revision 9225e6537649bc0038633622ef96ab2c267a0c93
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 05 Sep 2013 17:28:38 +0800
+
+deepin-game-center (0.0.1+git20130905172626~9225e65376) raring; urgency=low
+
+  * Build from git revision 9225e6537649bc0038633622ef96ab2c267a0c93
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 05 Sep 2013 17:26:26 +0800
+
+deepin-game-center (0.0.1+git20130905172249~9225e65376) raring; urgency=low
+
+  * Build from git revision 9225e6537649bc0038633622ef96ab2c267a0c93
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 05 Sep 2013 17:22:49 +0800
+
+deepin-game-center (0.0.1+git20130902164918~62cf778c6c) raring; urgency=low
+
+  * Build from git revision 62cf778c6c8dd5d5f26cfceb5821655fcdb53e35
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 02 Sep 2013 16:49:19 +0800
+
+deepin-game-center (0.0.1+git20130830160941~92609ca30a) raring; urgency=low
+
+  * Build from git revision 92609ca30a13d1283dbb12f8841e3402dd0374b5
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 30 Aug 2013 16:09:41 +0800
+
+deepin-game-center (0.0.1+git20130822111200~050ef1c2f6) raring; urgency=low
+
+  * Build from git revision 050ef1c2f662c9b9c6e6aab08fc11622513f6b7a
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 22 Aug 2013 11:12:01 +0800
+
+deepin-game-center (0.0.1+git20130822110150~050ef1c2f6) raring; urgency=low
+
+  * Build from git revision 050ef1c2f662c9b9c6e6aab08fc11622513f6b7a
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 22 Aug 2013 11:01:50 +0800
+
+deepin-game-center (0.0.1+git20130820110317~29dcdfc4ed) raring; urgency=low
+
+  * Build from git revision 29dcdfc4edcf4f2fa564b7480680a6993b578429
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 20 Aug 2013 11:03:17 +0800
+
+deepin-game-center (0.0.1+git20130809180629~5082a63436) raring; urgency=low
+
+  * Build from git revision 5082a63436748fc38b46e5e98004f834c26bf8eb
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 09 Aug 2013 18:06:29 +0800
+
+deepin-game-center (0.0.1+git20130809180406~5082a63436) raring; urgency=low
+
+  * Build from git revision 5082a63436748fc38b46e5e98004f834c26bf8eb
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 09 Aug 2013 18:04:06 +0800
+
+deepin-game-center (0.0.1+git20130809180027~5082a63436) raring; urgency=low
+
+  * Build from git revision 5082a63436748fc38b46e5e98004f834c26bf8eb
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 09 Aug 2013 18:00:27 +0800
+
+deepin-game-center (0.0.1+git20130809172548~977df55b73) raring; urgency=low
+
+  * Build from git revision 977df55b732a3284a4faba199d06fedb4909a50c
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 09 Aug 2013 17:25:48 +0800
