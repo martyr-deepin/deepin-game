@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # abs1515 <ayobbasher@gmail.com>, 2014
 msgid ""
@@ -9,16 +9,14 @@ msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-25 10:29+0800\n"
-"PO-Revision-Date: 2014-06-30 04:34+0000\n"
-"Last-Translator: cxbii <chenxiangbang@linuxdeepin.com>\n"
-"Language-Team: Arabic (http://www.transifex.com/projects/p/deepin-game/"
-"language/ar/)\n"
-"Language: ar\n"
+"PO-Revision-Date: 2014-08-22 04:53+0000\n"
+"Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
+"Language-Team: Arabic (http://www.transifex.com/projects/p/deepin-game/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
@@ -54,9 +52,9 @@ msgstr "الإصدار:"
 
 #: ../src/dialog.py:103
 msgid ""
-"Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
-"find good and safe games selected by professionals. Click and play the best "
-"games you have ever seen. Deepin Game just for happiness!"
+"Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
+" find good and safe games selected by professionals. Click and play the best"
+" games you have ever seen. Deepin Game just for happiness!"
 msgstr ""
 
 #: ../src/dialog.py:116
@@ -155,7 +153,7 @@ msgstr ""
 
 #: ../src/share.py:77
 msgid "Share to social networks"
-msgstr ""
+msgstr "مشاركة على مواقع التواصل الاجتماعى"
 
 #: ../src/share.py:163
 msgid "Sina"
@@ -188,7 +186,7 @@ msgstr "انقر للدخول"
 
 #: ../src/share.py:459
 msgid "Loading"
-msgstr ""
+msgstr "جاري التحميل"
 
 #: ../src/share.py:470 ../src/control_toolbar.py:181
 msgid "Share"
@@ -200,7 +198,7 @@ msgstr "الرجاء أدخال النص هنا"
 
 #: ../src/share.py:548 ../src/share.py:560
 msgid "Error"
-msgstr ""
+msgstr "خطأ"
 
 #: ../src/share.py:549
 msgid "Nonexistent picture"
@@ -224,19 +222,19 @@ msgstr "تابع"
 
 #: ../src/share.py:658 ../src/share.py:679
 msgid "Share to"
-msgstr ""
+msgstr "المشاركة بـ"
 
 #: ../src/share.py:661
 msgid "Successful"
-msgstr ""
+msgstr "تم بنجاح"
 
 #: ../src/share.py:684
 msgid "Failed"
-msgstr ""
+msgstr "فشل"
 
 #: ../src/share.py:692
 msgid "Unknown reason"
-msgstr ""
+msgstr "سبب غير معروف"
 
 #: ../src/widgets.py:159 ../src/widgets.py:240
 msgid "Click here to refresh"
@@ -281,6 +279,3 @@ msgstr "عادي"
 #: ../src/control_toolbar.py:258
 msgid "Rated successfully"
 msgstr ""
-
-#~ msgid "Game deliver: "
-#~ msgstr "مقدم اللعبة:"

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Ömer GÖK <omergok@outlook.com>, 2014
 # Vahap Karataş <k.vahap@gmail.com>, 2014
@@ -11,14 +11,13 @@ msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-25 10:29+0800\n"
-"PO-Revision-Date: 2014-06-30 04:34+0000\n"
-"Last-Translator: cxbii <chenxiangbang@linuxdeepin.com>\n"
-"Language-Team: Turkish (http://www.transifex.com/projects/p/deepin-game/"
-"language/tr/)\n"
-"Language: tr\n"
+"PO-Revision-Date: 2014-08-22 20:40+0000\n"
+"Last-Translator: yakup <mutouk@yandex.ru>\n"
+"Language-Team: Turkish (http://www.transifex.com/projects/p/deepin-game/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../src/titlebar.py:53
@@ -47,23 +46,18 @@ msgstr "Geçiş"
 
 #: ../src/dialog.py:85 ../src/game_center.py:90
 msgid "Deepin Game"
-msgstr "Deepin Game"
+msgstr "Deepin Oyun"
 
 #: ../src/dialog.py:90
 msgid "Version: "
 msgstr "Versiyon:"
 
 #: ../src/dialog.py:103
-#, fuzzy
 msgid ""
-"Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
-"find good and safe games selected by professionals. Click and play the best "
-"games you have ever seen. Deepin Game just for happiness!"
-msgstr ""
-"Deepin Game Deepin tarafından Linux kullanıcıları için tasarlandı. Burada "
-"özenle profesyoneller tarafından seçilmiş iyi ve güvenli oyunları "
-"bulacaksınız. Tıklayın ve şimdiye kadar tanışacağınız en iyi oyunları "
-"oynayın. Deepin Game sadece eğlence için!"
+"Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
+" find good and safe games selected by professionals. Click and play the best"
+" games you have ever seen. Deepin Game just for happiness!"
+msgstr "Deepin Game Deepin tarafından Linux kullanıcıları için tasarlandı. Burada özenle profesyoneller tarafından seçilmiş iyi ve güvenli oyunları bulacaksınız. Tıklayın ve şimdiye kadar tanışacağınız en iyi oyunları oynayın. Deepin Game sadece eğlence için!"
 
 #: ../src/dialog.py:116
 msgid "Weibo: "
@@ -79,7 +73,7 @@ msgstr "Geribildirim:"
 
 #: ../src/dialog.py:119
 msgid "Game upload: "
-msgstr ""
+msgstr "Oyun yükleme:"
 
 #: ../src/game_center.py:143
 msgid "Home"
@@ -157,7 +151,7 @@ msgstr "Başlangıç"
 #: ../src/player.py:148
 #, python-format
 msgid "Deepin Game - %s "
-msgstr "Deepin Game - %s "
+msgstr "Deepin Oyun - %s "
 
 #: ../src/share.py:77
 msgid "Share to social networks"
@@ -222,7 +216,7 @@ msgstr "Sharing"
 
 #: ../src/share.py:588
 msgid "from Deepin Game"
-msgstr "Deepin Game'den"
+msgstr "Deepin Oyun'dan"
 
 #: ../src/share.py:635
 msgid "Follow"
@@ -285,9 +279,5 @@ msgid "Normal"
 msgstr "Normal"
 
 #: ../src/control_toolbar.py:258
-#, fuzzy
 msgid "Rated successfully"
 msgstr "Oylama başarılı"
-
-#~ msgid "Game deliver: "
-#~ msgstr "Oyunu gönder:"

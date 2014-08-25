@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Cristian Garde Zarza <cristian.garde@gmail.com>, 2014
 msgid ""
@@ -9,14 +9,13 @@ msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-25 10:29+0800\n"
-"PO-Revision-Date: 2014-06-30 04:34+0000\n"
-"Last-Translator: Cristian Garde Zarza <cristian.garde@gmail.com>\n"
-"Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/deepin-"
-"game/language/es_ES/)\n"
-"Language: es_ES\n"
+"PO-Revision-Date: 2014-08-22 04:53+0000\n"
+"Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
+"Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/deepin-game/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/titlebar.py:53
@@ -52,16 +51,11 @@ msgid "Version: "
 msgstr "Versión:"
 
 #: ../src/dialog.py:103
-#, fuzzy
 msgid ""
-"Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
-"find good and safe games selected by professionals. Click and play the best "
-"games you have ever seen. Deepin Game just for happiness!"
+"Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
+" find good and safe games selected by professionals. Click and play the best"
+" games you have ever seen. Deepin Game just for happiness!"
 msgstr ""
-"Deepin Games ha sido diseñado por Deepin para los usuarios de Linux. Aquí "
-"encontrarás juegos buenos y seguros cuidadosamente seleccionados por "
-"nuestros profesionales. Haga clic y juegue a los mejores juegos que jamás "
-"haya visto. ¡Deepin Games: para ser feliz!"
 
 #: ../src/dialog.py:116
 msgid "Weibo: "
@@ -283,9 +277,5 @@ msgid "Normal"
 msgstr "Normal"
 
 #: ../src/control_toolbar.py:258
-#, fuzzy
 msgid "Rated successfully"
-msgstr "Valoración con éxito"
-
-#~ msgid "Game deliver: "
-#~ msgstr "Entrega de Juego:"
+msgstr ""
