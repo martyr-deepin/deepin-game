@@ -10,3 +10,4 @@ dtk.egg-info
 test
 data/*
 libpeerconnection.log
+*.mo
