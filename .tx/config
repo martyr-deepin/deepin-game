@@ -4,7 +4,12 @@ minimum_perc = 80
 mode = developer
 
 [deepin-game.deepin-game-20140619]
+source_file = locale/deepin-game-center.pot
 file_filter = locale/<lang>.po
 source_lang = en
 type = PO
 
+[deepin-game.desktop]
+source_file = deepin-game-center.desktop
+source_lang = en
+type = DESKTOP
