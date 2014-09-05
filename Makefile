@@ -11,7 +11,7 @@ install:
 	cp -r src ${DESTDIR}${PREFIX}/share/deepin-game
 	cp -r skin ${DESTDIR}${PREFIX}/share/deepin-game
 	cp -r data ${DESTDIR}${PREFIX}/share/deepin-game
-	cp -r locale ${DESTDIR}${PREFIX}/share/deepin-game
+	cp -r locale/mo ${DESTDIR}${PREFIX}/share/locale
 	cp -r app_theme ${DESTDIR}${PREFIX}/share/deepin-game
 	cp -r image ${DESTDIR}${PREFIX}/share/deepin-game
 	cp -r static ${DESTDIR}${PREFIX}/share/deepin-game
