@@ -9,15 +9,92 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-25 10:29+0800\n"
-"PO-Revision-Date: 2014-08-25 01:46+0000\n"
-"Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
+"POT-Creation-Date: 2014-09-04 16:25+0800\n"
+"PO-Revision-Date: 2014-09-11 06:01+0000\n"
+"Last-Translator: JimSp472000 <jimspentzos2000@gmail.com>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/deepin-game/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: el_GR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../src/control_toolbar.py:89
+msgid "Volume"
+msgstr "Τόμος"
+
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "Σίγαση"
+
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "Αγαπημένο"
+
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "Ξαναπαίζω"
+
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "Παύση"
+
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "Συνέχεια"
+
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "Πλήρης οθόνη"
+
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "Κανονικό"
+
+#: ../src/control_toolbar.py:181 ../src/share.py:470
+msgid "Share"
+msgstr "Μοιραστείτε"
+
+#: ../src/control_toolbar.py:255 ../src/star_view.py:336
+msgid "You scored today already"
+msgstr "Σκοράρατε ήδη σήμερα"
+
+#: ../src/control_toolbar.py:258
+msgid "Rated successfully"
+msgstr "Επιτυχής αξιολόγηση"
+
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "Βαρετό"
+
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "Τίποτα το ιδιαίτερο"
+
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "Ενδιαφέρων"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "Καλό"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "Πω πω, υπέροχο!"
+
+#: ../src/player.py:148
+#, python-format
+msgid "Deepin Game - %s "
+msgstr "Παιχνίδια Deepin - %s "
+
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "Κάντε κλικ εδώ για ανανέωση"
+
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "OK"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
@@ -43,36 +120,13 @@ msgstr "Κλείσιμο"
 msgid "Toggle"
 msgstr "Εναλλαγή"
 
-#: ../src/dialog.py:85 ../src/game_center.py:90
+#: ../src/guide_box.py:56
+msgid "Introduction"
+msgstr "Εισαγωγή"
+
+#: ../src/game_center.py:90 ../src/dialog.py:85
 msgid "Deepin Game"
 msgstr "Παιχνίδια Deepin"
-
-#: ../src/dialog.py:90
-msgid "Version: "
-msgstr "Έκδοση:"
-
-#: ../src/dialog.py:103
-msgid ""
-"Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
-" find good and safe games selected by professionals. Click and play the best"
-" games you have ever seen. Deepin Game just for happiness!"
-msgstr ""
-
-#: ../src/dialog.py:116
-msgid "Weibo: "
-msgstr "Weibo: "
-
-#: ../src/dialog.py:117
-msgid "Forum: "
-msgstr "Φόρουμ:"
-
-#: ../src/dialog.py:118
-msgid "Feedback: "
-msgstr "Η γνώμη σας:"
-
-#: ../src/dialog.py:119
-msgid "Game upload: "
-msgstr "Μεταφόρτωση παιχνιδιού: "
 
 #: ../src/game_center.py:143
 msgid "Home"
@@ -119,39 +173,6 @@ msgstr "%s αυτά τα αρχεία έχουν διαγραφεί και έχ�
 msgid "Your game cache is empty."
 msgstr "Η προσωρινή μνήμη του παιχνίδι σας είναι άδεια."
 
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Βαρετό"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Τίποτα το ιδιαίτερο"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Ενδιαφέρων"
-
-#: ../src/star_view.py:330
-msgid "Good"
-msgstr "Καλό"
-
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Πω πω, υπέροχο!"
-
-#: ../src/star_view.py:336 ../src/control_toolbar.py:255
-msgid "You scored today already"
-msgstr "Σκοράρατε ήδη σήμερα"
-
-#: ../src/guide_box.py:56
-msgid "Introduction"
-msgstr "Εισαγωγή"
-
-#: ../src/player.py:148
-#, python-format
-msgid "Deepin Game - %s "
-msgstr "Παιχνίδια Deepin - %s "
-
 #: ../src/share.py:77
 msgid "Share to social networks"
 msgstr "Κοινή χρήση σε κοινωνικά δίκτυα"
@@ -189,10 +210,6 @@ msgstr "Κάντε κλικ για να συνδεθείτε"
 msgid "Loading"
 msgstr "Φόρτωση"
 
-#: ../src/share.py:470 ../src/control_toolbar.py:181
-msgid "Share"
-msgstr "Μοιραστείτε"
-
 #: ../src/share.py:512
 msgid "Please input text here"
 msgstr "Παρακαλώ εισάγετε κείμενο εδώ"
@@ -203,7 +220,7 @@ msgstr "Σφάλμα"
 
 #: ../src/share.py:549
 msgid "Nonexistent picture"
-msgstr ""
+msgstr "Ανύπαρκτη εικόνα"
 
 #: ../src/share.py:561
 msgid "Please choose at least one platform to share on"
@@ -237,46 +254,29 @@ msgstr "Αποτυχία"
 msgid "Unknown reason"
 msgstr "Άγνωστος λόγος "
 
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Κάντε κλικ εδώ για ανανέωση"
+#: ../src/dialog.py:90
+msgid "Version: "
+msgstr "Έκδοση:"
 
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "OK"
+#: ../src/dialog.py:103
+msgid ""
+"Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
+" find good and safe games selected by professionals. Click and play the best"
+" games you have ever seen. Deepin Game just for happiness!"
+msgstr "Τα Παιχνίδια Deepin σχεδιάστηκαν από το Deepin για χρήστες του Linux. Εδώ θα βρείτε καλά και ασφαλή παιχνίδια επιλεγμένα από επαγγελματίες. Κάντε κλικ και παίξτε τα καλύτερα παιχνίδια που είδατε ποτέ. Τα Παιχνίδια Deepin είναι μόνο για χαρά!"
 
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Τόμος"
+#: ../src/dialog.py:116
+msgid "Weibo: "
+msgstr "Weibo: "
 
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Σίγαση"
+#: ../src/dialog.py:117
+msgid "Forum: "
+msgstr "Φόρουμ:"
 
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Αγαπημένο"
+#: ../src/dialog.py:118
+msgid "Feedback: "
+msgstr "Η γνώμη σας:"
 
-#: ../src/control_toolbar.py:123
-msgid "Replay"
-msgstr "Ξαναπαίζω"
-
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Παύση"
-
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Συνέχεια"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Πλήρης οθόνη"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Κανονικό"
-
-#: ../src/control_toolbar.py:258
-msgid "Rated successfully"
-msgstr "Επιτυχής αξιολόγηση"
+#: ../src/dialog.py:119
+msgid "Game upload: "
+msgstr "Μεταφόρτωση παιχνιδιού: "

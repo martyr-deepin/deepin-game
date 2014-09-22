@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-25 10:29+0800\n"
-"PO-Revision-Date: 2014-08-25 03:40+0000\n"
+"POT-Creation-Date: 2014-09-04 16:25+0800\n"
+"PO-Revision-Date: 2014-09-11 06:01+0000\n"
 "Last-Translator: freddy4212 <freddy4212@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/deepin-game/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -19,6 +19,83 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../src/control_toolbar.py:89
+msgid "Volume"
+msgstr "音量"
+
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "靜音"
+
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "加入最愛"
+
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "重新開始遊戲"
+
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "暫停遊戲"
+
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "繼續遊戲"
+
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "全螢幕"
+
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "恢復"
+
+#: ../src/control_toolbar.py:181 ../src/share.py:470
+msgid "Share"
+msgstr "分享"
+
+#: ../src/control_toolbar.py:255 ../src/star_view.py:336
+msgid "You scored today already"
+msgstr "您今天已經評過分數了"
+
+#: ../src/control_toolbar.py:258
+msgid "Rated successfully"
+msgstr "評分成功"
+
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "枯燥"
+
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "普通"
+
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "好玩"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "值得一試"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "哇噻！太棒了！"
+
+#: ../src/player.py:148
+#, python-format
+msgid "Deepin Game - %s "
+msgstr "深度遊戲 - %s "
+
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "點此重新整理"
+
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "確定"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
@@ -44,36 +121,13 @@ msgstr "關閉"
 msgid "Toggle"
 msgstr "切換"
 
-#: ../src/dialog.py:85 ../src/game_center.py:90
+#: ../src/guide_box.py:56
+msgid "Introduction"
+msgstr "遊戲簡介"
+
+#: ../src/game_center.py:90 ../src/dialog.py:85
 msgid "Deepin Game"
 msgstr "深度遊戲"
-
-#: ../src/dialog.py:90
-msgid "Version: "
-msgstr "版本："
-
-#: ../src/dialog.py:103
-msgid ""
-"Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
-" find good and safe games selected by professionals. Click and play the best"
-" games you have ever seen. Deepin Game just for happiness!"
-msgstr "深度遊戲是 Deepin 團隊爲廣大 Linux 玩家良身打造的遊戲平臺。這裡有經由專業人士挑選過既好玩又安全的遊戲。只需要輕輕一點便可以享受您從未見過的好遊戲。深度遊戲，爲快樂而生！"
-
-#: ../src/dialog.py:116
-msgid "Weibo: "
-msgstr "官方微博："
-
-#: ../src/dialog.py:117
-msgid "Forum: "
-msgstr "官方論壇："
-
-#: ../src/dialog.py:118
-msgid "Feedback: "
-msgstr "意見回饋："
-
-#: ../src/dialog.py:119
-msgid "Game upload: "
-msgstr "遊戲提供："
 
 #: ../src/game_center.py:143
 msgid "Home"
@@ -120,39 +174,6 @@ msgstr "恭喜您清理了%s個遊戲快取，為您節省了%s的硬碟空間�
 msgid "Your game cache is empty."
 msgstr "您的遊戲快取已經很乾淨啦﹗毋需要再次清理。"
 
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "枯燥"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "普通"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "好玩"
-
-#: ../src/star_view.py:330
-msgid "Good"
-msgstr "值得一試"
-
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "哇噻！太棒了！"
-
-#: ../src/star_view.py:336 ../src/control_toolbar.py:255
-msgid "You scored today already"
-msgstr "您今天已經評過分數了"
-
-#: ../src/guide_box.py:56
-msgid "Introduction"
-msgstr "遊戲簡介"
-
-#: ../src/player.py:148
-#, python-format
-msgid "Deepin Game - %s "
-msgstr "深度遊戲 - %s "
-
 #: ../src/share.py:77
 msgid "Share to social networks"
 msgstr "分享至社群網站"
@@ -189,10 +210,6 @@ msgstr "點此登入"
 #: ../src/share.py:459
 msgid "Loading"
 msgstr "正在載入"
-
-#: ../src/share.py:470 ../src/control_toolbar.py:181
-msgid "Share"
-msgstr "分享"
 
 #: ../src/share.py:512
 msgid "Please input text here"
@@ -238,46 +255,29 @@ msgstr "失敗"
 msgid "Unknown reason"
 msgstr "未知原因"
 
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "點此重新整理"
+#: ../src/dialog.py:90
+msgid "Version: "
+msgstr "版本："
 
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "確定"
+#: ../src/dialog.py:103
+msgid ""
+"Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
+" find good and safe games selected by professionals. Click and play the best"
+" games you have ever seen. Deepin Game just for happiness!"
+msgstr "深度遊戲是 Deepin 團隊爲廣大 Linux 玩家良身打造的遊戲平臺。這裡有經由專業人士挑選過既好玩又安全的遊戲。只需要輕輕一點便可以享受您從未見過的好遊戲。深度遊戲，爲快樂而生！"
 
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "音量"
+#: ../src/dialog.py:116
+msgid "Weibo: "
+msgstr "官方微博："
 
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "靜音"
+#: ../src/dialog.py:117
+msgid "Forum: "
+msgstr "官方論壇："
 
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "加入最愛"
+#: ../src/dialog.py:118
+msgid "Feedback: "
+msgstr "意見回饋："
 
-#: ../src/control_toolbar.py:123
-msgid "Replay"
-msgstr "重新開始遊戲"
-
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "暫停遊戲"
-
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "繼續遊戲"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "全螢幕"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "恢復"
-
-#: ../src/control_toolbar.py:258
-msgid "Rated successfully"
-msgstr "評分成功"
+#: ../src/dialog.py:119
+msgid "Game upload: "
+msgstr "遊戲提供："

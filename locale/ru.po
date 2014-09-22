@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-25 10:29+0800\n"
-"PO-Revision-Date: 2014-08-25 18:50+0000\n"
+"POT-Creation-Date: 2014-09-04 16:25+0800\n"
+"PO-Revision-Date: 2014-09-11 06:01+0000\n"
 "Last-Translator: Анатолий Валерианович <ffox909@mail.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/deepin-game/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,83 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: ../src/control_toolbar.py:89
+msgid "Volume"
+msgstr "Уровень"
+
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "Заглушить"
+
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "Избранное"
+
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "Переиграть"
+
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "Пауза"
+
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "Продолжить"
+
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "Полный экран"
+
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "Нормальный"
+
+#: ../src/control_toolbar.py:181 ../src/share.py:470
+msgid "Share"
+msgstr "Поделиться"
+
+#: ../src/control_toolbar.py:255 ../src/star_view.py:336
+msgid "You scored today already"
+msgstr "Вы сегодня набрали уже"
+
+#: ../src/control_toolbar.py:258
+msgid "Rated successfully"
+msgstr "Оценка успешна"
+
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "Скучно"
+
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "Ничего особенного"
+
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "Интересно"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "Хорошо"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "Превосходно"
+
+#: ../src/player.py:148
+#, python-format
+msgid "Deepin Game - %s "
+msgstr "Deepin игра - %s"
+
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "Нажмите здесь для обновления"
+
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "ОК"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
@@ -46,36 +123,13 @@ msgstr "Закрыть"
 msgid "Toggle"
 msgstr "Переключить"
 
-#: ../src/dialog.py:85 ../src/game_center.py:90
+#: ../src/guide_box.py:56
+msgid "Introduction"
+msgstr "Введение"
+
+#: ../src/game_center.py:90 ../src/dialog.py:85
 msgid "Deepin Game"
 msgstr "Игры Deepin"
-
-#: ../src/dialog.py:90
-msgid "Version: "
-msgstr "Версия:"
-
-#: ../src/dialog.py:103
-msgid ""
-"Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
-" find good and safe games selected by professionals. Click and play the best"
-" games you have ever seen. Deepin Game just for happiness!"
-msgstr "Deepin Game разработан Deepin для пользователей Linux. Здесь вы можете комфортно искать хорошие и безопасные игры, подобранные проффесионалами. Нажмите и играйте в Ваши лучшие игры. Deepin Game, только для удовольствия!"
-
-#: ../src/dialog.py:116
-msgid "Weibo: "
-msgstr "Weibo:"
-
-#: ../src/dialog.py:117
-msgid "Forum: "
-msgstr "Форум:"
-
-#: ../src/dialog.py:118
-msgid "Feedback: "
-msgstr "Обратная связь:"
-
-#: ../src/dialog.py:119
-msgid "Game upload: "
-msgstr "Загружаемые игры:"
 
 #: ../src/game_center.py:143
 msgid "Home"
@@ -122,39 +176,6 @@ msgstr "%s файлов удалено, освобождено %s дисково
 msgid "Your game cache is empty."
 msgstr "Кэш вашей игры пуст."
 
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Скучно"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Ничего особенного"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Интересно"
-
-#: ../src/star_view.py:330
-msgid "Good"
-msgstr "Хорошо"
-
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Превосходно"
-
-#: ../src/star_view.py:336 ../src/control_toolbar.py:255
-msgid "You scored today already"
-msgstr "Вы сегодня набрали уже"
-
-#: ../src/guide_box.py:56
-msgid "Introduction"
-msgstr "Введение"
-
-#: ../src/player.py:148
-#, python-format
-msgid "Deepin Game - %s "
-msgstr "Deepin игра - %s"
-
 #: ../src/share.py:77
 msgid "Share to social networks"
 msgstr "Поделить в соц.сетях"
@@ -191,10 +212,6 @@ msgstr "Нажать для входа"
 #: ../src/share.py:459
 msgid "Loading"
 msgstr "Загрузка"
-
-#: ../src/share.py:470 ../src/control_toolbar.py:181
-msgid "Share"
-msgstr "Поделиться"
 
 #: ../src/share.py:512
 msgid "Please input text here"
@@ -240,46 +257,29 @@ msgstr "Неудачно"
 msgid "Unknown reason"
 msgstr "Причина неизвестна"
 
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Нажмите здесь для обновления"
+#: ../src/dialog.py:90
+msgid "Version: "
+msgstr "Версия:"
 
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "ОК"
+#: ../src/dialog.py:103
+msgid ""
+"Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
+" find good and safe games selected by professionals. Click and play the best"
+" games you have ever seen. Deepin Game just for happiness!"
+msgstr "Deepin Game разработан Deepin для пользователей Linux. Здесь вы можете комфортно искать хорошие и безопасные игры, подобранные проффесионалами. Нажмите и играйте в Ваши лучшие игры. Deepin Game, только для удовольствия!"
 
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Уровень"
+#: ../src/dialog.py:116
+msgid "Weibo: "
+msgstr "Weibo:"
 
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Заглушить"
+#: ../src/dialog.py:117
+msgid "Forum: "
+msgstr "Форум:"
 
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Избранное"
+#: ../src/dialog.py:118
+msgid "Feedback: "
+msgstr "Обратная связь:"
 
-#: ../src/control_toolbar.py:123
-msgid "Replay"
-msgstr "Переиграть"
-
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Пауза"
-
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Продолжить"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Полный экран"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Нормальный"
-
-#: ../src/control_toolbar.py:258
-msgid "Rated successfully"
-msgstr "Оценка успешна"
+#: ../src/dialog.py:119
+msgid "Game upload: "
+msgstr "Загружаемые игры:"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-25 10:29+0800\n"
-"PO-Revision-Date: 2014-08-22 04:53+0000\n"
+"POT-Creation-Date: 2014-09-04 16:25+0800\n"
+"PO-Revision-Date: 2014-09-11 06:01+0000\n"
 "Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/deepin-game/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,83 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../src/control_toolbar.py:89
+msgid "Volume"
+msgstr "Âm lượng"
+
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "Câm"
+
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "Ưa thích"
+
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "Chơi lại"
+
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "Dừng"
+
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "Tiếp tục"
+
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "Đầy màn hình"
+
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "Bình thường"
+
+#: ../src/control_toolbar.py:181 ../src/share.py:470
+msgid "Share"
+msgstr "Chia sẻ"
+
+#: ../src/control_toolbar.py:255 ../src/star_view.py:336
+msgid "You scored today already"
+msgstr "Bạn đã ghi điểm ngày hôm nay"
+
+#: ../src/control_toolbar.py:258
+msgid "Rated successfully"
+msgstr ""
+
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "Chán"
+
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "Không có gì đặc biệt"
+
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "Thú vị"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "Tốt"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "Wow, tuyệt vời"
+
+#: ../src/player.py:148
+#, python-format
+msgid "Deepin Game - %s "
+msgstr "Deepin Game - %s"
+
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "Click vào để làm mới"
+
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "OK"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
@@ -42,36 +119,13 @@ msgstr "Đóng lại"
 msgid "Toggle"
 msgstr "Chuyển đổi"
 
-#: ../src/dialog.py:85 ../src/game_center.py:90
+#: ../src/guide_box.py:56
+msgid "Introduction"
+msgstr "Giới thiệu"
+
+#: ../src/game_center.py:90 ../src/dialog.py:85
 msgid "Deepin Game"
 msgstr "Deepin Game"
-
-#: ../src/dialog.py:90
-msgid "Version: "
-msgstr "Phiên bản:"
-
-#: ../src/dialog.py:103
-msgid ""
-"Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
-" find good and safe games selected by professionals. Click and play the best"
-" games you have ever seen. Deepin Game just for happiness!"
-msgstr ""
-
-#: ../src/dialog.py:116
-msgid "Weibo: "
-msgstr "Weibo:"
-
-#: ../src/dialog.py:117
-msgid "Forum: "
-msgstr "Diễn đàn: "
-
-#: ../src/dialog.py:118
-msgid "Feedback: "
-msgstr "Phản hồi:"
-
-#: ../src/dialog.py:119
-msgid "Game upload: "
-msgstr ""
 
 #: ../src/game_center.py:143
 msgid "Home"
@@ -118,39 +172,6 @@ msgstr "%s tệp tin được xóa và %s không gian ổ cứng trống."
 msgid "Your game cache is empty."
 msgstr "Cache trò chơi rỗng."
 
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Chán"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Không có gì đặc biệt"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Thú vị"
-
-#: ../src/star_view.py:330
-msgid "Good"
-msgstr "Tốt"
-
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Wow, tuyệt vời"
-
-#: ../src/star_view.py:336 ../src/control_toolbar.py:255
-msgid "You scored today already"
-msgstr "Bạn đã ghi điểm ngày hôm nay"
-
-#: ../src/guide_box.py:56
-msgid "Introduction"
-msgstr "Giới thiệu"
-
-#: ../src/player.py:148
-#, python-format
-msgid "Deepin Game - %s "
-msgstr "Deepin Game - %s"
-
 #: ../src/share.py:77
 msgid "Share to social networks"
 msgstr "Chia sẻ lên mạng xã hội"
@@ -187,10 +208,6 @@ msgstr "Click để đăng nhập"
 #: ../src/share.py:459
 msgid "Loading"
 msgstr "Đang tải"
-
-#: ../src/share.py:470 ../src/control_toolbar.py:181
-msgid "Share"
-msgstr "Chia sẻ"
 
 #: ../src/share.py:512
 msgid "Please input text here"
@@ -236,46 +253,29 @@ msgstr "Thất bại"
 msgid "Unknown reason"
 msgstr "Không rõ nguyên nhân"
 
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Click vào để làm mới"
+#: ../src/dialog.py:90
+msgid "Version: "
+msgstr "Phiên bản:"
 
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "OK"
+#: ../src/dialog.py:103
+msgid ""
+"Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
+" find good and safe games selected by professionals. Click and play the best"
+" games you have ever seen. Deepin Game just for happiness!"
+msgstr ""
 
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Âm lượng"
+#: ../src/dialog.py:116
+msgid "Weibo: "
+msgstr "Weibo:"
 
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Câm"
+#: ../src/dialog.py:117
+msgid "Forum: "
+msgstr "Diễn đàn: "
 
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Ưa thích"
+#: ../src/dialog.py:118
+msgid "Feedback: "
+msgstr "Phản hồi:"
 
-#: ../src/control_toolbar.py:123
-msgid "Replay"
-msgstr "Chơi lại"
-
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Dừng"
-
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Tiếp tục"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Đầy màn hình"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Bình thường"
-
-#: ../src/control_toolbar.py:258
-msgid "Rated successfully"
+#: ../src/dialog.py:119
+msgid "Game upload: "
 msgstr ""

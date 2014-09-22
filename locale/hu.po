@@ -6,19 +6,97 @@
 # ddabrahim <ddabrahim@googlemail.com>, 2014
 # kdavid97 <kdavid97@gmail.hu>, 2014
 # Marcell Lévai, 2014
+# unicum99 <stampf99@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-25 10:29+0800\n"
-"PO-Revision-Date: 2014-08-22 04:53+0000\n"
-"Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
+"POT-Creation-Date: 2014-09-04 16:25+0800\n"
+"PO-Revision-Date: 2014-09-11 06:01+0000\n"
+"Last-Translator: unicum99 <stampf99@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/deepin-game/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../src/control_toolbar.py:89
+msgid "Volume"
+msgstr "Hangerő"
+
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "Elnémít"
+
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "Kedvenc"
+
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "Újra"
+
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "Szünet"
+
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "Folytatás"
+
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "Teljes képernyő"
+
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "Normál"
+
+#: ../src/control_toolbar.py:181 ../src/share.py:470
+msgid "Share"
+msgstr "Megosztás"
+
+#: ../src/control_toolbar.py:255 ../src/star_view.py:336
+msgid "You scored today already"
+msgstr "Elérted a pontszámot"
+
+#: ../src/control_toolbar.py:258
+msgid "Rated successfully"
+msgstr "Értékelés sikeresen befejezve"
+
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "Unalmas"
+
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "Semmi különös"
+
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "Érdekes"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "Jó"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "Wow, csodálatos"
+
+#: ../src/player.py:148
+#, python-format
+msgid "Deepin Game - %s "
+msgstr "Deepin Játék - %s"
+
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "Kattints ide a frissítéshez"
+
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "OK"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
@@ -44,36 +122,13 @@ msgstr "Bezárás"
 msgid "Toggle"
 msgstr "Rögzít"
 
-#: ../src/dialog.py:85 ../src/game_center.py:90
+#: ../src/guide_box.py:56
+msgid "Introduction"
+msgstr "Bevezető"
+
+#: ../src/game_center.py:90 ../src/dialog.py:85
 msgid "Deepin Game"
 msgstr "Deepin Játék"
-
-#: ../src/dialog.py:90
-msgid "Version: "
-msgstr "Verzió:"
-
-#: ../src/dialog.py:103
-msgid ""
-"Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
-" find good and safe games selected by professionals. Click and play the best"
-" games you have ever seen. Deepin Game just for happiness!"
-msgstr ""
-
-#: ../src/dialog.py:116
-msgid "Weibo: "
-msgstr "Welbo"
-
-#: ../src/dialog.py:117
-msgid "Forum: "
-msgstr "Fórum:"
-
-#: ../src/dialog.py:118
-msgid "Feedback: "
-msgstr "Visszajelzés:"
-
-#: ../src/dialog.py:119
-msgid "Game upload: "
-msgstr "Játék feltöltés:"
 
 #: ../src/game_center.py:143
 msgid "Home"
@@ -120,39 +175,6 @@ msgstr "%s fájl törlésre került és %s hely felszabadult"
 msgid "Your game cache is empty."
 msgstr "A játéktárad üres"
 
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Unalmas"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Semmi különös"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Érdekes"
-
-#: ../src/star_view.py:330
-msgid "Good"
-msgstr "Jó"
-
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Wow, csodálatos"
-
-#: ../src/star_view.py:336 ../src/control_toolbar.py:255
-msgid "You scored today already"
-msgstr "Elérted a pontszámot"
-
-#: ../src/guide_box.py:56
-msgid "Introduction"
-msgstr "Bevezető"
-
-#: ../src/player.py:148
-#, python-format
-msgid "Deepin Game - %s "
-msgstr "Deepin Játék - %s"
-
 #: ../src/share.py:77
 msgid "Share to social networks"
 msgstr "Megosztás másokkal "
@@ -189,10 +211,6 @@ msgstr "Kattints a bejelentkezéshez"
 #: ../src/share.py:459
 msgid "Loading"
 msgstr "Betöltés"
-
-#: ../src/share.py:470 ../src/control_toolbar.py:181
-msgid "Share"
-msgstr "Megosztás"
 
 #: ../src/share.py:512
 msgid "Please input text here"
@@ -238,46 +256,29 @@ msgstr "Sikertelen"
 msgid "Unknown reason"
 msgstr "Ismeretlen ok"
 
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Kattints ide a frissítéshez"
+#: ../src/dialog.py:90
+msgid "Version: "
+msgstr "Verzió:"
 
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "OK"
+#: ../src/dialog.py:103
+msgid ""
+"Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
+" find good and safe games selected by professionals. Click and play the best"
+" games you have ever seen. Deepin Game just for happiness!"
+msgstr "A Deepin Játék a Deepin által tervezett alkalmazás a Linux felhasználók számára. Itt szakemberek által összeválogatott mókás és biztonságos játékokat találsz. Kattints és játssz a legjobb játékokkal. Deepin Játék a szórakozásért!"
 
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Hangerő"
+#: ../src/dialog.py:116
+msgid "Weibo: "
+msgstr "Welbo"
 
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Elnémít"
+#: ../src/dialog.py:117
+msgid "Forum: "
+msgstr "Fórum:"
 
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Kedvenc"
+#: ../src/dialog.py:118
+msgid "Feedback: "
+msgstr "Visszajelzés:"
 
-#: ../src/control_toolbar.py:123
-msgid "Replay"
-msgstr "Újra"
-
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Szünet"
-
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Folytatás"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Teljes képernyő"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normál"
-
-#: ../src/control_toolbar.py:258
-msgid "Rated successfully"
-msgstr "Értékelés sikeresen befejezve"
+#: ../src/dialog.py:119
+msgid "Game upload: "
+msgstr "Játék feltöltés:"

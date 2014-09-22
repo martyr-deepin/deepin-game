@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-25 10:29+0800\n"
-"PO-Revision-Date: 2014-08-22 04:53+0000\n"
+"POT-Creation-Date: 2014-09-04 16:25+0800\n"
+"PO-Revision-Date: 2014-09-11 06:01+0000\n"
 "Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/deepin-game/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,83 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: ../src/control_toolbar.py:89
+msgid "Volume"
+msgstr "Hlasitosť"
+
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "Stlmiť"
+
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "Obľúbené"
+
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "Hrať znovu"
+
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "Pauza"
+
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "Pokračovať"
+
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "Celá obrazovka"
+
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "Normálna"
+
+#: ../src/control_toolbar.py:181 ../src/share.py:470
+msgid "Share"
+msgstr "Zdieľať"
+
+#: ../src/control_toolbar.py:255 ../src/star_view.py:336
+msgid "You scored today already"
+msgstr "Dnes ste už trafili"
+
+#: ../src/control_toolbar.py:258
+msgid "Rated successfully"
+msgstr "Hodnotenie úspešné"
+
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "Nuda"
+
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "Nič špeciálne"
+
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "Zaujímavé"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "Dobré"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "Wow, úžasne"
+
+#: ../src/player.py:148
+#, python-format
+msgid "Deepin Game - %s "
+msgstr "Deepin Hry - %s"
+
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "Pre obnovenie kliknite tu"
+
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "OK"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
@@ -43,36 +120,13 @@ msgstr "Zatvoriť"
 msgid "Toggle"
 msgstr "Prepnúť"
 
-#: ../src/dialog.py:85 ../src/game_center.py:90
+#: ../src/guide_box.py:56
+msgid "Introduction"
+msgstr "Úvod"
+
+#: ../src/game_center.py:90 ../src/dialog.py:85
 msgid "Deepin Game"
 msgstr "Deepin Hry"
-
-#: ../src/dialog.py:90
-msgid "Version: "
-msgstr "Verzia:"
-
-#: ../src/dialog.py:103
-msgid ""
-"Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
-" find good and safe games selected by professionals. Click and play the best"
-" games you have ever seen. Deepin Game just for happiness!"
-msgstr ""
-
-#: ../src/dialog.py:116
-msgid "Weibo: "
-msgstr "Weibo:"
-
-#: ../src/dialog.py:117
-msgid "Forum: "
-msgstr "Fórum:"
-
-#: ../src/dialog.py:118
-msgid "Feedback: "
-msgstr "Spätná väzba:"
-
-#: ../src/dialog.py:119
-msgid "Game upload: "
-msgstr "Herný upload"
 
 #: ../src/game_center.py:143
 msgid "Home"
@@ -119,39 +173,6 @@ msgstr "%s súborov zmazaných a %s miesta na disku uvoľneného"
 msgid "Your game cache is empty."
 msgstr "Vaša herná vyrovnávacia pamäť je prázdna."
 
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr "Nuda"
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr "Nič špeciálne"
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr "Zaujímavé"
-
-#: ../src/star_view.py:330
-msgid "Good"
-msgstr "Dobré"
-
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr "Wow, úžasne"
-
-#: ../src/star_view.py:336 ../src/control_toolbar.py:255
-msgid "You scored today already"
-msgstr "Dnes ste už trafili"
-
-#: ../src/guide_box.py:56
-msgid "Introduction"
-msgstr "Úvod"
-
-#: ../src/player.py:148
-#, python-format
-msgid "Deepin Game - %s "
-msgstr "Deepin Hry - %s"
-
 #: ../src/share.py:77
 msgid "Share to social networks"
 msgstr "Zdieľať do sociálnych sietí"
@@ -188,10 +209,6 @@ msgstr "Kliknite pre prihlásenie"
 #: ../src/share.py:459
 msgid "Loading"
 msgstr "Načítavanie"
-
-#: ../src/share.py:470 ../src/control_toolbar.py:181
-msgid "Share"
-msgstr "Zdieľať"
 
 #: ../src/share.py:512
 msgid "Please input text here"
@@ -237,46 +254,29 @@ msgstr "Zlyhanie"
 msgid "Unknown reason"
 msgstr "Neznámy dôvod"
 
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr "Pre obnovenie kliknite tu"
+#: ../src/dialog.py:90
+msgid "Version: "
+msgstr "Verzia:"
 
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr "OK"
+#: ../src/dialog.py:103
+msgid ""
+"Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
+" find good and safe games selected by professionals. Click and play the best"
+" games you have ever seen. Deepin Game just for happiness!"
+msgstr ""
 
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr "Hlasitosť"
+#: ../src/dialog.py:116
+msgid "Weibo: "
+msgstr "Weibo:"
 
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr "Stlmiť"
+#: ../src/dialog.py:117
+msgid "Forum: "
+msgstr "Fórum:"
 
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr "Obľúbené"
+#: ../src/dialog.py:118
+msgid "Feedback: "
+msgstr "Spätná väzba:"
 
-#: ../src/control_toolbar.py:123
-msgid "Replay"
-msgstr "Hrať znovu"
-
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr "Pauza"
-
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr "Pokračovať"
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr "Celá obrazovka"
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr "Normálna"
-
-#: ../src/control_toolbar.py:258
-msgid "Rated successfully"
-msgstr "Hodnotenie úspešné"
+#: ../src/dialog.py:119
+msgid "Game upload: "
+msgstr "Herný upload"
