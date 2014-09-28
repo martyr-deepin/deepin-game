@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Ivica  Kolić <ikoli@yahoo.com>, 2014
 # gogo <trebelnik2@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-04 16:25+0800\n"
-"PO-Revision-Date: 2014-09-26 13:51+0000\n"
-"Last-Translator: gogo <trebelnik2@gmail.com>\n"
+"PO-Revision-Date: 2014-10-20 06:30+0000\n"
+"Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/deepin-game/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: ../src/control_toolbar.py:89
 msgid "Volume"
-msgstr ""
+msgstr "Glasnoća"
 
 #: ../src/control_toolbar.py:90
 msgid "Mute"
@@ -60,7 +61,7 @@ msgstr "Danas ste već ocijenili"
 
 #: ../src/control_toolbar.py:258
 msgid "Rated successfully"
-msgstr "Uspješno ocijenjneo"
+msgstr "Uspješno ocijenjno"
 
 #: ../src/star_view.py:324
 msgid "Boring"

@@ -4,15 +4,16 @@
 # 
 # Translators:
 # Arreyu <massi_gi@hotmail.it>, 2014
+# Massimo Antonio Carofano <real.massimo@hotmail.it>, 2014
 # massimo.carofano <massimo.carofano@gmail.com>, 2014
-# Maxximo88 <real.massimo@hotmail.it>, 2014
+# Massimo Antonio Carofano <real.massimo@hotmail.it>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-04 16:25+0800\n"
-"PO-Revision-Date: 2014-09-26 13:51+0000\n"
-"Last-Translator: Maxximo88 <real.massimo@hotmail.it>\n"
+"PO-Revision-Date: 2014-10-13 20:50+0000\n"
+"Last-Translator: Massimo Antonio Carofano <real.massimo@hotmail.it>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/deepin-game/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -264,7 +265,7 @@ msgid ""
 "Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
 " find good and safe games selected by professionals. Click and play the best"
 " games you have ever seen. Deepin Game just for happiness!"
-msgstr "Deepin Giochi è creato dal Team Deepin per gli utenti Linux. Quì potrai trovare bei giochi selezionati da professionisti. Clicca e gioca i migliori giochi mai visti! Deepin Giochi per la felicità!"
+msgstr "Deepin Games è creato dal Team Deepin per gli utenti Linux. Quì potrai trovare bei giochi selezionati da professionisti. Clicca e gioca i migliori giochi mai visti! Deepin Giochi per la felicità!\n\nTraduzione italiana a cura di Carofano Massimo Antonio."
 
 #: ../src/dialog.py:116
 msgid "Weibo: "
