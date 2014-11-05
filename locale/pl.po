@@ -3,93 +3,96 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# RAFAEL GAUNA <rafaelgt.mbin@gmail.com>, 2014
+# M T <michtrz@gmail.com>, 2013
+# Piotr Krukowski <420kruk@gmail.com>, 2013
+# Piotr Strębski <strebski@o2.pl>, 2014
+# suore <suore@outlook.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-04 16:25+0800\n"
-"PO-Revision-Date: 2014-10-29 19:40+0000\n"
-"Last-Translator: RAFAEL GAUNA <rafaelgt.mbin@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/deepin-game/language/pt_BR/)\n"
+"PO-Revision-Date: 2014-10-30 09:21+0000\n"
+"Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
+"Language-Team: Polish (http://www.transifex.com/projects/p/deepin-game/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../src/control_toolbar.py:89
 msgid "Volume"
-msgstr "Volume"
+msgstr "Głośność"
 
 #: ../src/control_toolbar.py:90
 msgid "Mute"
-msgstr "Mudo"
+msgstr "Wycisz"
 
 #: ../src/control_toolbar.py:108
 msgid "Favorite"
-msgstr "Favoritar"
+msgstr "Ulubiony"
 
 #: ../src/control_toolbar.py:123
 msgid "Replay"
-msgstr "Reiniciar"
+msgstr "Powtórka"
 
 #: ../src/control_toolbar.py:145
 msgid "Pause"
-msgstr "Pausar"
+msgstr "Pauza"
 
 #: ../src/control_toolbar.py:146
 msgid "Continue"
-msgstr "Continuar"
+msgstr "Kontynuuj"
 
 #: ../src/control_toolbar.py:165
 msgid "Fullscreen"
-msgstr "Tela Inteira"
+msgstr "Pełny ekran"
 
 #: ../src/control_toolbar.py:166
 msgid "Normal"
-msgstr "Normal"
+msgstr "Normalnie"
 
 #: ../src/control_toolbar.py:181 ../src/share.py:470
 msgid "Share"
-msgstr "Compartilhar"
+msgstr "Udostępnij"
 
 #: ../src/control_toolbar.py:255 ../src/star_view.py:336
 msgid "You scored today already"
-msgstr "Você já avaliou hoje"
+msgstr "Dziś już oceniłeś"
 
 #: ../src/control_toolbar.py:258
 msgid "Rated successfully"
-msgstr "Avaliado com sucesso"
+msgstr "Pomyślnie oceniono"
 
 #: ../src/star_view.py:324
 msgid "Boring"
-msgstr "Chato"
+msgstr "Nuda"
 
 #: ../src/star_view.py:326
 msgid "Nothing special"
-msgstr "Nada de especial"
+msgstr "Nic nadzwyczajnego"
 
 #: ../src/star_view.py:328
 msgid "Interesting"
-msgstr "Interessante"
+msgstr "Interesujące"
 
 #: ../src/star_view.py:330
 msgid "Good"
-msgstr "Bom"
+msgstr "Dobra"
 
 #: ../src/star_view.py:332
 msgid "Wow, wonderful"
-msgstr "Wow, incrível"
+msgstr "Wow, wyśmienita"
 
 #: ../src/player.py:148
 #, python-format
 msgid "Deepin Game - %s "
-msgstr "Deepin Game - %s "
+msgstr "Gry Deepin - %s"
 
 #: ../src/widgets.py:159 ../src/widgets.py:240
 msgid "Click here to refresh"
-msgstr "Clique aqui para atualizar"
+msgstr "Kliknij, aby odświeżyć"
 
 #: ../src/widgets.py:326
 msgid "OK"
@@ -97,84 +100,84 @@ msgstr "OK"
 
 #: ../src/titlebar.py:53
 msgid "Change skin"
-msgstr "Trocar capa"
+msgstr "Zmień skórkę"
 
 #: ../src/titlebar.py:54
 msgid "Main menu"
-msgstr "Menu Principal"
+msgstr "Menu główne"
 
 #: ../src/titlebar.py:55
 msgid "Maximize"
-msgstr "Maximizar"
+msgstr "Maksymalizuj"
 
 #: ../src/titlebar.py:56
 msgid "Minimize"
-msgstr "Minimizar"
+msgstr "Minimalizuj"
 
 #: ../src/titlebar.py:57 ../src/dialog.py:137
 msgid "Close"
-msgstr "Fechar"
+msgstr "Zamknij"
 
 #: ../src/titlebar.py:58
 msgid "Toggle"
-msgstr "Alternar"
+msgstr "Przełącz"
 
 #: ../src/guide_box.py:56
 msgid "Introduction"
-msgstr "Introdução"
+msgstr "Wprowadzenie"
 
 #: ../src/game_center.py:90 ../src/dialog.py:85
 msgid "Deepin Game"
-msgstr "Deepin Game"
+msgstr "Gry Deepin"
 
 #: ../src/game_center.py:143
 msgid "Home"
-msgstr "Principal"
+msgstr "Początek"
 
 #: ../src/game_center.py:144
 msgid "Topics"
-msgstr "Tópicos"
+msgstr "Tematyka"
 
 #: ../src/game_center.py:145
 msgid "My Games"
-msgstr "Meus Games"
+msgstr "Moje gry"
 
 #: ../src/game_center.py:163 ../src/game_center.py:176
 msgid "About us"
-msgstr "Sobre nós"
+msgstr "O nas"
 
 #: ../src/game_center.py:174
 msgid "Clear Caches"
-msgstr "Limpar Caches"
+msgstr "Wyczyść pamięć podręczną"
 
 #: ../src/game_center.py:175
 msgid "View New Features"
-msgstr "Ver Novos Recursos"
+msgstr "Zobacz nowe możliwości"
 
 #: ../src/game_center.py:177
 msgid "Quit"
-msgstr "Sair"
+msgstr "Wyjdź"
 
 #: ../src/game_center.py:227
 msgid "My favorites"
-msgstr "Meus favoritos"
+msgstr "Moje ulubione"
 
 #: ../src/game_center.py:228
 msgid "My recents"
-msgstr "Meus recentes"
+msgstr "Moje ostatnie"
 
 #: ../src/game_center.py:297
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
-msgstr "%s arquivos foram excluídos e %s espaço em disco está liberado."
+msgstr "Zostało usuniętych %s plików i zwolniono %s miejsca na dysku."
 
 #: ../src/game_center.py:300
 msgid "Your game cache is empty."
-msgstr "Seu cache de games está vazio"
+msgstr "Twoja pamięć podręczna gry jest pusta."
 
 #: ../src/share.py:77
 msgid "Share to social networks"
-msgstr "Compartilhar nas redes sociais"
+msgstr "Udostępnij do sieci społecznościowych"
 
 #: ../src/share.py:163
 msgid "Sina"
@@ -190,79 +193,79 @@ msgstr "Twitter"
 
 #: ../src/share.py:197
 msgid "Unable to load page"
-msgstr "Não foi possível carregar a página"
+msgstr "Nie można wczytać strony"
 
 #: ../src/share.py:198
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
-msgstr "Ocorreu um problema enquanto carregava a URL '%s'"
+msgstr "Wystąpił problem podczas wczytywania strony '%s'"
 
 #: ../src/share.py:326
 msgid "Click to switch user"
-msgstr "Clique para trocar de usuário"
+msgstr "Kliknij, aby przełączyć użytkownika"
 
 #: ../src/share.py:344
 msgid "Click to login"
-msgstr "Clique para logar"
+msgstr "Kliknij, aby zalogować"
 
 #: ../src/share.py:459
 msgid "Loading"
-msgstr "Carregando"
+msgstr "Wczytywanie"
 
 #: ../src/share.py:512
 msgid "Please input text here"
-msgstr "Por favor insira texto aqui"
+msgstr "Wprowadź tutaj tekst"
 
 #: ../src/share.py:548 ../src/share.py:560
 msgid "Error"
-msgstr "Erro"
+msgstr "Błąd"
 
 #: ../src/share.py:549
 msgid "Nonexistent picture"
-msgstr "Imagem não-existente"
+msgstr "Nieistniejący obrazek"
 
 #: ../src/share.py:561
 msgid "Please choose at least one platform to share on"
-msgstr "Por favor escolha ao menos uma plataforma para compartilhar"
+msgstr "Proszę wybrać przynajmniej jedną platformę do udostępnienia"
 
 #: ../src/share.py:577
 msgid "Sharing"
-msgstr "Compartilhando"
+msgstr "Udostępnianie"
 
 #: ../src/share.py:588
 msgid "from Deepin Game"
-msgstr "de Deepin Games"
+msgstr "z Gier Deepin"
 
 #: ../src/share.py:635
 msgid "Follow"
-msgstr "Seguir"
+msgstr "Podążaj"
 
 #: ../src/share.py:658 ../src/share.py:679
 msgid "Share to"
-msgstr "Compartilhar em"
+msgstr "Udostępnij na"
 
 #: ../src/share.py:661
 msgid "Successful"
-msgstr "Sucesso"
+msgstr "Zakończone powodzeniem"
 
 #: ../src/share.py:684
 msgid "Failed"
-msgstr "Falhou"
+msgstr "Wystąpił błąd"
 
 #: ../src/share.py:692
 msgid "Unknown reason"
-msgstr "Razão desconhecida"
+msgstr "Nieznany powód"
 
 #: ../src/dialog.py:90
 msgid "Version: "
-msgstr "Versão:"
+msgstr "Wersja:"
 
 #: ../src/dialog.py:103
 msgid ""
 "Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
 " find good and safe games selected by professionals. Click and play the best"
 " games you have ever seen. Deepin Game just for happiness!"
-msgstr "Deepin Games é projetado por Deepin para usuários Linux. Aqui você encontrará jogos bons e seguros, elaboradamente selecionados por profissionais. Clique e jogue os melhores games que você já viu. Deepin Games - apenas pela alegria!"
+msgstr "Gry Deepin zostały zaprojektowane przez Deepin dla wszystkich użytkowników Linuksa. Znajdziesz tu tylko dobre i bezpieczne gry starannie wybrane przez profesjonalistów. Kliknij i zagraj w najlepsze gry, jakie kiedykolwiek miałeś okazję poznać. Gry Deepin - po prostu dla szczęśliwości!"
 
 #: ../src/dialog.py:116
 msgid "Weibo: "
@@ -274,8 +277,8 @@ msgstr "Forum:"
 
 #: ../src/dialog.py:118
 msgid "Feedback: "
-msgstr "Feedback: "
+msgstr "Opinia:"
 
 #: ../src/dialog.py:119
 msgid "Game upload: "
-msgstr "Envio de jogo:"
+msgstr "Przesyłanie gry:"

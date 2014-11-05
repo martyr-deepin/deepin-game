@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-04 16:25+0800\n"
-"PO-Revision-Date: 2014-10-17 06:02+0000\n"
+"PO-Revision-Date: 2014-11-03 15:03+0000\n"
 "Last-Translator: freddy4212 <freddy4212@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/deepin-game/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -155,7 +155,7 @@ msgstr "檢視新特點"
 
 #: ../src/game_center.py:177
 msgid "Quit"
-msgstr "結束"
+msgstr "退出"
 
 #: ../src/game_center.py:227
 msgid "My favorites"
@@ -197,7 +197,7 @@ msgstr "頁面無法載入"
 #: ../src/share.py:198
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
-msgstr "載入網址「%s」時發生錯誤"
+msgstr "載入網址 \"%s\" 時發生錯誤"
 
 #: ../src/share.py:326
 msgid "Click to switch user"

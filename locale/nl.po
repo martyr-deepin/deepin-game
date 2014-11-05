@@ -1,216 +1,233 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# Anne <a.vangulick@hotmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: Deepin Game Center\n"
+"Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-25 10:29+0800\n"
-"PO-Revision-Date: 2014-02-10 01:54+0000\n"
-"Last-Translator: cxbii <mycxbii@gmail.com>\n"
-"Language-Team: Dutch (http://www.transifex.com/projects/p/deepin-game-center/"
-"language/nl/)\n"
-"Language: nl\n"
+"POT-Creation-Date: 2014-09-04 16:25+0800\n"
+"PO-Revision-Date: 2014-11-01 21:01+0000\n"
+"Last-Translator: Anne <a.vangulick@hotmail.com>\n"
+"Language-Team: Dutch (http://www.transifex.com/projects/p/deepin-game/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/titlebar.py:53
-msgid "Change skin"
-msgstr ""
+#: ../src/control_toolbar.py:89
+msgid "Volume"
+msgstr "Volume"
 
-#: ../src/titlebar.py:54
-msgid "Main menu"
-msgstr ""
+#: ../src/control_toolbar.py:90
+msgid "Mute"
+msgstr "Dempen"
 
-#: ../src/titlebar.py:55
-msgid "Maximize"
-msgstr ""
+#: ../src/control_toolbar.py:108
+msgid "Favorite"
+msgstr "Favorieten"
 
-#: ../src/titlebar.py:56
-msgid "Minimize"
-msgstr ""
+#: ../src/control_toolbar.py:123
+msgid "Replay"
+msgstr "Opnieuw afspelen"
 
-#: ../src/titlebar.py:57 ../src/dialog.py:137
-msgid "Close"
-msgstr ""
+#: ../src/control_toolbar.py:145
+msgid "Pause"
+msgstr "Pauzeren"
 
-#: ../src/titlebar.py:58
-msgid "Toggle"
-msgstr ""
+#: ../src/control_toolbar.py:146
+msgid "Continue"
+msgstr "Doorgaan"
 
-#: ../src/dialog.py:85 ../src/game_center.py:90
-msgid "Deepin Game"
-msgstr ""
+#: ../src/control_toolbar.py:165
+msgid "Fullscreen"
+msgstr "Volledig Scherm"
 
-#: ../src/dialog.py:90
-msgid "Version: "
-msgstr ""
+#: ../src/control_toolbar.py:166
+msgid "Normal"
+msgstr "Normaal"
 
-#: ../src/dialog.py:103
-msgid ""
-"Deepin Game is designed by Deepin for Linux users. Here you will elaborately "
-"find good and safe games selected by professionals. Click and play the best "
-"games you have ever seen. Deepin Game just for happiness!"
-msgstr ""
+#: ../src/control_toolbar.py:181 ../src/share.py:470
+msgid "Share"
+msgstr "Delen"
 
-#: ../src/dialog.py:116
-msgid "Weibo: "
-msgstr ""
-
-#: ../src/dialog.py:117
-msgid "Forum: "
-msgstr ""
-
-#: ../src/dialog.py:118
-msgid "Feedback: "
-msgstr ""
-
-#: ../src/dialog.py:119
-msgid "Game upload: "
-msgstr ""
-
-#: ../src/game_center.py:143
-msgid "Home"
-msgstr ""
-
-#: ../src/game_center.py:144
-msgid "Topics"
-msgstr ""
-
-#: ../src/game_center.py:145
-msgid "My Games"
-msgstr ""
-
-#: ../src/game_center.py:163 ../src/game_center.py:176
-msgid "About us"
-msgstr ""
-
-#: ../src/game_center.py:174
-msgid "Clear Caches"
-msgstr ""
-
-#: ../src/game_center.py:175
-msgid "View New Features"
-msgstr ""
-
-#: ../src/game_center.py:177
-msgid "Quit"
-msgstr ""
-
-#: ../src/game_center.py:227
-msgid "My favorites"
-msgstr ""
-
-#: ../src/game_center.py:228
-msgid "My recents"
-msgstr ""
-
-#: ../src/game_center.py:297
-#, python-format
-msgid "%s files are deleted and %s disk space is freed."
-msgstr ""
-
-#: ../src/game_center.py:300
-msgid "Your game cache is empty."
-msgstr ""
-
-#: ../src/star_view.py:324
-msgid "Boring"
-msgstr ""
-
-#: ../src/star_view.py:326
-msgid "Nothing special"
-msgstr ""
-
-#: ../src/star_view.py:328
-msgid "Interesting"
-msgstr ""
-
-#: ../src/star_view.py:330
-msgid "Good"
-msgstr ""
-
-#: ../src/star_view.py:332
-msgid "Wow, wonderful"
-msgstr ""
-
-#: ../src/star_view.py:336 ../src/control_toolbar.py:255
+#: ../src/control_toolbar.py:255 ../src/star_view.py:336
 msgid "You scored today already"
 msgstr ""
 
-#: ../src/guide_box.py:56
-msgid "Introduction"
-msgstr ""
+#: ../src/control_toolbar.py:258
+msgid "Rated successfully"
+msgstr "Cijfer geven geslaagd"
+
+#: ../src/star_view.py:324
+msgid "Boring"
+msgstr "Saai"
+
+#: ../src/star_view.py:326
+msgid "Nothing special"
+msgstr "Niets bijzonders"
+
+#: ../src/star_view.py:328
+msgid "Interesting"
+msgstr "Interessant"
+
+#: ../src/star_view.py:330
+msgid "Good"
+msgstr "Goed"
+
+#: ../src/star_view.py:332
+msgid "Wow, wonderful"
+msgstr "Wauw, geweldig"
 
 #: ../src/player.py:148
 #, python-format
 msgid "Deepin Game - %s "
 msgstr ""
 
+#: ../src/widgets.py:159 ../src/widgets.py:240
+msgid "Click here to refresh"
+msgstr "Klik hier om te verversen"
+
+#: ../src/widgets.py:326
+msgid "OK"
+msgstr "Oké"
+
+#: ../src/titlebar.py:53
+msgid "Change skin"
+msgstr "Verander thema"
+
+#: ../src/titlebar.py:54
+msgid "Main menu"
+msgstr "Hoofdmenu"
+
+#: ../src/titlebar.py:55
+msgid "Maximize"
+msgstr "Maximaliseren"
+
+#: ../src/titlebar.py:56
+msgid "Minimize"
+msgstr "Minimaliseren"
+
+#: ../src/titlebar.py:57 ../src/dialog.py:137
+msgid "Close"
+msgstr "Sluiten"
+
+#: ../src/titlebar.py:58
+msgid "Toggle"
+msgstr ""
+
+#: ../src/guide_box.py:56
+msgid "Introduction"
+msgstr "Introductie"
+
+#: ../src/game_center.py:90 ../src/dialog.py:85
+msgid "Deepin Game"
+msgstr "Deepin Spel"
+
+#: ../src/game_center.py:143
+msgid "Home"
+msgstr "Thuis"
+
+#: ../src/game_center.py:144
+msgid "Topics"
+msgstr "Onderwerpen"
+
+#: ../src/game_center.py:145
+msgid "My Games"
+msgstr "Mijn Spellen"
+
+#: ../src/game_center.py:163 ../src/game_center.py:176
+msgid "About us"
+msgstr "Over ons"
+
+#: ../src/game_center.py:174
+msgid "Clear Caches"
+msgstr "Cachegeheugen wissen"
+
+#: ../src/game_center.py:175
+msgid "View New Features"
+msgstr "Nieuwe functies bekijken"
+
+#: ../src/game_center.py:177
+msgid "Quit"
+msgstr "Afsluiten"
+
+#: ../src/game_center.py:227
+msgid "My favorites"
+msgstr "Mijn favorieten"
+
+#: ../src/game_center.py:228
+msgid "My recents"
+msgstr "Mijn recent afgespeelde"
+
+#: ../src/game_center.py:297
+#, python-format
+msgid "%s files are deleted and %s disk space is freed."
+msgstr "%s bestanden zijn verwijderd en %s aan schijfruimte is vrijgemaakt."
+
+#: ../src/game_center.py:300
+msgid "Your game cache is empty."
+msgstr "Je spelcache is leeg."
+
 #: ../src/share.py:77
 msgid "Share to social networks"
-msgstr ""
+msgstr "Delen met sociale netwerken"
 
 #: ../src/share.py:163
 msgid "Sina"
-msgstr ""
+msgstr "Sina"
 
 #: ../src/share.py:164
 msgid "Tencent"
-msgstr ""
+msgstr "Tencent"
 
 #: ../src/share.py:165
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: ../src/share.py:197
 msgid "Unable to load page"
-msgstr ""
+msgstr "Mislukt om pagina te laden"
 
 #: ../src/share.py:198
 #, python-format
 msgid "Problem occurred while loading the URL '%s'"
-msgstr ""
+msgstr "Probleem opgetreden bij het laden van de URL '%s'"
 
 #: ../src/share.py:326
 msgid "Click to switch user"
-msgstr ""
+msgstr "Klik om van gebruiker te wisselen"
 
 #: ../src/share.py:344
 msgid "Click to login"
-msgstr ""
+msgstr "Klik om in te loggen"
 
 #: ../src/share.py:459
 msgid "Loading"
-msgstr ""
-
-#: ../src/share.py:470 ../src/control_toolbar.py:181
-msgid "Share"
-msgstr ""
+msgstr "Bezig met laden"
 
 #: ../src/share.py:512
 msgid "Please input text here"
-msgstr ""
+msgstr "Tekst hier invoeren"
 
 #: ../src/share.py:548 ../src/share.py:560
 msgid "Error"
-msgstr ""
+msgstr "Fout"
 
 #: ../src/share.py:549
 msgid "Nonexistent picture"
-msgstr ""
+msgstr "Afbeelding bestaat niet"
 
 #: ../src/share.py:561
 msgid "Please choose at least one platform to share on"
-msgstr ""
+msgstr "Kies minimaal één dienst om mee te delen"
 
 #: ../src/share.py:577
 msgid "Sharing"
-msgstr ""
+msgstr "Delen"
 
 #: ../src/share.py:588
 msgid "from Deepin Game"
@@ -218,64 +235,47 @@ msgstr ""
 
 #: ../src/share.py:635
 msgid "Follow"
-msgstr ""
+msgstr "Volgen"
 
 #: ../src/share.py:658 ../src/share.py:679
 msgid "Share to"
-msgstr ""
+msgstr "Delen met"
 
 #: ../src/share.py:661
 msgid "Successful"
-msgstr ""
+msgstr "Succesvo"
 
 #: ../src/share.py:684
 msgid "Failed"
-msgstr ""
+msgstr "Mislukt"
 
 #: ../src/share.py:692
 msgid "Unknown reason"
+msgstr "Onbekende reden"
+
+#: ../src/dialog.py:90
+msgid "Version: "
+msgstr "Versie:"
+
+#: ../src/dialog.py:103
+msgid ""
+"Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
+" find good and safe games selected by professionals. Click and play the best"
+" games you have ever seen. Deepin Game just for happiness!"
 msgstr ""
 
-#: ../src/widgets.py:159 ../src/widgets.py:240
-msgid "Click here to refresh"
-msgstr ""
+#: ../src/dialog.py:116
+msgid "Weibo: "
+msgstr "Weibo: "
 
-#: ../src/widgets.py:326
-msgid "OK"
-msgstr ""
+#: ../src/dialog.py:117
+msgid "Forum: "
+msgstr "Forum: "
 
-#: ../src/control_toolbar.py:89
-msgid "Volume"
-msgstr ""
+#: ../src/dialog.py:118
+msgid "Feedback: "
+msgstr "Feedback: "
 
-#: ../src/control_toolbar.py:90
-msgid "Mute"
-msgstr ""
-
-#: ../src/control_toolbar.py:108
-msgid "Favorite"
-msgstr ""
-
-#: ../src/control_toolbar.py:123
-msgid "Replay"
-msgstr ""
-
-#: ../src/control_toolbar.py:145
-msgid "Pause"
-msgstr ""
-
-#: ../src/control_toolbar.py:146
-msgid "Continue"
-msgstr ""
-
-#: ../src/control_toolbar.py:165
-msgid "Fullscreen"
-msgstr ""
-
-#: ../src/control_toolbar.py:166
-msgid "Normal"
-msgstr ""
-
-#: ../src/control_toolbar.py:258
-msgid "Rated successfully"
+#: ../src/dialog.py:119
+msgid "Game upload: "
 msgstr ""
