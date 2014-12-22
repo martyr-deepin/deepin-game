@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-04 16:25+0800\n"
-"PO-Revision-Date: 2014-10-17 06:02+0000\n"
+"PO-Revision-Date: 2014-12-11 06:13+0000\n"
 "Last-Translator: lexross <its4moi@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/deepin-game/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -90,11 +90,11 @@ msgstr "Waouh, génial "
 #: ../src/player.py:148
 #, python-format
 msgid "Deepin Game - %s "
-msgstr "Deepin Game - %s"
+msgstr "Deepin Jeux- %s"
 
 #: ../src/widgets.py:159 ../src/widgets.py:240
 msgid "Click here to refresh"
-msgstr "Cliquer ici pour réactualiser "
+msgstr "Cliquez ici pour actualiser "
 
 #: ../src/widgets.py:326
 msgid "OK"
@@ -130,15 +130,15 @@ msgstr "Introduction"
 
 #: ../src/game_center.py:90 ../src/dialog.py:85
 msgid "Deepin Game"
-msgstr "Jeux Deepin"
+msgstr "Deepin Jeux"
 
 #: ../src/game_center.py:143
 msgid "Home"
-msgstr "Dossier personnel "
+msgstr "Genres"
 
 #: ../src/game_center.py:144
 msgid "Topics"
-msgstr "Sujets"
+msgstr "Thèmes"
 
 #: ../src/game_center.py:145
 msgid "My Games"
@@ -150,7 +150,7 @@ msgstr "À Propos"
 
 #: ../src/game_center.py:174
 msgid "Clear Caches"
-msgstr "Nettoyer les caches"
+msgstr "Vider les caches "
 
 #: ../src/game_center.py:175
 msgid "View New Features"
@@ -162,7 +162,7 @@ msgstr "Quitter"
 
 #: ../src/game_center.py:227
 msgid "My favorites"
-msgstr "Mes favoris"
+msgstr "Favoris"
 
 #: ../src/game_center.py:228
 msgid "My recents"
@@ -171,7 +171,7 @@ msgstr "Les plus récents "
 #: ../src/game_center.py:297
 #, python-format
 msgid "%s files are deleted and %s disk space is freed."
-msgstr "%s fichiers supprimé et %s d'espace disque libéré."
+msgstr "%s fichiers supprimés et %s d'espace disque libéré."
 
 #: ../src/game_center.py:300
 msgid "Your game cache is empty."
@@ -179,7 +179,7 @@ msgstr "Le cache du jeu est vide"
 
 #: ../src/share.py:77
 msgid "Share to social networks"
-msgstr "Partager vers des réseaux sociaux"
+msgstr "Partager avec les réseaux sociaux"
 
 #: ../src/share.py:163
 msgid "Sina"
@@ -208,7 +208,7 @@ msgstr "Cliquer pour changer d'utilisateur"
 
 #: ../src/share.py:344
 msgid "Click to login"
-msgstr "Cliquer pour se connecter"
+msgstr "Cliquez pour vous connecter"
 
 #: ../src/share.py:459
 msgid "Loading"
@@ -236,7 +236,7 @@ msgstr "Partage en cours"
 
 #: ../src/share.py:588
 msgid "from Deepin Game"
-msgstr "depuis Deepin Game"
+msgstr "depuis Deepin Jeux"
 
 #: ../src/share.py:635
 msgid "Follow"
@@ -248,11 +248,11 @@ msgstr "Partager vers"
 
 #: ../src/share.py:661
 msgid "Successful"
-msgstr "Avec succès"
+msgstr "Réussi"
 
 #: ../src/share.py:684
 msgid "Failed"
-msgstr "Échec"
+msgstr "Échoué"
 
 #: ../src/share.py:692
 msgid "Unknown reason"
@@ -267,7 +267,7 @@ msgid ""
 "Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
 " find good and safe games selected by professionals. Click and play the best"
 " games you have ever seen. Deepin Game just for happiness!"
-msgstr "L'application Deepin Game a été crée par Deepin pour les utilisateurs de Linux.Vous y decouvrirez d'agréables jeux sélectionnés par des professionnels.Vous avez juste à cliquer et jouer.Deepin Game...le plaisir de bien s'amuser!"
+msgstr "L'application Deepin Jeux a été crée par Deepin pour les utilisateurs de Linux.Vous y decouvrirez d'agréables jeux sélectionnés par des professionnels.Vous avez juste à cliquer et jouer.Deepin Jeux...le plaisir de bien s'amuser!"
 
 #: ../src/dialog.py:116
 msgid "Weibo: "
@@ -283,4 +283,4 @@ msgstr "Votre avis:"
 
 #: ../src/dialog.py:119
 msgid "Game upload: "
-msgstr "Téléversement de jeux"
+msgstr "Envoi du jeu:"
