@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Anne <a.vangulick@hotmail.com>, 2014
+# szd_liufei <liufei@linuxdeepin.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-04 16:25+0800\n"
-"PO-Revision-Date: 2014-12-11 06:13+0000\n"
-"Last-Translator: Anne <a.vangulick@hotmail.com>\n"
+"PO-Revision-Date: 2014-12-30 02:21+0000\n"
+"Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/deepin-game/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,7 +57,7 @@ msgstr "Delen"
 
 #: ../src/control_toolbar.py:255 ../src/star_view.py:336
 msgid "You scored today already"
-msgstr ""
+msgstr "U vandaag scoorde al"
 
 #: ../src/control_toolbar.py:258
 msgid "Rated successfully"
@@ -85,7 +86,7 @@ msgstr "Wauw, geweldig"
 #: ../src/player.py:148
 #, python-format
 msgid "Deepin Game - %s "
-msgstr ""
+msgstr "Deepin Game -%s"
 
 #: ../src/widgets.py:159 ../src/widgets.py:240
 msgid "Click here to refresh"
@@ -117,7 +118,7 @@ msgstr "Sluiten"
 
 #: ../src/titlebar.py:58
 msgid "Toggle"
-msgstr ""
+msgstr "Toggle"
 
 #: ../src/guide_box.py:56
 msgid "Introduction"
@@ -231,7 +232,7 @@ msgstr "Delen"
 
 #: ../src/share.py:588
 msgid "from Deepin Game"
-msgstr ""
+msgstr "uit Deepin Game"
 
 #: ../src/share.py:635
 msgid "Follow"
@@ -262,7 +263,7 @@ msgid ""
 "Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
 " find good and safe games selected by professionals. Click and play the best"
 " games you have ever seen. Deepin Game just for happiness!"
-msgstr ""
+msgstr "Deepin Game is ontworpen door Deepin voor Linux-gebruikers. Hier vindt u uitvoerig vinden goede en veilige spelletjes geselecteerd door professionals. Klik en speel de beste games die je ooit hebt gezien. Deepin Game alleen voor geluk!"
 
 #: ../src/dialog.py:116
 msgid "Weibo: "
@@ -278,4 +279,4 @@ msgstr "Feedback: "
 
 #: ../src/dialog.py:119
 msgid "Game upload: "
-msgstr ""
+msgstr "Spel upload:"
