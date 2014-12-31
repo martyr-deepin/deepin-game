@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-04 16:25+0800\n"
-"PO-Revision-Date: 2014-10-20 06:30+0000\n"
+"PO-Revision-Date: 2014-12-11 06:13+0000\n"
 "Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/deepin-game/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -118,7 +118,7 @@ msgstr "Zatvori"
 
 #: ../src/titlebar.py:58
 msgid "Toggle"
-msgstr ""
+msgstr "Prebaci"
 
 #: ../src/guide_box.py:56
 msgid "Introduction"

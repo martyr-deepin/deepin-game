@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Aril Apria Susanto <awriel@gmail.com>, 2014
+# szd_liufei <liufei@linuxdeepin.com>, 2014
 # Muhamad Mashudi Ardi Winata <muhamadmashudiardiwinata@gmail.com>, 2014
 # Yugo Purwanto <dedy.yugo.purwanto@gmail.com>, 2014
 msgid ""
@@ -11,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Deepin Game\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-04 16:25+0800\n"
-"PO-Revision-Date: 2014-11-03 04:40+0000\n"
+"PO-Revision-Date: 2014-12-30 02:21+0000\n"
 "Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/deepin-game/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -58,11 +59,11 @@ msgstr "Bagikan"
 
 #: ../src/control_toolbar.py:255 ../src/star_view.py:336
 msgid "You scored today already"
-msgstr ""
+msgstr "Anda sudah mencetak hari ini"
 
 #: ../src/control_toolbar.py:258
 msgid "Rated successfully"
-msgstr ""
+msgstr "Nilai berhasil"
 
 #: ../src/star_view.py:324
 msgid "Boring"
@@ -264,7 +265,7 @@ msgid ""
 "Deepin Game is designed by Deepin for Linux users. Here you will elaborately"
 " find good and safe games selected by professionals. Click and play the best"
 " games you have ever seen. Deepin Game just for happiness!"
-msgstr ""
+msgstr "Deepin Permainan ini dirancang oleh Deepin untuk pengguna Linux. Di sini Anda akan menemukan permainan rumit yang baik dan aman yang dipilih oleh para profesional. Klik dan bermain game terbaik yang pernah Anda lihat. Deepin permainan hanya untuk kebahagiaan!"
 
 #: ../src/dialog.py:116
 msgid "Weibo: "
@@ -280,4 +281,4 @@ msgstr "Umpan Balik:"
 
 #: ../src/dialog.py:119
 msgid "Game upload: "
-msgstr ""
+msgstr "Game Upload:"
